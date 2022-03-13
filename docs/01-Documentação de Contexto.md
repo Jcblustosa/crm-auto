@@ -69,7 +69,10 @@
 
 ## Público-Alvo
 
-Descreva quem serão as pessoas que usarão a sua aplicação indicando os diferentes perfis. O objetivo aqui não é definir quem serão os clientes ou quais serão os papéis dos usuários na aplicação. A ideia é, dentro do possível, conhecer um pouco mais sobre o perfil dos usuários: conhecimentos prévios, relação com a tecnologia, relações
-hierárquicas, etc.
+<p align="justify">
+    Estabelecemos que o público alvo são as oficinas mecânica automotivas que desejam ter uma plataforma que lhes permitam estarem sempre atualizados em relação aos serviços contratados pelos seus clientes, além de ser um canal que sane as principais dúvidas, os direcionando de forma correta na tomada de decisões.
+</p>
 
-Adicione informações sobre o público-alvo por meio de uma descrição textual, diagramas de personas e mapa de stakeholders.
+<p align="justify">
+    Esta ferramenta permitirá o aprimoramento no atendimento ao cliente. Ela ajudará os mecânicos e gerentes comerciais a atingirem todo o seu potencial com mais produtividade e aproveitando seu tempo da melhor forma.
+</p>
