@@ -42,14 +42,12 @@ As tabelas que a seguir apresentam os requisitos funcionais e não funcionais qu
 
 | ID  | Descrição do Requisito | PRIORIDADE |  
 |---|---|---|
-| RF-01 | Incluir/Excluir/Alterar nome em uma tela de manutenção de funcionário e do cliente da oficina. |  MÉDIA| 
-| RF-02 | Geração de relatório de determinado perído de vendas. | ALTA | 
-| RF-03 | Efetuar pagamentos de compra através de crédito ou débito. | ALTA | 
-| RF-04 | Consulta e alterações de dados pessoais de clientes.  | ALTA | 
-| RF-05 | Emissão de relatórios de clientes ou vendas.  | ALTA | 
-| RF-06 | Consulta de saldo ou estoque. |  ALTA|
-| RF-07 | Permitir que o usuário cadastre tarefas. | ALTA  | 
-| RF-08 | Emitir lembretes após passarem-se 11 meses desde a última revisão anual. | ALTA  | 
+| RF-01 | O sistema deve permitir Incluir/Excluir/Alterar dados de um fincionário ou cliente da oficina. |  MÉDIA| 
+| RF-02 | Emissão de relatórios de clientes. | ALTA | | 
+| RF-03 | Consulta e alterações de dados pessoais de clientes.  | ALTA |  
+| RF-04 | Consulta de saldo ou estoque. |  ALTA|
+| RF-05 | Permitir que o usuário cadastre tarefas. | ALTA  | 
+| RF-06 | Emitir lembretes após passarem-se 11 meses desde a última revisão anual. | ALTA  | 
 
 ### Requisitos não Funcionais
 
