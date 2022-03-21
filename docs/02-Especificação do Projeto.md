@@ -48,12 +48,12 @@ As tabelas que a seguir apresentam os requisitos funcionais e não funcionais qu
 | RF-04 | Consulta de saldo ou estoque. |  ALTA|
 | RF-05 | Permitir que o usuário cadastre tarefas. | ALTA  | 
 | RF-06 | Emitir lembretes após passarem-se 11 meses desde a última revisão anual. | ALTA  | 
-| RF-07 | Efetuar o cadastro, alteração e exclusão de oficinas no sistema
-| RF-08 | Efetuar o cadastro, alteração e exclusão dos serviços disponibilizados pela oficina
-| RF-09 | Consultar os clientes cadastrados no sistema
-| RF-10  | Realizar o cadastro de veículo (s) para um determinado cliente no sistema
-| RF-11  |Inserir, alterar e excluir informações sobre o andamento de um determinado serviço no sistema
-| RF-12  |Acompanhar o andamento do serviço solicitado à oficina e a data prevista para finalização
+| RF-07 | Efetuar o cadastro, alteração e exclusão de oficinas no sistema.  | ALTA  |
+| RF-08 | Efetuar o cadastro, alteração e exclusão dos serviços disponibilizados pela oficina.  | ALTA |
+| RF-09 | Consultar os clientes cadastrados no sistema.| ALTA |
+| RF-10  | Realizar o cadastro de veículo (s) para um determinado cliente no sistema.| ALTA |
+| RF-11  |Inserir, alterar e excluir informações sobre o andamento de um determinado serviço no sistema.| ALTA |
+| RF-12  |Acompanhar o andamento do serviço solicitado à oficina e a data prevista para finalização.| ALTA |
 
 ### Requisitos não Funcionais
 
