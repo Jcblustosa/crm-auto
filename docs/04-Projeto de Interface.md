@@ -16,6 +16,7 @@ O diagrama apresenta o estudo do fluxo de interação do usuário com o sistema 
 </p>
 <p align="center">Figura 1 - Diagrama de fluxo</p>
 
+
 > **Links Úteis**:
 > - [Fluxograma online: seis sites para fazer gráfico sem instalar nada | Produtividade | TechTudo](https://www.techtudo.com.br/listas/2019/03/fluxograma-online-seis-sites-para-fazer-grafico-sem-instalar-nada.ghtml)
 
