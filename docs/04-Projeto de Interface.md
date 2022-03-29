@@ -24,7 +24,7 @@ O diagrama apresenta o estudo do fluxo de interação do usuário com o sistema 
 
 ![Exemplo de Wireframe]
 <p align="center">
-  <img src="/docs/img/lytCadCliente.PNG" alt="Cadastro de cliente" width="500" height="400"/>
+  <img src="/docs/img/lytCadCliente.PNG" alt="Cadastro de cliente"/>
 </p>
 
 São protótipos usados em design de interface para sugerir a estrutura de um site web e seu relacionamentos entre suas páginas. Um wireframe web é uma ilustração semelhante do layout de elementos fundamentais na interface.
