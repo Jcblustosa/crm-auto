@@ -12,9 +12,15 @@ Visão geral da interação do usuário pelas telas do sistema e protótipo inte
 O diagrama apresenta o estudo do fluxo de interação do usuário com o sistema interativo e  muitas vezes sem a necessidade do desenho do design das telas da interface. Isso permite que o design das interações seja bem planejado e gere impacto na qualidade no design do wireframe interativo que será desenvolvido logo em seguida.
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t3-crm-auto/main/docs/img/Diagrama%20de%20fluxo.png">
+  <img src="https://raw.githubusercontent.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t3-crm-auto/main/docs/img/Fluxo%20-%20Oficina.png">
 </p>
-<p align="center">Figura 1 - Diagrama de fluxo</p>
+<p align="center">Figura 1 - Diagrama de fluxo - Oficina</p>
+
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t3-crm-auto/main/docs/img/Fluxo%20-%20Cliente.png">
+</p>
+<p align="center">Figura 2 - Diagrama de fluxo - Cliente</p>
 
 
 > **Links Úteis**:
@@ -24,7 +30,7 @@ O diagrama apresenta o estudo do fluxo de interação do usuário com o sistema 
 
 ![Exemplo de Wireframe]
 <p align="center">
-  <img src="img\lytCadCliente.png">
+  <img src="/docs/img/lytCadCliente.PNG" alt="Cadastro de cliente"/>
 </p>
 
 São protótipos usados em design de interface para sugerir a estrutura de um site web e seu relacionamentos entre suas páginas. Um wireframe web é uma ilustração semelhante do layout de elementos fundamentais na interface.

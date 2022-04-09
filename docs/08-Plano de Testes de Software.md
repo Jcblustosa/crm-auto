@@ -1,10 +1,79 @@
 # Plano de Testes de Software
 
-<span style="color:red">Pré-requisitos: <a href="2-Especificação do Projeto.md"> Especificação do Projeto</a></span>, <a href="3-Projeto de Interface.md"> Projeto de Interface</a>
 
-Apresente os cenários de testes utilizados na realização dos testes da sua aplicação. Escolha cenários de testes que demonstrem os requisitos sendo satisfeitos.
+A seguir, apresentamos os casos de testes de software para avaliação do sistema. Todos os testes estão associados a um ou mais requisitos funcionais. 
 
-Enumere quais cenários de testes foram selecionados para teste. Neste tópico o grupo deve detalhar quais funcionalidades avaliadas, o grupo de usuários que foi escolhido para participar do teste e as ferramentas utilizadas.
+Caso de Teste | CT-01: Alteração de dados de funcionário/cliente
+---|---
+Requisitos Associados | RF-01: Incluir/Excluir/Alterar dados em uma tela de manutenção de funcionário e do cliente da oficina. <br>RF-03: Consulta e alterações de dados pessoais de clientes.
+Objetivo do Teste | Verificar se as funções Incluir/Excluir/Alterar estão operando corretamente.
+Passos | 1.	Fazer login no sistema com uma conta de Gestor; <br>2.	Ir para a tela de manutenção; <br>3.	Incluir/Excluir/Alterar dados de funcionário/cliente.
+Critérios de Êxito | •	As funções de Incluir, Excluir e Alterar dados devem <br> •	Acessar e modificar os dados de funcionário/cliente na base de dados; <br> •	Os dados alterados na base de dados devem ser atualizados na página de manutenção.
+
+Caso de Teste | CT-02: Emissão de relatório de cliente
+---|---
+Requisitos Associados | RF-02: Emissão de relatórios de clientes. <br>RF-09: Consultar os clientes cadastrados no sistema.
+Objetivo do Teste | Verificar se os relatórios de clientes estão sendo gerados corretamente.
+Passos | 1.	Fazer login no sistema com uma conta de Gestor; <br>2.	Ir para a tela de menu; <br>	3.	Escolher a opção de Emissão de Relatório de Cliente.
+Critérios de Êxito | •	Ao escolher a função de Emissão de Relatório de Cliente, o site deve iniciar o carregamento de um arquivo .pdf para download.
+
+Caso de Teste | CT-03: Consulta de saldo ou estoque.
+---|---
+Requisitos Associados | RF-04: Consulta de saldo ou estoque.
+Objetivo do Teste | Verificar se é possível o gestor e funcionário consultarem o estoque de materiais da oficina.
+Passos | 1.	Fazer login no sistema com uma conta de Gestor/Funcionário; <br>2.	Ir para a tela de menu; <br>3.	Escolher a opção Consultar Estoque; <br>4. Especificar a peça que se quer consultar.
+Critérios de Êxito | •	Ao escolher a função de Consultar Estoque, uma página de consulta deve ser aberta; <br>•	Depois de digitar o nome ou identificador da peça, o site deve apresentar seus dados (e.g.: nome ou imagem), incluindo a quantidade em estoque.
+
+Caso de Teste | CT-04: Cadastro de tarefas pelo cliente.
+---|---
+Requisitos Associados | RF-05: Permitir que o usuário cadastre tarefas.
+Objetivo do Teste | Verificar se é possível que o cliente solicite novos serviços de maneira online.
+Passos | 1.	Fazer login no sistema com uma conta de Cliente; <br>2.	Ir para a tela de menu; <br>	3.	Escolher a opção de Adicionar Tarefa; <br> 4.	Especificar o serviço solicitado.
+Critérios de Êxito | •	Ao especificar o serviço solicitado, uma mensagem de sucesso ou de falha deve ser exibida ao usuário.
+
+Caso de Teste | CT-05: Emissão de lembrete anual
+---|---
+Requisitos Associados | RF-06: Emitir lembretes após passarem-se 11 meses desde a última revisão anual.
+Objetivo do Teste | Verificar se o lembrete é enviado corretamente na data prevista.
+Passos | 1.	Definir, no sistema, uma data e hora específicas para o lembrete ser enviado; <br>	2.	Fazer login no sistema com uma conta de Cliente na data e hora especificadas.
+Critérios de Êxito | •	Na data e hora especificadas, um lembrete deve aparecer na tela inicial do Cliente.
+
+Caso de Teste | CT-06: Cadastro de oficinas no sistema
+---|---
+Requisitos Associados | RF-07: Efetuar o cadastro, alteração e exclusão de oficinas no sistema.
+Objetivo do Teste | Verificar se o Gestor é capaz de cadastrar novas oficinas em seu nome.
+Passos | 1.	Fazer login no sistema com uma conta de Gestor; <br>	2.	Ir para a página de Menu; <br>3.	Selecionar a opção de Cadastrar Oficina; <br>4.	Inserir os dados da nova oficina.
+Critérios de Êxito | •	Depois de preencher o formulário com os dados da nova oficina, o sistema deve informar se ela foi criada com sucesso ou não; <Br> •	Novas tabelas devem ser criadas no banco de dados, referentes à nova oficina.
+ 
+Caso de Teste | CT-07: Serviços da oficina
+---|---
+Requisitos Associados | RF-08: Efetuar o cadastro, alteração e exclusão dos serviços disponibilizados pela oficina.
+Objetivo do Teste | Verificar se o Gestor é capaz de cadastrar, alterar e excluir os serviços disponibilizados pela oficina.
+Passos | 1.	Fazer login no sistema com uma conta de Gestor; <br>	2.	Ir para a página de Menu; <br>3.	Selecionar a opção de Serviços; <br>4.	Escolher a função Cadastrar/Alterar/Excluir Serviço.
+Critérios de Êxito | •	Depois de cadastrar, alterar ou excluir um serviço da oficina, o site deve apresentar esse serviço na página de serviços da oficina.
+ 
+Caso de Teste | CT-08: Cadastro de veículo de cliente
+---|---
+Requisitos Associados | RF-10: Realizar o cadastro de veículo (s) para um determinado cliente no sistema.
+Objetivo do Teste | Verificar se o Gestor e Funcionário são capazes de cadastrar um novo veículo no sistema, associando-o a um cliente.
+Passos | 1.	Fazer login no sistema com uma conta de Gestor; <br>	2.	Ir para a página de Menu; <br>3.	Selecionar a opção de Cadastrar Veículo; <br>4.	Preencher as informações do formulário.
+Critérios de Êxito | •	Depois de cadastrar o veículo, suas informações devem aparecer ao se consultar o perfil do dono (cliente); <br>•	O cadastro do veículo deve ser feito também no banco de dados do sistema.
+ 
+Caso de Teste | CT-09: Processo de manutenção
+---|---
+Requisitos Associados | RF-11: Inserir, alterar e excluir informações sobre o andamento de um determinado serviço no sistema.
+Objetivo do Teste | Verificar se o Gestor e Funcionário são capazes de inserir, alterar ou excluir informações do processo que descreve o andamento da manutenção do veículo.
+Passos | 1.	Fazer login no sistema com uma conta de Gestor; <br>	2.	Ir para a página de Menu; <br>3.	Selecionar a opção Processos em Andamento; <br>4.	Selecionar um processo para ser visualizado; <br>5.	Editar o processo.
+Critérios de Êxito | •	Ao editar as informações do processo de manutenção, as informações atualizadas deverão aparecer para o Gestor/Funcionário; <br>•	As informações atualizadas deverão aparecer para o Cliente.
+ 
+Caso de Teste | CT-10: Visualização do processo de manutenção
+---|---
+Requisitos Associados | RF-12: Acompanhar o andamento do serviço solicitado à oficina e a data prevista para finalização.
+Objetivo do Teste | Verificar se o Cliente é capaz de visualizar a descrição do andamento da manutenção.
+Passos | 1.	Fazer login no sistema com uma conta de Cliente; <br>	2.	Ir para a página de Menu; <br>3.	Selecionar a opção Processos em Andamento; <br>4.	Selecionar um processo para ser visualizado.
+Critérios de Êxito | •	Ao abrir a página de Processo, uma descrição detalhada com informação a respeito de serviços e data prevista deverá aparecer para o Cliente.
+
+
  
 ## Ferramentas de Testes (Opcional)
 
