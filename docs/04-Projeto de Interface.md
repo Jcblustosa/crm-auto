@@ -69,12 +69,21 @@ Na tela de acompanhamento de ordens de serviços estarão todas as ordens de ser
   <p align="center">Módulo de acompamanhamento das ordens de serviços</p>
 </p>
 
+## Tela - Lista de clientes
+
+Através do menu, é possível acessar a opção clientes para listar todos os clientes e acessar todas as informações necessárias como: cadastro, veículos, serviços realizados, faturamentos e etc.
+
+<p align="center">
+  <img src="/docs/img/lyt06_lista_cliente.PNG" alt="Lista de clientes"/>
+  <p align="center">Cadastro de oficina</p>
+</p>
+
 ## Tela - Cadasto de clientes
 
 Assim que o colaborador receber o veículo do cliente, será necessário fazer um cadastro do mesmo informando dados básicos para faturamento do serviço.
 
 <p align="center">
-  <img src="/docs/img/lyt05_cadastro_cliente.PNG" alt="Estrutura do site"/>
+  <img src="/docs/img/lyt05_cadastro_cliente.PNG" alt="Cadastro de clientes"/>
   <p align="center">Cadastro de clientes</p>
 </p>
 
@@ -83,10 +92,27 @@ Assim que o colaborador receber o veículo do cliente, será necessário fazer u
 Após efetuar o cadastro inicial do cliente, deve-se cadastrar também o seu veículo utiizando a tela de cadastro de veículos que poderá ser acessada diretamente do cadastro do cliente ou pelo menu lateral da janela do sistema.
 
 <p align="center">
-  <img src="/docs/img/lyt05_cadastro_cliente.PNG" alt="Estrutura do site"/>
+  <img src="/docs/img/lyt05_cadastro_cliente.PNG" alt="Cadastro de veículos"/>
   <p align="center">Cadastro de veículos</p>
 </p>
 
+## Tela - Cadasto de oficina
+
+O sistema permitirá cadastrar mais de uma oficina de uma rede. Assim, o sistema poderá concentrar a movimentação de toda a sua rede em uma única base de dados.
+
+<p align="center">
+  <img src="/docs/img/lyt09_cadastro_oficina.PNG" alt="Cadastro de oficina"/>
+  <p align="center">Cadastro de oficina</p>
+</p>
+
+## Tela - Ordem de serviço
+
+Com o cliente e veículo cadastrado no sistema, a ordem de serviço poderá ser registrada no sistema pelo módulo Ordem de Serviço. Nele, o colaborador poderá incluir os serviços solicitados pelo cliente e orçar as peças a serem usadas nos serviços.
+
+<p align="center">
+  <img src="/docs/img/lyt10_ordem_servico.PNG" alt="Ordem de serviço"/>
+  <p align="center">Abertura de ordem de serviço</p>
+</p>
 
 São protótipos usados em design de interface para sugerir a estrutura de um site web e seu relacionamentos entre suas páginas. Um wireframe web é uma ilustração semelhante do layout de elementos fundamentais na interface.
  
