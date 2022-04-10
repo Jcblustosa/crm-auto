@@ -31,15 +31,15 @@ O diagrama apresentado na Figura 3 mostra o fluxo de interação do usuário pel
 
 ## Wireframes
 
-Conforme fluxo de telas do projeto, apresentado no item anterior, as telas do sistema são apresentadas em detalhes nos itens que se seguem. As telas do sistema apresentam uma estrutura comum que é apresentada na Figura 4. Nesta estrutura, existem 3 grandes blocos, descritos a seguir. São eles:
+As telas do sistema são apresentadas em detalhes nos itens que se seguem. As telas do sistema apresentam uma estrutura comum que é apresentada na Figura 2. Nesta estrutura, existem 3 grandes blocos, descritos a seguir. São eles:
 
-> -	Cabeçalho - local onde são dispostos elementos fixos de identidade (logo) e navegação principal do site (menu da aplicação);
-> -	Conteúdo - apresenta o conteúdo da tela em questão;
-> -	Barra lateral - apresenta os elementos de navegação secundária, geralmente associados aos elementos do bloco de conteúdo.
+> -	Cabeçalho - local onde são dispostos elementos fixos de identidade do usuário e módulo em que ele se encontra;
+> -	Conteúdo - apresenta o conteúdo da tela em questão, os formulários em que os usuários trabalharão;
+> -	Menu lateral - disponibiliza ao usuário acesso os demais módulos do sistema..
 
 <p align="center">
   <img src="/docs/img/lyt01_Tamplate.PNG" width="800" alt="Estrutura do site"/>
-  <p align="center">Estrutura padrão do sistema</p>
+  <p align="center">Figura 2 - Estrutura padrão do sistema</p>
 </p>
 
 ## Tela - Oção de login
@@ -48,7 +48,7 @@ A tela de acesso ao sistema foi desenvolvida para permitir que tanto o funcioná
 
 <p align="center">
   <img src="/docs/img/lyt02_opcao_login.PNG" width="800" alt="Estrutura do site"/>
-  <p align="center">Opção de acesso ao sistema</p>
+  <p align="center">Figura 3 - Opção de acesso ao sistema</p>
 </p>
 
 ## Tela - Login de usuários
@@ -57,7 +57,7 @@ No momento que o funcionário da oficina, ou o cliente acessarem o endereço do 
 
 <p align="center">
   <img src="/docs/img/lyt04_login_colaborador.PNG" width="800" alt="Estrutura do site"/>
-  <p align="center">Tela de login dos usuários</p>
+  <p align="center">Figura 4 - Tela de login dos usuários</p>
 </p>
 
 ## Tela - Acompanhamento de ordens de serviços
@@ -66,7 +66,7 @@ Na tela de acompanhamento de ordens de serviços estarão todas as ordens de ser
 
 <p align="center">
   <img src="/docs/img/lyt08_lista_os.PNG" width="800" alt="Estrutura do site"/>
-  <p align="center">Módulo de acompamanhamento das ordens de serviços</p>
+  <p align="center">Figura 5 - Módulo de acompamanhamento das ordens de serviços</p>
 </p>
 
 ## Tela - Lista de clientes
@@ -75,7 +75,7 @@ Através do menu, é possível acessar a opção clientes para listar todos os c
 
 <p align="center">
   <img src="/docs/img/lyt06_lista_cliente.PNG" width="800" alt="Lista de clientes"/>
-  <p align="center">Cadastro de oficina</p>
+  <p align="center">Figura 6 - Cadastro de oficina</p>
 </p>
 
 ## Tela - Cadasto de clientes
@@ -84,7 +84,7 @@ Assim que o colaborador receber o veículo do cliente, será necessário fazer u
 
 <p align="center">
   <img src="/docs/img/lyt05_cadastro_cliente.PNG" width="800" alt="Cadastro de clientes"/>
-  <p align="center">Cadastro de clientes</p>
+  <p align="center">Figura 7 - Cadastro de clientes</p>
 </p>
 
 ## Tela - Cadasto de veículos por clientes
@@ -93,7 +93,7 @@ Após efetuar o cadastro inicial do cliente, deve-se cadastrar também o seu ve�
 
 <p align="center">
   <img src="/docs/img/lyt05_cadastro_cliente.PNG" width="800" alt="Cadastro de veículos"/>
-  <p align="center">Cadastro de veículos</p>
+  <p align="center">Figura 8 - Cadastro de veículos</p>
 </p>
 
 ## Tela - Cadasto de oficina
@@ -102,7 +102,7 @@ O sistema permitirá cadastrar mais de uma oficina de uma rede. Assim, o sistema
 
 <p align="center">
   <img src="/docs/img/lyt09_cadastro_oficina.PNG" width="800" alt="Cadastro de oficina"/>
-  <p align="center">Cadastro de oficina</p>
+  <p align="center">Figura 9 - Cadastro de oficina</p>
 </p>
 
 ## Tela - Ordem de serviço
@@ -111,7 +111,7 @@ Com o cliente e veículo cadastrado no sistema, a ordem de serviço poderá ser 
 
 <p align="center">
   <img src="/docs/img/lyt10_ordem_servico.png" width="800" alt="Ordem de serviço"/>
-  <p align="center">Abertura de ordem de serviço</p>
+  <p align="center">Figura 10 - Abertura de ordem de serviço</p>
 </p>
 
 ## Tela - Ordem de serviço (cliente)
@@ -122,7 +122,7 @@ O cliente terá acesso também ao histórico de todas as suas solicitações no 
 
 <p align="center">
   <img src="/docs/img/lyt11_ordem_servico_cliente.png" width="800px;" alt="Ordem de serviço"/>
-  <p align="center">Ordem de serviço (cliente)</p>
+  <p align="center">Figura 11 - Ordem de serviço (cliente)</p>
 </p>
 
 São protótipos usados em design de interface para sugerir a estrutura de um site web e seu relacionamentos entre suas páginas. Um wireframe web é uma ilustração semelhante do layout de elementos fundamentais na interface.
