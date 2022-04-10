@@ -114,6 +114,17 @@ Com o cliente e veículo cadastrado no sistema, a ordem de serviço poderá ser 
   <p align="center">Abertura de ordem de serviço</p>
 </p>
 
+## Tela - Ordem de serviço (cliente)
+
+Este modulo permitirá que o cliente acesse a sua ordem de serviço aberta para conferência dos serviços solicitados.
+
+O cliente terá acesso também ao histórico de todas as suas solicitações no passado: serviços solicitado, pagamentos realizados e etc.
+
+<p align="center">
+  <img src="/docs/img/lyt11_ordem_servico_cliente.png" alt="Ordem de serviço"/>
+  <p align="center">Ordem de serviço (cliente)</p>
+</p>
+
 São protótipos usados em design de interface para sugerir a estrutura de um site web e seu relacionamentos entre suas páginas. Um wireframe web é uma ilustração semelhante do layout de elementos fundamentais na interface.
  
 > **Links Úteis**:
