@@ -42,7 +42,7 @@ Conforme fluxo de telas do projeto, apresentado no item anterior, as telas do si
   <p align="center">Estrutura padrão do sistema</p>
 </p>
 
-## Tela - Oção login
+## Tela - Oção de login
 
 A tela de acesso ao sistema foi desenvolvida para permitir que tanto o funcionário da oficina e o cliente da mesma tenham acesso ao sistema. Cada um terá um acesso limitado de acordo com as suas credenciais configuradas no sistema.
 
@@ -51,12 +51,40 @@ A tela de acesso ao sistema foi desenvolvida para permitir que tanto o funcioná
   <p align="center">Opção de acesso ao sistema</p>
 </p>
 
+## Tela - Login de usuários
 
+No momento que o funcionário da oficina, ou o cliente acessarem o endereço do site, lhes será dado a opção de acessar o sistema como colaborador ou cliente. O cliente terá acesso limitado ao sistema, de forma que ele visualizará somente àquilo que lhe compete.
 
 <p align="center">
-  <img src="/docs/img/lyt03_login_cliente.PNG" with="400px;" alt="Estrutura do site"/>
-  <img src="/docs/img/lyt04_login_colaborador.PNG" with="400px;" alt="Estrutura do site"/>
-  <p align="center">Telas de logins dos usuários</p>
+  <img src="/docs/img/lyt04_login_colaborador.PNG" alt="Estrutura do site"/>
+  <p align="center">Tela de login dos usuários</p>
+</p>
+
+## Tela - Acompanhamento de ordens de serviços
+
+Na tela de acompanhamento de ordens de serviços estarão todas as ordens de serviços em abertos. Selecionando uma OS, o sistema mostra o detalhamento da OS e o seu orçamento, se existir.
+
+<p align="center">
+  <img src="/docs/img/lyt08_lista_os.PNG" alt="Estrutura do site"/>
+  <p align="center">Módulo de acompamanhamento das ordens de serviços</p>
+</p>
+
+## Tela - Cadasto de clientes
+
+Assim que o colaborador receber o veículo do cliente, será necessário fazer um cadastro do mesmo informando dados básicos para faturamento do serviço.
+
+<p align="center">
+  <img src="/docs/img/lyt05_cadastro_cliente.PNG" alt="Estrutura do site"/>
+  <p align="center">Cadastro de clientes</p>
+</p>
+
+## Tela - Cadasto de veículos por clientes
+
+Após efetuar o cadastro inicial do cliente, deve-se cadastrar também o seu veículo utiizando a tela de cadastro de veículos que poderá ser acessada diretamente do cadastro do cliente ou pelo menu lateral da janela do sistema.
+
+<p align="center">
+  <img src="/docs/img/lyt05_cadastro_cliente.PNG" alt="Estrutura do site"/>
+  <p align="center">Cadastro de veículos</p>
 </p>
 
 
