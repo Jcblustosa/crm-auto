@@ -38,7 +38,7 @@ Conforme fluxo de telas do projeto, apresentado no item anterior, as telas do si
 > -	Barra lateral - apresenta os elementos de navegação secundária, geralmente associados aos elementos do bloco de conteúdo.
 
 <p align="center">
-  <img src="/docs/img/lyt01_Tamplate.PNG" with="380" alt="Estrutura do site"/>
+  <img src="/docs/img/lyt01_Tamplate.PNG" width="380" alt="Estrutura do site"/>
   <p align="center">Estrutura padrão do sistema</p>
 </p>
 
@@ -47,7 +47,7 @@ Conforme fluxo de telas do projeto, apresentado no item anterior, as telas do si
 A tela de acesso ao sistema foi desenvolvida para permitir que tanto o funcionário da oficina e o cliente da mesma tenham acesso ao sistema. Cada um terá um acesso limitado de acordo com as suas credenciais configuradas no sistema.
 
 <p align="center">
-  <img src="/docs/img/lyt02_opcao_login.PNG" with="380" alt="Estrutura do site"/>
+  <img src="/docs/img/lyt02_opcao_login.PNG" width="380" alt="Estrutura do site"/>
   <p align="center">Opção de acesso ao sistema</p>
 </p>
 
@@ -56,7 +56,7 @@ A tela de acesso ao sistema foi desenvolvida para permitir que tanto o funcioná
 No momento que o funcionário da oficina, ou o cliente acessarem o endereço do site, lhes será dado a opção de acessar o sistema como colaborador ou cliente. O cliente terá acesso limitado ao sistema, de forma que ele visualizará somente àquilo que lhe compete.
 
 <p align="center">
-  <img src="/docs/img/lyt04_login_colaborador.PNG" with="380" alt="Estrutura do site"/>
+  <img src="/docs/img/lyt04_login_colaborador.PNG" width="380" alt="Estrutura do site"/>
   <p align="center">Tela de login dos usuários</p>
 </p>
 
@@ -65,7 +65,7 @@ No momento que o funcionário da oficina, ou o cliente acessarem o endereço do 
 Na tela de acompanhamento de ordens de serviços estarão todas as ordens de serviços em abertos. Selecionando uma OS, o sistema mostra o detalhamento da OS e o seu orçamento, se existir.
 
 <p align="center">
-  <img src="/docs/img/lyt08_lista_os.PNG" with="380" alt="Estrutura do site"/>
+  <img src="/docs/img/lyt08_lista_os.PNG" width="380" alt="Estrutura do site"/>
   <p align="center">Módulo de acompamanhamento das ordens de serviços</p>
 </p>
 
@@ -74,7 +74,7 @@ Na tela de acompanhamento de ordens de serviços estarão todas as ordens de ser
 Através do menu, é possível acessar a opção clientes para listar todos os clientes e acessar todas as informações necessárias como: cadastro, veículos, serviços realizados, faturamentos e etc.
 
 <p align="center">
-  <img src="/docs/img/lyt06_lista_cliente.PNG" with="380" alt="Lista de clientes"/>
+  <img src="/docs/img/lyt06_lista_cliente.PNG" width="380" alt="Lista de clientes"/>
   <p align="center">Cadastro de oficina</p>
 </p>
 
@@ -83,7 +83,7 @@ Através do menu, é possível acessar a opção clientes para listar todos os c
 Assim que o colaborador receber o veículo do cliente, será necessário fazer um cadastro do mesmo informando dados básicos para faturamento do serviço.
 
 <p align="center">
-  <img src="/docs/img/lyt05_cadastro_cliente.PNG" with="380" alt="Cadastro de clientes"/>
+  <img src="/docs/img/lyt05_cadastro_cliente.PNG" width="380" alt="Cadastro de clientes"/>
   <p align="center">Cadastro de clientes</p>
 </p>
 
@@ -92,7 +92,7 @@ Assim que o colaborador receber o veículo do cliente, será necessário fazer u
 Após efetuar o cadastro inicial do cliente, deve-se cadastrar também o seu veículo utiizando a tela de cadastro de veículos que poderá ser acessada diretamente do cadastro do cliente ou pelo menu lateral da janela do sistema.
 
 <p align="center">
-  <img src="/docs/img/lyt05_cadastro_cliente.PNG" with="380" alt="Cadastro de veículos"/>
+  <img src="/docs/img/lyt05_cadastro_cliente.PNG" width="380" alt="Cadastro de veículos"/>
   <p align="center">Cadastro de veículos</p>
 </p>
 
@@ -101,7 +101,7 @@ Após efetuar o cadastro inicial do cliente, deve-se cadastrar também o seu ve�
 O sistema permitirá cadastrar mais de uma oficina de uma rede. Assim, o sistema poderá concentrar a movimentação de toda a sua rede em uma única base de dados.
 
 <p align="center">
-  <img src="/docs/img/lyt09_cadastro_oficina.PNG" with="380" alt="Cadastro de oficina"/>
+  <img src="/docs/img/lyt09_cadastro_oficina.PNG" width="380" alt="Cadastro de oficina"/>
   <p align="center">Cadastro de oficina</p>
 </p>
 
@@ -110,7 +110,7 @@ O sistema permitirá cadastrar mais de uma oficina de uma rede. Assim, o sistema
 Com o cliente e veículo cadastrado no sistema, a ordem de serviço poderá ser registrada no sistema pelo módulo Ordem de Serviço. Nele, o colaborador poderá incluir os serviços solicitados pelo cliente e orçar as peças a serem usadas nos serviços.
 
 <p align="center">
-  <img src="/docs/img/lyt10_ordem_servico.png" with="380" alt="Ordem de serviço"/>
+  <img src="/docs/img/lyt10_ordem_servico.png" width="380" alt="Ordem de serviço"/>
   <p align="center">Abertura de ordem de serviço</p>
 </p>
 
@@ -121,7 +121,7 @@ Este modulo permitirá que o cliente acesse a sua ordem de serviço aberta para 
 O cliente terá acesso também ao histórico de todas as suas solicitações no passado: serviços solicitado, pagamentos realizados e etc.
 
 <p align="center">
-  <img src="/docs/img/lyt11_ordem_servico_cliente.png" with="380px;" alt="Ordem de serviço"/>
+  <img src="/docs/img/lyt11_ordem_servico_cliente.png" width="380px;" alt="Ordem de serviço"/>
   <p align="center">Ordem de serviço (cliente)</p>
 </p>
 
