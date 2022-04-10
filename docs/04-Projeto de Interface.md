@@ -39,7 +39,7 @@ Conforme fluxo de telas do projeto, apresentado no item anterior, as telas do si
 
 <p align="center">
   <img src="/docs/img/lyt01_Tamplate.PNG" alt="Estrutura do site"/>
-  <p>Estrutura padrão do sistema</p>
+  <p align="center">Estrutura padrão do sistema</p>
 </p>
 
 ## Tela - Oção login
@@ -48,10 +48,14 @@ A tela de acesso ao sistema foi desenvolvida para permitir que tanto o funcioná
 
 <p align="center">
   <img src="/docs/img/lyt02_opcao_login.PNG" alt="Estrutura do site"/>
-  <p>Opção de acesso ao sistema</p>
+  <p align="center">Opção de acesso ao sistema</p>
 </p>
 
-
+<p align="center">
+  <img src="/docs/img/lyt03_login_cliente.PNG with=400px;" alt="Estrutura do site"/>
+  <img src="/docs/img/lyt04_login_colaborador.PNG with=400px;" alt="Estrutura do site"/>
+  <p align="center">Telas de logins dos usuários</p>
+</p>
 
 
 São protótipos usados em design de interface para sugerir a estrutura de um site web e seu relacionamentos entre suas páginas. Um wireframe web é uma ilustração semelhante do layout de elementos fundamentais na interface.
