@@ -42,7 +42,7 @@ Conforme fluxo de telas do projeto, apresentado no item anterior, as telas do si
   <p align="center">Estrutura padrão do sistema</p>
 </p>
 
-## Tela - Oção de login
+## Tela - Opção de login
 
 A tela de acesso ao sistema foi desenvolvida para permitir que tanto o funcionário da oficina e o cliente da mesma tenham acesso ao sistema. Cada um terá um acesso limitado de acordo com as suas credenciais configuradas no sistema.
 
