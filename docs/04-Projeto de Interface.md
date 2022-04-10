@@ -38,7 +38,7 @@ Conforme fluxo de telas do projeto, apresentado no item anterior, as telas do si
 > -	Barra lateral - apresenta os elementos de navegação secundária, geralmente associados aos elementos do bloco de conteúdo.
 
 <p align="center">
-  <img src="/docs/img/lyt01_tamplate.PNG" alt="Estrutura do site"/>
+  <img src="/docs/img/lyt01_Tamplate.PNG" alt="Estrutura do site"/>
   Estrutura padrão do sistema
 </p>
 
