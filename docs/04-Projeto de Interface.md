@@ -110,7 +110,7 @@ O sistema permitirá cadastrar mais de uma oficina de uma rede. Assim, o sistema
 Com o cliente e veículo cadastrado no sistema, a ordem de serviço poderá ser registrada no sistema pelo módulo Ordem de Serviço. Nele, o colaborador poderá incluir os serviços solicitados pelo cliente e orçar as peças a serem usadas nos serviços.
 
 <p align="center">
-  <img src="/docs/img/lyt10_ordem_servico.PNG" alt="Ordem de serviço"/>
+  <img src="/docs/img/lyt10_ordem_servico.png" alt="Ordem de serviço"/>
   <p align="center">Abertura de ordem de serviço</p>
 </p>
 
