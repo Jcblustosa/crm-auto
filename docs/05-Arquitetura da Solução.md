@@ -10,7 +10,8 @@ O diagrama de classes ilustra graficamente como será a estrutura do software, e
 
 As referências abaixo irão auxiliá-lo na geração do artefato “Diagrama de Classes”.
 
-file:///C:/Users/misle/Downloads/diagrama%20CRM%20Automotivo.drawio%20(1).html
+![image](https://user-images.githubusercontent.com/92118593/162634880-feda6fc8-d259-4994-989d-1e8254c079ea.png)
+
 ## Modelo ER
 
 O Modelo ER representa através de um diagrama como as entidades (coisas, objetos) se relacionam entre si na aplicação interativa.]
