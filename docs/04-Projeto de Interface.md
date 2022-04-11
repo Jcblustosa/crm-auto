@@ -23,9 +23,6 @@ O diagrama apresenta o estudo do fluxo de interação do usuário com o sistema 
 <p align="center">Figura 2 - Diagrama de fluxo - Cliente</p>
 
 
-> **Links Úteis**:
-> - [Fluxograma online: seis sites para fazer gráfico sem instalar nada | Produtividade | TechTudo](https://www.techtudo.com.br/listas/2019/03/fluxograma-online-seis-sites-para-fazer-grafico-sem-instalar-nada.ghtml)
-
 ## Fluxo do Usuário
 O diagrama apresentado na Figura 3 mostra o fluxo de interação do usuário pelas telas do sistema. Cada uma das telas deste fluxo é detalhada na seção de Wireframes que se segue. Para visualizar o wireframe interativo, acesse o ambiente MarvelApp do projeto.
 
@@ -33,9 +30,9 @@ O diagrama apresentado na Figura 3 mostra o fluxo de interação do usuário pel
 
 As telas do sistema são apresentadas em detalhes nos itens que se seguem. As telas do sistema apresentam uma estrutura comum que é apresentada na Figura 2. Nesta estrutura, existem 3 grandes blocos, descritos a seguir. São eles:
 
-> -	Cabeçalho - local onde são dispostos elementos fixos de identidade do usuário e módulo em que ele se encontra;
-> -	Conteúdo - apresenta o conteúdo da tela em questão, os formulários em que os usuários trabalharão;
-> -	Menu lateral - disponibiliza ao usuário acesso os demais módulos do sistema..
+-	Cabeçalho - local onde são dispostos elementos fixos de identidade do usuário e módulo em que ele se encontra;
+-	Conteúdo - apresenta o conteúdo da tela em questão, os formulários em que os usuários trabalharão;
+-	Menu lateral - disponibiliza ao usuário acesso os demais módulos do sistema..
 
 <p align="center">
   <img src="/docs/img/lyt01_Tamplate.PNG" width="800" alt="Estrutura do site"/>
@@ -53,7 +50,7 @@ A tela de acesso ao sistema foi desenvolvida para permitir que tanto o funcioná
 
 ## Tela - Login de usuários
 
-No momento que o funcionário da oficina, ou o cliente acessarem o endereço do site, lhes será dado a opção de acessar o sistema como colaborador ou cliente. O cliente terá acesso limitado ao sistema, de forma que ele visualizará somente àquilo que lhe compete.
+No momento em que o funcionário da oficina ou o cliente acessarem o endereço do site, aparecem as opções de acessar o sistema como colaborador ou cliente. O cliente terá acesso mais limitado ao sistema, de forma que ele visualizará somente aquilo que lhe compete. Já o acesso como colaborador permite alterações no banco de dados, como cadastros e início de ordens de serviço.
 
 <p align="center">
   <img src="/docs/img/lyt04_login_colaborador.PNG" width="800" alt="Estrutura do site"/>
@@ -62,7 +59,7 @@ No momento que o funcionário da oficina, ou o cliente acessarem o endereço do 
 
 ## Tela - Acompanhamento de ordens de serviços
 
-Na tela de acompanhamento de ordens de serviços estarão todas as ordens de serviços em abertos. Selecionando uma OS, o sistema mostra o detalhamento da OS e o seu orçamento, se existir.
+Na tela de acompanhamento de ordens de serviços estarão todas as ordens de serviços em abertos. Selecionando uma ordem de serviço, o sistema mostra o seu detalhamento e o seu orçamento, se existir.
 
 <p align="center">
   <img src="/docs/img/lyt08_lista_os.PNG" width="800" alt="Estrutura do site"/>
@@ -71,7 +68,7 @@ Na tela de acompanhamento de ordens de serviços estarão todas as ordens de ser
 
 ## Tela - Lista de clientes
 
-Através do menu, é possível acessar a opção clientes para listar todos os clientes e acessar todas as informações necessárias como: cadastro, veículos, serviços realizados, faturamentos e etc.
+Por meio do menu, é possível acessar a opção clientes para listar todos os clientes e acessar todas as informações disponíveis como: cadastro, veículos, serviços realizados, faturamentos etc.
 
 <p align="center">
   <img src="/docs/img/lyt06_lista_cliente.PNG" width="800" alt="Lista de clientes"/>
