@@ -43,17 +43,17 @@ As tabelas que a seguir apresentam os requisitos funcionais e não funcionais qu
 | ID  | Descrição do Requisito | PRIORIDADE |  
 |---|---|---|
 | RF-01 | O sistema deve permitir Incluir/Excluir/Alterar dados de um fincionário ou cliente da oficina. |  MÉDIA| 
-| RF-02 | Emissão de relatórios de clientes. | ALTA | | 
-| RF-03 | Consulta e alterações de dados pessoais de clientes.  | ALTA |  
-| RF-04 | Consulta de saldo ou estoque. |  ALTA|
-| RF-05 | Permitir que o usuário cadastre tarefas. | ALTA  | 
-| RF-06 | Emitir lembretes após passarem-se 11 meses desde a última revisão anual. | ALTA  | 
-| RF-07 | Efetuar o cadastro, alteração e exclusão de oficinas no sistema.  | ALTA  |
-| RF-08 | Efetuar o cadastro, alteração e exclusão dos serviços disponibilizados pela oficina.  | ALTA |
-| RF-09 | Consultar os clientes cadastrados no sistema.| ALTA |
-| RF-10  | Realizar o cadastro de veículo (s) para um determinado cliente no sistema.| ALTA |
-| RF-11  |Inserir, alterar e excluir informações sobre o andamento de um determinado serviço no sistema.| ALTA |
-| RF-12  |Acompanhar o andamento do serviço solicitado à oficina e a data prevista para finalização.| ALTA |
+| RF-02 | O sistema deve emitir relatórios de clientes. | ALTA | | 
+| RF-03 | O sistemea deve fazer consulta e alterações de dados pessoais de clientes.  | ALTA |  
+| RF-04 | O sistema deve realizar consulta de saldo ou estoque. |  ALTA|
+| RF-05 | O sistema deve permitir que o usuário cadastre tarefas. | ALTA  | 
+| RF-06 | O sistema deve emitir lembretes após passarem-se 11 meses desde a última revisão anual. | ALTA  | 
+| RF-07 | O sistema deve efetuar o cadastro, alteração e exclusão de oficinas no sistema.  | ALTA  |
+| RF-08 | O sistema deve efetuar o cadastro, alteração e exclusão dos serviços disponibilizados pela oficina.  | ALTA |
+| RF-09 | O sistema deve consultar os clientes cadastrados no sistema.| ALTA |
+| RF-10  | O sistema deve realizar o cadastro de veículo (s) para um determinado cliente no sistema.| ALTA |
+| RF-11  |O sistema deve inserir, alterar e excluir informações sobre o andamento de um determinado serviço no sistema.| ALTA |
+| RF-12  |O sistema deve acompanhar o andamento do serviço solicitado à oficina e a data prevista para finalização.| ALTA |
 
 ### Requisitos não Funcionais
 
@@ -74,7 +74,6 @@ O projeto está restrito pelos itens apresentados na tabela a seguir.
 |--|-------------------------------------------------------|
 | RE-01 | O projeto deverá ser entregue até o final do semestre. |
 | RE-02 | O projeto deverá ser implementado com uso de tecnologias web, Front End e Back-End. |
-| RE-03 | Não deverá ser desenvolvido um módulo de backend. |
 
 ## Diagrama de Casos de Uso
 
