@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro de veículos</title>
+    <title>Layout padrão</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="css/menu.css">
 </head>
 <body id="body-pd">
@@ -37,40 +38,50 @@
                 </a>
                 <div class="nav_list">
                     <a href="#" class="nav_link active"> 
-                        <i class='bx bx-grid-alt nav_icon'></i> 
+                        <i class='bx bx-grid-alt nav_icon' data-bs-toggle="tooltip" title="Painel"></i> 
                         <span class="nav_name">Painel</span> 
-                        <a href="#" class="nav_link">
-                            <i class='bx bx-message-square-detail nav_icon'></i>
-                            <span class="nav_name">Ordem de serviços</span>
-                        </a>
-                        <a href="#" class="nav_link">
-                            <i class='bx bx-bookmark nav_icon'></i>
-                            <span class="nav_name">Orçamentos</span>
-                        </a>
-                        <a href="#" class="nav_link">
-                            <i class='bx bx-folder nav_icon'></i>
-                            <span class="nav_name">Clientes</span>
-                        </a>
-                        <a href="#" class="nav_link">
-                            <i class='bx bx-folder nav_icon'></i>
-                            <span class="nav_name">Oficina</span>
-                        </a>
-                        <a href="#" class="nav_link">
-                            <i class='bx bx-folder nav_icon'></i>
-                            <span class="nav_name">Funcionários</span>
-                        </a>
-                        <a href="#" class="nav_link">
-                            <i class='bx bx-bar-chart-alt-2 nav_icon'></i>
-                            <span class="nav_name">Relatórios</span>
-                        </a>
+                    </a>
+                    <!-- <a href="#orders" class="nav_link active" data-bs-toggle="collapse">
+                        <i class='bx bx-grid-alt nav_icon' data-bs-toggle="tooltip" title="Painel"></i>
+                        <span class="nav_name">Painel</span> 
+                        <div id="orders" class="list-group collapse">
+                            <a href="#" class="list-group-item list-group-item-action">First item</a>
+                            <a href="#" class="list-group-item list-group-item-action">Second item</a>
+                            <a href="#" class="list-group-item list-group-item-action">Third item</a>
+                        </div>
+                    </a> -->
                     <a href="#" class="nav_link">
-                        <i class='bx bx-user nav_icon'></i>
+                        <i class='bx bx-message-square-detail nav_icon' data-bs-toggle="tooltip" title="Ordens de serviços"></i>
+                        <span class="nav_name">Ordens de serviços</span>
+                    </a>
+                    <a href="#" class="nav_link">
+                        <i class='bx bx-bookmark nav_icon' data-bs-toggle="tooltip" title="Orçamentos"></i>
+                        <span class="nav_name">Orçamentos</span>
+                    </a>
+                    <a href="#" class="nav_link">
+                        <i class='bi bi-people nav_icon' data-bs-toggle="tooltip" title="Clientes"></i>
+                        <span class="nav_name">Clientes</span>
+                    </a>
+                    <a href="#" class="nav_link">
+                        <i class="bi bi-wrench-adjustable nav_icon" data-bs-toggle="tooltip" title="Oficina"></i>
+                        <span class="nav_name">Oficina</span>
+                    </a>
+                    <a href="#" class="nav_link">
+                        <i class='bi bi-person-video2 nav_icon' data-bs-toggle="tooltip" title="Funcionários"></i>
+                        <span class="nav_name">Funcionários</span>
+                    </a>
+                    <a href="#" class="nav_link">
+                        <i class='bx bx-bar-chart-alt-2 nav_icon' data-bs-toggle="tooltip" title="Relatórios"></i>
+                        <span class="nav_name">Relatórios</span>
+                    </a>
+                    <a href="#" class="nav_link">
+                        <i class='bx bx-user nav_icon' data-bs-toggle="tooltip" title="Usuários"></i>
                         <span class="nav_name">Usuários</span>
                     </a>
                 </div>
             </div>
             <a href="Homepage.html" class="nav_link">
-                <i class='bx bx-log-out nav_icon'></i>
+                <i class='bx bx-log-out nav_icon' data-bs-toggle="tooltip" title="Sair"></i>
                 <span class="nav_name">Sair</span>
             </a>
         </nav>
@@ -88,6 +99,3 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
 <script src="js/menu.js"></script>
 </html>
-
-
-
