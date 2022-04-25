@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function(event) {
-
+       
     const showNavbar = (toggleId, navId, bodyId, headerId) =>{
     const toggle = document.getElementById(toggleId),
     nav = document.getElementById(navId),
@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
             })
         }
     }
-    
+
     showNavbar('header-toggle','nav-bar','body-pd','header')
     
     /*===== LINK ACTIVE =====*/
@@ -36,3 +36,4 @@ document.addEventListener("DOMContentLoaded", function(event) {
     
 // Your code to run since DOM is loaded and ready
 });
+
