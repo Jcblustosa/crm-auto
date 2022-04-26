@@ -1,0 +1,118 @@
+:root {
+    --header-height: 2rem;
+    /* --nav-width: 68px; */
+    --border-color: #565564;
+    --first-color: #545183;
+    --first-color-light: #BACDDA;
+    --second-color-light: #FDF9BC;
+    --third-color-light: #A5DCBF ;
+    --white-color: #FDF7FF;
+    --text-color: #051821;
+    --body-font: 'Nunito', sans-serif;
+    --normal-font-size: 0.8rem;
+    --z-fixed: 90
+}
+
+div#idContainer{
+    font-family: var(--body-font);
+    font-size: var(--normal-font-size);
+}
+
+.box-tipo-pessoa{
+    border: 1px solid var(--first-color-light);
+    border-radius: 3px;
+    background-color: white;
+    padding: 10px 0 0 15px;
+    height: 38px;
+}
+
+#abaRes{
+    display: block;
+}
+
+#abaCob{
+    display: none;
+}
+
+.TabControl{
+    width: 99%;
+    overflow: hidden;
+    height: 100%;
+}
+
+.TabControl #header{
+    width: 100%;
+    overflow: hidden;
+    cursor: hand;
+}
+
+.TabControl #content{
+    width: 100%;
+    border: 1px solid var(--first-color-light);
+    overflow: hidden;
+    height: 100%;
+}
+
+.TabControl .abas{
+    display: inline;
+}
+
+.TabControl .abas li{
+    float: left;
+    list-style: none;
+}
+
+.aba{
+    width: 100px;
+    height: 30px;
+    border:  1px solid var(--border-color);
+    border-radius: 5px 5px 0 0;
+    text-align: center;
+    padding-top: 5px;
+    background: var(--first-color-light);
+}
+
+.ativa{
+    width: 100px;
+    height: 30px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px 5px 0 0;
+    text-align: center;
+    padding-top: 5px;
+    background: var(--first-color);
+}
+
+.ativa span, .selected span{
+    color:#fff;
+}
+
+.TabControl #content{
+    background: var(--first-color-light); /*#27408B;*/
+}
+
+.TabControl .conteudo{
+    width: 100%;
+    background: white;
+    display: none;
+    height: 100%;
+}
+
+.selected{
+    width: 100px;
+    height: 30px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px 5px 0 0;
+    text-align: center;
+    padding-top: 5px;
+    background: var(--first-color);
+}
+
+form{
+    padding: 3px 15px 15px 10px;
+}
+
+.form-group{
+    margin-top: 15px;
+}
+
+/*.body{font-family:Calibri, Tahoma, Arial}*/
