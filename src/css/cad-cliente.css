@@ -31,11 +31,15 @@ div#idContainer{
 }
 
 #abaRes{
-    display: block;
+    display: none;
 }
 
 #abaCob{
     display: none;
+}
+
+#abaVeiculo{
+    display: block;
 }
 
 .TabControl{

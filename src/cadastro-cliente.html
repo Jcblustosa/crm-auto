@@ -35,15 +35,22 @@
             var displayAba = document.getElementById(el).style.display;
             if(nomeElemento == "abaRes"){
                 if(displayAba == "none")
-                    document.getElementById(nomeElemento).style.display = 'block'
                     document.getElementById("abaCob").style.display = 'none';
+                    document.getElementById("abaVeiculo").style.display = 'none';
+                    document.getElementById("abaRes").style.display = 'block'
                 }
-            else     
-                if(nomeElemento == "abaCob"){
-                    if(displayAba == "none")
-                        document.getElementById(nomeElemento).style.display = 'block'
-                        document.getElementById("abaRes").style.display = 'none';
+            else if(nomeElemento == "abaCob"){
+                if(displayAba == "none")
+                    document.getElementById("abaRes").style.display = 'none';
+                    document.getElementById("abaVeiculo").style.display = 'none';
+                    document.getElementById("abaCob").style.display = 'block'
                 }
+            else if(nomeElemento == "abaVeiculo"){
+                if(displayAba == "none")
+                    document.getElementById("abaRes").style.display = 'none';
+                    document.getElementById("abaCob").style.display = 'none';
+                    document.getElementById("abaVeiculo").style.display = 'block'
+            }
         }
 	</script>
 </head>
@@ -179,6 +186,11 @@
                             <span>Cobrança</span>
                         </div>
                     </li>
+                    <li onclick="AtivaAba('abaVeiculo')">
+                        <div class="aba">
+                            <span>Veículos</span>
+                        </div>
+                    </li>
                 </ul>
             </div>
             <div id="content">
@@ -190,7 +202,7 @@
                         </div>
                         
                         <div class="row">
-                            <div class="form-group col-md-6">
+                            <div class="form-group col-md-6"> <!-- INÍCIO DIV CONTEÚDO DO FORM LOGRADOURO -->
                                 <label for="enderecoRes">Endereco</label>
                                 <input type="text" class="form-control" id="enderecoRes" placeholder="Rua, avenida, praça, fazenda...">
                             </div>
@@ -202,7 +214,7 @@
                                 <label for="complementoRes">Complemento</label>
                                 <input type="text" class="form-control" id="complementoRes" placeholder="Apartamento, casa, lote...">
                             </div>
-                        </div>
+                        </div> <!-- FIM DIV CONTEÚDO DO FORM LOGRADOURO -->
                         
                         <div class="row">
                             <div class="form-group col-md-6">
@@ -218,7 +230,7 @@
                             </div>
                         </div>
 
-                        <div class="row">
+                        <div class="row"> <!-- INICIO DIV CIDADE E ESTADO -->
                             <div class="form-group col-md-2">
                                 <label for="telefoneRes">Telefone</label>
                                 <input type="tel" class="form-control" id="telefoneRes" placeholder="Telefone">
@@ -231,18 +243,17 @@
                                 <label for="emailRes">Email</label>
                                 <input type="email" class="form-control" id="emailRes" placeholder="Email">
                             </div>
-                            
-                        </div>
+                        </div> <!-- FIM DIV CIDADE E ESTADO -->
                     </form>
                 </div>
-                <div id="abaCob" class="conteudo">
+                <div id="abaCob" class="conteudo"> <!-- INÍCIO DIV CONTEÚDO DO FORM LOGRADOURO -->
                     <form>
-                        <div class="form-group col-md-2">
+                        <div class="form-group col-md-2"> <!-- INÍCIO DIV CEP -->
                             <label for="cepCob">CEP</label>
                             <input type="text" class="form-control" id="cepCob">
                         </div>
                         
-                        <div class="row">
+                        <div class="row"> <!-- INÍCIO DIV ENDEREÇO, NÚMERO E COMPLEMENTO -->
                             <div class="form-group col-md-6">
                                 <label for="enderecoCob">Endereco</label>
                                 <input type="text" class="form-control" id="enderecoCob" placeholder="Rua, avenida, praça, fazenda...">
@@ -255,9 +266,9 @@
                                 <label for="complementoCob">Complemento</label>
                                 <input type="text" class="form-control" id="complementoCob" placeholder="Apartamento, casa, lote...">
                             </div>
-                        </div>
+                        </div> <!-- FIM DIV ENDEREÇO, NÚMERO E COMPLEMENTO -->
                         
-                        <div class="row">
+                        <div class="row"> <!-- INICIO DIV CIDADE E ESTADO -->
                             <div class="form-group col-md-6">
                                 <label for="cidadeCob">Cidade</label>
                                 <input type="text" class="form-control" id="cidadeCob">
@@ -269,9 +280,9 @@
                                 <option>AM</option>
                                 </select>
                             </div>
-                        </div>
+                        </div> <!-- FIM DIV CIDADE E ESTADO -->
 
-                        <div class="row">
+                        <div class="row"> <!-- INICIO DIV TELEFONES E EMAIL -->
                             <div class="form-group col-md-2">
                                 <label for="telefoneCob">Telefone</label>
                                 <input type="tel" class="form-control" id="telefoneCob" placeholder="Telefone">
@@ -284,12 +295,43 @@
                                 <label for="emailCob">Email</label>
                                 <input type="email" class="form-control" id="emailCob" placeholder="Email">
                             </div>
-                        </div>
+                        </div> <!-- FIM DIV TELEFONES E EMAIL -->
                     </form>
-                </div>
+                </div><!-- FIM DIV CONTEÚDO DO FORM LOGRADOURO -->
             </div>
-        </div>
-    </div>
+            <div id="abaVeiculo" class="conteudo"> <!-- INÍCIO DIV ABA CADASTRO DE VEÍCULOS -->
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">First</th>
+                            <th scope="col">Last</th>
+                            <th scope="col">Handle</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>Mark</td>
+                            <td>Otto</td>
+                            <td>@mdo</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2</th>
+                            <td>Jacob</td>
+                            <td>Thornton</td>
+                            <td>@fat</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td colspan="2">Larry the Bird</td>
+                            <td>@twitter</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div> <!-- FIM DIV ABA CADASTRO DE VEÍCULOS -->
+        </div> <!-- FIM DIV ABAS -->
+    </div> <!-- FIM DIV CONTAINER -->
 </body>
 <!-- Bootstrap 5.0.0 -->
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
