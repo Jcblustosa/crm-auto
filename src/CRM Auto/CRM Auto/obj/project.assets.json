@@ -1,63 +1,43 @@
 {
   "version": 3,
   "targets": {
-    ".NETFramework,Version=v5.0": {},
-    ".NETFramework,Version=v5.0/win7-x86": {}
+    "net5.0": {}
   },
   "libraries": {},
   "projectFileDependencyGroups": {
-    ".NETFramework,Version=v5.0": []
+    "net5.0": []
   },
   "packageFolders": {
-<<<<<<< Updated upstream
-    "C:\\Users\\julio\\.nuget\\packages\\": {},
+    "C:\\Users\\cwart\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
-=======
-    "C:\\Users\\mfti06.MFLTDA\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
->>>>>>> Stashed changes
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-<<<<<<< Updated upstream
-      "projectUniqueName": "C:\\Users\\julio\\Documents\\Curso Superior\\Repositorios\\login\\pmv-ads-2022-1-e2-proj-int-t3-crm-auto\\src\\CRM Auto\\CRM Auto\\CRM Auto.csproj",
+      "projectUniqueName": "C:\\Users\\cwart\\Google Drive\\PUC MINAS\\Ciclo 2\\Projeto\\pmv-ads-2022-1-e2-proj-int-t3-crm-auto\\src\\CRM Auto\\CRM Auto\\CRM Auto.csproj",
       "projectName": "CRM Auto",
-      "projectPath": "C:\\Users\\julio\\Documents\\Curso Superior\\Repositorios\\login\\pmv-ads-2022-1-e2-proj-int-t3-crm-auto\\src\\CRM Auto\\CRM Auto\\CRM Auto.csproj",
-      "packagesPath": "C:\\Users\\julio\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\julio\\Documents\\Curso Superior\\Repositorios\\login\\pmv-ads-2022-1-e2-proj-int-t3-crm-auto\\src\\CRM Auto\\CRM Auto\\obj\\",
-=======
-      "projectUniqueName": "C:\\Users\\mfti06.MFLTDA\\Documents\\GitHub\\pmv-ads-2022-1-e2-proj-int-t3-crm-auto\\src\\CRM Auto\\CRM Auto\\CRM Auto.csproj",
-      "projectName": "CRM Auto",
-      "projectPath": "C:\\Users\\mfti06.MFLTDA\\Documents\\GitHub\\pmv-ads-2022-1-e2-proj-int-t3-crm-auto\\src\\CRM Auto\\CRM Auto\\CRM Auto.csproj",
-      "packagesPath": "C:\\Users\\mfti06.MFLTDA\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\mfti06.MFLTDA\\Documents\\GitHub\\pmv-ads-2022-1-e2-proj-int-t3-crm-auto\\src\\CRM Auto\\CRM Auto\\obj\\",
->>>>>>> Stashed changes
+      "projectPath": "C:\\Users\\cwart\\Google Drive\\PUC MINAS\\Ciclo 2\\Projeto\\pmv-ads-2022-1-e2-proj-int-t3-crm-auto\\src\\CRM Auto\\CRM Auto\\CRM Auto.csproj",
+      "packagesPath": "C:\\Users\\cwart\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\cwart\\Google Drive\\PUC MINAS\\Ciclo 2\\Projeto\\pmv-ads-2022-1-e2-proj-int-t3-crm-auto\\src\\CRM Auto\\CRM Auto\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-<<<<<<< Updated upstream
-        "C:\\Users\\julio\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\MicroFocus.VisualStudio.Offline.config",
+        "C:\\Users\\cwart\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-=======
-        "C:\\Users\\mfti06.MFLTDA\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\MicroFocus.VisualStudio.Offline.config",
->>>>>>> Stashed changes
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
-        "net50"
+        "net5.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Micro Focus\\Visual COBOL\\NuGetPackages": {},
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
-        "net50": {
+        "net5.0": {
+          "targetAlias": "net5.0",
           "projectReferences": {}
         }
       },
@@ -68,7 +48,6 @@
       }
     },
     "frameworks": {
-<<<<<<< Updated upstream
       "net5.0": {
         "targetAlias": "net5.0",
         "imports": [
@@ -89,14 +68,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\PROGRAM FILES\\DOTNET\\sdk\\5.0.302\\RuntimeIdentifierGraph.json"
-=======
-      "net50": {}
-    },
-    "runtimes": {
-      "win7-x86": {
-        "#import": []
->>>>>>> Stashed changes
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
       }
     }
   }

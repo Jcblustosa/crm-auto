@@ -79,3 +79,4 @@ C:\Users\julio\Documents\Curso Superior\Repositorios\login\pmv-ads-2022-1-e2-pro
 C:\Users\julio\Documents\Curso Superior\Repositorios\login\pmv-ads-2022-1-e2-proj-int-t3-crm-auto\src\CRM Auto\CRM Auto\obj\Debug\net5.0\CRM Auto.pdb
 C:\Users\julio\Documents\Curso Superior\Repositorios\login\pmv-ads-2022-1-e2-proj-int-t3-crm-auto\src\CRM Auto\CRM Auto\obj\Debug\net5.0\CRM Auto.genruntimeconfig.cache
 C:\Users\julio\Documents\Curso Superior\Repositorios\login\pmv-ads-2022-1-e2-proj-int-t3-crm-auto\src\CRM Auto\CRM Auto\obj\Debug\net5.0\CRM Auto.csproj.CopyComplete
+C:\Users\cwart\Google Drive\PUC MINAS\Ciclo 2\Projeto\pmv-ads-2022-1-e2-proj-int-t3-crm-auto\src\CRM Auto\CRM Auto\bin\Debug\net5.0\CRM Auto.StaticWebAssets.xml
