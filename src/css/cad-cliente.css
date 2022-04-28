@@ -13,7 +13,7 @@
     --z-fixed: 90
 }
 
-div#idContainer{
+#idContainer{
     font-family: var(--body-font);
     font-size: var(--normal-font-size);
 }
@@ -28,18 +28,6 @@ div#idContainer{
     background-color: white;
     padding: 6px 0 0 10px;
     height: 35px;
-}
-
-#abaRes{
-    display: none;
-}
-
-#abaCob{
-    display: none;
-}
-
-#abaVeiculo{
-    display: block;
 }
 
 .TabControl{

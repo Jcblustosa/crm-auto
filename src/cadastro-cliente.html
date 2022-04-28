@@ -10,49 +10,7 @@
     <link rel="stylesheet" href="css/menu.css">
     <link href="css/cad-cliente.css" rel="stylesheet">
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
-	<script type="text/javascript">
-		$(document).ready(function(){
-			$("#content div:nth-child(1)").show();
-			$(".abas li:first div").addClass("selected");
-			$(".aba").click(function(){
-				$(".aba").removeClass("selected");
-				$(this).addClass("selected");
-				/* var indice = $(this).parent().index();
-				indice++;
-				$("#content div").hide();
-				$("#content div:nth-child("+indice+")").show(); */
-			});
-
-			$(".aba").hover(
-				function(){$(this).addClass("ativa")},
-				function(){$(this).removeClass("ativa")}
-			);
-
-		});
-
-        function AtivaAba(el) {
-            var nomeElemento = el
-            var displayAba = document.getElementById(el).style.display;
-            if(nomeElemento == "abaRes"){
-                if(displayAba == "none")
-                    document.getElementById("abaCob").style.display = 'none';
-                    document.getElementById("abaVeiculo").style.display = 'none';
-                    document.getElementById("abaRes").style.display = 'block'
-                }
-            else if(nomeElemento == "abaCob"){
-                if(displayAba == "none")
-                    document.getElementById("abaRes").style.display = 'none';
-                    document.getElementById("abaVeiculo").style.display = 'none';
-                    document.getElementById("abaCob").style.display = 'block'
-                }
-            else if(nomeElemento == "abaVeiculo"){
-                if(displayAba == "none")
-                    document.getElementById("abaRes").style.display = 'none';
-                    document.getElementById("abaCob").style.display = 'none';
-                    document.getElementById("abaVeiculo").style.display = 'block'
-            }
-        }
-	</script>
+    <script type="text/javascript" src="js/cad-cliente.js"></script>
 </head>
 <body id="body-pd">
     <header class="header" id="header">
@@ -171,7 +129,6 @@
                     <input type="text" class="form-control" id="idApelido" placeholder="Apelido do cliente">
                 </div>
             </div>
-                        
         </form>
         <div class="TabControl mt-3">
             <div id="header">
@@ -179,11 +136,6 @@
                     <li onclick="AtivaAba('abaRes')">
                         <div class="aba" >
                             <span>Residencial</span>
-                        </div>
-                    </li>
-                    <li onclick="AtivaAba('abaCob')">
-                        <div class="aba">
-                            <span>Cobrança</span>
                         </div>
                     </li>
                     <li onclick="AtivaAba('abaVeiculo')">
@@ -194,7 +146,7 @@
                 </ul>
             </div>
             <div id="content">
-                <div id="abaRes" class="conteudo">
+                <div id="abaRes" class="conteudo" style="display: block"> <!-- INÍCIO ABA RESIDENCIAL -->
                     <form>
                         <div class="form-group col-md-2">
                             <label for="cepRes">CEP</label>
@@ -245,92 +197,41 @@
                             </div>
                         </div> <!-- FIM DIV CIDADE E ESTADO -->
                     </form>
-                </div>
-                <div id="abaCob" class="conteudo"> <!-- INÍCIO DIV CONTEÚDO DO FORM LOGRADOURO -->
-                    <form>
-                        <div class="form-group col-md-2"> <!-- INÍCIO DIV CEP -->
-                            <label for="cepCob">CEP</label>
-                            <input type="text" class="form-control" id="cepCob">
-                        </div>
-                        
-                        <div class="row"> <!-- INÍCIO DIV ENDEREÇO, NÚMERO E COMPLEMENTO -->
-                            <div class="form-group col-md-6">
-                                <label for="enderecoCob">Endereco</label>
-                                <input type="text" class="form-control" id="enderecoCob" placeholder="Rua, avenida, praça, fazenda...">
-                            </div>
-                            <div class="form-group col-md-1">
-                                <label for="numeroCob">Número</label>
-                                <input type="text" class="form-control" id="numeroCob" placeholder="1234">
-                            </div>
-                            <div class="form-group col-md-5">
-                                <label for="complementoCob">Complemento</label>
-                                <input type="text" class="form-control" id="complementoCob" placeholder="Apartamento, casa, lote...">
-                            </div>
-                        </div> <!-- FIM DIV ENDEREÇO, NÚMERO E COMPLEMENTO -->
-                        
-                        <div class="row"> <!-- INICIO DIV CIDADE E ESTADO -->
-                            <div class="form-group col-md-6">
-                                <label for="cidadeCob">Cidade</label>
-                                <input type="text" class="form-control" id="cidadeCob">
-                            </div>
-                            <div class="form-group col-md-4">
-                                <label for="estadoCob">Estado</label>
-                                <select id="estadoCob" class="form-control">
-                                <option selected>Selecione...</option>
-                                <option>AM</option>
-                                </select>
-                            </div>
-                        </div> <!-- FIM DIV CIDADE E ESTADO -->
-
-                        <div class="row"> <!-- INICIO DIV TELEFONES E EMAIL -->
-                            <div class="form-group col-md-2">
-                                <label for="telefoneCob">Telefone</label>
-                                <input type="tel" class="form-control" id="telefoneCob" placeholder="Telefone">
-                            </div>
-                            <div class="form-group col-md-2">
-                                <label for="celularCob">Telefone</label>
-                                <input type="tel" class="form-control" id="celularCob" placeholder="Celular">
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label for="emailCob">Email</label>
-                                <input type="email" class="form-control" id="emailCob" placeholder="Email">
-                            </div>
-                        </div> <!-- FIM DIV TELEFONES E EMAIL -->
-                    </form>
-                </div><!-- FIM DIV CONTEÚDO DO FORM LOGRADOURO -->
-            </div>
-            <div id="abaVeiculo" class="conteudo"> <!-- INÍCIO DIV ABA CADASTRO DE VEÍCULOS -->
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">First</th>
-                            <th scope="col">Last</th>
-                            <th scope="col">Handle</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>@fat</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td colspan="2">Larry the Bird</td>
-                            <td>@twitter</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div> <!-- FIM DIV ABA CADASTRO DE VEÍCULOS -->
-        </div> <!-- FIM DIV ABAS -->
+                </div> <!-- FIM ABA RESIDENCIAL-->
+                
+                <div id="abaVeiculo" class="conteudo" style="display: none"> <!-- INÍCIO DIV ABA CADASTRO DE VEÍCULOS -->
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">First</th>
+                                <th scope="col">Last</th>
+                                <th scope="col">Handle</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>@mdo</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td>Jacob</td>
+                                <td>Thornton</td>
+                                <td>@fat</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">3</th>
+                                <td colspan="2">Larry the Bird</td>
+                                <td>@twitter</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div> <!-- FIM DIV ABA CADASTRO DE VEÍCULOS -->
+            </div> <!-- FIM DIV ABAS -->
+        </div>
     </div> <!-- FIM DIV CONTAINER -->
 </body>
 <!-- Bootstrap 5.0.0 -->
