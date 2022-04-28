@@ -3,8 +3,7 @@
 :root {
     --header-height: 2rem;
     --nav-width: 68px;
-    /* --first-color: #687A86; */
-    --first-color: #545183;
+    --first-color: #687A86;
     --first-color-light: #BACDDA;
     --second-color-light: #FDF9BC;
     --third-color-light: #A5DCBF ;
@@ -44,7 +43,7 @@ a {
     align-items: center;
     justify-content: space-between;
     padding: 0 1rem;
-    background-color: rgb(175, 174, 184);/*var(--white-color);*/
+    background-color: var(--first-color-light);
     z-index: var(--z-fixed);
     transition: .5s
 }

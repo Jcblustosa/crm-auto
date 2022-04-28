@@ -20,7 +20,7 @@
 }
 
 body{
-    background-color: var(--first-color);
+    background-color: var(--white-color);
 }
 
 h1{
@@ -61,20 +61,20 @@ a {
   #formContent {
     -webkit-border-radius: 10px 10px 10px 10px;
     border-radius: 10px 10px 10px 10px;
-    background: #fff;
+    background: #A5DCBF;
     padding: 30px;
     width: 90%;
     max-width: 450px;
     position: relative;
     padding: 0px;
-    -webkit-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
-    box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+    -webkit-box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.192);
+    box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.192);
     text-align: center;
   }
   
   #formFooter {
-    background-color: #f6f6f6;
-    border-top: 1px solid #dce8f1;
+    background-color: #A5DCBF;
+    border-top: 1px solid #9acfb3;
     padding: 25px;
     text-align: center;
     -webkit-border-radius: 0 0 10px 10px;
@@ -128,7 +128,7 @@ a {
     transform: scale(0.95);
   }
   
-  input[type=text] {
+  input[type=email], input[type=password] {
     background-color: #f6f6f6;
     border: none;
     color: #051821;
@@ -149,12 +149,12 @@ a {
     border-radius: 5px 5px 5px 5px;
   }
   
-  input[type=text]:focus {
+  input[type=email]:focus, input[type=password]:focus {
     background-color: #fff;
     border-bottom: 2px solid #5fbae9;
   }
   
-  input[type=text]:placeholder {
+  input[type=email]:focus, input[type=password]:placeholder {
     color: #cccccc;
   }
 
@@ -192,7 +192,7 @@ a {
   }
   
   .underlineHover{
-    color: #687A86;
+    color: #051821;
   }
 
   /* Simple CSS3 Fade-in Animation */
@@ -202,21 +202,18 @@ a {
     bottom: -10px;
     width: 0;
     height: 2px;
-    background-color: var(--first-color-light);
+    background-color: var(--first-color);
     content: "";
     transition: width 0.2s;
   }
   
   .underlineHover:hover {
-    color: #051821;
+    color: #687A86;
   }
   
   .underlineHover:hover:after{
     width: 100%;
   }
-  
-
-
 
 .footer{
     position: fixed;
