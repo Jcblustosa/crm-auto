@@ -1,8 +1,7 @@
 :root {
     --header-height: 2rem;
-    /* --nav-width: 68px; */
     --border-color: #687A86;
-    --first-color: #687A86;
+    --first-color: #5669a7;
     --first-color-light: #BACDDA;
     --second-color-light: #FDF9BC;
     --third-color-light: #A5DCBF ;
@@ -109,6 +108,28 @@ form{
 
 .form-group{
     margin-top: 15px;
+}
+
+/* ESTILO DO FORMULÁRIO LOGRADOURO */
+
+#cep{
+    width: 120px;
+}
+
+#endereco{
+    width: 35rem;
+}
+
+#numero{
+    width: 80px;
+}
+
+#cidade, #estado{
+    width: 277px;
+}
+
+#complemento{
+    width: 400px;
 }
 
 /*.body{font-family:Calibri, Tahoma, Arial}*/

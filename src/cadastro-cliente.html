@@ -110,14 +110,14 @@
                     <label for="cpf_cnpj">Informe o CPF</label>
                     <input type="text" class="form-control" id="cpf_cnpj" placeholder="Documento CPF ou CNPJ">
                 </div>
-                <div class="form-group col-md-2">
+                <!-- <div class="form-group col-md-2">
                     <label for="cpf_cnpj">Inscrição Estadual</label>
                     <input type="text" class="form-control" id="cpf_cnpj" placeholder="Inscrição estadual">
                 </div>
                 <div class="form-group col-md-2">
                     <label for="cpf_cnpj">Inscrição Municipal</label>
                     <input type="text" class="form-control" id="cpf_cnpj" placeholder="Inscrição municipal">
-                </div>
+                </div> -->
             </div>
             <div class="row">
                 <div class="form-group col-md-6">
@@ -148,53 +148,78 @@
             <div id="content">
                 <div id="abaRes" class="conteudo" style="display: block"> <!-- INÍCIO ABA RESIDENCIAL -->
                     <form>
-                        <div class="form-group col-md-2">
-                            <label for="cepRes">CEP</label>
-                            <input type="text" class="form-control" id="cepRes">
+                        <div class="form-group">
+                            <label for="cep">CEP</label>
+                            <input type="text" class="form-control" id="cep">
                         </div>
                         
                         <div class="row">
-                            <div class="form-group col-md-6"> <!-- INÍCIO DIV CONTEÚDO DO FORM LOGRADOURO -->
-                                <label for="enderecoRes">Endereco</label>
-                                <input type="text" class="form-control" id="enderecoRes" placeholder="Rua, avenida, praça, fazenda...">
+                            <div class="form-group flex-nowrap"> <!-- INÍCIO DIV CONTEÚDO DO FORM LOGRADOURO -->
+                                <label for="endereco">Endereço</label>
+                                <input type="text" class="form-control" id="endereco" placeholder="Rua, avenida, praça, fazenda...">
                             </div>
-                            <div class="form-group col-md-1">
-                                <label for="numeroRes">Número</label>
-                                <input type="text" class="form-control" id="numeroRes" placeholder="1234">
-                            </div>
-                            <div class="form-group col-md-5">
-                                <label for="complementoRes">Complemento</label>
-                                <input type="text" class="form-control" id="complementoRes" placeholder="Apartamento, casa, lote...">
+                            <div class="form-group">
+                                <label for="numero">Número</label>
+                                <input type="text" class="form-control" id="numero" placeholder="1234">
                             </div>
                         </div> <!-- FIM DIV CONTEÚDO DO FORM LOGRADOURO -->
                         
                         <div class="row">
-                            <div class="form-group col-md-6">
-                                <label for="cidadeRes">Cidade</label>
-                                <input type="text" class="form-control" id="cidadeRes">
+                            <div class="form-group col-md-3">
+                                <label for="cidade">Cidade</label>
+                                <input type="text" class="form-control" id="cidade" placeholder="Cidade">
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="estado">Estado</label>
+                                <select id="estado" class="form-control">
+                                    <option selected>Selecione...</option>
+                                    <option value="AC">AC - Acre</option>
+                                    <option value="AL">AL - Alagoas</option>
+                                    <option value="AM">AM - Amazonas</option>
+                                    <option value="AP">AP - Amapá</option>
+                                    <option value="BA">BA - Bahia</option>
+                                    <option value="CE">CE - Ceara</option>
+                                    <option value="DF">DF - Distrito Federal</option>
+                                    <option value="ES">ES - Espirito Santo</option>
+                                    <option value="GO">GO - Goiás</option>
+                                    <option value="MA">MA - Maranhão</option>
+                                    <option value="MG">MG - Minas Gerais</option>
+                                    <option value="MS">MS - Mato Grosso do Sul</option>
+                                    <option value="MT">MT - Mato Grosso</option>
+                                    <option value="PA">PA - Pará</option>
+                                    <option value="PB">PB - Paraíba</option>
+                                    <option value="PE">PE - Pernambuco</option>
+                                    <option value="PI">PI - Piauí</option>
+                                    <option value="PR">PR - Paraná</option>
+                                    <option value="RJ">RJ - Rio de Janeiro</option>
+                                    <option value="RN">RN - Rio Grande do Norte</option>
+                                    <option value="RO">RO - Rondônia</option>
+                                    <option value="RR">RR - Roraima</option>
+                                    <option value="RS">RS - Rio Grande do Sul</option>
+                                    <option value="SC">SC - Santa Catarina</option>
+                                    <option value="SE">SE - Sergipe</option>
+                                    <option value="SP">SP - São Paulo</option>
+                                    <option value="TO">TO - Tocantins</option>
+                                </select>
                             </div>
                             <div class="form-group col-md-4">
-                                <label for="estadoRes">Estado</label>
-                                <select id="estadoRes" class="form-control">
-                                <option selected>Selecione...</option>
-                                <option>AM</option>
-                                <option>BA</option>
-                                </select>
+                                <label for="complemento">Complemento</label>
+                                <input type="text" class="form-control" id="complemento" placeholder="Apartamento, casa, lote...">
                             </div>
                         </div>
 
                         <div class="row"> <!-- INICIO DIV CIDADE E ESTADO -->
                             <div class="form-group col-md-2">
-                                <label for="telefoneRes">Telefone</label>
-                                <input type="tel" class="form-control" id="telefoneRes" placeholder="Telefone">
+                                <label for="telefone">Telefone</label>
+                                <input type="tel" class="form-control" id="telefone" placeholder="Telefone">
                             </div>
                             <div class="form-group col-md-2">
-                                <label for="celularRes">Telefone</label>
-                                <input type="tel" class="form-control" id="celularRes" placeholder="Celular">
+                                <label for="celular">Telefone</label>
+                                <input type="tel" class="form-control" id="celular" placeholder="Celular">
                             </div>
                             <div class="form-group col-md-6">
-                                <label for="emailRes">Email</label>
-                                <input type="email" class="form-control" id="emailRes" placeholder="Email">
+                                <label for="email">Email</label>
+                                <input type="email" class="form-control" id="email" placeholder="Email">
                             </div>
                         </div> <!-- FIM DIV CIDADE E ESTADO -->
                     </form>
