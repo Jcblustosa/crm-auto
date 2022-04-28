@@ -90,7 +90,7 @@ a {
   }
   
   h2.active {
-    color: #0d0d0d;
+    color: #051821;
     border-bottom: 2px solid #5fbae9;
   }
   
@@ -131,7 +131,7 @@ a {
   input[type=email], input[type=password] {
     background-color: #f6f6f6;
     border: none;
-    color: #0d0d0d;
+    color: #051821;
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
@@ -192,7 +192,7 @@ a {
   }
   
   .underlineHover{
-    color: #051821a8;
+    color: #051821;
   }
 
   /* Simple CSS3 Fade-in Animation */
@@ -208,7 +208,7 @@ a {
   }
   
   .underlineHover:hover {
-    color: #0d0d0d;
+    color: #687A86;
   }
   
   .underlineHover:hover:after{
