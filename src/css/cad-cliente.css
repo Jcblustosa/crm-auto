@@ -30,7 +30,7 @@
 }
 
 .TabControl{
-    width: 99%;
+    width: 80%;
     overflow: hidden;
     height: 100%;
 }
@@ -112,12 +112,24 @@ form{
 
 /* ESTILO DO FORMULÁRIO LOGRADOURO */
 
+#row-pg-1{
+    width: 88%;
+}
+
+#row-pg-2{
+    width: 120%;
+}
+
+#row-pg-3{
+    width: 112%;
+}
+
 #cep{
-    width: 120px;
+    width: 128px;
 }
 
 #endereco{
-    width: 35rem;
+    width: 30rem;
 }
 
 #numero{
@@ -129,7 +141,74 @@ form{
 }
 
 #complemento{
-    width: 400px;
+    width: 300px;
 }
 
 /*.body{font-family:Calibri, Tahoma, Arial}*/
+
+/* @media screen and (max-width: 1200x) {
+    .TabControl{
+        width: 80%;
+        overflow: hidden;
+        height: 100%;
+    }
+
+    #cep{
+        width: 128px;
+    }
+
+    #endereco{
+        width: 30rem;
+    }
+
+    #numero{
+        width: 80px;
+    }
+
+    #cidade, #estado{
+        width: 277px;
+    }
+
+    #complemento{
+        width: 400px;
+    }
+} */
+
+@media screen and (max-width: 768px) {
+    .TabControl{
+        width: 100%;
+        overflow: hidden;
+        height: 100%;
+    }
+
+    #row-pg-1{
+        width: 100%;
+    }
+
+    #row-pg-2{
+        width: 100%;
+    }
+
+    /* ESTILO DO FORMULÁRIO LOGRADOURO */
+
+    #cep{
+        width: 128px;
+    }
+
+    #endereco{
+        width: 26rem;
+    }
+
+    #numero{
+        width: 80px;
+    }
+
+    #cidade, #estado{
+        width: 90px;
+    }
+
+    #complemento{
+        width: 300px;
+    }
+
+}

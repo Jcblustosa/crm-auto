@@ -19,15 +19,10 @@ $(document).ready(function(){
 function AtivaAba(el) {
     
     var nomeElemento = el
-    var displayAba = document.getElementById(el).style.display
-    
-    
+    var displayAba = document.getElementById(el).style.display 
 
     if(nomeElemento == "abaRes"){
-        /* console.log("Primeiro if el:" + el)
-        console.log("Primeiro if nomeElemento: " + nomeElemento)
-        console.log("Primeiro if: " + document.getElementById("abaRes").style.display) */
-        if (document.getElementById("abaRes").style.display == "none" || document.getElementById("abaRes").style.display == " "){
+        if (document.getElementById("abaRes").style.display == "none"){
             document.getElementById("abaVeiculo").style.display = 'none'
             document.getElementById("abaRes").style.display = 'block'}
         else if(displayAba == "block"){
@@ -36,9 +31,6 @@ function AtivaAba(el) {
     }
 
     if(nomeElemento == "abaVeiculo"){
-        /* console.log("Segundo if el:" + el)
-        console.log("Segundo if nomeElemento: " + nomeElemento)
-        console.log("Primeiro if: " + document.getElementById("abaVeiculo").style.display) */
         if(document.getElementById("abaVeiculo").style.display == "none"){
             document.getElementById("abaRes").style.display = 'none'
             document.getElementById("abaVeiculo").style.display = 'block'}
