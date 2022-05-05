@@ -63,6 +63,10 @@ a {
     overflow: hidden;
 }
 
+#idContainer{
+    height: 650px;
+}
+
 .btn-user{
     background-color: var(--first-color);
 }

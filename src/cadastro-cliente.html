@@ -90,7 +90,7 @@
         </nav>
     </div>
     <!--Container Main start-->  
-    <div id="idContainer" class="height-95 bg-light">
+    <div id="idContainer" > <!-- class="bg-light"-->
         <form>
             <div class="row">
                 <div class="form-group col-md-3">
@@ -143,9 +143,9 @@
                         <div id="row-pg-1" class="row">
                             <div class="form-group col-md-2">
                                 <label for="cep">CEP</label>
-                                <input type="text" class="form-control" id="cep" placeholder="99.999-999">
+                                <input type="text" class="form-control" v-model="cep" id="cep" onclick="this.value=''" maxlength="8" placeholder="99.999-999">
                             </div>
-                            <div class="form-group col-md-7"> <!-- INÍCIO DIV CONTEÚDO DO FORM LOGRADOURO -->
+                            <div class="form-group col-md-6"> <!-- INÍCIO DIV CONTEÚDO DO FORM LOGRADOURO -->
                                 <label for="endereco">Endereço</label>
                                 <input type="text" class="form-control" id="endereco" placeholder="Rua, avenida, praça, fazenda...">
                             </div>
@@ -220,11 +220,12 @@
                     <table class="table">
                         <thead>
                             <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">Placa</th>
-                                <th scope="col">Veículo</th>
-                                <th scope="col">Ano modelo</th>
-                                <th scope="col">KM atual</th>
+                                <th class="tb-item-veiculo" scope="col">#</th>
+                                <th class="tb-placa" scope="col">Placa</th>
+                                <th class="tb-veiculo" scope="col">Veículo</th>
+                                <th class="tb-ano-modelo" scope="col">Ano modelo</th>
+                                <th class="tb-km" scope="col">KM atual</th>
+                                <th class="tb-1" scope="col"></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -234,6 +235,9 @@
                                 <td>CRUZE SPORT6 LTZ</td>
                                 <td>2018/2018</td>
                                 <td>36123</td>
+                                <td>
+                                    <button class="btn btn-primary">Ver</button>
+                                </td>
                             </tr>
                             <tr>
                                 <th scope="row">2</th>
@@ -253,6 +257,8 @@
                     </table>
                 </div> <!-- FIM DIV ABA CADASTRO DE VEÍCULOS -->
             </div> <!-- FIM DIV ABAS -->
+            <div class="error">{{error}}</div>
+            <div class="display">{{city}}</div>
         </div>
     </div> <!-- FIM DIV CONTAINER -->
 </body>
