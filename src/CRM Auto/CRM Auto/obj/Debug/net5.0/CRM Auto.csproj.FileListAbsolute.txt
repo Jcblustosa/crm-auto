@@ -38,3 +38,43 @@ C:\Users\cwart\Google Drive\PUC MINAS\Ciclo 2\Projeto\pmv-ads-2022-1-e2-proj-int
 C:\Users\cwart\Google Drive\PUC MINAS\Ciclo 2\Projeto\pmv-ads-2022-1-e2-proj-int-t3-crm-auto\src\CRM Auto\CRM Auto\obj\Debug\net5.0\CRM Auto.genruntimeconfig.cache
 C:\Users\cwart\Google Drive\PUC MINAS\Ciclo 2\Projeto\pmv-ads-2022-1-e2-proj-int-t3-crm-auto\src\CRM Auto\CRM Auto\obj\Debug\net5.0\CRM Auto.csproj.CopyComplete
 C:\Users\cwart\Google Drive\PUC MINAS\Ciclo 2\Projeto\pmv-ads-2022-1-e2-proj-int-t3-crm-auto\src\CRM Auto\CRM Auto\obj\Debug\net5.0\Razor\Views\Cadastros\Veiculo.cshtml.g.cs
+C:\Users\misle\OneDrive\Documentos\GitHub\pmv-ads-2022-1-e2-proj-int-t3-crm-auto\src\CRM Auto\CRM Auto\bin\Debug\net5.0\appsettings.Development.json
+C:\Users\misle\OneDrive\Documentos\GitHub\pmv-ads-2022-1-e2-proj-int-t3-crm-auto\src\CRM Auto\CRM Auto\bin\Debug\net5.0\appsettings.json
+C:\Users\misle\OneDrive\Documentos\GitHub\pmv-ads-2022-1-e2-proj-int-t3-crm-auto\src\CRM Auto\CRM Auto\bin\Debug\net5.0\CRM Auto.exe
+C:\Users\misle\OneDrive\Documentos\GitHub\pmv-ads-2022-1-e2-proj-int-t3-crm-auto\src\CRM Auto\CRM Auto\bin\Debug\net5.0\CRM Auto.deps.json
+C:\Users\misle\OneDrive\Documentos\GitHub\pmv-ads-2022-1-e2-proj-int-t3-crm-auto\src\CRM Auto\CRM Auto\bin\Debug\net5.0\CRM Auto.runtimeconfig.json
+C:\Users\misle\OneDrive\Documentos\GitHub\pmv-ads-2022-1-e2-proj-int-t3-crm-auto\src\CRM Auto\CRM Auto\bin\Debug\net5.0\CRM Auto.runtimeconfig.dev.json
+C:\Users\misle\OneDrive\Documentos\GitHub\pmv-ads-2022-1-e2-proj-int-t3-crm-auto\src\CRM Auto\CRM Auto\bin\Debug\net5.0\CRM Auto.dll
+C:\Users\misle\OneDrive\Documentos\GitHub\pmv-ads-2022-1-e2-proj-int-t3-crm-auto\src\CRM Auto\CRM Auto\bin\Debug\net5.0\CRM Auto.pdb
+C:\Users\misle\OneDrive\Documentos\GitHub\pmv-ads-2022-1-e2-proj-int-t3-crm-auto\src\CRM Auto\CRM Auto\bin\Debug\net5.0\CRM Auto.Views.dll
+C:\Users\misle\OneDrive\Documentos\GitHub\pmv-ads-2022-1-e2-proj-int-t3-crm-auto\src\CRM Auto\CRM Auto\bin\Debug\net5.0\CRM Auto.Views.pdb
+C:\Users\misle\OneDrive\Documentos\GitHub\pmv-ads-2022-1-e2-proj-int-t3-crm-auto\src\CRM Auto\CRM Auto\obj\Debug\net5.0\CRM Auto.csproj.AssemblyReference.cache
+C:\Users\misle\OneDrive\Documentos\GitHub\pmv-ads-2022-1-e2-proj-int-t3-crm-auto\src\CRM Auto\CRM Auto\obj\Debug\net5.0\CRM Auto.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\misle\OneDrive\Documentos\GitHub\pmv-ads-2022-1-e2-proj-int-t3-crm-auto\src\CRM Auto\CRM Auto\obj\Debug\net5.0\CRM Auto.AssemblyInfoInputs.cache
+C:\Users\misle\OneDrive\Documentos\GitHub\pmv-ads-2022-1-e2-proj-int-t3-crm-auto\src\CRM Auto\CRM Auto\obj\Debug\net5.0\CRM Auto.AssemblyInfo.cs
+C:\Users\misle\OneDrive\Documentos\GitHub\pmv-ads-2022-1-e2-proj-int-t3-crm-auto\src\CRM Auto\CRM Auto\obj\Debug\net5.0\CRM Auto.csproj.CoreCompileInputs.cache
+C:\Users\misle\OneDrive\Documentos\GitHub\pmv-ads-2022-1-e2-proj-int-t3-crm-auto\src\CRM Auto\CRM Auto\obj\Debug\net5.0\CRM Auto.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\misle\OneDrive\Documentos\GitHub\pmv-ads-2022-1-e2-proj-int-t3-crm-auto\src\CRM Auto\CRM Auto\obj\Debug\net5.0\CRM Auto.RazorAssemblyInfo.cache
+C:\Users\misle\OneDrive\Documentos\GitHub\pmv-ads-2022-1-e2-proj-int-t3-crm-auto\src\CRM Auto\CRM Auto\obj\Debug\net5.0\CRM Auto.RazorAssemblyInfo.cs
+C:\Users\misle\OneDrive\Documentos\GitHub\pmv-ads-2022-1-e2-proj-int-t3-crm-auto\src\CRM Auto\CRM Auto\obj\Debug\net5.0\scopedcss\bundle\CRM Auto.styles.css
+C:\Users\misle\OneDrive\Documentos\GitHub\pmv-ads-2022-1-e2-proj-int-t3-crm-auto\src\CRM Auto\CRM Auto\obj\Debug\net5.0\staticwebassets\CRM Auto.StaticWebAssets.Manifest.cache
+C:\Users\misle\OneDrive\Documentos\GitHub\pmv-ads-2022-1-e2-proj-int-t3-crm-auto\src\CRM Auto\CRM Auto\obj\Debug\net5.0\CRM Auto.TagHelpers.input.cache
+C:\Users\misle\OneDrive\Documentos\GitHub\pmv-ads-2022-1-e2-proj-int-t3-crm-auto\src\CRM Auto\CRM Auto\obj\Debug\net5.0\CRM Auto.TagHelpers.output.cache
+C:\Users\misle\OneDrive\Documentos\GitHub\pmv-ads-2022-1-e2-proj-int-t3-crm-auto\src\CRM Auto\CRM Auto\obj\Debug\net5.0\CRM Auto.RazorCoreGenerate.cache
+C:\Users\misle\OneDrive\Documentos\GitHub\pmv-ads-2022-1-e2-proj-int-t3-crm-auto\src\CRM Auto\CRM Auto\obj\Debug\net5.0\Razor\Views\Cadastros\Veiculo.cshtml.g.cs
+C:\Users\misle\OneDrive\Documentos\GitHub\pmv-ads-2022-1-e2-proj-int-t3-crm-auto\src\CRM Auto\CRM Auto\obj\Debug\net5.0\Razor\Views\Home\Index.cshtml.g.cs
+C:\Users\misle\OneDrive\Documentos\GitHub\pmv-ads-2022-1-e2-proj-int-t3-crm-auto\src\CRM Auto\CRM Auto\obj\Debug\net5.0\Razor\Views\Home\Privacy.cshtml.g.cs
+C:\Users\misle\OneDrive\Documentos\GitHub\pmv-ads-2022-1-e2-proj-int-t3-crm-auto\src\CRM Auto\CRM Auto\obj\Debug\net5.0\Razor\Views\Shared\Error.cshtml.g.cs
+C:\Users\misle\OneDrive\Documentos\GitHub\pmv-ads-2022-1-e2-proj-int-t3-crm-auto\src\CRM Auto\CRM Auto\obj\Debug\net5.0\Razor\Views\Shared\_Layout.cshtml.g.cs
+C:\Users\misle\OneDrive\Documentos\GitHub\pmv-ads-2022-1-e2-proj-int-t3-crm-auto\src\CRM Auto\CRM Auto\obj\Debug\net5.0\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
+C:\Users\misle\OneDrive\Documentos\GitHub\pmv-ads-2022-1-e2-proj-int-t3-crm-auto\src\CRM Auto\CRM Auto\obj\Debug\net5.0\Razor\Views\_ViewImports.cshtml.g.cs
+C:\Users\misle\OneDrive\Documentos\GitHub\pmv-ads-2022-1-e2-proj-int-t3-crm-auto\src\CRM Auto\CRM Auto\obj\Debug\net5.0\Razor\Views\_ViewStart.cshtml.g.cs
+C:\Users\misle\OneDrive\Documentos\GitHub\pmv-ads-2022-1-e2-proj-int-t3-crm-auto\src\CRM Auto\CRM Auto\obj\Debug\net5.0\CRM Auto.RazorTargetAssemblyInfo.cache
+C:\Users\misle\OneDrive\Documentos\GitHub\pmv-ads-2022-1-e2-proj-int-t3-crm-auto\src\CRM Auto\CRM Auto\obj\Debug\net5.0\CRM Auto.RazorTargetAssemblyInfo.cs
+C:\Users\misle\OneDrive\Documentos\GitHub\pmv-ads-2022-1-e2-proj-int-t3-crm-auto\src\CRM Auto\CRM Auto\obj\Debug\net5.0\CRM Auto.Views.pdb
+C:\Users\misle\OneDrive\Documentos\GitHub\pmv-ads-2022-1-e2-proj-int-t3-crm-auto\src\CRM Auto\CRM Auto\obj\Debug\net5.0\CRM Auto.dll
+C:\Users\misle\OneDrive\Documentos\GitHub\pmv-ads-2022-1-e2-proj-int-t3-crm-auto\src\CRM Auto\CRM Auto\obj\Debug\net5.0\refint\CRM Auto.dll
+C:\Users\misle\OneDrive\Documentos\GitHub\pmv-ads-2022-1-e2-proj-int-t3-crm-auto\src\CRM Auto\CRM Auto\obj\Debug\net5.0\CRM Auto.pdb
+C:\Users\misle\OneDrive\Documentos\GitHub\pmv-ads-2022-1-e2-proj-int-t3-crm-auto\src\CRM Auto\CRM Auto\obj\Debug\net5.0\CRM Auto.genruntimeconfig.cache
+C:\Users\misle\OneDrive\Documentos\GitHub\pmv-ads-2022-1-e2-proj-int-t3-crm-auto\src\CRM Auto\CRM Auto\obj\Debug\net5.0\ref\CRM Auto.dll
+C:\Users\misle\OneDrive\Documentos\GitHub\pmv-ads-2022-1-e2-proj-int-t3-crm-auto\src\CRM Auto\CRM Auto\obj\Debug\net5.0\CRM Auto.csproj.CopyComplete
