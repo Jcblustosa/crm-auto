@@ -79,7 +79,58 @@
     <!--Container Main start-->
     <div class="height-100 bg-light">
         <h4>Área dos formulários</h4>
-        
+        <div id="abaCob" class="conteudo">  <!-- INÍCIO ABA COBRANÇA -->
+            <form>
+                <div class="form-group col-md-2"> <!-- INÍCIO DIV CEP -->
+                    <label for="cepCob">CEP</label>
+                    <input type="text" class="form-control" id="cepCob">
+                </div>
+                
+                <div class="row"> <!-- INÍCIO DIV ENDEREÇO, NÚMERO E COMPLEMENTO -->
+                    <div class="form-group col-md-6">
+                        <label for="enderecoCob">Endereco</label>
+                        <input type="text" class="form-control" id="enderecoCob" placeholder="Rua, avenida, praça, fazenda...">
+                    </div>
+                    <div class="form-group col-md-1">
+                        <label for="numeroCob">Número</label>
+                        <input type="text" class="form-control" id="numeroCob" placeholder="1234">
+                    </div>
+                    <div class="form-group col-md-5">
+                        <label for="complementoCob">Complemento</label>
+                        <input type="text" class="form-control" id="complementoCob" placeholder="Apartamento, casa, lote...">
+                    </div>
+                </div> <!-- FIM DIV ENDEREÇO, NÚMERO E COMPLEMENTO -->
+                
+                <div class="row"> <!-- INICIO DIV CIDADE E ESTADO -->
+                    <div class="form-group col-md-6">
+                        <label for="cidadeCob">Cidade</label>
+                        <input type="text" class="form-control" id="cidadeCob">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="estadoCob">Estado</label>
+                        <select id="estadoCob" class="form-control">
+                        <option selected>Selecione...</option>
+                        <option>AM</option>
+                        </select>
+                    </div>
+                </div> <!-- FIM DIV CIDADE E ESTADO -->
+
+                <div class="row"> <!-- INICIO DIV TELEFONES E EMAIL -->
+                    <div class="form-group col-md-2">
+                        <label for="telefoneCob">Telefone</label>
+                        <input type="tel" class="form-control" id="telefoneCob" placeholder="Telefone">
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label for="celularCob">Telefone</label>
+                        <input type="tel" class="form-control" id="celularCob" placeholder="Celular">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="emailCob">Email</label>
+                        <input type="email" class="form-control" id="emailCob" placeholder="Email">
+                    </div>
+                </div> <!-- FIM DIV TELEFONES E EMAIL -->
+            </form>
+        </div> <!-- FIM ABA RESIDENCIAL -->
     </div>
 </body>
 <!-- Bootstrap 5.0.0 -->

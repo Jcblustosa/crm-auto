@@ -1,8 +1,7 @@
 :root {
     --header-height: 2rem;
-    /* --nav-width: 68px; */
-    --border-color: #565564;
-    --first-color: #545183;
+    --border-color: #687A86;
+    --first-color: #5669a7;
     --first-color-light: #BACDDA;
     --second-color-light: #FDF9BC;
     --third-color-light: #A5DCBF ;
@@ -13,7 +12,7 @@
     --z-fixed: 90
 }
 
-div#idContainer{
+#idContainer{
     font-family: var(--body-font);
     font-size: var(--normal-font-size);
 }
@@ -30,22 +29,12 @@ div#idContainer{
     height: 35px;
 }
 
-#abaRes{
-    display: none;
-}
-
-#abaCob{
-    display: none;
-}
-
-#abaVeiculo{
-    display: block;
-}
-
 .TabControl{
-    width: 99%;
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 98%;
     overflow: hidden;
-    height: 100%;
+    height: 420px;
 }
 
 .TabControl #header{
@@ -58,7 +47,7 @@ div#idContainer{
     width: 100%;
     border: 1px solid var(--first-color-light);
     overflow: hidden;
-    height: 100%;
+    height: 80%;
 }
 
 .TabControl .abas{
@@ -99,6 +88,8 @@ div#idContainer{
 }
 
 .TabControl .conteudo{
+    padding-left: 10px;
+    padding-right: 10px;
     width: 100%;
     background: white;
     display: none;
@@ -115,6 +106,27 @@ div#idContainer{
     background: var(--first-color);
 }
 
+#abaVeiculo .table{
+    width: 80%;
+    font-size: 0.8rem;
+}
+
+.tb-item-veiculo{
+    width: 25px;
+}
+
+.tb-placa{
+    width: 55px;
+}
+
+.tb-veiculo{
+    width: 250px;
+}
+
+.tb-ano-modelo, .tb-km{
+    width: 85px;
+}
+
 form{
     padding: 3px 15px 15px 10px;
 }
@@ -123,4 +135,105 @@ form{
     margin-top: 15px;
 }
 
+/* ESTILO DO FORMULÁRIO LOGRADOURO */
+
+/* #row-pg-1{
+    width: 88%;
+}
+
+#row-pg-2{
+    width: 120%;
+}
+
+#row-pg-3{
+    width: 112%;
+}
+
+#cep{
+    width: 128px;
+}
+
+#endereco{
+    width: 30rem;
+}
+
+#numero{
+    width: 80px;
+}
+
+#cidade, #estado{
+    width: 277px;
+}
+
+#complemento{
+    width: 300px;
+} */
+
 /*.body{font-family:Calibri, Tahoma, Arial}*/
+
+/* @media screen and (max-width: 1200x) {
+    .TabControl{
+        width: 80%;
+        overflow: hidden;
+        height: 100%;
+    }
+
+    #cep{
+        width: 128px;
+    }
+
+    #endereco{
+        width: 30rem;
+    }
+
+    #numero{
+        width: 80px;
+    }
+
+    #cidade, #estado{
+        width: 277px;
+    }
+
+    #complemento{
+        width: 400px;
+    }
+} */
+
+@media screen and (max-width: 768px) {
+    .TabControl{
+        width: 100%;
+        overflow: hidden;
+        height: 100%;
+    }
+
+    #row-pg-1{
+        width: 100%;
+    }
+
+    #row-pg-2{
+        width: 100%;
+    }
+
+    /* ESTILO DO FORMULÁRIO LOGRADOURO */
+
+    #cep{
+        width: 128px;
+    }
+
+    #endereco{
+        width: 26rem;
+    }
+
+    #numero{
+        width: 80px;
+    }
+
+    #cidade, #estado{
+        width: 90px;
+    }
+
+    #complemento{
+        width: 300px;
+    }
+
+}
