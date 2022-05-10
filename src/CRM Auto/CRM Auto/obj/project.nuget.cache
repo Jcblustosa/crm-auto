@@ -1,10 +1,18 @@
 {
   "version": 2,
-  "dgSpecHash": "MMDGvtspPK0nZIo3C+Y+QVlkDWQNlqEIPlImKfqUT1j+P+hLb4/bWjiB4roGr+tfKEAC0ZB0/Ka/YmFZz6hjPw==",
+  "dgSpecHash": "0YtIEGDMf+px2+XIeTLzvwtK9oH0GN6Cqk4RKcWcolAzONSPUD/GDTRBb5cAS547fA8qflK6UFdJTkZ+PPxVWA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\julio\\Documents\\Curso Superior\\Repositorios\\login\\pmv-ads-2022-1-e2-proj-int-t3-crm-auto\\src\\CRM Auto\\CRM Auto\\CRM Auto.csproj",
+  "projectFilePath": "C:\\Users\\cwart\\Google Drive\\PUC MINAS\\Ciclo 2\\Projeto\\pmv-ads-2022-1-e2-proj-int-t3-crm-auto\\src\\CRM Auto\\CRM Auto\\CRM Auto.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\julio\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.16\\microsoft.netcore.app.host.win-x64.5.0.16.nupkg.sha512"
+    "C:\\Users\\cwart\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
+    "C:\\Users\\cwart\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
+    "C:\\Users\\cwart\\.nuget\\packages\\runtime.native.system.data.sqlclient.sni\\4.7.0\\runtime.native.system.data.sqlclient.sni.4.7.0.nupkg.sha512",
+    "C:\\Users\\cwart\\.nuget\\packages\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
+    "C:\\Users\\cwart\\.nuget\\packages\\runtime.win-x64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-x64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
+    "C:\\Users\\cwart\\.nuget\\packages\\runtime.win-x86.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-x86.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
+    "C:\\Users\\cwart\\.nuget\\packages\\system.data.sqlclient\\4.8.3\\system.data.sqlclient.4.8.3.nupkg.sha512",
+    "C:\\Users\\cwart\\.nuget\\packages\\system.security.accesscontrol\\4.7.0\\system.security.accesscontrol.4.7.0.nupkg.sha512",
+    "C:\\Users\\cwart\\.nuget\\packages\\system.security.principal.windows\\4.7.0\\system.security.principal.windows.4.7.0.nupkg.sha512"
   ],
   "logs": []
 }
