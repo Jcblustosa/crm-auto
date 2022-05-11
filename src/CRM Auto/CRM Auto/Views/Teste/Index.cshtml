@@ -1,0 +1,41 @@
+﻿@model TesteModel
+
+<h3>Testando</h3>
+
+<form asp-controller="Teste" asp-action="TestandoInsert">
+    <div class="form-group">
+        <label for="formGroupExampleInput">Nome:</label>
+        <input type="text" class="form-control" id="formGroupExampleInput" asp-for="Nome_Cliente">
+        <span asp-validation-for="Nome_Cliente" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label for="formGroupExampleInput">Telefone:</label>
+        <input type="text" class="form-control" id="formGroupExampleInput" asp-for="Telefone">
+        <span asp-validation-for="Telefone" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-outline-success">Pronto</button>
+</form>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Telefone</th>
+        </tr>
+    </thead>
+    @{
+        foreach (var item in (List<TesteModel>)ViewBag.pessoas)
+        {
+            <tbody>
+                    <tr>
+                        <td>@item.Nome_Cliente.ToString()</td>
+                        <td>@item.Telefone.ToString()</td>
+                    </tr>
+            </tbody>
+        }
+    }
+</table> 
+
+
