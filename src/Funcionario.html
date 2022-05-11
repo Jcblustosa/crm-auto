@@ -5,8 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
-    <link rel="stylesheet" href="css/menu.css">
-    <title>Funcionario</title>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/cadastros.css">
+    <title>Cadastro de Funcionário</title>
 </head>
 <body id="body-pd">
     <header class="header" id="header">
@@ -72,72 +74,53 @@
         </nav>
     </div>
     <!--Container Main start-->
-    <div class="height-100 bg-light">
+    <div class="height-100">
         <h4>Funcionario</h4>
-        <!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Cadastro de Contatos</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="style.css">
-</head>
 
 <body onload="init()">
-    <h1>Cadastro de funcionário</h1>
+    <h1>Cadastro de funcionários</h1>
+    
     <div class="col-sm-5">
         <label for="inputTelefone">Matrícula (*)</label>
         <input type="text" class="form-control" id="inputMatricula" required placeholder="Informe a Matrícula">
     </div>
-    <div class="col-sm-7">  
     
-    <div class="col-sm-0">
+    <div class="col-sm-8">
+        <label for="inputNome">Nome (*)</label>
+        <input type="text" class="form-control" id="inputNome" required placeholder="Informe o Nome">
+    </div>
+    
+    <div class="col-sm-8">
+        <label for="inputCidade">Função</label>
+        <input type="text" class="form-control" id="inputFuncao" placeholder="Informe o Cargo" >
+    </div>
+                
+    <div class="col-sm-8">
+        <label for="inputSite">Oficina (*)</label>
+        <input type="text" class="form-control" id="inputOficina" required placeholder="Informe a Oficina">
+    </div>      
 
-                    <label for="inputNome">Nome (*)</label>
-                    <input type="text" class="form-control" id="inputNome" required placeholder="Informe o Nome">
-                </div>
-                    <div class="form-group row">
-                <div class="col-sm-5">
-                    
-                   
-                </div>
-                <div class="col-sm-7">
-                    
-                </div>
-            </div>
-            <div class="form-group row">
-                <div class="col-sm-6">
-                    <label for="inputCidade">Função</label>
-                    <input type="text" class="form-control" id="inputFuncao" placeholder="Informe o Cargo" >
-                </div>
-                <div class="col-sm-6">
-                    
-                </div>
-            </div>
-            <div class="form-group row">    
-                <div class="col-sm-12">
-                    <label for="inputSite">Oficina (*)</label>
-                    <input type="text" class="form-control" id="inputOficina" required placeholder="Informe a Oficina">
-                </div>
-            </div>
-            <div class="form-group row">
-                <div class="col-sm-4">
-                    <small>(*) Campos obrigatórios</small>
-                </div>
-            </div>
-            <div class="form-group row">
-                <div class="col-sm-12">
-                    <input type="button" class="btn btn-success" id="btnInsert" value="Inserir">
-                    <input type="button" class="btn btn-warning" id="btnUpdate" value="Alterar">
-                    <input type="button" class="btn btn-danger" id="btnDelete" value="Excluir">
-                    <input type="button" class="btn btn-secondary" id="btnClear" value="Limpar Form">
-                    <a href="lista_contatos.html"><input type="button" class="btn btn-warning" id="btnClear" value="Pesquisar Funcionario"></a>
-                </div>
-            </div>
-        </form>
+    <div class="form-group row">
+        <div class="col-sm-6">
+        <small>(*) Campos obrigatórios</small>
+        </div>
+    </div>
+    
+    <div class="form-group row">
+        <div class="col-sm-12">
+            <input type="button" class="btn btn-success" id="btnInsert" value="Inserir">
+            <input type="button" class="btn btn-warning" id="btnUpdate" value="Alterar">
+            <input type="button" class="btn btn-danger" id="btnDelete" value="Excluir">
+            <input type="button" class="btn btn-secondary" id="btnClear" value="Limpar Form">
+        </div>
+    </div>
+
+    <div class="col-sm-12">
+        <a href="lista_contatos.html"><input type="button" class="btn btn-warning" id="btnClear" value="Pesquisar Funcionario"></a>
+    </div>
+
+</form>
 
         <div class="row">
             <div class="col-sm-12">

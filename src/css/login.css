@@ -25,9 +25,16 @@ body{
 
 h1{
    color: var(--text-color); 
-   padding-top: 2rem;
+   padding: 1rem;
+   padding-top: 3rem;
    height: 2rem;
    text-align: center;
+   padding-bottom: 2rem;
+}
+
+h3{
+  font-size:medium;
+  font-weight:400;
 }
 
 a {
