@@ -5,10 +5,6 @@ namespace CRM_Auto.Controllers
 {
     public class OficinaController : Controller
     {
-        public IActionResult Index()
-        {
-            return View();
-        }
 
         public IActionResult LoginColaborador()
         {
