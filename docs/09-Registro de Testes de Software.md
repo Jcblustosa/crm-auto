@@ -18,10 +18,10 @@ Ao executar a aplicação, o usuário terá acesso às opções de login de cola
 Ao clicar no botão "Sou Colaborador", uma página de login aparecerá e os campos de login e senha deverão ser preenchidos.
 
 ![img2](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t3-crm-auto/blob/main/docs/img/registro%20de%20testes/CT%2011/img2.png)
-<p align="center">Evidência de teste 2 - Login de funcionário
-
-IMG BD
-
+<p align="center">Evidência de teste 2 - Login de funcionário</p>
+<p align="center">
+<img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t3-crm-auto/blob/main/docs/img/registro%20de%20testes/CT%2011/ev1.png">
+</p>
 <p align="center"> Evidência de teste 3 - Registro de usuário cadastrado no banco de dados</p>
 
 Se os dados de login estiverem corretos, o funcionário é direcionado para a página principal da oficina. 
@@ -44,7 +44,9 @@ Ao clicar no botão "Sou Cliente", uma página de login aparecerá e os campos d
 ![img5](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t3-crm-auto/blob/main/docs/img/registro%20de%20testes/CT%2012/img2.png)
 <p align="center">Evidência de teste 2 - Login de cliente</p>
 
-IMG BD
+<p align="center">
+  <img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t3-crm-auto/blob/main/docs/img/registro%20de%20testes/CT%2012/ev1.png">
+  </p>
 <p align="center">Evidência de teste 3 - Registro de usuário no banco de dados</p>
 
 Se os dados de login estiverem corretos, o cliente é direcionado à página de cliente.
