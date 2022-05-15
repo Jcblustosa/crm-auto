@@ -4,14 +4,14 @@
 A seguir, apresentamos os casos de testes de software para avaliação do sistema. Todos os testes estão associados a um ou mais requisitos funcionais. 
 
 Caso de Teste | CT-01: Alteração de dados de funcionário/cliente
---------------|---
+|--------------|--------|
 Requisitos Associados | RF-01: Incluir/Excluir/Alterar dados em uma tela de manutenção de funcionário e do cliente da oficina. <br>RF-03: Consulta e alterações de dados pessoais de clientes.
 Objetivo do Teste | Verificar se as funções Incluir/Excluir/Alterar estão operando corretamente.
 Passos | 1.	Fazer login no sistema com uma conta de Gestor; <br>2.	Ir para a tela de manutenção; <br>3.	Incluir/Excluir/Alterar dados de funcionário/cliente.
 Critérios de Êxito | •	As funções de Incluir, Excluir e Alterar dados devem <br> •	Acessar e modificar os dados de funcionário/cliente na base de dados; <br> •	Os dados alterados na base de dados devem ser atualizados na página de manutenção.
 
 Caso de Teste | CT-02: Emissão de relatório de cliente
---------------|---
+|--------------|--------|
 Requisitos Associados | RF-02: Emissão de relatórios de clientes. <br>RF-09: Consultar os clientes cadastrados no sistema.
 Objetivo do Teste | Verificar se os relatórios de clientes estão sendo gerados corretamente.
 Passos | 1.	Fazer login no sistema com uma conta de Gestor; <br>2.	Ir para a tela de menu; <br>	3.	Escolher a opção de Emissão de Relatório de Cliente.
