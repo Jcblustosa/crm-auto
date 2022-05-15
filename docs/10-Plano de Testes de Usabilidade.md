@@ -37,6 +37,17 @@ São considerados erros não-críticos os desvios do fluxo planejado, erros de c
 
 Em relação à severidade dos problemas encontrados, define-se seu impacto como alto na presença de erros críticos, moderado com a dificuldade mas finalização da tarefa e baixo caso os problemas encontrados sejam mínimos e em nada interfiram na finalização da tarefa. Também será considerada a frequência do problema: alta caso mais de 30% dos participantes encontrem-no, moderada se de 11% a 30%, e baixa se menos de 10% encontrem-no (0 participantes caso sejam encontradas até 10 pessoas).
 
+## Avaliação
+
+Será considerada a escala Likert para avaliação, de 1 a 5, sendo:
+
+| Nota | Severidade dos problemas encontrados |
+| 1 | O usuário não apresentou erros nem demora. |
+| 2 | O usuário não apresentou erros, mas demorou para a finalização do teste. |
+| 3 | O usuário encontrou 1 erro não-crítico nos fluxos ou precisou de uma ajuda simples. |
+| 4 | O usuário encontrou erros não-críticos nos fluxos ou precisou de ajudas. |
+| 5 | O usuário encontrou erros críticos ou obteve valores incorretos em um caso de teste. |
+
 ## Testes de Usabilidade
 
 | **Caso de Teste** | **CX-01: Alteração de dados de oficina/funcionário/cliente (Oficina)**|
@@ -79,4 +90,3 @@ Em relação à severidade dos problemas encontrados, define-se seu impacto como
 |Objetivo do Teste | Verificar se as CTA (_call to action_) e fluxos da inserção de veículo para cliente existente são claros para o usuário.|
 |Passos | 1. Fazer login no sistema com uma conta de Gestor; <br> 2. Ir para a página de Menu; <br> 3. Selecionar a opção Cadastrar Veículo; <br> 4. Preencher as informações necessárias no formulário do sistema. <br> 5. Receber a confirmação da alteração no sistema. |
 |Critérios de Êxito | •	O usuário conseguiu alterar as informações necessárias no sistema sem ajuda.  <br> •	Fica claro para o usuário que a alteração foi realizada com sucesso.|
-

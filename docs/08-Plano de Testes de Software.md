@@ -3,9 +3,9 @@
 
 A seguir, apresentamos os casos de testes de software para avaliação do sistema. Todos os testes estão associados a um ou mais requisitos funcionais. 
 
-Caso de Teste | CT-01: Alteração de dados de funcionário/cliente
+Caso de Teste | CT-01: Cadastro de cliente da oficina
 ---|---
-Requisitos Associados | RF-01: Incluir/Excluir/Alterar dados em uma tela de manutenção de funcionário e do cliente da oficina. <br>RF-03: Consulta e alterações de dados pessoais de clientes.
+Requisitos Associados | RF-01: Incluir/Excluir/Alterar dados em uma tela de manutenção de funcionário e do cliente da oficina. 
 Objetivo do Teste | Verificar se as funções Incluir/Excluir/Alterar estão operando corretamente.
 Passos | 1.	Fazer login no sistema com uma conta de Gestor; <br>2.	Ir para a tela de manutenção; <br>3.	Incluir/Excluir/Alterar dados de funcionário/cliente.
 Critérios de Êxito | •	As funções de Incluir, Excluir e Alterar dados devem <br> •	Acessar e modificar os dados de funcionário/cliente na base de dados; <br> •	Os dados alterados na base de dados devem ser atualizados na página de manutenção.
@@ -72,8 +72,34 @@ Requisitos Associados | RF-12: Acompanhar o andamento do serviço solicitado à 
 Objetivo do Teste | Verificar se o Cliente é capaz de visualizar a descrição do andamento da manutenção.
 Passos | 1.	Fazer login no sistema com uma conta de Cliente; <br>	2.	Ir para a página de Menu; <br>3.	Selecionar a opção Processos em Andamento; <br>4.	Selecionar um processo para ser visualizado.
 Critérios de Êxito | •	Ao abrir a página de Processo, uma descrição detalhada com informação a respeito de serviços e data prevista deverá aparecer para o Cliente.
+ 
+ Caso de Teste | CT-11: Login de colaborador
+---|---
+Requisitos Associados | RF-13: O sistema deve permitir o login de colaborador da oficina.
+Objetivo do Teste | Verificar se o colaborador é capaz de realizar login no sistema.
+Passos | 1.	Executar a aplicação; <br>	2.	Clicar no botão "Sou colaborador da empresa"; <br>3.	Preencher os campos Login e Senha; <br>4.	Clicar em Entrar.
+Critérios de Êxito | •	Se o registro de usuário existir no banco de dados, o sistema deve permitir que o funcionário acesse a página de menu principal da oficina. Caso as informações de Login e Senha estejam incorretas, a página de login é recarregada para que os campos sejam preenchidos novamente.
 
+Caso de Teste | CT-12: Login de cliente da oficina
+---|---
+Requisitos Associados | RF-14: O sistema deve permitir o login como cliente da oficina.
+Objetivo do Teste | Verificar se o cliente é capaz de realizar login no sistema.
+Passos | 1.	Executar a aplicação; <br>	2.	Clicar no botão "Sou cliente"; <br>3.	Preencher os campos Login e Senha; <br>4.	Clicar em Entrar.
+Critérios de Êxito | •	Se o registro de usuário existir no banco de dados, o sistema deve permitir que o cliente acesse a página de cliente da oficina. Caso as informações de Login e Senha estejam incorretas, a página de login é recarregada para que os campos sejam preenchidos novamente.
 
+Caso de Teste | CT-13: Cadastro de funcionário da oficina
+---|---
+Requisitos Associados | RF-01: O sistema deve permitir Incluir/Excluir/Alterar dados de um funcionário ou cliente da oficina.
+Objetivo do Teste | Garantir que o sistema permite a inclusão do cadastro de um funcionário para determinada oficina
+Passos | 1.	Executar a aplicação; <br>	2.	Fazer login no sistema com uma conta de Gestor; <br>3.	No painel de controle, selecionar a opção Cadastrar Funcionário; <br>4. Preencher corretamente o formulário de cadastro;<br>5. Clicar em Inserir.
+Critérios de Êxito | •	Se as informações forem preenchidas corretamente, o sistema deve direcionar o usuário para uma tela onde constará uma mensagem de sucesso relativa à inserção do funcionário. Após a inserção ser efetuada, as informações inseridas no formulário devem ser registradas no banco de dados na tabela [CRM_AUTO].[dbo].[FUNCIONARIO].
+ 
+ Caso de Teste | CT-14: Consulta e alteração de dados de cliente da oficina
+---|---
+Requisitos Associados | RF-03: O sistema deve fazer consulta e alterações de dados pessoais de clientes. 
+Objetivo do Teste | Verificar se o sistema permite ao funcionário visualizar e alterar dados de um cliente quando necessário.
+Passos | 1.	Fazer login no sistema com uma conta de Gestor; <br>2.	Ir para a tela de cadastro de clientes; <br>3.	Escolher a opção "Clientes" na barra lateral; <br>4. Buscar cliente pelo nome; <br>5. Alterar dados de cliente; <br>6. Salvar
+Critérios de Êxito | •	Os dados de cliente deverão ser exibidos para o funcionário <br> •	Os dados alterados deverão ser atualizados na base de dados.
  
 ## Ferramentas de Testes (Opcional)
 

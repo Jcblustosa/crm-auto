@@ -1,7 +1,11 @@
 ﻿@model UsuarioModel
 
+@{
+    Layout = "../Shared/_Layout_Login.cshtml";
+}
+
 <div class="container-fluid p-1 rounded" style="background-color: #051821;">
-    <img src="images\crmautodark.jpg" alt="CRM Auto" width="120" height="70" style="margin-left: 1rem;"></img>
+    <img src="~/img/crmautodark.jpg" alt="CRM Auto" width="120" height="70" style="margin-left: 1rem;"></img>
 </div>
 
 <div class="wrapper fadeInDown">
@@ -17,7 +21,7 @@
     <form asp-controller="Oficina" asp-action="VerificacaoLogin">
       <input type="email" id="login" class="fadeIn second" placeholder="acesso@email.com" asp-for="Login_usuario">
       <input type="password" id="password" class="fadeIn third" placeholder="Senha de acesso" asp-for="Senha_usuario">
-      <button type="submit">Login</button>
+      <input type="submit" class="fadeIn fourth" value="Log In">
     </form>
 
     <div id="formFooter">
