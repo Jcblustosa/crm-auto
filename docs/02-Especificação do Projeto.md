@@ -42,7 +42,7 @@ As tabelas que a seguir apresentam os requisitos funcionais e não funcionais qu
 
 | ID  | Descrição do Requisito | PRIORIDADE |  
 |---|---|---|
-| RF-01 | O sistema deve permitir Incluir/Excluir/Alterar dados de um fincionário ou cliente da oficina. |  MÉDIA| 
+| RF-01 | O sistema deve permitir Incluir/Excluir/Alterar dados de um funcionário ou cliente da oficina. |  MÉDIA| 
 | RF-02 | O sistema deve emitir relatórios de clientes. | ALTA | | 
 | RF-03 | O sistemea deve fazer consulta e alterações de dados pessoais de clientes.  | ALTA |  
 | RF-04 | O sistema deve realizar consulta de saldo ou estoque. |  ALTA|
