@@ -72,7 +72,7 @@ No painel de controle, a opção 'Cadastrar Funcionário' é selecionada:
 <p align="center">Evidência de teste 3 - Opção selecionada no painel de controle</p>
 <br/>
 
-Na tela de cadastro de funcionário, após o preenchimento correto das informações, a opção 'Inserir' é selecionada:
+Na tela de cadastro de funcionários, após o preenchimento correto das informações, a opção 'Inserir' é selecionada:
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t3-crm-auto/main/docs/img/Evidencia4_CadastroFuncionario.png?raw=true" alt="Evidência de teste 4 - Preenchimento do formulário">
@@ -100,7 +100,8 @@ Registro inserido na tabela do banco de dados:
 
 Melhorias identificadas com os testes:
 
-1) Finalizar as telas: painel de cotrole da oficina e cadastro de usuário
+1) Necessário ajustar e finalizar os layouts das telas: painel de cotrole da oficina e cadastro de funcionários.
+2) Implementar as demais funcionalidades disponíveis na tela de cadastro de funcionários
 <br/>
 
 
