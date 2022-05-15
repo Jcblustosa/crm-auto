@@ -13,15 +13,15 @@ Discorra sobre os resultados do teste. Ressaltando pontos fortes e fracos identi
 
 Ao acessar o site, o funcionário terá acesso às opções de login de colaborador e login de cliente. 
 
-IMG1
+![img1](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t3-crm-auto/blob/main/docs/img/registro%20de%20testes/CT%2011/img1.png)
 
 Ao clicar no botão "Sou Colaborador", os campos de login e senha deverão ser preenchidos.
 
-IMG2
+![img2](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t3-crm-auto/blob/main/docs/img/registro%20de%20testes/CT%2011/img2.png)
 
 Se os dados de login estiverem corretos, o funcionário é direcionado para a página principal da oficina. Se estiverem incorretos, a página de login é recarregada.
 
-IMG3
+![img3](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t3-crm-auto/blob/main/docs/img/registro%20de%20testes/CT%2011/img3.png)
 
 Pontos a melhorar
 
@@ -32,20 +32,21 @@ Pontos a melhorar
 
 Ao acessar o site, o cliente terá acesso às opções de login de colaborador e login de cliente. 
 
-IMG1
+![img4](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t3-crm-auto/blob/main/docs/img/registro%20de%20testes/CT%2012/img1.png)
 
 Ao clicar no botão "Sou Cliente", os campos de login e senha deverão ser preenchidos.
 
-IMG2
+![img5](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t3-crm-auto/blob/main/docs/img/registro%20de%20testes/CT%2012/img2.png)
 
 Se os dados de login estiverem corretos, o cliente é direcionado à página de cliente. Se estiverem incorretos, a página de login é recarregada.
 
-IMG3
+![img6](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t3-crm-auto/blob/main/docs/img/registro%20de%20testes/CT%2012/img3.png)
 
 Pontos a melhorar
 
 1) O campo de senha deve ocultar os caracteres digitados pelo usuário;
-2) Em caso de Login ou Senha incorretos, o sistema deve fornecer um retorno ao usuário, indicando que as informações não são válidas.
+2) Em caso de Login ou Senha incorretos, o sistema deve fornecer um retorno ao usuário, indicando que as informações não são válidas;
+3) Finalizar a página de cliente.
 
 
 
