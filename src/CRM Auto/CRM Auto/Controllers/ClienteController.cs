@@ -35,5 +35,17 @@ namespace CRM_Auto.Controllers
             }
             return RedirectToAction("LoginCliente");
         }
+
+        public IActionResult CadastroCliente()
+        {
+            return View("CadastroCliente");
+        }
+
+        public IActionResult CadastroCliente(ClienteModel cliente)
+        {
+            cliente.CadastroCliente();
+            return RedirectToAction("CadastroCliente");
+        }
+
     }
 }
