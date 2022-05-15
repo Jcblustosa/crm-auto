@@ -124,4 +124,4 @@ O cliente terá acesso também ao histórico de todas as suas solicitações no 
 
 # Design de telas
 
-Foi desenvolvido o wireframing do projeto no Figma, utilizando uma paleta de cores pré-definida formada com a ferramenta Adobe Colors, de modo a testar sua inclusividade para pessoas daltônicas, bem como o contraste das cores para garantir uma boa visualização para todos. As telas podem ser conferidas no seguinte [link do Figma}-](https://www.figma.com/file/WMmfI3AaViGs2Hfw67PGz7/CRM-Auto?node-id=0%3A1).
+Foi desenvolvido o wireframing do projeto no Figma, utilizando uma paleta de cores pré-definida formada com a ferramenta Adobe Colors, de modo a testar sua inclusividade para pessoas daltônicas, bem como o contraste das cores para garantir uma boa visualização para todos. As telas podem ser conferidas no seguinte [link do Figma](https://www.figma.com/file/WMmfI3AaViGs2Hfw67PGz7/CRM-Auto?node-id=0%3A1).
