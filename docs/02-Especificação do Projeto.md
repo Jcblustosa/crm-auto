@@ -54,6 +54,8 @@ As tabelas que a seguir apresentam os requisitos funcionais e não funcionais qu
 | RF-10  | O sistema deve realizar o cadastro de veículo (s) para um determinado cliente no sistema.| ALTA |
 | RF-11  |O sistema deve inserir, alterar e excluir informações sobre o andamento de um determinado serviço no sistema.| ALTA |
 | RF-12  |O sistema deve acompanhar o andamento do serviço solicitado à oficina e a data prevista para finalização.| ALTA |
+| RF-13  |O sistema deve permitir o login de colaborador da oficina.| ALTA |
+| RF-14  |O sistema deve permitir o login como cliente da oficina.| ALTA |
 
 ### Requisitos não Funcionais
 
