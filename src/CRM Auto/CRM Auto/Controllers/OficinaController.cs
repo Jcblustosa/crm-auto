@@ -49,5 +49,16 @@ namespace CRM_Auto.Controllers
             return RedirectToAction("Sucesso");
         }
 
+
+        public IActionResult CadastroVeiculo()
+        {
+            return View("CadastroVeiculo");
+        }
+
+        public IActionResult OperacaoCadastroVeiculo(VeiculoModel veiculo)
+        {
+            veiculo.CadastroVeiculo();
+            return RedirectToAction("CadastroVeiculo");
+        }
     }
 }
