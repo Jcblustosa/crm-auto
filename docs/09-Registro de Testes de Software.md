@@ -35,13 +35,13 @@ Na página de cadastro de veículo, as informações devem ser corretamente pree
 
 **Critério de êxito:** Se as informações forem preenchidas corretamente, o sistema deve armazenar um novo registro no banco de dados, contendo as informações fornecidas pelo usuário:
 
-![img5](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t3-crm-auto/blob/main/docs/img/registro%20de%20testes/CT%2008/img bd.png)
+![img5](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t3-crm-auto/blob/main/docs/img/registro%20de%20testes/CT%2008/img%20bd.png)
 <p align="center"> Evidência de teste 6 - Registro de veículo no banco de dados</p>
 
 Pontos a melhorar
 
 1) As configurações de estilo da página de cadastro de veículo devem ser corretamente aplicadas;
-2) O sistemaa deve fornecer uma resposta ao usuário informando se o veículo foi cadastrado com sucesso ou não.
+2) O sistema deve fornecer uma resposta ao usuário informando se o veículo foi cadastrado com sucesso ou não.
 
 ### CT-11: Login de Colaborador
 
