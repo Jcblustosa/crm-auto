@@ -42,11 +42,14 @@ Em relação à severidade dos problemas encontrados, define-se seu impacto como
 Será considerada a escala Likert para avaliação, de 1 a 5, sendo:
 
 | Nota | Severidade dos problemas encontrados |
-| 1 | O usuário não apresentou erros nem demora. |
-| 2 | O usuário não apresentou erros, mas demorou para a finalização do teste. |
+| ---- |---- |
+| 5 | O usuário não apresentou erros nem demora. |
+| 4 | O usuário não apresentou erros, mas demorou para a finalização do teste. |
 | 3 | O usuário encontrou 1 erro não-crítico nos fluxos ou precisou de uma ajuda simples. |
-| 4 | O usuário encontrou erros não-críticos nos fluxos ou precisou de ajudas. |
-| 5 | O usuário encontrou erros críticos ou obteve valores incorretos em um caso de teste. |
+| 2 | O usuário encontrou erros não-críticos nos fluxos ou precisou de ajudas. |
+| 1 | O usuário encontrou erros críticos ou obteve valores incorretos em um caso de teste. |
+
+Assim, quando maior a nota, maior a facilidade de uso para o usuário.
 
 ## Testes de Usabilidade
 
