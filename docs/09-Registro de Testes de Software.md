@@ -67,7 +67,7 @@ Login efetuado com uma conta de Gestor:
 No painel de controle, a opção 'Cadastrar Funcionário' é selecionada:
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t3-crm-auto/main/docs/img/Evidencia3_CadastroFuncionario.png?raw=true" alt="Evidência de teste 3 - Opção selecionada no painel de controle">
+  <img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t3-crm-auto/blob/main/docs/img/Evidencia3_CadastroFuncionario.png" alt="Evidência de teste 3 - Opção selecionada no painel de controle">
 </p>
 <p align="center">Evidência de teste 3 - Opção selecionada no painel de controle</p>
 <br/>
