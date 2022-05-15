@@ -48,7 +48,49 @@ Pontos a melhorar
 2) Em caso de Login ou Senha incorretos, o sistema deve fornecer um retorno ao usuário, indicando que as informações não são válidas;
 3) Finalizar a página de cliente.
 
+### CT-13: Cadastro de funcionário da oficina
 
+Login efetuado com uma conta de Gestor:
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t3-crm-auto/main/docs/img/Evidencia1_CadastroFuncionario.png?raw=true" alt="Evidência de teste 1 - Login com uma conta de Gestor">
+</p>
+<p align="center">Evidência de teste 1 - Login com uma conta de Gestor</p>
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t3-crm-auto/main/docs/img/Evidencia2_CadastroFuncionario.png?raw=true" alt="Evidência de teste 2 - Informações do usuário no banco de dados">
+</p>
+<p align="center">Evidência de teste 2 - Informações do usuário no banco de dados</p>
+
+No painel de controle, a opção 'Cadastrar Funcionário' é selecionada:
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t3-crm-auto/main/docs/img/Evidencia3_CadastroFuncionario.png?raw=true" alt="Evidência de teste 3 - Opção selecionada no painel de controle">
+</p>
+<p align="center">Evidência de teste 3 - Opção selecionada no painel de controle</p>
+
+Na tela de cadastro de funcionário, após o preenchimento correto das informações, a opção 'Inserir' é selecionada:
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t3-crm-auto/main/docs/img/Evidencia4_CadastroFuncionario.png?raw=true" alt="Evidência de teste 4 - Preenchimento do formulário">
+</p>
+<p align="center">Evidência de teste 4 - Preenchimento do formulário</p>
+
+**Critério de êxito:** Se as informações forem preenchidas corretamente, o sistema deve direcionar o usuário para uma tela onde constará uma mensagem de sucesso relativa à inserção do funcionário. Após a inserção ser efetuada, as informações inseridas no formulário devem ser registradas no banco de dados na tabela [CRM_AUTO].[dbo].[FUNCIONARIO].
+
+Usuário direcionado para a tela de sucesso:
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t3-crm-auto/main/docs/img/Evidencia5_CadastroFuncionario.png?raw=true" alt="Evidência de teste 5 - Tela de sucesso apresentada para o usuário">
+</p>
+<p align="center">Evidência de teste 5 - Tela de sucesso apresentada para o usuário</p>
+
+Registro inserido na tabela do banco de dados:
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t3-crm-auto/main/docs/img/Evidencia6_CadastroFuncionario.png?raw=true" alt="Evidência de teste 6 - Inserção do registro na tabela">
+</p>
+<p align="center">Evidência de teste 6 - Inserção do registro na tabela</p>
 
 > **Links Úteis**:
 > - [Ferramentas de Test para Java Script](https://geekflare.com/javascript-unit-testing/)
