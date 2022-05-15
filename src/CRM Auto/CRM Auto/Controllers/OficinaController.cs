@@ -19,7 +19,7 @@ namespace CRM_Auto.Controllers
             {
                 return RedirectToAction("Sucesso");
             }
-            return RedirectToAction("Index");
+            return RedirectToAction("LoginColaborador");
         }
 
         public IActionResult Sucesso()
