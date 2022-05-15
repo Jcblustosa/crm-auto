@@ -10,7 +10,7 @@ namespace CRM_Auto.Util
     
     public class DAL
     {
-        private string ConnectionString = @"Data Source=RAFAELASOUZA7\SQLEXPRESS;Initial Catalog=CRM_AUTO;Trusted_Connection=True;";
+        private string ConnectionString = @"Data Source=DESKTOP-K0VSIA3\SQLEXPRESS;Initial Catalog=CRM_AUTO;Trusted_Connection=True;";
         private SqlConnection SqlConnection;
 
         //Construtor
