@@ -120,6 +120,10 @@
                     <label for="idApelido">Apelido</label>
                     <input type="text" class="form-control" id="idApelido" placeholder="Apelido do cliente">
                 </div>
+                <div class="form-group col-md-3">
+                    <label for="idDtNascimento">Data de nascimento</label>
+                    <input type="text" class="form-control" id="idDtNascimento" placeholder="00/00/0000">
+                </div>
             </div>
 
             <div class="TabControl mt-3">
@@ -207,15 +211,15 @@
                             <div id="row-pg-3" class="row"> <!-- INICIO DIV CIDADE E ESTADO -->
                                 <div class="form-group col-md-2">
                                     <label for="telefone">Telefone</label>
-                                    <input type="tel" class="form-control" id="telefone" placeholder="(98) 9999-8888">
+                                    <input type="tel" class="form-control" id="telefone" placeholder="(98) 9999-8888" asp-for="telefone">
                                 </div>
                                 <div class="form-group col-md-2">
                                     <label for="celular">Celuar</label>
-                                    <input type="tel" class="form-control" id="celular" placeholder="(98) 98888-7777">
+                                    <input type="tel" class="form-control" id="celular" placeholder="(98) 98888-7777" asp-for="celular">
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="email">Email</label>
-                                    <input type="email" class="form-control email" id="email" placeholder="crm.auto@crmauto.com.br">
+                                    <input type="email" class="form-control email" id="email" placeholder="crm.auto@crmauto.com.br" asp-for="email_nf">
                                 </div>
                             </div> <!-- FIM DIV CIDADE E ESTADO -->
                         </form>
