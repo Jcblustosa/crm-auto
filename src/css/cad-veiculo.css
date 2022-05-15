@@ -1,0 +1,24 @@
+:root {
+    --header-height: 2rem;
+    --border-color: #687A86;
+    --first-color: #5669a7;
+    --first-color-light: #BACDDA;
+    --second-color-light: #FDF9BC;
+    --third-color-light: #A5DCBF ;
+    --white-color: #FDF7FF;
+    --text-color: #051821;
+    --body-font: 'Nunito', sans-serif;
+    --normal-font-size: 0.9rem;
+    --z-fixed: 90
+}
+
+#idContainer{
+    font-family: var(--body-font);
+    font-size: var(--normal-font-size);
+}
+
+.form-control{
+    font-size: var(--normal-font-size);
+}
+
+
