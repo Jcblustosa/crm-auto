@@ -15,6 +15,16 @@ namespace CRM_Auto.Controllers
             return View();
         }
 
+        public IActionResult CadastroCliente()
+        {
+            return View();
+        }
+
+        public IActionResult ConsultarDetalhamento()
+        {
+            return View();
+        }
+
         [HttpPost]
         public IActionResult ValidarLogin(UsuarioModel usuario)
         {
