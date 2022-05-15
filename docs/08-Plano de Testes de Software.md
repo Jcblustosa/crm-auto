@@ -91,7 +91,7 @@ Caso de Teste | CT-13: Cadastro de funcionário da oficina
 ---|---
 Requisitos Associados | RF-01: O sistema deve permitir Incluir/Excluir/Alterar dados de um funcionário ou cliente da oficina.
 Objetivo do Teste | Garantir que o sistema permite a inclusão do cadastro de um funcionário para determinada oficina
-Passos | 1.	Executar a aplicação; <br>	2.	Fazer login no sistema com uma conta de Gestor; <br>3.	No painel de controle, selecionar a opção Cadastrar Funcionário; <br>4.Preencher corretamente o formulário de cadastro;<br>5. Clicar em Inserir.
+Passos | 1.	Executar a aplicação; <br>	2.	Fazer login no sistema com uma conta de Gestor; <br>3.	No painel de controle, selecionar a opção Cadastrar Funcionário; <br>4. Preencher corretamente o formulário de cadastro;<br>5. Clicar em Inserir.
 Critérios de Êxito | •	Se as informações forem preenchidas corretamente, o sistema deve direcionar o usuário para uma tela onde constará uma mensagem de sucesso relativa à inserção do funcionário. Após a inserção ser efetuada, as informações inseridas no formulário devem ser registradas no banco de dados na tabela [CRM_AUTO].[dbo].[FUNCIONARIO].
  
 ## Ferramentas de Testes (Opcional)
