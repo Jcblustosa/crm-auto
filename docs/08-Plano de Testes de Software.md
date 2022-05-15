@@ -72,8 +72,20 @@ Requisitos Associados | RF-12: Acompanhar o andamento do serviço solicitado à 
 Objetivo do Teste | Verificar se o Cliente é capaz de visualizar a descrição do andamento da manutenção.
 Passos | 1.	Fazer login no sistema com uma conta de Cliente; <br>	2.	Ir para a página de Menu; <br>3.	Selecionar a opção Processos em Andamento; <br>4.	Selecionar um processo para ser visualizado.
 Critérios de Êxito | •	Ao abrir a página de Processo, uma descrição detalhada com informação a respeito de serviços e data prevista deverá aparecer para o Cliente.
+ 
+ Caso de Teste | CT-11: Login de colaborador
+---|---
+Requisitos Associados | RF-13: O sistema deve permitir o login de colaborador da oficina.
+Objetivo do Teste | Verificar se o colaborador é capaz de realizar login no sistema.
+Passos | 1.	Executar a aplicação; <br>	2.	Clicar no botão "Sou colaborador da empresa"; <br>3.	Preencher os campos Login e Senha; <br>4.	Clicar em Entrar.
+Critérios de Êxito | •	Se o registro de usuário existir no banco de dados, o sistema deve permitir que o funcionário acesse a página de menu principal da oficina. Caso as informações de Login e Senha estejam incorretas, a página de login é recarregada para que os campos sejam preenchidos novamente.
 
-
+Caso de Teste | CT-12: Login de cliente da oficina
+---|---
+Requisitos Associados | RF-14:  	O sistema deve permitir o login como cliente da oficina.
+Objetivo do Teste | Verificar se o cliente é capaz de realizar login no sistema.
+Passos | 1.	Executar a aplicação; <br>	2.	Clicar no botão "Sou cliente"; <br>3.	Preencher os campos Login e Senha; <br>4.	Clicar em Entrar.
+Critérios de Êxito | •	Se o registro de usuário existir no banco de dados, o sistema deve permitir que o cliente acesse a página de cliente da oficina. Caso as informações de Login e Senha estejam incorretas, a página de login é recarregada para que os campos sejam preenchidos novamente.
  
 ## Ferramentas de Testes (Opcional)
 
