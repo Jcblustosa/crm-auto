@@ -100,7 +100,7 @@ Registro inserido na tabela do banco de dados:
 
 Melhorias identificadas com os testes:
 
-1) Necessário ajustar e finalizar os layouts das telas: painel de cotrole da oficina e cadastro de funcionários.
+1) Necessário ajustar e finalizar os layouts das telas: painel de cotrole da oficina e cadastro de funcionários
 2) Implementar as demais funcionalidades disponíveis na tela de cadastro de funcionários
 <br/>
 
