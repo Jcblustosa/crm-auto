@@ -28,6 +28,26 @@ Pontos a melhorar
 1) O campo de senha deve ocultar os caracteres digitados pelo usuário;
 2) Em caso de Login ou Senha incorretos, o sistema deve fornecer um retorno ao usuário, indicando que as informações não são válidas.
 
+### CT-12: Login de cliente da oficina
+
+Ao acessar o site, o cliente terá acesso às opções de login de colaborador e login de cliente. 
+
+IMG1
+
+Ao clicar no botão "Sou Cliente", os campos de login e senha deverão ser preenchidos.
+
+IMG2
+
+Se os dados de login estiverem corretos, o cliente é direcionado à página de cliente. Se estiverem incorretos, a página de login é recarregada.
+
+IMG3
+
+Pontos a melhorar
+
+1) O campo de senha deve ocultar os caracteres digitados pelo usuário;
+2) Em caso de Login ou Senha incorretos, o sistema deve fornecer um retorno ao usuário, indicando que as informações não são válidas.
+
+
 
 > **Links Úteis**:
 > - [Ferramentas de Test para Java Script](https://geekflare.com/javascript-unit-testing/)
