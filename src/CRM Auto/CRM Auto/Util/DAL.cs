@@ -10,9 +10,9 @@ namespace CRM_Auto.Util
     
     public class DAL
     {
-        /*private string ConnectionString = @"Data Source=DESKTOP-K0VSIA3\SQLEXPRESS;Initial Catalog=CRM_AUTO;Trusted_Connection=True;";*/
+        private string ConnectionString = @"Data Source=DESKTOP-K0VSIA3;Initial Catalog=CRM_AUTO;Trusted_Connection=True;";
 
-        private string ConnectionString = @"Data Source=LAPTOP-K07OAJOR\SQLEXPRESS02;Initial Catalog=CRM_AUTO;Trusted_Connection=True;";
+        //private string ConnectionString = @"Data Source=LAPTOP-K07OAJOR\SQLEXPRESS02;Initial Catalog=CRM_AUTO;Trusted_Connection=True;";
 
         private SqlConnection SqlConnection;
 
@@ -65,6 +65,9 @@ namespace CRM_Auto.Util
             }
             catch (Exception ex)
             {
+                if (ex.Source != null)
+                    //Console.WriteLine("IOException source: {0}", ex.Source);
+                throw;
             }
             finally
             {

@@ -4,20 +4,6 @@
 @{
     Layout = "../Shared/_Layout_Cadastro_Cliente.cshtml";
 }
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro de Clientes</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="css/menu.css">
-    <link href="css/cad-cliente.css" rel="stylesheet">
-    <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
-    <script type="text/javascript" src="js/cad-cliente.js"></script>
-</head>
 <body id="body-pd">
     <header class="header" id="header">
         <div class="header_toggle">
@@ -89,7 +75,7 @@
     <!--Container Main start-->
     <div id="idContainer">
         <!-- class="bg-light"-->
-        <form id="fCadCliente">
+        <form id="fCadCliente" asp-controller="Cliente" asp-action="OperacaoCadastroCliente">
             <div class="row">
                 <div class="form-group col-md-3">
                     <label for="chkTipoPessoa">Selecione a opção</label>
@@ -104,15 +90,15 @@
                         </div>
                     </div>
                 </div>
-                <div class="form-group col-md-2">
+                <div class="form-group col-md-3">
                     <label for="cpf_cnpj">Informe o CPF</label>
-                    <input type="text" class="form-control obrigatorio cpf" id="cpf_cnpj" name="cpf" placeholder="11.222.333-33" maxlength="14" asp-for="Cnpj_cpf">
+                    <input type="text" class="form-control" id="cpf_cnpj" name="Cnpj_cpf" maxlength="14" asp-for="Cnpj_cpf">
                 </div>
             </div>
             <div class="row">
                 <div class="form-group col-md-6">
                     <label for="nomeCliente">Nome do cliente</label>
-                    <input type="email" class="form-control" id="nomeCliente" placeholder="Nome do cliente" asp-for="Nome_cliente">
+                    <input type="text" class="form-control" id="nomeCliente" placeholder="Nome do cliente" asp-for="Nome_cliente">
                 </div>
                 <div class="form-group col-md-2">
                     <label for="idApelido">Apelido</label>
@@ -120,7 +106,7 @@
                 </div>
                 <div class="form-group col-md-3">
                     <label for="idDtNascimento">Data de nascimento</label>
-                    <input type="text" class="form-control" id="idDtNascimento" placeholder="00/00/0000" asp-for="Data_nascimento">
+                    <input type="date" class="form-control" id="idDtNascimento" placeholder="00/00/0000" asp-for="Data_nascimento">
                 </div>
             </div>
 
@@ -151,7 +137,7 @@
                                 <div class="form-group col-md-6">
                                     <!-- INÍCIO DIV CONTEÚDO DO FORM LOGRADOURO -->
                                     <label for="endereco">Endereço</label>
-                                    <input type="text" class="form-control" id="endereco" placeholder="Rua, avenida, praça, fazenda..." as-for="Logradouro">
+                                    <input type="text" class="form-control" id="endereco" placeholder="Rua, avenida, praça, fazenda..." asp-for="Logradouro">
                                 </div>
                                 <div class="form-group col-md-2">
                                     <label for="numero">Número</label>
@@ -170,7 +156,8 @@
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label for="estado">Estado</label>
-                                    <select id="estado" class="form-control" asp-for="Estado">
+                                    <input type="text" class="form-control" id="estado" asp-for="Estado">
+                                    @*<select id="estado" class="form-control" asp-for="Estado">
                                         <option selected>Selecione...</option>
                                         <option value="AC">AC - Acre</option>
                                         <option value="AL">AL - Alagoas</option>
@@ -198,8 +185,8 @@
                                         <option value="SC">SC - Santa Catarina</option>
                                         <option value="SE">SE - Sergipe</option>
                                         <option value="SP">SP - São Paulo</option>
-                                        <option value="TO">TO - Tocantins</option>
-                                    </select>
+                                        <option value="TO">TO - Tocantins</option>*@
+                                    @*</select>*@
                                 </div>
                                 <div class="form-group col-md-4">
                                     <label for="complemento">Complemento</label>
@@ -219,7 +206,8 @@
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="email">Email</label>
-                                    <input type="email" class="form-control email" id="email" placeholder="crm.auto@crmauto.com.br" asp-for="Email_nf">                                </div>
+                                    <input type="email" class="form-control email" id="email" placeholder="crm.auto@crmauto.com.br" asp-for="Email_nf">                                
+                                </div>
                             </div> <!-- FIM DIV CIDADE E ESTADO -->
                     </div> <!-- FIM ABA RESIDENCIAL-->
 
@@ -272,4 +260,4 @@
         </form>
     </div> <!-- FIM DIV CONTAINER -->
 </body>
-</html>
+@*</html>*@

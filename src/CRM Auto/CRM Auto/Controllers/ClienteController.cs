@@ -15,11 +15,6 @@ namespace CRM_Auto.Controllers
             return View();
         }
 
-        public IActionResult CadastroCliente()
-        {
-            return View();
-        }
-
         public IActionResult ConsultarDetalhamento()
         {
             return View();
@@ -41,7 +36,7 @@ namespace CRM_Auto.Controllers
             return View("CadastroCliente");
         }
 
-        public IActionResult CadastroCliente(ClienteModel cliente)
+        public IActionResult OperacaoCadastroCliente(ClienteModel cliente)
         {
             cliente.CadastroCliente();
             return RedirectToAction("CadastroCliente");

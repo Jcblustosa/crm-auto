@@ -1,18 +1,19 @@
 ﻿using System;
+using CRM_Auto.Util;
 
 namespace CRM_Auto.Models
 {
     public class ClienteModel
     {
-        public char Tipo_fisica { get; set; }
-        public char Tipo_juridica { get; set; }
+        public bool Tipo_fisica { get; set; }
+        public bool Tipo_juridica { get; set; }
         public string Cnpj_cpf { get; set; }
         public string Nome_cliente { get; set; }
-        //public char Cnpj_ou_cpf { get; set; }
+        public char Cnpj_ou_cpf { get; set; }
         public string Apelido { get; set; }
         public DateTime Data_nascimento { get; set; }
         public DateTime Data_cadastro { get; set; }
-        public string Id_usuario_cad { get; set; }
+        public int Id_usuario_cad { get; set; }
         public string Email_nf { get; set; }
         public string Cep { get; set; }
         public string Logradouro { get; set; }
@@ -20,21 +21,27 @@ namespace CRM_Auto.Models
         public string Complemento { get; set; }
         public string Bairro { get; set; }
         public string Cidade { get; set; }
+        public string Estado { get; set; }
         public string Telefone { get; set; }
         public string Celular { get; set; }
 
         public void CadastroCliente()
         {
-            string Cnpj_ou_cpf = "";
+            //char Cnpj_ou_cpf;
+            Id_usuario_cad = 1;
 
-            if (Tipo_fisica == "F")
+            int length = Cnpj_cpf.Length;
+
+            if (length == 11)
             {
-                Cnpj_ou_cpf = Tipo_fisica;
+                Cnpj_ou_cpf = 'F';
             }
-            else if (Tipo_juridica == "J")
+            else if (length == 14)
             {
-                Cnpj_ou_cpf = Tipo_juridica;
+                Cnpj_ou_cpf = 'J';
             }
+
+            Data_cadastro = DateTime.Now;
 
             string command = $"INSERT INTO [dbo].[CLIENTE] " +
                                      $"([CNPJ_CPF] " +
@@ -51,6 +58,7 @@ namespace CRM_Auto.Models
                                      $",[COMPLEMENTO] " +
                                      $",[BAIRRO] " +
                                      $",[CIDADE] " +
+                                     $",[ESTADO] " +
                                      $",[TELEFONE] " +
                                      $",[CELULAR]) " +
                                 $"VALUES ('{Cnpj_cpf}', " +
@@ -59,7 +67,7 @@ namespace CRM_Auto.Models
                                     $"'{Apelido}', " +
                                     $"'{Data_nascimento}', " +
                                     $"'{Data_cadastro}', " +
-                                    $"1, " +
+                                    $"'{Id_usuario_cad}', " +
                                     $"'{Email_nf}', " +
                                     $"'{Cep}', " +
                                     $"'{Logradouro}', " +
@@ -67,6 +75,7 @@ namespace CRM_Auto.Models
                                     $"'{Complemento}', " +
                                     $"'{Bairro}', " +
                                     $"'{Cidade}', " +
+                                    $"'{Estado}', " +
                                     $"'{Telefone}', " +
                                     $"'{Celular}')";
 

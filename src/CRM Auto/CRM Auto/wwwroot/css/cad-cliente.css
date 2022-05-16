@@ -135,6 +135,10 @@ form{
     margin-top: 15px;
 }
 
+#estado{
+    width: 40px;
+}
+
 /* ESTILO DO FORMULÁRIO LOGRADOURO */
 
 /* #row-pg-1{
