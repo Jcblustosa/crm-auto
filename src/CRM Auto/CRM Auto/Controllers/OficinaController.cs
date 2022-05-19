@@ -33,21 +33,21 @@ namespace CRM_Auto.Controllers
         }
 
        [HttpPost]
-        public IActionResult InserirCadastro(FuncionarioModel funcionario)
-        {
-            string nome = funcionario.Nome;
-            string funcao = funcionario.Funcao;
-            int id_oficina = funcionario.Id_oficina;
+        //public IActionResult InserirCadastro(FuncionarioModel funcionario)
+        //{
+        //    string nome = funcionario.Nome;
+        //    string funcao = funcionario.Funcao;
+        //    int id_oficina = funcionario.Id_oficina;
             
-            funcionario.InserirCadastro(nome, funcao, id_oficina);
+        //    funcionario.InserirCadastro(nome, funcao, id_oficina);
 
-            bool resultadoInsercao = funcionario.ValidarInsercaoFuncionario();
-            if (resultadoInsercao)
-            {
-                return View("CadastroRealizadoComSucesso");
-            }
-            return RedirectToAction("Sucesso");
-        }
+        //    bool resultadoInsercao = funcionario.ValidarInsercaoFuncionario();
+        //    if (resultadoInsercao)
+        //    {
+        //        return View("CadastroRealizadoComSucesso");
+        //    }
+        //    return RedirectToAction("Sucesso");
+        //}
 
 
         public IActionResult CadastroVeiculo()

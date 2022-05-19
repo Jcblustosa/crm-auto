@@ -21,20 +21,20 @@ namespace CRM_Auto.Models
             dal.InsertData(command);
         }
 
-        public bool ValidarInsercaoFuncionario()
-        {
-            string command = $"SELECT NOME, FUNCAO FROM FUNCIONARIO WHERE NOME = '{Nome}' AND FUNCAO = '{Funcao}'";
+        //public bool ValidarInsercaoFuncionario()
+        //{
+        //    string command = $"SELECT NOME, FUNCAO FROM FUNCIONARIO WHERE NOME = '{Nome}' AND FUNCAO = '{Funcao}'";
 
-            DAL dal = new DAL();
-            DataTable dt = dal.GetData(command);
-            if (dt != null)
-            {
-                if (dt.Rows.Count == 1)
-                {
-                    return true;
-                }
-            }
-            return false;
-        }
+        //    DAL dal = new DAL();
+        //    DataTable dt = dal.GetData(command);
+        //    if (dt != null)
+        //    {
+        //        if (dt.Rows.Count == 1)
+        //        {
+        //            return true;
+        //        }
+        //    }
+        //    return false;
+        //}
     }
 }

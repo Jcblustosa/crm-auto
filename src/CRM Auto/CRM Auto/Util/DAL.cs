@@ -50,33 +50,33 @@ namespace CRM_Auto.Util
         }
 
         //Comando Select
-        public DataTable GetData(string command)
-        {
-            SqlDataAdapter dataAdapter;
-            DataTable table;
+        //public DataTable GetData(string command)
+        //{
+        //    SqlDataAdapter dataAdapter;
+        //    DataTable table;
 
-            try
-            {
-                dataAdapter = new SqlDataAdapter(command, SqlConnection);
-                table = new DataTable();
+        //    try
+        //    {
+        //        dataAdapter = new SqlDataAdapter(command, SqlConnection);
+        //        table = new DataTable();
 
-                dataAdapter.Fill(table);
-                return table;
-            }
-            catch (Exception ex)
-            {
-                if (ex.Source != null)
-                    //Console.WriteLine("IOException source: {0}", ex.Source);
-                throw;
-            }
-            finally
-            {
-                dataAdapter = null;
-                table = null;
-            }
+        //        dataAdapter.Fill(table);
+        //        return table;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        if (ex.Source != null)
+        //            //Console.WriteLine("IOException source: {0}", ex.Source);
+        //        throw;
+        //    }
+        //    finally
+        //    {
+        //        dataAdapter = null;
+        //        table = null;
+        //    }
 
-            return table;
-        }
+        //    return table;
+        //}
 
         //Método Desconectar
         public void Desconectar()

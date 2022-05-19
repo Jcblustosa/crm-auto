@@ -12,9 +12,13 @@ namespace CRM_Auto.Models
 
         public bool ValidarLogin()
         {
-            string command = $"SELECT ID_USUARIO, ID_FUNCIONARIO FROM USUARIO WHERE LOGIN_USUARIO = '{Login_usuario}' AND SENHA_USUARIO = '{Senha_usuario}'";
+            string command = $"SELECT ID_USUARIO, ID_FUNCIONARIO " +
+                            $"FROM USUARIO " +
+                            $"WHERE LOGIN_USUARIO = '{Login_usuario}' AND " +
+                            $"SENHA_USUARIO = '{Senha_usuario}'";
 
-            DAL dal = new DAL();
+            //DAL dal = new DAL();
+            CNN dal = new CNN();
             DataTable dt = dal.GetData(command);
             if (dt != null)
             {
