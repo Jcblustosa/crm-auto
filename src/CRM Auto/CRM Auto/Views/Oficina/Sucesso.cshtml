@@ -3,12 +3,12 @@
 }
 
     <div class="container-fluid p-1 rounded" style="background-color: #687A86;">
-        <img src="~/img/crmauto.jpg" alt="CRM Auto" width="120" height="70" style="margin-left: 1rem;"></img>
+        <img src="~/img/crmauto.jpg" alt="CRM Auto" width="120" height="70" style="margin-left: 1rem;">
     </div>
     <br />
     <nav class="navbar navbar-dark bg-dark">
         <div class="container-fluid">
-        <span class="navbar-brand mb-0 h1">Painel de controle da oficina</span>
+            <span class="navbar-brand mb-0 h1">Painel de controle da oficina</span>
         </div>
     </nav>
     <br />
@@ -31,7 +31,7 @@
           <div class="card-body">
             <h5 class="card-title">Cadastrar um cliente</h5>
             <p class="card-text">Para cadastrar um novo cliente, use esta opção.</p>
-            <a href="#" class="btn btn-outline-dark">Cadastrar cliente</a>
+            <a class="btn btn-outline-dark" asp-controller="Cliente" asp-action="CadastroCliente">Cadastrar cliente</a>
           </div>
         </div>
       </div>
@@ -59,7 +59,7 @@
     <footer class="bg-light text-center fixed-bottom">
     <!-- Copyright -->
     <div class="text-center text-white p-2" style="background-color: #687a86ee">
-        © Copyright CRM Auto 2022 </a>
+        © Copyright CRM Auto 2022
     </div>
     <!-- Copyright -->
     </footer>
