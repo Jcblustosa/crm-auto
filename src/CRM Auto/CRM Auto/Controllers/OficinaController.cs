@@ -60,5 +60,12 @@ namespace CRM_Auto.Controllers
             veiculo.CadastroVeiculo();
             return RedirectToAction("CadastroVeiculo");
         }
+
+        public IActionResult BuscarFuncionarios()
+        {
+            FuncionarioModel funcionario = new FuncionarioModel();
+            ViewBag.BuscarFuncionarios = funcionario.BuscarFuncionarios();
+            return View();
+        }
     }
 }
