@@ -53,7 +53,7 @@ namespace CRM_Auto.Models
 
         public List<FuncionarioModel> BuscarFuncionarios()
         {
-            List<FuncionarioModel> funcionarios = new ArrayList<FuncionarioModel>();
+            ArrayList<FuncionarioModel> funcionarios = new ArrayList<FuncionarioModel>();
 
             string command = $"SELECT F.ID_FUNCIONARIO, F.NOME, F.FUNCAO, O.NOME_OFICINA AS ID_OFICINA FROM FUNCIONARIO F INNER JOIN OFICINA O ON F.ID_OFICINA = O.ID_OFICINA";
 
