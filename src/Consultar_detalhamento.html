@@ -3,39 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="css/menu.css">
     <link rel="stylesheet" href="css/consultas.css">
     <link rel="stylesheet" href="css/cadastros.css">
     <title>Consultar o detalhamento</title>
-
-    <script type="text/javascript">
-        function criarTabela(){
-            var tabela = document.createElement("table");
-            tabela.border = "1px";
-            tabela.cellSpacing = "0px";
-            tabela.cellPadding = "3px";
-
-            var corpo = document.createElement("tbody");
-            tabela.appendChild(corpo);
-
-            for(var i = 0; i < 3; i++){
-                var linha = corpo.insertRow(-1);
-                
-                for(var j = 0; j < 4; j++){
-                    var celula = linha.insertCell(-1);
-                    celula.innerHTML = "Célula " + i + ", " + j + "";
-                }
-            }
-        
-            var container = document.getElementById("containerPesquisa");
-            container.appendChild(tabela);
-        }  
-    </script>
 </head>
 <body id="body-pd">
     <header class="header" id="header">
@@ -55,144 +27,186 @@
                 </a>
                 <div class="nav_list">
                     <a href="#" class="nav_link active"> 
-                        <i class='bx bx-grid-alt nav_icon' data-bs-toggle="tooltip" title="Painel"></i> 
+                        <i class='bx bx-grid-alt nav_icon'></i> 
                         <span class="nav_name">Painel</span> 
                     </a>
+                    <!-- <a href="#" class="nav_link active" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true"> 
+                        <i class='bx bx-grid-alt nav_icon'></i> 
+                        <span class="nav_name">Painel</span> -->
+                        <!-- <button class="btn btn-toggle align-items-center rounded nav_name bx bx-grid-alt nav_icon" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
+                            Painel
+                        </button> -->
+                        <!-- <div class="collapse show" id="home-collapse">
+                            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                                <li><a href="#" class="link-dark rounded">Overview</a></li>
+                                <li><a href="#" class="link-dark rounded">Updates</a></li>
+                                <li><a href="#" class="link-dark rounded">Reports</a></li>
+                            </ul>
+                        </div>
+                    </a> -->
                     <a href="#" class="nav_link">
-                        <i class='bx bx-message-square-detail nav_icon' data-bs-toggle="tooltip" title="Ordens de serviços"></i>
-                        <span class="nav_name">Ordens de serviços</span>
+                        <i class='bx bx-message-square-detail nav_icon'></i>
+                        <span class="nav_name">Ordem de serviços</span>
                     </a>
                     <a href="#" class="nav_link">
-                        <i class='bx bx-bookmark nav_icon' data-bs-toggle="tooltip" title="Orçamentos"></i>
+                        <i class='bx bx-bookmark nav_icon'></i>
                         <span class="nav_name">Orçamentos</span>
                     </a>
                     <a href="#" class="nav_link">
-                        <i class='bi bi-people nav_icon' data-bs-toggle="tooltip" title="Clientes"></i>
+                        <i class='bx bx-folder nav_icon'></i>
                         <span class="nav_name">Clientes</span>
                     </a>
                     <a href="#" class="nav_link">
-                        <i class="bi bi-wrench-adjustable nav_icon" data-bs-toggle="tooltip" title="Oficina"></i>
-                        <span class="nav_name">Oficina</span>
-                    </a>
-                    <a href="#" class="nav_link">
-                        <i class='bi bi-person-video2 nav_icon' data-bs-toggle="tooltip" title="Funcionários"></i>
-                        <span class="nav_name">Funcionários</span>
-                    </a>
-                    <a href="#" class="nav_link">
-                        <i class='bx bx-bar-chart-alt-2 nav_icon' data-bs-toggle="tooltip" title="Relatórios"></i>
+                        <i class='bx bx-bar-chart-alt-2 nav_icon'></i>
                         <span class="nav_name">Relatórios</span>
                     </a>
                     <a href="#" class="nav_link">
-                        <i class='bx bx-user nav_icon' data-bs-toggle="tooltip" title="Usuários"></i>
+                        <i class='bx bx-user nav_icon'></i>
                         <span class="nav_name">Usuários</span>
                     </a>
                 </div>
             </div>
-            <a href="Homepage.html" class="nav_link">
-                <i class='bx bx-log-out nav_icon' data-bs-toggle="tooltip" title="Sair"></i>
+            <a href="#" class="nav_link">
+                <i class='bx bx-log-out nav_icon'></i>
                 <span class="nav_name">Sair</span>
             </a>
         </nav>
     </div>
     <!--Container Main start-->
-    <body>
-        <div class="height-100 bg-light">
-            <h1>Consultar o detalhamento</h1>
+    <div class="height-100 bg-light">
+        <h4>Cadastro de Oficina</h4>
+        <!DOCTYPE html>
+<html lang="en">
 
-            <div class="col-sm-0">
-                <label for="inputNome">Consultar o detalhamento</label>
-            </div>      
-            <div class="containerPesquisa">
-                <input type="text" class="form-control" id="inputNome" required placeholder="Pesquisar">
-                <input type="button" class="btn btn-success" id="btnInsert" value="Pesquisar">
-            </div>
-            <div>
-                <table class="table">
-                    <thead>
-                    <tr>
-                        <th scope="col"></th>
-                        <th scope="col">Cliente</th>
-                        <th scope="col">Nº da O.S.</th>
-                        <th scope="col">Serviço</th>
-                        <th scope="col">Responsável</th>
-                        <th scope="col">Tempo previsto</th>
-                        <th scope="col">Data início</th>
-                        <th scope="col">Data fim</th>
-                        <th scope="col">Valor</th>
-                    </tr>
-                    </thead>
-                    <tbody>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Cadastro de Contatos</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
 
-                    <tr>
-                        <th scope="row">1</th>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">4</th>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">5</th>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">6</th>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
+    <script type="text/javascript">
+        function criarTabela(){
+          var tabela = document.createElement("table");
+          tabela.border = "1px";
+          tabela.cellSpacing = "0px";
+          tabela.cellPadding = "3px";
+
+          var corpo = document.createElement("tbody");
+          tabela.appendChild(corpo);
+
+          for(var i = 0; i < 3; i++){
+            var linha = corpo.insertRow(-1);
+             
+            for(var j = 0; j < 4; j++){
+               var celula = linha.insertCell(-1);
+               celula.innerHTML = "Célula " + i + ", " + j + "";
+            }
+          }
+       
+          var container = document.getElementById("containerPesquisa");
+          container.appendChild(tabela);
+        }  
+      </script>
+</head>
+
+<body>
+    <div class="height-100 bg-light">
+        <h1>Consultar o detalhamento</h1>
+
+        <div class="col-sm-0">
+            <label for="inputNome">Consultar o detalhamento</label>
+        </div>      
+        <div class="containerPesquisa">
+            <input type="text" class="form-control" id="inputNome" required placeholder="Pesquisar">
+            <input type="button" class="btn btn-success" id="btnInsert" value="Pesquisar">
         </div>
-    </body>
-    <script src="js/menu.js"></script>
-</html>
+        <div>
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col"></th>
+                    <th scope="col">Cliente</th>
+                    <th scope="col">Nº da O.S.</th>
+                    <th scope="col">Serviço</th>
+                    <th scope="col">Responsável</th>
+                    <th scope="col">Tempo previsto</th>
+                    <th scope="col">Data início</th>
+                    <th scope="col">Data fim</th>
+                    <th scope="col">Valor</th>
+                  </tr>
+                </thead>
+                <tbody>
+
+                  <tr>
+                    <th scope="row">1</th>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">2</th>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">3</th>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4</th>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">5</th>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">6</th>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+    </div>
+</body>
