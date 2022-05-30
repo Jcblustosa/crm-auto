@@ -8,22 +8,22 @@ namespace CRM_Auto.Controllers
 {
     public class TesteController : Controller
     {
-        public IActionResult Index()
-        {
-            string command = "SELECT * FROM CLIENTE";
-            DAL dal = new DAL();
-            DataTable dt = dal.GetData(command);
-            List<TesteModel> list = new List<TesteModel>();
-            for (int i = 0; i < dt.Rows.Count; i++)
-            {
-                TesteModel model = new TesteModel();
-                model.Nome_Cliente = dt.Rows[i]["Nome_Cliente"].ToString();
-                model.Telefone = dt.Rows[i]["Telefone"].ToString();
-                list.Add(model);
-            }
-            ViewBag.Pessoas = list;
-            return View();
-        }
+        //public IActionResult Index()
+        //{
+        //    //string command = "SELECT * FROM CLIENTE";
+        //    //DAL dal = new DAL();
+        //    //DataTable dt = dal.GetData(command);
+        //    //List<TesteModel> list = new List<TesteModel>();
+        //    //for (int i = 0; i < dt.Rows.Count; i++)
+        //    //{
+        //    //    TesteModel model = new TesteModel();
+        //    //    model.Nome_Cliente = dt.Rows[i]["Nome_Cliente"].ToString();
+        //    //    model.Telefone = dt.Rows[i]["Telefone"].ToString();
+        //    //    list.Add(model);
+        //    //}
+        //    //ViewBag.Pessoas = list;
+        //    //return View();
+        //}
 
         [HttpPost]
         public IActionResult TestandoInsert(TesteModel formulario)
