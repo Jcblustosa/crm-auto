@@ -36,7 +36,7 @@ h1{
     background-color: #687A86;
     border-radius: 40px;
     color: var(--text-color);
-    width: 80%;
+    width: 100%;
     box-shadow: 0 10px 20px -8px #051821;
     ;
 }

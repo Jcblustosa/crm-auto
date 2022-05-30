@@ -1,5 +1,5 @@
 ﻿@{
-    Layout = "../Shared/_Layout_Menu_Funcionario.cshtml";
+    Layout = "../Shared/_Layout_Cadastro_Funcionario.cshtml";
 }
 
     <div class="container-fluid p-1 rounded" style="background-color: #687A86;">
@@ -8,23 +8,22 @@
     <br />
     <nav class="navbar navbar-dark bg-dark">
         <div class="container-fluid">
-        <span class="navbar-brand mb-0 h1">Painel de controle da oficina</span>
+            <span class="navbar-brand mb-0 h1">Painel de controle da oficina</span>
         </div>
     </nav>
     <br />
     <div class="toast-body" >
-        <h1>Seja bem vindo!</h1>
-        <p>O que você deseja fazer?</p>
+        <h6>O que você deseja fazer?</h6>
     </div>
     <br />
-
-    <div class="container justify-content-center">
-        <div class="row justify-content-around">
-        <div class="col-md-6">
-            <a type = "button" class="btn" asp-controller="Oficina" asp-action="CadastrarFuncionario">Cadastrar funcionário</a>
-        </div>
-        <div class="col-md-6">
-            <a type = "button" href="#" class="btn">Cadastrar cliente</a>
+   <div class="row">
+      <div class="col-sm-6">
+        <div class="card border-success mb-3" style="max-width: 1000px">
+          <div class="card-body">
+            <h5 class="card-title">Cadastrar um funcionário</h5>
+            <p class="card-text">Para cadastrar um novo funcionário para a sua oficina, use esta opção.</p>
+            <a class="btn btn-outline-success" asp-controller="Oficina" asp-action="CadastrarFuncionario">Cadastrar funcionário</a>
+          </div>
         </div>
       </div>
       <div class="col-sm-6">
@@ -32,7 +31,7 @@
           <div class="card-body">
             <h5 class="card-title">Cadastrar um cliente</h5>
             <p class="card-text">Para cadastrar um novo cliente, use esta opção.</p>
-            <a href="#" class="btn btn-outline-dark">Cadastrar cliente</a>
+            <a class="btn btn-outline-dark" asp-controller="Cliente" asp-action="CadastroCliente">Cadastrar cliente</a>
           </div>
         </div>
       </div>
@@ -53,14 +52,14 @@
             <a class="btn btn-outline-dark" asp-controller="Oficina" asp-action="CadastroVeiculo">Cadastrar veículo</a>
           </div>
         </div>
-        </div>
+      </div>
     </div>
 
     <!-- Footer -->
     <footer class="bg-light text-center fixed-bottom">
     <!-- Copyright -->
     <div class="text-center text-white p-2" style="background-color: #687a86ee">
-        © Copyright CRM Auto 2022 </a>
+        © Copyright CRM Auto 2022
     </div>
     <!-- Copyright -->
     </footer>
