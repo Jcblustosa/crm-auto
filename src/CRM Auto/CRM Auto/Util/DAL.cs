@@ -27,7 +27,7 @@ namespace CRM_Auto.Util
             }
         }
 
-        //Comando Insert
+        //Comando Insert, Update e Delete
         public void InsertData(string command)
         {
             SqlCommand SqlCommand = new SqlCommand(command, SqlConnection);

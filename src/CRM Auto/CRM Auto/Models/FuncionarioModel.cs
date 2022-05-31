@@ -26,31 +26,28 @@ namespace CRM_Auto.Models
 
         }
 
-
-        public void InserirCadastro(string nome, string funcao, int id_oficina)
+        public void InserirFuncionario(string nome, string funcao, string id_oficina)
         {
             string command = $"INSERT INTO FUNCIONARIO (NOME, FUNCAO, ID_OFICINA) VALUES ('{nome}', '{funcao}', '{id_oficina}')";
 
             DAL dal = new DAL();
             dal.InsertData(command);
         }
+        public bool ValidarInsercaoFuncionario()
+        {
+            string command = $"SELECT NOME, FUNCAO FROM FUNCIONARIO WHERE NOME = '{Nome}' AND FUNCAO = '{Funcao}'";
 
-        //public bool ValidarInsercaoFuncionario()
-        //{
-        //    string command = $"SELECT NOME, FUNCAO FROM FUNCIONARIO WHERE NOME = '{Nome}' AND FUNCAO = '{Funcao}'";
-
-        //    DAL dal = new DAL();
-        //    DataTable dt = dal.GetData(command);
-        //    if (dt != null)
-        //    {
-        //        if (dt.Rows.Count == 1)
-        //        {
-        //            return true;
-        //        }
-        //    }
-        //    return false;
-        //}
-
+            DAL dal = new DAL();
+            DataTable dt = dal.GetData(command);
+            if (dt != null)
+            {
+                if (dt.Rows.Count == 1)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
         public List<FuncionarioModel> BuscarFuncionarios()
         {
             ArrayList<FuncionarioModel> funcionarios = new ArrayList<FuncionarioModel>();
@@ -67,6 +64,20 @@ namespace CRM_Auto.Models
             }
 
             return funcionarios;
+        }
+        public void AlterarFuncionario(string nome, string funcao, string id_oficina)
+        {
+            string command = $"UPDATE FUNCIONARIO SET NOME = '{nome}', FUNCAO = '{funcao}' , ID_OFICINA = '{id_oficina}' WHERE NOME = '{nome}'";
+
+            DAL dal = new DAL();
+            dal.InsertData(command);
+        }
+        public void ExcluirFuncionario(string nome, string funcao, string id_oficina)
+        {
+            string command = $"DELETE FROM FUNCIONARIO WHERE NOME = '{nome}'";
+
+            DAL dal = new DAL();
+            dal.InsertData(command);
         }
 
 
