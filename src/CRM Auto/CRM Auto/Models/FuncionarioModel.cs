@@ -33,6 +33,7 @@ namespace CRM_Auto.Models
             DAL dal = new DAL();
             dal.InsertData(command);
         }
+
         public bool ValidarInsercaoFuncionario()
         {
             string command = $"SELECT NOME, FUNCAO FROM FUNCIONARIO WHERE NOME = '{Nome}' AND FUNCAO = '{Funcao}'";
@@ -48,6 +49,7 @@ namespace CRM_Auto.Models
             }
             return false;
         }
+
         public List<FuncionarioModel> BuscarFuncionarios()
         {
             ArrayList<FuncionarioModel> funcionarios = new ArrayList<FuncionarioModel>();
@@ -65,6 +67,7 @@ namespace CRM_Auto.Models
 
             return funcionarios;
         }
+
         public void AlterarFuncionario(string nome, string funcao, string id_oficina)
         {
             string command = $"UPDATE FUNCIONARIO SET NOME = '{nome}', FUNCAO = '{funcao}' , ID_OFICINA = '{id_oficina}' WHERE NOME = '{nome}'";
@@ -72,6 +75,7 @@ namespace CRM_Auto.Models
             DAL dal = new DAL();
             dal.InsertData(command);
         }
+
         public void ExcluirFuncionario(string nome, string funcao, string id_oficina)
         {
             string command = $"DELETE FROM FUNCIONARIO WHERE NOME = '{nome}'";

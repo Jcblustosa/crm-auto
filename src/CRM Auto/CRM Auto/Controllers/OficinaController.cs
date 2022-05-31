@@ -5,7 +5,6 @@ namespace CRM_Auto.Controllers
 {
     public class OficinaController : Controller
     {
-
         public IActionResult LoginColaborador()
         {
             return View();
@@ -48,7 +47,6 @@ namespace CRM_Auto.Controllers
             }
             return RedirectToAction("Sucesso");
         }
-
 
         public IActionResult CadastroVeiculo()
         {
