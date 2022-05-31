@@ -42,5 +42,12 @@ namespace CRM_Auto.Controllers
             return RedirectToAction("CadastroCliente");
         }
 
+        public IActionResult OrdemServico()
+        {
+            OrdemServicoModel os = new OrdemServicoModel();
+            ViewBag.cabecalho = os.RecuperarCabecalho(1);
+            ViewBag.listaServicos = os.RecuperarServicos(1);
+            return View();
+        }
     }
 }
