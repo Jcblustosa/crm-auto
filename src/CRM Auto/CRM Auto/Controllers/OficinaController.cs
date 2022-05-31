@@ -26,6 +26,17 @@ namespace CRM_Auto.Controllers
             return View("Sucesso");
         }
 
+        public IActionResult CadastroVeiculo()
+        {
+            return View("CadastroVeiculo");
+        }
+
+        public IActionResult OperacaoCadastroVeiculo(VeiculoModel veiculo)
+        {
+            veiculo.CadastroVeiculo();
+            return RedirectToAction("CadastroVeiculo");
+        }
+
         public IActionResult CadastrarFuncionario()
         {
             return View("CadastroDeFuncionario");
@@ -46,17 +57,6 @@ namespace CRM_Auto.Controllers
                 return View("CadastroRealizadoComSucesso");
             }
             return RedirectToAction("Sucesso");
-        }
-
-        public IActionResult CadastroVeiculo()
-        {
-            return View("CadastroVeiculo");
-        }
-
-        public IActionResult OperacaoCadastroVeiculo(VeiculoModel veiculo)
-        {
-            veiculo.CadastroVeiculo();
-            return RedirectToAction("CadastroVeiculo");
         }
 
         public IActionResult BuscarFuncionarios()

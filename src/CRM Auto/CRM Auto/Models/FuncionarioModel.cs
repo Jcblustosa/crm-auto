@@ -30,16 +30,25 @@ namespace CRM_Auto.Models
         {
             string command = $"INSERT INTO FUNCIONARIO (NOME, FUNCAO, ID_OFICINA) VALUES ('{nome}', '{funcao}', '{id_oficina}')";
 
-            DAL dal = new DAL();
-            dal.InsertData(command);
+           //DAL dal = new DAL();
+           //dal.InsertData(command);
+
+            CNN cnn = new CNN();
+            cnn.InsertData(command);
+
+           
         }
 
         public bool ValidarInsercaoFuncionario()
         {
             string command = $"SELECT NOME, FUNCAO FROM FUNCIONARIO WHERE NOME = '{Nome}' AND FUNCAO = '{Funcao}'";
 
-            DAL dal = new DAL();
-            DataTable dt = dal.GetData(command);
+            //DAL dal = new DAL();
+            //DataTable dt = dal.GetData(command);
+
+            CNN cnn = new CNN();
+            DataTable dt = cnn.GetData(command);
+
             if (dt != null)
             {
                 if (dt.Rows.Count == 1)
@@ -56,8 +65,11 @@ namespace CRM_Auto.Models
 
             string command = $"SELECT F.ID_FUNCIONARIO, F.NOME, F.FUNCAO, O.NOME_OFICINA AS ID_OFICINA FROM FUNCIONARIO F INNER JOIN OFICINA O ON F.ID_OFICINA = O.ID_OFICINA";
 
-            DAL dal = new DAL();
-            DataTable dt = dal.GetData(command);
+            //DAL dal = new DAL();
+            //DataTable dt = dal.GetData(command);
+
+            CNN cnn = new CNN();
+            DataTable dt = cnn.GetData(command);
 
             for (int i = 0; i < dt.Rows.Count; i++)
             {
@@ -72,16 +84,22 @@ namespace CRM_Auto.Models
         {
             string command = $"UPDATE FUNCIONARIO SET NOME = '{nome}', FUNCAO = '{funcao}' , ID_OFICINA = '{id_oficina}' WHERE NOME = '{nome}'";
 
-            DAL dal = new DAL();
-            dal.InsertData(command);
+            //DAL dal = new DAL();
+            //dal.InsertData(command);
+
+            CNN cnn = new CNN();
+            cnn.InsertData(command);
         }
 
         public void ExcluirFuncionario(string nome, string funcao, string id_oficina)
         {
             string command = $"DELETE FROM FUNCIONARIO WHERE NOME = '{nome}'";
 
-            DAL dal = new DAL();
-            dal.InsertData(command);
+            //DAL dal = new DAL();
+            //dal.InsertData(command);
+
+            CNN cnn = new CNN();
+            cnn.InsertData(command);
         }
 
 

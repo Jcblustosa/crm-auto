@@ -17,8 +17,8 @@ namespace CRM_Auto.Models
                             $"WHERE LOGIN_USUARIO = '{Login_usuario}' AND " +
                             $"SENHA_USUARIO = '{Senha_usuario}'";
 
-            DAL dal = new DAL();
-            //CNN dal = new CNN();
+            //DAL dal = new DAL();
+            CNN dal = new CNN();
             DataTable dt = dal.GetData(command);
             if (dt != null)
             {
