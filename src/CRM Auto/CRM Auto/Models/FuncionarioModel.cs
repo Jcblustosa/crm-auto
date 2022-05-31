@@ -35,8 +35,6 @@ namespace CRM_Auto.Models
 
             CNN cnn = new CNN();
             cnn.InsertData(command);
-
-           
         }
 
         public bool ValidarInsercaoFuncionario()
@@ -101,8 +99,5 @@ namespace CRM_Auto.Models
             CNN cnn = new CNN();
             cnn.InsertData(command);
         }
-
-
-
     }
 }
