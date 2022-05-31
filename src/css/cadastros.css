@@ -157,6 +157,35 @@ label{
     height: 100vh
 }
 
+.table{
+    width: 100%;
+}
+
+.tb-desc-servico, .tb-mecanico{
+    width: 150px;
+    
+}
+
+.tb-dt-inicial, .tb-dt-final{
+    width: 40px;
+}
+
+.tb-check, .tb-qtde{
+    width: 40px;
+}
+
+.tb-check-vlr{
+    margin-left: 20px;
+}
+
+.tb-vlr-servico{
+    width: 95px;
+}
+
+.tb-btn{
+    width: 30px;
+}
+
 @media screen and (min-width: 768px) {
     body {
         margin: calc(var(--header-height) + 1rem) 0 0 0;
