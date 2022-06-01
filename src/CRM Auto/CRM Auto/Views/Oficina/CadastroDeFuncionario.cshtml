@@ -62,46 +62,8 @@
         </nav>
     </div>
     
-<<<<<<< HEAD
-   <form asp-controller="Oficina" asp-action="BuscarFuncionarios">
-    <div class="col-sm-8">
-        <label for="inputNome">Nome (*)</label>
-        <input type="text" class="form-control" id="inputNome" required placeholder="Informe o Nome" asp-for="Nome">
-    </div>
-    
-    <div class="col-sm-8">
-        <label for="inputCidade">Função</label>
-        <input type="text" class="form-control" id="inputFuncao" placeholder="Informe o Cargo" asp-for="Funcao">
-    </div>
-                
-    <div class="col-sm-8">
-        <label for="inputSite">Oficina (*)</label>
-        <input type="text" class="form-control" id="inputOficina" required placeholder="Informe a Oficina" asp-for="Id_oficina">
-    </div>      
-
-    <div class="form-group row">
-        <div class="col-sm-6">
-        <small>(*) Campos obrigatórios</small>
-        </div>
-    </div>
-    
-    <div class="form-group row">
-        <div class="col-sm-36">
-            <button type="submit" class="btn btn-success" id="btnInsert">Inserir</button>
-            <button type="submit" class="btn btn-warning" id="btnUpdate">Alterar</button>
-            <button type="submit" class="btn btn-danger" id="btnDelete">Excluir</button>
-            <button type="submit" class="btn btn-secondary" id="btnClear">Limpar Form</button>
-        </div>
-    </div>
-    </form>
-
-    <div class="col-sm-12">
-        <a href="lista_contatos.html"><input type="button" class="btn btn-warning" id="btnClear" value="Pesquisar Funcionário"></a>
-    </div>
-=======
 <div class="mx-auto" id="main"> 
 <h1>Funcionários</h1>
->>>>>>> origin/Front-end
 
     <div class="container">
         <div class="row">
@@ -302,7 +264,6 @@
         function exibeContatos() {
             // Remove todas as linhas do corpo da tabela
             $("#table-contatos").html("");
-
             // Popula a tabela com os registros do banco de dados
             for (i = 0; i < db.data.length; i++) {
                 let contato = db.data[i];    
@@ -316,7 +277,6 @@
                                             </tr>`);
             }
         }
-
         function init() {
             // Adiciona funções para tratar os eventos 
             $("#btnInsert").click(function () {
@@ -325,7 +285,6 @@
                     displayMessage("Preencha o formulário corretamente.");
                     return;
                 }
-
                 // Obtem os valores dos campos do formulário
                 let campoNome = $("#inputNome").val();
                 let campoMatricula= $("#inputTelefone").val();
@@ -339,16 +298,12 @@
                     cidade: campoCidade, 
                     categoria: campoCategoria,
                     website: campoSite };
-
                 insertContato(contato);
-
                 // Reexibe os contatos
                 exibeContatos();
-
                 // Limpa o formulario
                 $("#form-contato")[0].reset();
             });
-
             // Intercepta o click do botão Alterar
             $("#btnUpdate").click(function () {
                 // Obtem os valores dos campos do formulário
@@ -369,16 +324,12 @@
                     cidade: campoCidade, 
                     categoria: campoCategoria,
                     website: campoSite };
-
                 updateContato(parseInt(campoId), contato);
-
                 // Reexibe os contatos
                 exibeContatos();
-
                 // Limpa o formulario
                 $("#form-contato")[0].reset();
             });
-
             // Intercepta o click do botão Excluir
             $("#btnDelete").click(function () {
                 let campoId = $("#inputId").val();
@@ -387,19 +338,15 @@
                     return;
                 }
                 deleteContato(parseInt(campoId));
-
                 // Reexibe os contatos
                 exibeContatos();
-
                 // Limpa o formulario
                 $("#form-contato")[0].reset();
             });
-
             // Intercepta o click do botão Listar Contatos
             $("#btnClear").click(function () {
                 $("#form-contato")[0].reset();
             });
-
             // Oculta a mensagem de aviso após alguns segundos
             $('#msg').bind("DOMSubtreeModified", function () {
                 window.setTimeout(function () {
@@ -408,12 +355,10 @@
                     });
                 }, 5000);
             });
-
             // Preenche o formulário quando o usuario clicar em uma linha da tabela 
             $("#grid-contatos").on("click", "tr", function (e) {
                 let linhaContato = this;
                 colunas = linhaContato.querySelectorAll("td");
-
                 $("#inputId").val(colunas[0].innerText);
                 $("#inputNome").val(colunas[1].innerText);
                 $("#inputmatricula").val(colunas[2].innerText);
@@ -422,7 +367,6 @@
                 $("#inputCategoria").val(colunas[5].innerText);
                 $("#inputSite").val(colunas[6].innerText);
             });
-
             exibeContatos();
         }
     </script>
