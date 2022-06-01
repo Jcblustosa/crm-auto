@@ -12,7 +12,7 @@ namespace CRM_Auto.Util
     
     public class DAL
     {
-        private string ConnectionString = @"Data Source=LAPTOP-K07OAJOR\SQLEXPRESS02;Initial Catalog=CRM_AUTO;Trusted_Connection=True;";
+        private string ConnectionString = @"Data Source=RAFAELASOUZA7\SQLEXPRESS;Initial Catalog=CRM_AUTO;Trusted_Connection=True;";
 
         private SqlConnection SqlConnection;
 
@@ -27,7 +27,7 @@ namespace CRM_Auto.Util
             }
         }
 
-        //Comando Insert
+        //Comando Insert, Update e Delete
         public void InsertData(string command)
         {
             SqlCommand SqlCommand = new SqlCommand(command, SqlConnection);
