@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using CRM_Auto.Models;
+using System;
 
 namespace CRM_Auto.Controllers
 {
@@ -61,9 +62,16 @@ namespace CRM_Auto.Controllers
 
         public IActionResult BuscarFuncionarios()
         {
-            FuncionarioModel funcionario = new FuncionarioModel();
-            ViewBag.BuscarFuncionarios = funcionario.BuscarFuncionarios();
-            return View();
+            try
+            {
+                FuncionarioModel funcionario = new FuncionarioModel();
+                ViewBag.BuscarFuncionarios = funcionario.BuscarFuncionarios();
+                return View("CadastroDeFuncionario");
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
 
         [HttpPost]

@@ -15,10 +15,10 @@
         @foreach (FuncionarioModel funcionario in ViewBag.BuscarFuncionarios)
         {
         <tr>
-            <td>@funcionario.Id_funcionario</td> 
-            <td>@funcionario.Nome</td>
-            <td>@funcionario.Funcao</td>
-            <td>@funcionario.Id_oficina</td>
+            <td>@ViewBag.Id_funcionario</td> 
+            <td>@ViewBag.Nome</td>
+            <td>@ViewBag.Funcao</td>
+            <td>@ViewBag.Id_oficina</td>
         </tr>
         }
     </tbody>

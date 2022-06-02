@@ -77,7 +77,6 @@ namespace CRM_Auto.Util
 
             try
             {
-                
                 MySqlCommand.ExecuteNonQuery();
 
                 desconectar();

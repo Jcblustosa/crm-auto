@@ -12,13 +12,15 @@ namespace CRM_Auto.Models
         public string Nome { get; set; }
         public string Funcao { get; set; }
         public string Id_oficina { get; set; }
+        public string Login_usuario { get; set; }
 
-        public FuncionarioModel(int Id_funcionario, string Nome, string Funcao, string Id_oficina)
+        public FuncionarioModel(int Id_funcionario, string Nome, string Funcao, string Id_oficina, string Login_usuario)
         {
             this.Id_funcionario = Id_funcionario;
             this.Nome = Nome;
             this.Funcao = Funcao;
             this.Id_oficina = Id_oficina;
+            this.Login_usuario = Login_usuario;
         }
 
         public FuncionarioModel()
@@ -28,7 +30,8 @@ namespace CRM_Auto.Models
 
         public void InserirFuncionario(string nome, string funcao, string id_oficina)
         {
-            string command = $"INSERT INTO FUNCIONARIO (NOME, FUNCAO, ID_OFICINA) VALUES ('{nome}', '{funcao}', '{id_oficina}')";
+            string command = $"INSERT INTO FUNCIONARIO (NOME, FUNCAO, ID_OFICINA) " +
+                $"VALUES ('{nome}', '{funcao}', '{id_oficina}')";
 
            //DAL dal = new DAL();
            //dal.InsertData(command);
@@ -39,7 +42,9 @@ namespace CRM_Auto.Models
 
         public bool ValidarInsercaoFuncionario()
         {
-            string command = $"SELECT NOME, FUNCAO FROM FUNCIONARIO WHERE NOME = '{Nome}' AND FUNCAO = '{Funcao}'";
+            string command = $"SELECT NOME, FUNCAO " +
+                $"FROM FUNCIONARIO " +
+                $"WHERE NOME = '{Nome}' AND FUNCAO = '{Funcao}'";
 
             //DAL dal = new DAL();
             //DataTable dt = dal.GetData(command);
@@ -61,7 +66,11 @@ namespace CRM_Auto.Models
         {
             ArrayList<FuncionarioModel> funcionarios = new ArrayList<FuncionarioModel>();
 
-            string command = $"SELECT F.ID_FUNCIONARIO, F.NOME, F.FUNCAO, O.NOME_OFICINA AS ID_OFICINA FROM FUNCIONARIO F INNER JOIN OFICINA O ON F.ID_OFICINA = O.ID_OFICINA";
+            string command = $"SELECT F.ID_FUNCIONARIO, F.NOME, F.FUNCAO, O.NOME_OFICINA AS ID_OFICINA, U.LOGIN_USUARIO " +
+                $"FROM FUNCIONARIO F " +
+                $"INNER JOIN OFICINA O ON F.ID_OFICINA = O.ID_OFICINA " +
+                $"INNER JOIN USUARIO U ON F.ID_FUNCIONARIO = U.ID_FUNCIONARIO " +
+                $"ORDER BY F.NOME";
 
             //DAL dal = new DAL();
             //DataTable dt = dal.GetData(command);
@@ -71,7 +80,11 @@ namespace CRM_Auto.Models
 
             for (int i = 0; i < dt.Rows.Count; i++)
             {
-                FuncionarioModel funcionario = new FuncionarioModel(int.Parse(dt.Rows[i]["Id_funcionario"].ToString()), dt.Rows[i]["Nome"].ToString(), dt.Rows[i]["Funcao"].ToString(), dt.Rows[i]["Id_oficina"].ToString());
+                FuncionarioModel funcionario = new FuncionarioModel(int.Parse(dt.Rows[i]["Id_funcionario"].ToString()), 
+                    dt.Rows[i]["Nome"].ToString(), 
+                    dt.Rows[i]["Funcao"].ToString(), 
+                    dt.Rows[i]["Id_oficina"].ToString(), 
+                    dt.Rows[i]["Login_usuario"].ToString());
                 funcionarios.Add(funcionario);
             }
 
@@ -80,7 +93,9 @@ namespace CRM_Auto.Models
 
         public void AlterarFuncionario(string nome, string funcao, string id_oficina)
         {
-            string command = $"UPDATE FUNCIONARIO SET NOME = '{nome}', FUNCAO = '{funcao}' , ID_OFICINA = '{id_oficina}' WHERE NOME = '{nome}'";
+            string command = $"UPDATE FUNCIONARIO " +
+                $"SET NOME = '{nome}', FUNCAO = '{funcao}' , ID_OFICINA = '{id_oficina}' " +
+                $"WHERE NOME = '{nome}'";
 
             //DAL dal = new DAL();
             //dal.InsertData(command);
@@ -91,7 +106,8 @@ namespace CRM_Auto.Models
 
         public void ExcluirFuncionario(string nome, string funcao, string id_oficina)
         {
-            string command = $"DELETE FROM FUNCIONARIO WHERE NOME = '{nome}'";
+            string command = $"DELETE FROM FUNCIONARIO " +
+                $"WHERE NOME = '{nome}'";
 
             //DAL dal = new DAL();
             //dal.InsertData(command);
