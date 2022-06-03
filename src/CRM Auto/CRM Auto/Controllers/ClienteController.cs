@@ -1,5 +1,6 @@
 ﻿using CRM_Auto.Models;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 
 namespace CRM_Auto.Controllers
 {
@@ -17,7 +18,9 @@ namespace CRM_Auto.Controllers
 
         public IActionResult ConsultarDetalhamento()
         {
-            return View();
+            DetalhamentoModel model = new DetalhamentoModel();
+            List<DetalhamentoModel> servicos = model.ConsultarDetalhamento(1);
+            return View(servicos);
         }
 
         [HttpPost]
@@ -40,14 +43,6 @@ namespace CRM_Auto.Controllers
         {
             cliente.CadastroCliente();
             return RedirectToAction("CadastroCliente");
-        }
-
-        public IActionResult OrdemServico()
-        {
-            OrdemServicoModel os = new OrdemServicoModel();
-            ViewBag.cabecalho = os.RecuperarCabecalho(1);
-            ViewBag.listaServicos = os.RecuperarServicos(1);
-            return View();
         }
     }
 }

@@ -1,1 +1,29 @@
-﻿
+﻿@model List<DetalhamentoModel>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>N° da O.S.</th>
+            <th>Serviço</th>
+            <th>Responsável</th>
+            <th>Tempo previsto</th>
+            <th>Data início</th>
+            <th>Data fim</th>
+            <th>Valor (Un.)</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (DetalhamentoModel servico in Model)
+        {
+            <tr>
+                <td>@servico.IdOrdemServico</td>
+                <td>@servico.DescricaoServico</td>
+                <td>@servico.NomeMecanico</td>
+                <td>@servico.TempoPrevisto</td>
+                <td>@servico.DataInicioServico</td>
+                <td>@servico.DataFimServico</td>
+                <td>@servico.ValorUnitario.ToString("N")</td>
+            </tr>
+        }
+    </tbody>
+</table>
