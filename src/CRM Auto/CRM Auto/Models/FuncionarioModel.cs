@@ -61,6 +61,7 @@ namespace CRM_Auto.Models
             {
                 if (dt.Rows.Count == 1)
                 {
+                    //Cria um usuario para o funcionário inserido no método anterior
                     CNN cnn1 = new CNN();
                     DataTable Id_funcionario = cnn1.GetData($"SELECT ID_FUNCIONARIO FROM FUNCIONARIO WHERE NOME = '{Nome}' AND FUNCAO = '{Funcao}'");
 
@@ -122,12 +123,14 @@ namespace CRM_Auto.Models
             cnn.InsertData(command);
         }
 
-        public void ExcluirFuncionario(string nome)
+        public void ExcluirFuncionario(string nome, string funcao)
         {
 
+            //Exclui o usuário (necessário excluir antes porque o id_funcionario é chave estrangeira na tabela Usuario)
             string command = $"DELETE FROM USUARIO " +
                 $"WHERE ID_FUNCIONARIO IN (SELECT ID_FUNCIONARIO FROM FUNCIONARIO WHERE NOME = '{nome}')";
 
+            //Exclui o funcionário
             string command2 = $"DELETE FROM FUNCIONARIO " +
                 $"WHERE NOME = '{nome}'";
 

@@ -91,8 +91,9 @@ namespace CRM_Auto.Controllers
         public IActionResult ExcluirFuncionario(FuncionarioModel funcionario)
         {
             string nome = funcionario.Nome;
+            string funcao = funcionario.Funcao;
 
-            funcionario.ExcluirFuncionario(nome);
+            funcionario.ExcluirFuncionario(nome, funcao);
 
             return View("CadastroRealizadoComSucesso");
 
