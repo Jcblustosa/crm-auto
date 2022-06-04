@@ -13,6 +13,7 @@ namespace CRM_Auto.Models
         public string Funcao { get; set; }
         public string Id_oficina { get; set; }
         public string Login_usuario { get; set; }
+        public string Nome_oficina { get; set; }
 
         public FuncionarioModel(int Id_funcionario, string Nome, string Funcao, string Id_oficina, string Login_usuario)
         {
@@ -28,16 +29,20 @@ namespace CRM_Auto.Models
 
         }
 
-        public void InserirFuncionario(string nome, string funcao, string id_oficina)
+        public void InserirFuncionario(string nome, string funcao, string nome_oficina)
         {
+
+            CNN cnn = new CNN();
+            DataTable Id_oficina = cnn.GetData($"SELECT ID_OFICINA FROM OFICINA WHERE NOME_OFICINA = '{nome_oficina}'");
+
             string command = $"INSERT INTO FUNCIONARIO (NOME, FUNCAO, ID_OFICINA) " +
-                $"VALUES ('{nome}', '{funcao}', '{id_oficina}')";
+                $"VALUES ('{nome}', '{funcao}', '{Id_oficina.Rows[0]["Id_oficina"]}')";
 
            //DAL dal = new DAL();
            //dal.InsertData(command);
 
-            CNN cnn = new CNN();
-            cnn.InsertData(command);
+            CNN cnn1= new CNN();
+            cnn1.InsertData(command);
         }
 
         public bool ValidarInsercaoFuncionario()
@@ -56,17 +61,17 @@ namespace CRM_Auto.Models
             {
                 if (dt.Rows.Count == 1)
                 {
-                    /*CNN cnn1 = new CNN();
+                    CNN cnn1 = new CNN();
                     DataTable Id_funcionario = cnn1.GetData($"SELECT ID_FUNCIONARIO FROM FUNCIONARIO WHERE NOME = '{Nome}' AND FUNCAO = '{Funcao}'");
 
                     string command2 = $"INSERT INTO USUARIO (ID_FUNCIONARIO, LOGIN_USUARIO, SENHA_USUARIO, CLIENTE_OU_FUNCIONARIO)" +
-                    $"VALUES ('{Id_funcionario.Rows[0]["Id_funcionario"].ToString}','{Nome} + @oficina.com.br', 'ad123', 'F')";
+                    $"VALUES ('{Id_funcionario.Rows[0]["Id_funcionario"]}','{Nome.Replace(" ", string.Empty).ToLower()}@oficina.com.br', 'ad123', 'F')";
 
                     //DAL dal = new DAL();
                     //dal.InsertData(command);
 
                     CNN cnn2 = new CNN();
-                    cnn.InsertData(command2);*/
+                    cnn.InsertData(command2);
 
                     return true;
                 }
@@ -97,6 +102,7 @@ namespace CRM_Auto.Models
                     dt.Rows[i]["Funcao"].ToString(), 
                     dt.Rows[i]["Id_oficina"].ToString(), 
                     dt.Rows[i]["Login_usuario"].ToString());
+
                 funcionarios.Add(funcionario);
             }
 

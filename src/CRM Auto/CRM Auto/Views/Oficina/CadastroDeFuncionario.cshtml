@@ -1,4 +1,4 @@
-﻿@model FuncionarioModel
+﻿@model CRM_Auto.Models.FuncionarioOficinaModel
 
 @{
     Layout = "../Shared/_Layout_Cadastro_Funcionario.cshtml";
@@ -62,158 +62,163 @@
         </nav>
     </div>
     
-<div class="mx-auto" id="main"> 
-<h1>Funcionários</h1>
+    <div class="mx-auto" id="main"> 
+    <h1>Funcionários</h1>
 
-    <div class="container">
-        <div class="row">
-            <div class="input-group col-sm">
-                <span class="input-group-text" id="basic-addon1"><i class="bi bi-search small"></i></span>
-                <input id="tableSearch" type="text" class="form-control col-5" placeholder="Pesquise um funcionário" aria-label="Username" aria-describedby="basic-addon1">
-            </div>
-            <div class="col-sm">
-                <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#addFuncionario"><i class="bi bi-plus"></i> Novo funcionário</button>
+        <div class="container">
+            <div class="row">
+                <div class="input-group col-sm">
+                    <span class="input-group-text" id="basic-addon1"><i class="bi bi-search small"></i></span>
+                    <input id="tableSearch" type="text" class="form-control col-5" placeholder="Pesquise um funcionário" aria-label="Username" aria-describedby="basic-addon1">
+                </div>
+                <div class="col-sm">
+                    <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#addFuncionario"><i class="bi bi-plus"></i> Novo funcionário</button>
+                </div>
             </div>
         </div>
-    </div>
 
-    @{
-    <div onload="init" class="tbl-container bdr"> 
-        <table class="table align-middle mb-0 bg-white table-striped table-bordered" id="showTable">
-        <thead class="bg-light">
-          <tr>
-            <th>Nome</th>
-            <th>Email</th>
-            <th>Cargo</th>
-            <th>Opções</th>
-          </tr>
-        </thead>
-        <tbody id="table-contatos">
-       
-        @foreach (FuncionarioModel funcionario in ViewBag.BuscarFuncionarios)
-        {
-          <tr>
-            <td scope="row">
-              <div class="d-flex align-items-center">
-                  <p class="fw-bold mb-1">@funcionario.Nome</p>
-              </div>
-            </td>
-            <td>
-              <p class="fw-normal mb-1">@funcionario.Login_usuario</p>
-            </td>
-            <td>
-                <p class="fw-normal mb-1">@funcionario.Funcao</p>
-                <p class="text-muted mb-0">@funcionario.Id_oficina</p>
-            <td>
-                <button
-                type="button"
-                class="btn btn-link btn-rounded btn-sm fw-bold"
-                data-mdb-ripple-color="dark" data-placement="right" title="Edit" data-toggle="modal" data-target="#editFuncionario"
-                >
-                <i class="bi bi-pencil-fill"></i>
-                </button>
-            </td>
-          </tr>
-         }
-        </tbody>
-      </table>
-    </div>
-    }
+        @{
+         <div onload="init" class="tbl-container bdr">
+            <table class="table align-middle mb-0 bg-white table-striped table-bordered" id="showTable">
+                <thead class="bg-light">
+                    <tr>
+                        <th>Nome</th>
+                        <th>Email</th>
+                        <th>Cargo</th>
+                        <th>Opções</th>
+                    </tr>
+                </thead>
+                <tbody id="table-contatos">
+
+                    @foreach (FuncionarioModel funcionario in ViewBag.BuscarFuncionarios)
+                    {
+                        <tr>
+                            <td scope="row">
+                                <div class="d-flex align-items-center">
+                                    <p class="fw-bold mb-1">@funcionario.Nome</p>
+                                </div>
+                            </td>
+                            <td>
+                                <p class="fw-normal mb-1">@funcionario.Login_usuario</p>
+                            </td>
+                            <td>
+                                <p class="fw-normal mb-1">@funcionario.Funcao</p>
+                                <p class="text-muted mb-0">@funcionario.Id_oficina</p>
+                            <td>
+                                <button type="button"
+                                    lass="btn btn-link btn-rounded btn-sm fw-bold"
+                                    data-mdb-ripple-color="dark" data-placement="right" title="Edit" data-toggle="modal" data-target="#editFuncionario">
+                                    <i class="bi bi-pencil-fill"></i>
+                                </button>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        }
     </div>
 
 <!------------------------------------MODAL-------------------------------------->
+@{
     <div class="modal fade modal-fullscreen-xl hide modal" id="addFuncionario" tabindex="-1" role="dialog" aria-labelledby="addFuncionarioLabel" aria-hidden="true" style="width: 100% !important; border: 0">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-        <div class="modal-header border-bottom-0">
-            <h5 class="modal-title" id="addFuncionarioLabel">Cadastre um novo funcionário</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-    
-        <form asp-controller="Oficina">
-            <div class="modal-body">
-                <div class="form-group col-8">
-                    <label for="inputNome">Nome (*)</label>
-                    <input type="text" class="form-control" id="inputNome" required placeholder="Informe o Nome" asp-for="Nome">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header border-bottom-0">
+                    <h5 class="modal-title" id="addFuncionarioLabel">Cadastre um novo funcionário</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
-        
-                <div class="form-group col-8">
-                    <label for="inputFuncao">Função</label>
-                    <input type="text" class="form-control" id="inputFuncao" required placeholder="Informe o Cargo" asp-for="Funcao">
-                </div>
-                    
-                <div class="form-group col-8">
-                    <label for="inputOficina">Oficina (*)</label>
-                    <input type="text" class="form-control" id="inputOficina" required placeholder="Informe a Oficina" asp-for="Id_oficina">
-                </div>      
 
-                <div class="form-group row">
-                    <div class="form-group">
-                    <small>(*) Campos obrigatórios</small>
+                <form asp-controller="Oficina">
+                    <div class="modal-body">
+                        <div class="form-group col-8">
+                            <label for="inputNome">Nome (*)</label>
+                            <input type="text" class="form-control" id="inputNome" required placeholder="Informe o Nome" asp-for="Nome">
+                        </div>
+
+                        <div class="form-group col-8">
+                            <label for="inputFuncao">Função</label>
+                            <input type="text" class="form-control" id="inputFuncao" placeholder="Informe o Cargo" asp-for="Funcao">
+                        </div>
+
+                        <div class="form-group col-8">
+                            <label for="inputOficina">Oficina (*)</label>
+                            <fieldset class="form-control" id="inputOficina" required placeholder="Informe a Oficina">
+                                    <select id="oficina" required" asp-for="Nome_oficina">
+                                        <option></option>
+                                        <option>Centro Automotivo Santa Monica</option>
+                                        <option>Centro Automotivo Pampulha</option>
+                                    </select>
+                            </fieldset>
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="form-group">
+                                <small>(*) Campos obrigatórios</small>
+                            </div>
+                        </div>
+
+                        <div class="form-group row pb-3 float-end">
+                            <div class="col-sm-17">
+                                <button type="submit" class="btn btn-success btn-sm" id="btnInsert" asp-action="InserirFuncionario">Inserir</button>
+                                <button type="reset" class="btn btn-secondary btn-sm" id="btnClear">Limpar Form</button>
+                            </div>
+                        </div>
                     </div>
-                </div>
-        
-                <div class="form-group row pb-3 float-end">
-                    <div class="col-sm-17">
-                        <button type="submit" class="btn btn-success btn-sm" id="btnInsert" asp-action="InserirFuncionario">Inserir</button>
-                        <button type="reset" class="btn btn-secondary btn-sm" id="btnClear">Limpar Form</button>
-                    </div>
-                </div>
+                </form>
             </div>
-            </form>
-      </div>
+        </div>
     </div>
-  </div>
-
+}
 
 <!------------------------------------MODAL-------------------------------------->
-  <div class="modal fade modal-fullscreen-xl hide modal" id="editFuncionario" tabindex="-1" role="dialog" aria-labelledby="addFuncionarioLabel" aria-hidden="true" style="width: 100% !important; border: 0">
+<div class="modal fade modal-fullscreen-xl hide modal" id="editFuncionario" tabindex="-1" role="dialog" aria-labelledby="addFuncionarioLabel" aria-hidden="true" style="width: 100% !important; border: 0">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
-        <div class="modal-header border-bottom-0">
-            <h5 class="modal-title" id="addFuncionarioLabel">Edite as informações de funcionário</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-    
-        <form asp-controller="Oficina">
-            <div class="modal-body">
-                <div class="form-group col-8">
-                    <label for="inputNome">Nome (*)</label>
-                    <input type="text" class="form-control" id="inputNome" required placeholder="Informe o Nome" asp-for="Nome">
-                </div>
-        
-                <div class="form-group col-8">
-                    <label for="inputCidade">Função</label>
-                    <input type="text" class="form-control" id="inputFuncao" required placeholder="Informe o Cargo" asp-for="Funcao">
-                </div>
-                    
-                <div class="form-group col-8">
-                    <label for="inputSite">Oficina (*)</label>
-                    <input type="text" class="form-control" id="inputOficina" required placeholder="Informe a Oficina" asp-for="Id_oficina">
-                </div>      
-
-                <div class="form-group row">
-                    <div class="form-group">
-                    <small>(*) Campos obrigatórios</small>
-                    </div>
-                </div>
-        
-                <div class="form-group row pb-3 float-end">
-                    <div class="col-sm-17">
-                        <button type="submit" class="btn btn-warning btn-sm" id="btnUpdate" asp-action="AlterarFuncionario">Alterar</button>
-                        <button type="submit" class="btn btn-danger btn-sm" id="btnDelete" asp-action="ExcluirFuncionario">Excluir</button>
-                        <button type="reset" class="btn btn-secondary btn-sm" id="btnClear">Limpar Form</button>
-                    </div>
-                </div>
+            <div class="modal-header border-bottom-0">
+                <h5 class="modal-title" id="addFuncionarioLabel">Edite as informações de funcionário</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
+
+            <form asp-controller="Oficina">
+                <div class="modal-body">
+                    <div class="form-group col-8">
+                        <label for="inputNome">Nome (*)</label>
+                        <input type="text" class="form-control" id="inputNome" required placeholder="Informe o Nome" asp-for="Nome">
+                    </div>
+
+                    <div class="form-group col-8">
+                        <label for="inputCidade">Função</label>
+                        <input type="text" class="form-control" id="inputFuncao" required placeholder="Informe o Cargo" asp-for="Funcao">
+                    </div>
+
+                    <div class="form-group col-8">
+                        <label for="inputSite">Oficina (*)</label>
+                        <input type="text" class="form-control" id="inputOficina" required placeholder="Informe a Oficina" asp-for="Id_oficina">
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="form-group">
+                            <small>(*) Campos obrigatórios</small>
+                        </div>
+                    </div>
+
+                    <div class="form-group row pb-3 float-end">
+                        <div class="col-sm-17">
+                            <button type="submit" class="btn btn-warning btn-sm" id="btnUpdate" asp-action="AlterarFuncionario">Alterar</button>
+                            <button type="submit" class="btn btn-danger btn-sm" id="btnDelete" asp-action="ExcluirFuncionario">Excluir</button>
+                            <button type="reset" class="btn btn-secondary btn-sm" id="btnClear">Limpar Form</button>
+                        </div>
+                    </div>
+                </div>
             </form>
-      </div>
+        </div>
     </div>
-  </div>
+</div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <script src="app.js"></script>
     <script>

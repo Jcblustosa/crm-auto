@@ -48,9 +48,9 @@ namespace CRM_Auto.Controllers
         {
             string nome = funcionario.Nome;
             string funcao = funcionario.Funcao;
-            string id_oficina = funcionario.Id_oficina;
+            string nome_oficina = funcionario.Nome_oficina;
 
-            funcionario.InserirFuncionario(nome, funcao, id_oficina);
+            funcionario.InserirFuncionario(nome, funcao, nome_oficina);
 
             bool resultadoInsercao = funcionario.ValidarInsercaoFuncionario();
             if (resultadoInsercao)
@@ -96,6 +96,19 @@ namespace CRM_Auto.Controllers
 
             return View("CadastroRealizadoComSucesso");
 
+        }
+        public IActionResult BuscarOficinas()
+        {
+            try
+            {
+                FuncionarioOficinaModel oficina = new FuncionarioOficinaModel();
+                ViewBag.BuscarOficinas = oficina.oficinaModel.BuscarOficinas();
+                return View("CadastroDeFuncionario");
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
     }
 }
