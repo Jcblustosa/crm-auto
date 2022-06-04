@@ -77,42 +77,8 @@
     <div class="height-100 bg-light">
         <h4>Cadastro de Oficina</h4>
         <!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Cadastro de Contatos</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="style.css">
 
-    <script type="text/javascript">
-        function criarTabela(){
-          var tabela = document.createElement("table");
-          tabela.border = "1px";
-          tabela.cellSpacing = "0px";
-          tabela.cellPadding = "3px";
-
-          var corpo = document.createElement("tbody");
-          tabela.appendChild(corpo);
-
-          for(var i = 0; i < 3; i++){
-            var linha = corpo.insertRow(-1);
-             
-            for(var j = 0; j < 4; j++){
-               var celula = linha.insertCell(-1);
-               celula.innerHTML = "Célula " + i + ", " + j + "";
-            }
-          }
-       
-          var container = document.getElementById("containerPesquisa");
-          container.appendChild(tabela);
-        }  
-      </script>
-</head>
-
-<body>
     <div class="height-100 bg-light">
         <h1>Consultar o detalhamento</h1>
 
@@ -211,3 +177,27 @@
         </div>
     </div>
 </body>
+
+                    <script type="text/javascript">
+        function criarTabela(){
+          var tabela = document.createElement("table");
+          tabela.border = "1px";
+          tabela.cellSpacing = "0px";
+          tabela.cellPadding = "3px";
+
+          var corpo = document.createElement("tbody");
+          tabela.appendChild(corpo);
+
+          for(var i = 0; i < 3; i++){
+            var linha = corpo.insertRow(-1);
+             
+            for(var j = 0; j < 4; j++){
+               var celula = linha.insertCell(-1);
+               celula.innerHTML = "Célula " + i + ", " + j + "";
+            }
+          }
+       
+          var container = document.getElementById("containerPesquisa");
+          container.appendChild(tabela);
+        }  
+      </script>
