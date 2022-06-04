@@ -41,6 +41,7 @@ namespace CRM_Auto.Util
             }
         }
 
+        //Comando Select
         public DataTable GetData(string command)
         {
             MySqlDataAdapter dataAdapter;
@@ -67,6 +68,25 @@ namespace CRM_Auto.Util
             }
 
             return table;
+        }
+
+        //Comando Insert, Update e Delete
+        public void InsertData(string command)
+        {
+            MySqlCommand MySqlCommand = new MySqlCommand(command, objCon);
+
+            try
+            {
+                MySqlCommand.ExecuteNonQuery();
+
+                desconectar();
+            }
+
+            catch (MySqlException ex)
+            {
+                throw new Exception(ex.Message);
+            }
+
         }
 
         //public DataTable ListaGrid()
