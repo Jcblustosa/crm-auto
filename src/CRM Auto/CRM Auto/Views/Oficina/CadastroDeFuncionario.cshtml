@@ -132,7 +132,7 @@
             </button>
         </div>
     
-        <form asp-controller="Oficina" asp-action="InserirCadastro">
+        <form asp-controller="Oficina">
             <div class="modal-body">
                 <div class="form-group col-8">
                     <label for="inputNome">Nome (*)</label>
@@ -140,12 +140,12 @@
                 </div>
         
                 <div class="form-group col-8">
-                    <label for="inputCidade">Função</label>
-                    <input type="text" class="form-control" id="inputFuncao" placeholder="Informe o Cargo" asp-for="Funcao">
+                    <label for="inputFuncao">Função</label>
+                    <input type="text" class="form-control" id="inputFuncao" required placeholder="Informe o Cargo" asp-for="Funcao">
                 </div>
                     
                 <div class="form-group col-8">
-                    <label for="inputSite">Oficina (*)</label>
+                    <label for="inputOficina">Oficina (*)</label>
                     <input type="text" class="form-control" id="inputOficina" required placeholder="Informe a Oficina" asp-for="Id_oficina">
                 </div>      
 
@@ -157,10 +157,8 @@
         
                 <div class="form-group row pb-3 float-end">
                     <div class="col-sm-17">
-                        <button type="submit" class="btn btn-success btn-sm" id="btnInsert">Inserir</button>
-                        <button type="submit" class="btn btn-warning btn-sm" id="btnUpdate">Alterar</button>
-                        <button type="submit" class="btn btn-danger btn-sm" id="btnDelete">Excluir</button>
-                        <button type="submit" class="btn btn-secondary btn-sm" id="btnClear">Limpar Form</button>
+                        <button type="submit" class="btn btn-success btn-sm" id="btnInsert" asp-action="InserirFuncionario">Inserir</button>
+                        <button type="reset" class="btn btn-secondary btn-sm" id="btnClear">Limpar Form</button>
                     </div>
                 </div>
             </div>
@@ -181,7 +179,7 @@
             </button>
         </div>
     
-        <form asp-controller="Oficina" asp-action="InserirCadastro">
+        <form asp-controller="Oficina">
             <div class="modal-body">
                 <div class="form-group col-8">
                     <label for="inputNome">Nome (*)</label>
@@ -190,7 +188,7 @@
         
                 <div class="form-group col-8">
                     <label for="inputCidade">Função</label>
-                    <input type="text" class="form-control" id="inputFuncao" placeholder="Informe o Cargo" asp-for="Funcao">
+                    <input type="text" class="form-control" id="inputFuncao" required placeholder="Informe o Cargo" asp-for="Funcao">
                 </div>
                     
                 <div class="form-group col-8">
@@ -206,10 +204,9 @@
         
                 <div class="form-group row pb-3 float-end">
                     <div class="col-sm-17">
-                        <button type="submit" class="btn btn-success btn-sm" id="btnInsert">Inserir</button>
-                        <button type="submit" class="btn btn-warning btn-sm" id="btnUpdate">Alterar</button>
-                        <button type="submit" class="btn btn-danger btn-sm" id="btnDelete">Excluir</button>
-                        <button type="submit" class="btn btn-secondary btn-sm" id="btnClear">Limpar Form</button>
+                        <button type="submit" class="btn btn-warning btn-sm" id="btnUpdate" asp-action="AlterarFuncionario">Alterar</button>
+                        <button type="submit" class="btn btn-danger btn-sm" id="btnDelete" asp-action="ExcluirFuncionario">Excluir</button>
+                        <button type="reset" class="btn btn-secondary btn-sm" id="btnClear">Limpar Form</button>
                     </div>
                 </div>
             </div>

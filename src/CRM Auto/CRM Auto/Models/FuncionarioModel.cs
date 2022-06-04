@@ -56,6 +56,18 @@ namespace CRM_Auto.Models
             {
                 if (dt.Rows.Count == 1)
                 {
+                    /*CNN cnn1 = new CNN();
+                    DataTable Id_funcionario = cnn1.GetData($"SELECT ID_FUNCIONARIO FROM FUNCIONARIO WHERE NOME = '{Nome}' AND FUNCAO = '{Funcao}'");
+
+                    string command2 = $"INSERT INTO USUARIO (ID_FUNCIONARIO, LOGIN_USUARIO, SENHA_USUARIO, CLIENTE_OU_FUNCIONARIO)" +
+                    $"VALUES ('{Id_funcionario.Rows[0]["Id_funcionario"].ToString}','{Nome} + @oficina.com.br', 'ad123', 'F')";
+
+                    //DAL dal = new DAL();
+                    //dal.InsertData(command);
+
+                    CNN cnn2 = new CNN();
+                    cnn.InsertData(command2);*/
+
                     return true;
                 }
             }
@@ -104,16 +116,24 @@ namespace CRM_Auto.Models
             cnn.InsertData(command);
         }
 
-        public void ExcluirFuncionario(string nome, string funcao, string id_oficina)
+        public void ExcluirFuncionario(string nome)
         {
-            string command = $"DELETE FROM FUNCIONARIO " +
+
+            string command = $"DELETE FROM USUARIO " +
+                $"WHERE ID_FUNCIONARIO IN (SELECT ID_FUNCIONARIO FROM FUNCIONARIO WHERE NOME = '{nome}')";
+
+            string command2 = $"DELETE FROM FUNCIONARIO " +
                 $"WHERE NOME = '{nome}'";
+
 
             //DAL dal = new DAL();
             //dal.InsertData(command);
 
             CNN cnn = new CNN();
             cnn.InsertData(command);
+
+            CNN cnn2 = new CNN();
+            cnn2.InsertData(command2);
         }
     }
 }
