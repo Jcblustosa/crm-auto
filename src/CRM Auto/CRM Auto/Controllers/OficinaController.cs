@@ -55,6 +55,9 @@ namespace CRM_Auto.Controllers
             bool resultadoInsercao = funcionario.ValidarInsercaoFuncionario();
             if (resultadoInsercao)
             {
+                TempData["msg"] = "Inclusão realizada com sucesso!";
+                TempData["msgDetalhes"] = "O cadastro do funcionário foi finalizado e você já pode consultá-lo no sistema da sua oficina.";
+
                 return View("CadastroRealizadoComSucesso");
             }
             return RedirectToAction("Sucesso");
@@ -79,9 +82,12 @@ namespace CRM_Auto.Controllers
         {
             string nome = funcionario.Nome;
             string funcao = funcionario.Funcao;
-            string id_oficina = funcionario.Id_oficina;
+            string nome_oficina = funcionario.Nome_oficina;
 
-            funcionario.AlterarFuncionario(nome, funcao, id_oficina);
+            funcionario.AlterarFuncionario(nome, funcao, nome_oficina);
+
+            TempData["msg"] = "Alteração realizada com sucesso!";
+            TempData["msgDetalhes"] = "A alteração do funcionário foi finalizada e você já pode consultar as informações atualizadas no sistema da sua oficina.";
 
             return View("CadastroRealizadoComSucesso");
 
@@ -94,6 +100,9 @@ namespace CRM_Auto.Controllers
             string funcao = funcionario.Funcao;
 
             funcionario.ExcluirFuncionario(nome, funcao);
+
+            TempData["msg"] = "Exclusão realizada com sucesso!";
+            TempData["msgDetalhes"] = "A exclusão do funcionário foi finalizada e você já pode consultar as informações atualizadas no sistema da sua oficina.";
 
             return View("CadastroRealizadoComSucesso");
 

@@ -59,7 +59,7 @@ namespace CRM_Auto.Models
 
             if (dt != null)
             {
-                if (dt.Rows.Count == 1)
+                if (dt.Rows.Count >= 1)
                 {
                     //Cria um usuario para o funcionário inserido no método anterior
                     CNN cnn1 = new CNN();
@@ -110,17 +110,20 @@ namespace CRM_Auto.Models
             return funcionarios;
         }
 
-        public void AlterarFuncionario(string nome, string funcao, string id_oficina)
+        public void AlterarFuncionario(string nome, string funcao, string nome_oficina)
         {
+            CNN cnn = new CNN();
+            DataTable Id_oficina = cnn.GetData($"SELECT ID_OFICINA FROM OFICINA WHERE NOME_OFICINA = '{nome_oficina}'");
+
             string command = $"UPDATE FUNCIONARIO " +
-                $"SET NOME = '{nome}', FUNCAO = '{funcao}' , ID_OFICINA = '{id_oficina}' " +
+                $"SET NOME = '{nome}', FUNCAO = '{funcao}' , ID_OFICINA = '{Id_oficina.Rows[0]["Id_oficina"]}' " +
                 $"WHERE NOME = '{nome}'";
 
             //DAL dal = new DAL();
             //dal.InsertData(command);
 
-            CNN cnn = new CNN();
-            cnn.InsertData(command);
+            CNN cnn1 = new CNN();
+            cnn1.InsertData(command);
         }
 
         public void ExcluirFuncionario(string nome, string funcao)
@@ -132,7 +135,7 @@ namespace CRM_Auto.Models
 
             //Exclui o funcionário
             string command2 = $"DELETE FROM FUNCIONARIO " +
-                $"WHERE NOME = '{nome}'";
+                $"WHERE NOME = '{nome}' AND FUNCAO = '{funcao}'";
 
 
             //DAL dal = new DAL();
