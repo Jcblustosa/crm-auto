@@ -1,10 +1,17 @@
 ﻿using CRM_Auto.Models;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
+using Microsoft.AspNetCore.Http;
 
 namespace CRM_Auto.Controllers
 {
     public class ClienteController : Controller
     {
+        private IHttpContextAccessor HttpContextAccessor;
+        public ClienteController(IHttpContextAccessor httpContextAccessor)
+        {
+            HttpContextAccessor = httpContextAccessor;
+        }
         public IActionResult Index()
         {
             return View();
@@ -14,10 +21,12 @@ namespace CRM_Auto.Controllers
         {
             return View();
         }
-
-        public IActionResult ConsultarDetalhamento()
+        [HttpGet]
+        public IActionResult ConsultarDetalhamento(int id)
         {
-            return View();
+            DetalhamentoModel model = new DetalhamentoModel();
+            List<DetalhamentoModel> servicos = model.ConsultarDetalhamento(id);
+            return View(servicos);
         }
 
         [HttpPost]
@@ -26,6 +35,11 @@ namespace CRM_Auto.Controllers
             bool login = usuario.ValidarLogin();
             if (login)
             {
+                string[] nomeEId = usuario.NomeEId(usuario.Login_usuario, usuario.Senha_usuario);
+                HttpContext.Session.SetString("NomeUsuario", nomeEId[0]);
+                HttpContext.Session.SetString("IdUsuario", nomeEId[1]);
+                TempData["NomeUsuario"] = HttpContextAccessor.HttpContext.Session.GetString("NomeUsuario");
+                TempData["IdUsuario"] = HttpContextAccessor.HttpContext.Session.GetString("IdUsuario");
                 return RedirectToAction("Index");
             }
             return RedirectToAction("LoginCliente");
@@ -40,14 +54,6 @@ namespace CRM_Auto.Controllers
         {
             cliente.CadastroCliente();
             return RedirectToAction("CadastroCliente");
-        }
-
-        public IActionResult OrdemServico()
-        {
-            OrdemServicoModel os = new OrdemServicoModel();
-            ViewBag.cabecalho = os.RecuperarCabecalho(1);
-            ViewBag.listaServicos = os.RecuperarServicos(1);
-            return View();
         }
     }
 }

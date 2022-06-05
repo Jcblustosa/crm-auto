@@ -29,5 +29,28 @@ namespace CRM_Auto.Models
             }
             return false;
         }
+
+        public string[] NomeEId(string login, string senha)
+        {
+            string command = "SELECT C.ID_CLIENTE, C.NOME_CLIENTE " +
+                "FROM CLIENTE C " +
+                "INNER JOIN USUARIO U " +
+                "ON U.ID_USUARIO = C.ID_USUARIO_CAD " +
+                $"WHERE U.LOGIN_USUARIO = '{login}' AND U.SENHA_USUARIO = '{senha}';";
+
+            string[] nomeEId = new string[2];
+
+            CNN cnn = new CNN();
+            DataTable dt = cnn.GetData(command);
+
+            try
+            {
+                nomeEId[0] = dt.Rows[0]["NOME_CLIENTE"].ToString();
+                nomeEId[1] = dt.Rows[0]["ID_CLIENTE"].ToString();
+            }
+            catch { }
+
+            return nomeEId;
+        }
     }
 }

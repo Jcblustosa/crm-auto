@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using CRM_Auto.Util;
 
 namespace CRM_Auto.Models
