@@ -1,11 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using CRM_Auto.Models;
+using System;
 
 namespace CRM_Auto.Controllers
 {
     public class OficinaController : Controller
     {
-
         public IActionResult LoginColaborador()
         {
             return View();
@@ -27,29 +27,6 @@ namespace CRM_Auto.Controllers
             return View("Sucesso");
         }
 
-        public IActionResult CadastrarFuncionario()
-        {
-            return View("CadastroDeFuncionario");
-        }
-
-       [HttpPost]
-        //public IActionResult InserirCadastro(FuncionarioModel funcionario)
-        //{
-        //    string nome = funcionario.Nome;
-        //    string funcao = funcionario.Funcao;
-        //    int id_oficina = funcionario.Id_oficina;
-            
-        //    funcionario.InserirCadastro(nome, funcao, id_oficina);
-
-        //    bool resultadoInsercao = funcionario.ValidarInsercaoFuncionario();
-        //    if (resultadoInsercao)
-        //    {
-        //        return View("CadastroRealizadoComSucesso");
-        //    }
-        //    return RedirectToAction("Sucesso");
-        //}
-
-
         public IActionResult CadastroVeiculo()
         {
             return View("CadastroVeiculo");
@@ -59,6 +36,80 @@ namespace CRM_Auto.Controllers
         {
             veiculo.CadastroVeiculo();
             return RedirectToAction("CadastroVeiculo");
+        }
+
+        public IActionResult CadastrarFuncionario()
+        {
+            return View("CadastroDeFuncionario");
+        }
+
+        [HttpPost]
+        public IActionResult InserirFuncionario(FuncionarioModel funcionario)
+        {
+            string nome = funcionario.Nome;
+            string funcao = funcionario.Funcao;
+            string nome_oficina = funcionario.Nome_oficina;
+
+            funcionario.InserirFuncionario(nome, funcao, nome_oficina);
+
+            bool resultadoInsercao = funcionario.ValidarInsercaoFuncionario();
+            if (resultadoInsercao)
+            {
+                return View("CadastroRealizadoComSucesso");
+            }
+            return RedirectToAction("Sucesso");
+        }
+
+        public IActionResult BuscarFuncionarios()
+        {
+            try
+            {
+                FuncionarioModel funcionario = new FuncionarioModel();
+                ViewBag.BuscarFuncionarios = funcionario.BuscarFuncionarios();
+                return View("CadastroDeFuncionario");
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        [HttpPost]
+        public IActionResult AlterarFuncionario(FuncionarioModel funcionario)
+        {
+            string nome = funcionario.Nome;
+            string funcao = funcionario.Funcao;
+            string id_oficina = funcionario.Id_oficina;
+
+            funcionario.AlterarFuncionario(nome, funcao, id_oficina);
+
+            return View("CadastroRealizadoComSucesso");
+
+        }
+
+        [HttpPost]
+        public IActionResult ExcluirFuncionario(FuncionarioModel funcionario)
+        {
+            string nome = funcionario.Nome;
+            string funcao = funcionario.Funcao;
+
+            funcionario.ExcluirFuncionario(nome, funcao);
+
+            return View("CadastroRealizadoComSucesso");
+
+        }
+        public IActionResult BuscarOficinas()
+        {
+            try
+            {
+                FuncionarioOficinaModel oficina = new FuncionarioOficinaModel();
+                ViewBag.BuscarOficinas = oficina.oficinaModel.BuscarOficinas();
+                return View("CadastroDeFuncionario");
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
     }
 }
