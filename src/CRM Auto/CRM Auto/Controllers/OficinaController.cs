@@ -1,11 +1,20 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using CRM_Auto.Models;
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using Microsoft.AspNetCore.Http;
+
 
 namespace CRM_Auto.Controllers
 {
     public class OficinaController : Controller
     {
+        private IHttpContextAccessor HttpContextAccessor;
+        public OficinaController(IHttpContextAccessor httpContextAccessor)
+        {
+            HttpContextAccessor = httpContextAccessor;
+        }
         public IActionResult LoginColaborador()
         {
             return View();
@@ -17,6 +26,11 @@ namespace CRM_Auto.Controllers
             bool verificacao = usuario.ValidarLogin();
             if (verificacao)
             {
+                string[] nomeEIdFuncionario = usuario.NomeEIdFuncionario(usuario.Login_usuario, usuario.Senha_usuario);
+                HttpContext.Session.SetString("Nome", nomeEIdFuncionario[0]);
+                HttpContext.Session.SetString("IdFuncionario", nomeEIdFuncionario[1]);
+                TempData["Nome"] = HttpContextAccessor.HttpContext.Session.GetString("Nome");
+                TempData["IdFuncionario"] = HttpContextAccessor.HttpContext.Session.GetString("IdFuncionario");
                 return RedirectToAction("Sucesso");
             }
             return RedirectToAction("LoginColaborador");
@@ -63,12 +77,20 @@ namespace CRM_Auto.Controllers
             return RedirectToAction("Sucesso");
         }
 
-        public IActionResult BuscarFuncionarios()
+        public IActionResult BuscarFuncionariosEOficinas()
         {
             try
             {
                 FuncionarioModel funcionario = new FuncionarioModel();
                 ViewBag.BuscarFuncionarios = funcionario.BuscarFuncionarios();
+
+                OficinaModel oficina = new OficinaModel();
+                List<OficinaModel> lista = oficina.BuscarOficinas();
+                var nomesOficinas = from oficinaLista in lista 
+                                    select oficinaLista.Nome_oficina;
+
+                ViewBag.BuscarOficinas = nomesOficinas;
+
                 return View("CadastroDeFuncionario");
             }
             catch (Exception ex)
@@ -107,18 +129,6 @@ namespace CRM_Auto.Controllers
             return View("CadastroRealizadoComSucesso");
 
         }
-        public IActionResult BuscarOficinas()
-        {
-            try
-            {
-                FuncionarioOficinaModel oficina = new FuncionarioOficinaModel();
-                ViewBag.BuscarOficinas = oficina.oficinaModel.BuscarOficinas();
-                return View("CadastroDeFuncionario");
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
-        }
+   
     }
 }

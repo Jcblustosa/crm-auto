@@ -126,48 +126,51 @@
         <div class="modal-content">
             <div class="modal-header border-bottom-0">
                 <h5 class="modal-title" id="addFuncionarioLabel">Cadastre um novo funcionário</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" asp-controller="Oficina" asp-action="BuscarOficinas">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
+            @{
+                <form asp-controller="Oficina">
+                    <div class="modal-body">
+                        <div class="form-group col-8">
+                            <label for="inputNome">Nome (*)</label>
+                            <input type="text" class="form-control" id="inputNome" required placeholder="Informe o Nome" asp-for="Nome">
+                        </div>
 
-            <form asp-controller="Oficina">
-                <div class="modal-body">
-                    <div class="form-group col-8">
-                        <label for="inputNome">Nome (*)</label>
-                        <input type="text" class="form-control" id="inputNome" required placeholder="Informe o Nome" asp-for="Nome">
-                    </div>
+                        <div class="form-group col-8">
+                            <label for="inputFuncao">Função</label>
+                            <input type="text" class="form-control" id="inputFuncao" placeholder="Informe o Cargo" asp-for="Funcao">
+                        </div>
 
-                    <div class="form-group col-8">
-                        <label for="inputFuncao">Função</label>
-                        <input type="text" class="form-control" id="inputFuncao" placeholder="Informe o Cargo" asp-for="Funcao">
-                    </div>
+                        <div class="form-group col-8">
+                            <label for="inputOficina">Oficina (*)</label>
+                            <fieldset class="form-control" id="inputOficina" required placeholder="Informe a Oficina">
+                                <select id="oficina" required" asp-for="Nome_oficina">
+                                    <option></option>
+                                    @foreach (string oficina in ViewBag.BuscarOficinas)
+                                    {
+                                        <option>@oficina</option>
+                                    }
+                                </select>
+                            </fieldset>
+                        </div>
 
-                    <div class="form-group col-8">
-                        <label for="inputOficina">Oficina (*)</label>
-                        <fieldset class="form-control" id="inputOficina" required placeholder="Informe a Oficina">
-                            <select id="oficina" required" asp-for="Nome_oficina">
-                                <option></option>
-                                <option>Centro Automotivo Santa Monica</option>
-                                <option>Centro Automotivo Pampulha</option>
-                            </select>
-                        </fieldset>
-                    </div>
+                        <div class="form-group row">
+                            <div class="form-group">
+                                <small>(*) Campos obrigatórios</small>
+                            </div>
+                        </div>
 
-                    <div class="form-group row">
-                        <div class="form-group">
-                            <small>(*) Campos obrigatórios</small>
+                        <div class="form-group row pb-3 float-end">
+                            <div class="col-sm-17">
+                                <button type="submit" class="btn btn-success btn-sm" id="btnInsert" asp-action="InserirFuncionario">Inserir</button>
+                                <button type="reset" class="btn btn-secondary btn-sm" id="btnClear">Limpar Form</button>
+                            </div>
                         </div>
                     </div>
-
-                    <div class="form-group row pb-3 float-end">
-                        <div class="col-sm-17">
-                            <button type="submit" class="btn btn-success btn-sm" id="btnInsert" asp-action="InserirFuncionario">Inserir</button>
-                            <button type="reset" class="btn btn-secondary btn-sm" id="btnClear">Limpar Form</button>
-                        </div>
-                    </div>
-                </div>
-            </form>
+                </form>
+            }
         </div>
     </div>
 </div>
@@ -179,49 +182,52 @@
         <div class="modal-content">
             <div class="modal-header border-bottom-0">
                 <h5 class="modal-title" id="addFuncionarioLabel">Edite as informações de funcionário</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" asp-controller="Oficina" asp-action="BuscarOficinas">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
+            @{
+                <form asp-controller="Oficina">
+                    <div class="modal-body">
+                        <div class="form-group col-8">
+                            <label for="inputNome">Nome (*)</label>
+                            <input type="text" class="form-control" id="inputNome" required placeholder="Informe o Nome" asp-for="Nome">
+                        </div>
 
-            <form asp-controller="Oficina">
-                <div class="modal-body">
-                    <div class="form-group col-8">
-                        <label for="inputNome">Nome (*)</label>
-                        <input type="text" class="form-control" id="inputNome" required placeholder="Informe o Nome" asp-for="Nome">
-                    </div>
+                        <div class="form-group col-8">
+                            <label for="inputCidade">Função (*)</label>
+                            <input type="text" class="form-control" id="inputFuncao" required placeholder="Informe o Cargo" asp-for="Funcao">
+                        </div>
 
-                    <div class="form-group col-8">
-                        <label for="inputCidade">Função (*)</label>
-                        <input type="text" class="form-control" id="inputFuncao" required placeholder="Informe o Cargo" asp-for="Funcao">
-                    </div>
+                        <div class="form-group col-8">
+                            <label for="inputOficina">Oficina (*)</label>
+                            <fieldset class="form-control" id="inputOficina" required placeholder="Informe a Oficina">
+                                <select id="oficina" required" asp-for="Nome_oficina">
+                                    <option></option>
+                                    @foreach (string oficina in ViewBag.BuscarOficinas)
+                                    {
+                                        <option>@oficina</option>
+                                    }
+                                </select>
+                            </fieldset>
+                        </div>
 
-                    <div class="form-group col-8">
-                        <label for="inputOficina">Oficina (*)</label>
-                        <fieldset class="form-control" id="inputOficina" required placeholder="Informe a Oficina">
-                            <select id="oficina" required" asp-for="Nome_oficina">
-                                <option></option>
-                                <option>Centro Automotivo Santa Monica</option>
-                                <option>Centro Automotivo Pampulha</option>
-                            </select>
-                        </fieldset>
-                    </div>
+                        <div class="form-group row">
+                            <div class="form-group">
+                                <small>(*) Campos obrigatórios</small>
+                            </div>
+                        </div>
 
-                    <div class="form-group row">
-                        <div class="form-group">
-                            <small>(*) Campos obrigatórios</small>
+                        <div class="form-group row pb-3 float-end">
+                            <div class="col-sm-17">
+                                <button type="submit" class="btn btn-warning btn-sm" id="btnUpdate" asp-action="AlterarFuncionario">Alterar</button>
+                                <button type="submit" class="btn btn-danger btn-sm" id="btnDelete" asp-action="ExcluirFuncionario">Excluir</button>
+                                <button type="reset" class="btn btn-secondary btn-sm" id="btnClear">Limpar Form</button>
+                            </div>
                         </div>
                     </div>
-
-                    <div class="form-group row pb-3 float-end">
-                        <div class="col-sm-17">
-                            <button type="submit" class="btn btn-warning btn-sm" id="btnUpdate" asp-action="AlterarFuncionario">Alterar</button>
-                            <button type="submit" class="btn btn-danger btn-sm" id="btnDelete" asp-action="ExcluirFuncionario">Excluir</button>
-                            <button type="reset" class="btn btn-secondary btn-sm" id="btnClear">Limpar Form</button>
-                        </div>
-                    </div>
-                </div>
-            </form>
+                </form>
+            }
         </div>
     </div>
 </div>
@@ -235,13 +241,13 @@
         for (i = 0; i < db.data.length; i++) {
             let contato = db.data[i];
             $("#table-contatos").append(`<tr><td scope="row">${contato.id}</td>
-                                                    <td>${contato.nome}</td>
-                                                    <td>${contato.matricula}</td>
-                                                    <td>${contato.email}</td>
-                                                    <td>${contato.cidade}</td>
-                                                    <td>${contato.categoria}</td>
-                                                    <td>${contato.website}</td>
-                                                </tr>`);
+                                                        <td>${contato.nome}</td>
+                                                        <td>${contato.matricula}</td>
+                                                        <td>${contato.email}</td>
+                                                        <td>${contato.cidade}</td>
+                                                        <td>${contato.categoria}</td>
+                                                        <td>${contato.website}</td>
+                                                    </tr>`);
         }
     }
     function init() {
