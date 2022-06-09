@@ -1,10 +1,20 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using CRM_Auto.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace CRM_Auto.Controllers
 {
     public class OficinaController : Controller
     {
+        private IHttpContextAccessor HttpContextAccessor;
+        public OficinaController(IHttpContextAccessor httpContextAccessor)
+        {
+            HttpContextAccessor = httpContextAccessor;
+        }
         public IActionResult LoginColaborador()
         {
             return View();
@@ -16,6 +26,11 @@ namespace CRM_Auto.Controllers
             bool verificacao = usuario.ValidarLogin();
             if (verificacao)
             {
+                string[] nomeEIdFuncionario = usuario.NomeEIdFuncionario(usuario.Login_usuario, usuario.Senha_usuario);
+                HttpContext.Session.SetString("Nome", nomeEIdFuncionario[0]);
+                HttpContext.Session.SetString("IdFuncionario", nomeEIdFuncionario[1]);
+                TempData["Nome"] = HttpContextAccessor.HttpContext.Session.GetString("Nome");
+                TempData["IdFuncionario"] = HttpContextAccessor.HttpContext.Session.GetString("IdFuncionario");
                 return RedirectToAction("Sucesso");
             }
             return RedirectToAction("LoginColaborador");
@@ -28,12 +43,23 @@ namespace CRM_Auto.Controllers
 
         public IActionResult CadastroVeiculo()
         {
-            return View("CadastroVeiculo");
+            MarcaModel marcas = new MarcaModel();
+            ViewBag.Marcas = marcas.Marcas();
+            return View();
         }
 
+        [HttpPost]
+        public List<ModeloModel> SelecionaModelosMarca(MarcaModel marca)
+        {
+            ModeloModel modelo = new ModeloModel();
+            return modelo.Modelos(marca.IdMarca);
+        }
+
+        [HttpPost]
         public IActionResult OperacaoCadastroVeiculo(VeiculoModel veiculo)
         {
             veiculo.CadastroVeiculo();
+            TempData["veiculoCadastrado"] = "Veículo cadastrado com sucesso!";
             return RedirectToAction("CadastroVeiculo");
         }
 
@@ -47,23 +73,41 @@ namespace CRM_Auto.Controllers
         {
             string nome = funcionario.Nome;
             string funcao = funcionario.Funcao;
-            string id_oficina = funcionario.Id_oficina;
+            string nome_oficina = funcionario.Nome_oficina;
 
-            funcionario.InserirFuncionario(nome, funcao, id_oficina);
+            funcionario.InserirFuncionario(nome, funcao, nome_oficina);
 
             bool resultadoInsercao = funcionario.ValidarInsercaoFuncionario();
             if (resultadoInsercao)
             {
+                TempData["msg"] = "Inclusão realizada com sucesso!";
+                TempData["msgDetalhes"] = "O cadastro do funcionário foi finalizado e você já pode consultá-lo no sistema da sua oficina.";
+
                 return View("CadastroRealizadoComSucesso");
             }
             return RedirectToAction("Sucesso");
         }
 
-        public IActionResult BuscarFuncionarios()
+        public IActionResult BuscarFuncionariosEOficinas()
         {
-            FuncionarioModel funcionario = new FuncionarioModel();
-            ViewBag.BuscarFuncionarios = funcionario.BuscarFuncionarios();
-            return View();
+            try
+            {
+                FuncionarioModel funcionario = new FuncionarioModel();
+                ViewBag.BuscarFuncionarios = funcionario.BuscarFuncionarios();
+
+                OficinaModel oficina = new OficinaModel();
+                List<OficinaModel> lista = oficina.BuscarOficinas();
+                var nomesOficinas = from oficinaLista in lista 
+                                    select oficinaLista.Nome_oficina;
+
+                ViewBag.BuscarOficinas = nomesOficinas;
+
+                return View("CadastroDeFuncionario");
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
 
         [HttpPost]
@@ -71,9 +115,12 @@ namespace CRM_Auto.Controllers
         {
             string nome = funcionario.Nome;
             string funcao = funcionario.Funcao;
-            string id_oficina = funcionario.Id_oficina;
+            string nome_oficina = funcionario.Nome_oficina;
 
-            funcionario.AlterarFuncionario(nome, funcao, id_oficina);
+            funcionario.AlterarFuncionario(nome, funcao, nome_oficina);
+
+            TempData["msg"] = "Alteração realizada com sucesso!";
+            TempData["msgDetalhes"] = "A alteração do funcionário foi finalizada e você já pode consultar as informações atualizadas no sistema da sua oficina.";
 
             return View("CadastroRealizadoComSucesso");
 
@@ -84,12 +131,15 @@ namespace CRM_Auto.Controllers
         {
             string nome = funcionario.Nome;
             string funcao = funcionario.Funcao;
-            string id_oficina = funcionario.Id_oficina;
 
-            funcionario.ExcluirFuncionario(nome, funcao, id_oficina);
+            funcionario.ExcluirFuncionario(nome, funcao);
+
+            TempData["msg"] = "Exclusão realizada com sucesso!";
+            TempData["msgDetalhes"] = "A exclusão do funcionário foi finalizada e você já pode consultar as informações atualizadas no sistema da sua oficina.";
 
             return View("CadastroRealizadoComSucesso");
 
         }
+   
     }
 }
