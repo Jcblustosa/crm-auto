@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNetCore.Http;
-
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace CRM_Auto.Controllers
 {
@@ -43,12 +43,23 @@ namespace CRM_Auto.Controllers
 
         public IActionResult CadastroVeiculo()
         {
-            return View("CadastroVeiculo");
+            MarcaModel marcas = new MarcaModel();
+            ViewBag.Marcas = marcas.Marcas();
+            return View();
         }
 
+        [HttpPost]
+        public List<ModeloModel> SelecionaModelosMarca(MarcaModel marca)
+        {
+            ModeloModel modelo = new ModeloModel();
+            return modelo.Modelos(marca.IdMarca);
+        }
+
+        [HttpPost]
         public IActionResult OperacaoCadastroVeiculo(VeiculoModel veiculo)
         {
             veiculo.CadastroVeiculo();
+            TempData["veiculoCadastrado"] = "Veículo cadastrado com sucesso!";
             return RedirectToAction("CadastroVeiculo");
         }
 

@@ -1,28 +1,54 @@
 ﻿using CRM_Auto.Util;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Data;
 
 namespace CRM_Auto.Models
 {
     public class VeiculoModel
     {
 
-        // Tabela Modelo_Carro
-
-        public string Nome_Modelo{ get; set; }
-
-        // Tabela Veiculo
-
-        public int Id_Veiculo_Cliente { get; set; }
-        public int Id_Modelo { get; set; }
+        public int IdVeiculo { get; set; }
+        [Display(Name = "Modelo")]
+        public int IdModelo { get; set; }
+        public string Placa { get; set; }
         public string Motorizacao { get; set; }
-        public string Ano_Fabricacao { get; set; }
-        public string Ano_Modelo { get; set; }
+        public string AnoFabricacao{ get; set; }
+        public string AnoModelo { get; set; }
+        public string Renavan { get; set; }
+        public Cor Cor { get; set; }
+
+
+        
+
 
         public void CadastroVeiculo()
         {
-            string command = $"INSERT INTO VEICULO VALUES ('{Id_Modelo}', '{Motorizacao}', '{Ano_Fabricacao}', '{Ano_Modelo}')";
+            string command = $"INSERT INTO VEICULO(ID_MODELO, PLACA_VEICULO, MOTORIZACAO, ANO_FABRICACAO, ANO_MODELO, RENAVAN, COR) VALUES({IdModelo}, '{Placa}', '{Motorizacao}', '{AnoFabricacao}', '{AnoModelo}', '{Renavan}', '{(Cor)Cor}');";
 
-            DAL dal = new DAL();
+            CNN dal = new CNN();
             dal.InsertData(command);
         }
+    }
+
+    public enum Cor
+    {
+        AMARELO,
+        AZUL,
+        BEGE,
+        BRANCA,
+        CINZA,
+        DOURADA,
+        GRENA,
+        LARANJA,
+        MARROM,
+        PRATA,
+        PRETA,
+        ROSA,
+        ROXA,
+        VERDE,
+        VERMELHA,
+        FANTASIA,
     }
 }
