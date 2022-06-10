@@ -10,38 +10,38 @@ Discorra sobre os resultados do teste. Ressaltando pontos fortes e fracos identi
 
 ### CT-08: Cadastro de veículo de cliente
 
-Ao executar a aplicação, o usuário terá acesso às opções de login de colaborador e login de cliente. 
-![img1](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t3-crm-auto/blob/main/docs/img/registro%20de%20testes/CT%2008/img1.png)
-<p align="center">Evidência de teste 1 - Homepage com as opções de login</p>
+Ao executar a aplicação, o usuário deverá fazer login como Colaborador, preenchendo os campos solicitados.
 
-Ao clicar no botão "Sou Colaborador", uma página de login aparecerá e os campos de login e senha deverão ser preenchidos.
-
-![img2](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t3-crm-auto/blob/main/docs/img/registro%20de%20testes/CT%2008/img2.png)
-<p align="center">Evidência de teste 2 - Login de funcionário</p>
+![img1](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t3-crm-auto/blob/main/docs/img/registro%20de%20testes/CT%2008/login.png)
+<p align="center">Evidência de teste 8.1 - Login de funcionário</p>
 <p align="center">
-<img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t3-crm-auto/blob/main/docs/img/registro%20de%20testes/CT%2008/ev1.png">
+<img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t3-crm-auto/blob/main/docs/img/registro%20de%20testes/CT%2008/evidenciaLogin.png">
 </p>
-<p align="center"> Evidência de teste 3 - Registro de usuário cadastrado no banco de dados</p>
+<p align="center"> Evidência de teste 8.2 - Registro de usuário cadastrado no banco de dados</p>
 
 Após clicar em Log in, o usuário é direcionado à página de menu principal da oficina. A opção "Cadastrar Veículo" deve ser selecionada:
 
-![img3](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t3-crm-auto/blob/main/docs/img/registro%20de%20testes/CT%2008/img3.png)
-<p align="center"> Evidência de teste 4 - Página de menu principal da oficina</p>
+![img3](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t3-crm-auto/blob/main/docs/img/registro%20de%20testes/CT%2008/menuPrincipal.png)
+<p align="center"> Evidência de teste 8.3 - Página de menu principal da oficina</p>
 
 Na página de cadastro de veículo, as informações devem ser corretamente preenchidas. Após isso, clicar em "Ok".
 
 ![img4](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t3-crm-auto/blob/main/docs/img/registro%20de%20testes/CT%2008/cadastroVeiculo.png)
-<p align="center"> Evidência de teste 5 - Página de cadastro de veículo</p>
+<p align="center"> Evidência de teste 8.4 - Página de cadastro de veículo com os campos preenchidos</p>
+
+Uma mensagem de sucesso é apresentada.
+
+![img5](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t3-crm-auto/blob/main/docs/img/registro%20de%20testes/CT%2008/msgSucesso.png)
+<p align="center"> Evidência de teste 8.5 - Página de cadastro de veículo com mensagem de sucesso</p>
 
 **Critério de êxito:** Se as informações forem preenchidas corretamente, o sistema deve armazenar um novo registro no banco de dados, contendo as informações fornecidas pelo usuário:
 
-![img5](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t3-crm-auto/blob/main/docs/img/registro%20de%20testes/CT%2008/img%20bd.png)
-<p align="center"> Evidência de teste 6 - Registro de veículo no banco de dados</p>
+![img5](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t3-crm-auto/blob/main/docs/img/registro%20de%20testes/CT%2008/evidenciaCadastro.png)
+<p align="center"> Evidência de teste 8.6 - Registro de veículo no banco de dados</p>
 
 Pontos a melhorar
 
 1) As configurações de estilo da página de cadastro de veículo devem ser corretamente aplicadas;
-2) O sistema deve fornecer uma resposta ao usuário informando se o veículo foi cadastrado com sucesso ou não.
 
 ### CT-11: Login de Colaborador
 
