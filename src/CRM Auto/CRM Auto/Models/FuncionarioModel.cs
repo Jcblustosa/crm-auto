@@ -14,13 +14,15 @@ namespace CRM_Auto.Models
         public string Id_oficina { get; set; }
         public string Login_usuario { get; set; }
         public string Nome_oficina { get; set; }
+        public string Senha_usuario { get; set; }
 
-        public FuncionarioModel(int Id_funcionario, string Nome, string Funcao, string Id_oficina, string Login_usuario)
+        public FuncionarioModel(int Id_funcionario, string Nome, string Funcao, string Id_oficina, string Nome_oficina, string Login_usuario)
         {
             this.Id_funcionario = Id_funcionario;
             this.Nome = Nome;
             this.Funcao = Funcao;
             this.Id_oficina = Id_oficina;
+            this.Nome_oficina = Nome_oficina;
             this.Login_usuario = Login_usuario;
         }
 
@@ -29,27 +31,27 @@ namespace CRM_Auto.Models
 
         }
 
-        public void InserirFuncionario(string nome, string funcao, string nome_oficina)
+        public void InserirFuncionario(FuncionarioModel funcionario)
         {
 
             CNN cnn = new CNN();
-            DataTable Id_oficina = cnn.GetData($"SELECT ID_OFICINA FROM OFICINA WHERE NOME_OFICINA = '{nome_oficina}'");
+            DataTable Id_oficina = cnn.GetData($"SELECT ID_OFICINA FROM OFICINA WHERE ID_OFICINA = '{funcionario.Id_oficina}'");
 
             string command = $"INSERT INTO FUNCIONARIO (NOME, FUNCAO, ID_OFICINA) " +
-                $"VALUES ('{nome}', '{funcao}', '{Id_oficina.Rows[0]["Id_oficina"]}')";
+                $"VALUES ('{funcionario.Nome}', '{funcionario.Funcao}', '{Id_oficina.Rows[0]["Id_oficina"]}')";
 
-           //DAL dal = new DAL();
-           //dal.InsertData(command);
+            //DAL dal = new DAL();
+            //dal.InsertData(command);
 
-            CNN cnn1= new CNN();
+            CNN cnn1 = new CNN();
             cnn1.InsertData(command);
         }
 
-        public bool ValidarInsercaoFuncionario()
+        public bool ValidarInsercaoFuncionario(FuncionarioModel funcionario)
         {
             string command = $"SELECT NOME, FUNCAO " +
                 $"FROM FUNCIONARIO " +
-                $"WHERE NOME = '{Nome}' AND FUNCAO = '{Funcao}'";
+                $"WHERE NOME = '{funcionario.Nome}' AND FUNCAO = '{funcionario.Funcao}'";
 
             //DAL dal = new DAL();
             //DataTable dt = dal.GetData(command);
@@ -63,10 +65,10 @@ namespace CRM_Auto.Models
                 {
                     //Cria um usuario para o funcionário inserido no método anterior
                     CNN cnn1 = new CNN();
-                    DataTable Id_funcionario = cnn1.GetData($"SELECT ID_FUNCIONARIO FROM FUNCIONARIO WHERE NOME = '{Nome}' AND FUNCAO = '{Funcao}'");
+                    DataTable Id_funcionario = cnn1.GetData($"SELECT ID_FUNCIONARIO FROM FUNCIONARIO WHERE NOME = '{funcionario.Nome}' AND FUNCAO = '{funcionario.Funcao}'");
 
                     string command2 = $"INSERT INTO USUARIO (ID_FUNCIONARIO, LOGIN_USUARIO, SENHA_USUARIO, CLIENTE_OU_FUNCIONARIO)" +
-                    $"VALUES ('{Id_funcionario.Rows[0]["Id_funcionario"]}','{Nome.Replace(" ", string.Empty).ToLower()}@oficina.com.br', 'ad123', 'F')";
+                    $"VALUES ('{Id_funcionario.Rows[0]["Id_funcionario"]}','{funcionario.Login_usuario}', '{funcionario.Senha_usuario}', 'F')";
 
                     //DAL dal = new DAL();
                     //dal.InsertData(command);
@@ -84,7 +86,7 @@ namespace CRM_Auto.Models
         {
             ArrayList<FuncionarioModel> funcionarios = new ArrayList<FuncionarioModel>();
 
-            string command = $"SELECT F.ID_FUNCIONARIO, F.NOME, F.FUNCAO, O.NOME_OFICINA AS ID_OFICINA, U.LOGIN_USUARIO " +
+            string command = $"SELECT F.ID_FUNCIONARIO, F.NOME, F.FUNCAO, O.ID_OFICINA, O.NOME_OFICINA, U.LOGIN_USUARIO " +
                 $"FROM FUNCIONARIO F " +
                 $"INNER JOIN OFICINA O ON F.ID_OFICINA = O.ID_OFICINA " +
                 $"INNER JOIN USUARIO U ON F.ID_FUNCIONARIO = U.ID_FUNCIONARIO " +
@@ -98,10 +100,11 @@ namespace CRM_Auto.Models
 
             for (int i = 0; i < dt.Rows.Count; i++)
             {
-                FuncionarioModel funcionario = new FuncionarioModel(int.Parse(dt.Rows[i]["Id_funcionario"].ToString()), 
-                    dt.Rows[i]["Nome"].ToString(), 
-                    dt.Rows[i]["Funcao"].ToString(), 
-                    dt.Rows[i]["Id_oficina"].ToString(), 
+                FuncionarioModel funcionario = new FuncionarioModel(int.Parse(dt.Rows[i]["Id_funcionario"].ToString()),
+                    dt.Rows[i]["Nome"].ToString(),
+                    dt.Rows[i]["Funcao"].ToString(),
+                    dt.Rows[i]["Id_oficina"].ToString(),
+                    dt.Rows[i]["Nome_oficina"].ToString(),
                     dt.Rows[i]["Login_usuario"].ToString());
 
                 funcionarios.Add(funcionario);
@@ -110,14 +113,11 @@ namespace CRM_Auto.Models
             return funcionarios;
         }
 
-        public void AlterarFuncionario(string nome, string funcao, string nome_oficina)
+        public void AlterarFuncionario(FuncionarioModel funcionario)
         {
-            CNN cnn = new CNN();
-            DataTable Id_oficina = cnn.GetData($"SELECT ID_OFICINA FROM OFICINA WHERE NOME_OFICINA = '{nome_oficina}'");
-
             string command = $"UPDATE FUNCIONARIO " +
-                $"SET NOME = '{nome}', FUNCAO = '{funcao}' , ID_OFICINA = '{Id_oficina.Rows[0]["Id_oficina"]}' " +
-                $"WHERE NOME = '{nome}'";
+                $"SET NOME = '{funcionario.Nome}', FUNCAO = '{funcionario.Funcao}' , ID_OFICINA = '{funcionario.Id_oficina}' " +
+                $"WHERE ID_FUNCIONARIO = '{funcionario.Id_funcionario}'";
 
             //DAL dal = new DAL();
             //dal.InsertData(command);

@@ -79,6 +79,7 @@
 
     @{
         <div onload="init" class="tbl-container bdr">
+            <input type="hidden" id="hiddenBuscarOficinas" value="@System.Text.Json.JsonSerializer.Serialize(ViewBag.BuscarOficinas)" />
             <table class="table align-middle mb-0 bg-white table-striped table-bordered" id="showTable">
                 <thead class="bg-light">
                     <tr>
@@ -106,9 +107,13 @@
                                 <p class="text-muted mb-0">@funcionario.Id_oficina</p>
                             <td>
                                 <button type="button"
-                                    lass="btn btn-link btn-rounded btn-sm fw-bold"
-                                    data-mdb-ripple-color="dark" data-placement="right" title="Edit" data-toggle="modal" data-target="#editFuncionario">
+                                    class="btn btn-link btn-rounded btn-sm fw-bold btnEditFuncionario"
+                                    data-mdb-ripple-color="dark" data-placement="right" title="Edit" data-toggle="modal" data-target="#editFuncionario"
+                                    value="@System.Text.Json.JsonSerializer.Serialize(funcionario)">
                                     <i class="bi bi-pencil-fill"></i>
+                                </button>
+                                <button type="submit" class="btn btn-danger btn-sm" id="btnDelete" asp-action="ExcluirFuncionario">
+                                    <i class="bi bi-trash"></i>
                                 </button>
                             </td>
                         </tr>
@@ -143,14 +148,24 @@
                             <input type="text" class="form-control" id="inputFuncao" placeholder="Informe o Cargo" asp-for="Funcao">
                         </div>
 
+                         <div class="form-group col-8">
+                            <label for="inputEmail">E-mail</label>
+                            <input type="text" class="form-control" id="inputEmail" placeholder="Informe o E-mail" asp-for="Login_usuario">
+                        </div>
+
+                         <div class="form-group col-8">
+                            <label for="inputSenha">Senha</label>
+                            <input type="password" class="form-control" id="inputSenha" placeholder="Informe a senha" asp-for="Senha_usuario">
+                        </div>
+
                         <div class="form-group col-8">
                             <label for="inputOficina">Oficina (*)</label>
                             <fieldset class="form-control" id="inputOficina" required placeholder="Informe a Oficina">
-                                <select id="oficina" required" asp-for="Nome_oficina">
-                                    <option></option>
-                                    @foreach (string oficina in ViewBag.BuscarOficinas)
+                                <select id="oficina" required" asp-for="Id_oficina">
+                                    <option>Selecione...</option>
+                                    @foreach (var oficina in ViewBag.BuscarOficinas)
                                     {
-                                        <option>@oficina</option>
+                                        <option value="@oficina.Id_oficina">@oficina.Nome_oficina</option>
                                     }
                                 </select>
                             </fieldset>
@@ -188,28 +203,22 @@
             </div>
             @{
                 <form asp-controller="Oficina">
+                    <input type="hidden" id="editIdFuncionario" asp-for="Id_funcionario" />
                     <div class="modal-body">
                         <div class="form-group col-8">
-                            <label for="inputNome">Nome (*)</label>
-                            <input type="text" class="form-control" id="inputNome" required placeholder="Informe o Nome" asp-for="Nome">
+                            <label for="editFuncionarioNome">Nome (*)</label>
+                            <input type="text" class="form-control" id="editFuncionarioNome" required placeholder="Informe o Nome" asp-for="Nome">
                         </div>
 
                         <div class="form-group col-8">
-                            <label for="inputCidade">Função (*)</label>
-                            <input type="text" class="form-control" id="inputFuncao" required placeholder="Informe o Cargo" asp-for="Funcao">
+                            <label for="editFuncionarioFuncao">Função (*)</label>
+                            <input type="text" class="form-control" id="editFuncionarioFuncao" required placeholder="Informe o Cargo" asp-for="Funcao">
                         </div>
 
                         <div class="form-group col-8">
-                            <label for="inputOficina">Oficina (*)</label>
-                            <fieldset class="form-control" id="inputOficina" required placeholder="Informe a Oficina">
-                                <select id="oficina" required" asp-for="Nome_oficina">
-                                    <option></option>
-                                    @foreach (string oficina in ViewBag.BuscarOficinas)
-                                    {
-                                        <option>@oficina</option>
-                                    }
-                                </select>
-                            </fieldset>
+                            <label for="editFuncionarioOficina">Oficina (*)</label>
+                            <select id="editFuncionarioOficina" required class="form-select" asp-for="Id_oficina">
+                            </select>
                         </div>
 
                         <div class="form-group row">
@@ -220,8 +229,7 @@
 
                         <div class="form-group row pb-3 float-end">
                             <div class="col-sm-17">
-                                <button type="submit" class="btn btn-warning btn-sm" id="btnUpdate" asp-action="AlterarFuncionario">Alterar</button>
-                                <button type="submit" class="btn btn-danger btn-sm" id="btnDelete" asp-action="ExcluirFuncionario">Excluir</button>
+                                <button type="submit" class="btn btn-warning btn-sm" id="btnUpdate" asp-action="AlterarFuncionario">Alterar</button>                                
                                 <button type="reset" class="btn btn-secondary btn-sm" id="btnClear">Limpar Form</button>
                             </div>
                         </div>
@@ -346,4 +354,24 @@
         });
         exibeContatos();
     }
+
+    $(".btnEditFuncionario").click(function(){
+        var valor = JSON.parse($(this).val());
+        $("#editIdFuncionario").val(valor.Id_funcionario);
+        $("#editFuncionarioNome").val(valor.Nome);
+        $("#editFuncionarioFuncao").val(valor.Funcao);
+
+        var buscarOficinas = JSON.parse($("#hiddenBuscarOficinas").val());
+
+        $('#editFuncionarioOficina').find('option').remove().end().append('<option value="">Selecione...</option>');
+
+        for (var n = 0; n < buscarOficinas.length; n++) {
+            $('#editFuncionarioOficina').append($('<option>', {
+                value: buscarOficinas[n].Id_oficina,
+                text: buscarOficinas[n].Nome_oficina
+            }));
+        }
+
+        $('#editFuncionarioOficina option[value="' + valor.Id_oficina +'"]').prop("selected", true);
+    });
 </script>

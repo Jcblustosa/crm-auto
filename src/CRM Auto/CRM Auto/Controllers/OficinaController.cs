@@ -60,13 +60,10 @@ namespace CRM_Auto.Controllers
         [HttpPost]
         public IActionResult InserirFuncionario(FuncionarioModel funcionario)
         {
-            string nome = funcionario.Nome;
-            string funcao = funcionario.Funcao;
-            string nome_oficina = funcionario.Nome_oficina;
+            
+            funcionario.InserirFuncionario(funcionario);
 
-            funcionario.InserirFuncionario(nome, funcao, nome_oficina);
-
-            bool resultadoInsercao = funcionario.ValidarInsercaoFuncionario();
+            bool resultadoInsercao = funcionario.ValidarInsercaoFuncionario(funcionario);
             if (resultadoInsercao)
             {
                 TempData["msg"] = "Inclusão realizada com sucesso!";
@@ -86,10 +83,7 @@ namespace CRM_Auto.Controllers
 
                 OficinaModel oficina = new OficinaModel();
                 List<OficinaModel> lista = oficina.BuscarOficinas();
-                var nomesOficinas = from oficinaLista in lista 
-                                    select oficinaLista.Nome_oficina;
-
-                ViewBag.BuscarOficinas = nomesOficinas;
+                ViewBag.BuscarOficinas = lista.Select(o => new { o.Id_oficina, o.Nome_oficina });
 
                 return View("CadastroDeFuncionario");
             }
@@ -102,11 +96,7 @@ namespace CRM_Auto.Controllers
         [HttpPost]
         public IActionResult AlterarFuncionario(FuncionarioModel funcionario)
         {
-            string nome = funcionario.Nome;
-            string funcao = funcionario.Funcao;
-            string nome_oficina = funcionario.Nome_oficina;
-
-            funcionario.AlterarFuncionario(nome, funcao, nome_oficina);
+            funcionario.AlterarFuncionario(funcionario);
 
             TempData["msg"] = "Alteração realizada com sucesso!";
             TempData["msgDetalhes"] = "A alteração do funcionário foi finalizada e você já pode consultar as informações atualizadas no sistema da sua oficina.";
@@ -129,6 +119,6 @@ namespace CRM_Auto.Controllers
             return View("CadastroRealizadoComSucesso");
 
         }
-   
+
     }
 }
