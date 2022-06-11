@@ -300,7 +300,7 @@ Registro do funcionário na tabela [CRM_AUTO].[dbo].[FUNCIONARIO]:
 <p align="center">Evidência de teste 4 - Registro do funcionário no banco de dados</p>
 </br>
 
-Após clicar em Excluir, o usuário é direcionado para uma tela onde é apresentada a mensagem de sucesso na alteração do funcionário:
+Após clicar em Excluir, o usuário é direcionado para uma tela onde é apresentada a mensagem de sucesso na exclusão do funcionário:
 
 ![img5](https://raw.githubusercontent.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t3-crm-auto/main/docs/img/registro%20de%20testes/CT%2011/Evidencia4_CT16.png)
 <p align="center">Evidência de teste 5 - Clicando no botão Excluir</p>
