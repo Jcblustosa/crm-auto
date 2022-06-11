@@ -162,7 +162,7 @@ Ao clicar no botão "Novo funcionário", o formulário de cadastro é apresentad
 Os dados do novo funcionário são preenchidos:
 
 ![img4](https://raw.githubusercontent.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t3-crm-auto/main/docs/img/registro%20de%20testes/CT%2011/Evidencia4_CT14.png)
-<p align="center">Evidência de teste 4 - Preenchimento das informações de login</p>
+<p align="center">Evidência de teste 4 - Preenchimento das informações do novo funcionário</p>
 </br>
 
 Após clicar em Inserir, o usuário é direcionado para uma tela onde é apresentada a mensagem de sucesso na inclusão do novo funcionário:
