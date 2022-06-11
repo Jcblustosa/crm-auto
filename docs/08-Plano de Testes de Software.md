@@ -86,20 +86,34 @@ Requisitos Associados | RF-14: O sistema deve permitir o login como cliente da o
 Objetivo do Teste | Verificar se o cliente é capaz de realizar login no sistema.
 Passos | 1.	Executar a aplicação; <br>	2.	Clicar no botão "Sou cliente"; <br>3.	Preencher os campos Login e Senha; <br>4.	Clicar em Entrar.
 Critérios de Êxito | •	Se o registro de usuário existir no banco de dados, o sistema deve permitir que o cliente acesse a página de cliente da oficina. Caso as informações de Login e Senha estejam incorretas, a página de login é recarregada para que os campos sejam preenchidos novamente.
-
-Caso de Teste | CT-13: Cadastro de funcionário da oficina
----|---
-Requisitos Associados | RF-01: O sistema deve permitir Incluir/Excluir/Alterar dados de um funcionário ou cliente da oficina.
-Objetivo do Teste | Garantir que o sistema permite a inclusão do cadastro de um funcionário para determinada oficina
-Passos | 1.	Executar a aplicação; <br>	2.	Fazer login no sistema com uma conta de Gestor; <br>3.	No painel de controle, selecionar a opção Cadastrar Funcionário; <br>4. Preencher corretamente o formulário de cadastro;<br>5. Clicar em Inserir.
-Critérios de Êxito | •	Se as informações forem preenchidas corretamente, o sistema deve direcionar o usuário para uma tela onde constará uma mensagem de sucesso relativa à inserção do funcionário. Após a inserção ser efetuada, as informações inseridas no formulário devem ser registradas no banco de dados na tabela [CRM_AUTO].[dbo].[FUNCIONARIO].
  
- Caso de Teste | CT-14: Consulta e alteração de dados de cliente da oficina
+ Caso de Teste | CT-13: Consulta e alteração de dados de cliente da oficina
 ---|---
 Requisitos Associados | RF-03: O sistema deve fazer consulta e alterações de dados pessoais de clientes. 
 Objetivo do Teste | Verificar se o sistema permite ao funcionário visualizar e alterar dados de um cliente quando necessário.
 Passos | 1.	Fazer login no sistema com uma conta de Gestor; <br>2.	Ir para a tela de cadastro de clientes; <br>3.	Escolher a opção "Clientes" na barra lateral; <br>4. Buscar cliente pelo nome; <br>5. Alterar dados de cliente; <br>6. Salvar
 Critérios de Êxito | •	Os dados de cliente deverão ser exibidos para o funcionário <br> •	Os dados alterados deverão ser atualizados na base de dados.
+ 
+ Caso de Teste | CT-14: Cadastro de funcionário da oficina
+---|---
+Requisitos Associados | RF-01: O sistema deve permitir Incluir/Excluir/Alterar dados de um funcionário ou cliente da oficina.
+Objetivo do Teste | Garantir que o sistema permite a inclusão do cadastro de um novo funcionário para determinada oficina
+Passos | 1.	Executar a aplicação <br>	2.	Fazer login no sistema <br>3.	No painel de controle, selecionar a opção Menu Funcionários <br>4. Clicar no botão "Novo funcionário"<br>5. Preencher corretamente o formulário de cadastro<br>6. Clicar em Inserir
+Critérios de Êxito | •	Se as informações forem preenchidas corretamente, o sistema deve direcionar o usuário para uma tela onde constará uma mensagem de sucesso relativa à inserção do funcionário. Após a inserção ser efetuada, as informações inseridas no formulário devem ser registradas no banco de dados na tabela [CRM_AUTO].[dbo].[FUNCIONARIO].
+ 
+  Caso de Teste | CT-15: Alteração de funcionário da oficina
+---|---
+Requisitos Associados | RF-01: O sistema deve permitir Incluir/Excluir/Alterar dados de um funcionário ou cliente da oficina.
+Objetivo do Teste | Garantir que o sistema permite a alteração do cadastro de um funcionário da oficina
+Passos | 1.	Executar a aplicação <br>	2.	Fazer login no sistema <br>3.	No painel de controle, selecionar a opção Menu Funcionários <br>4. Clicar no botão para editar as informações de um funcionário<br>5. Preencher corretamente o formulário de alteração com os novos dados<br>6. Clicar em Alterar
+Critérios de Êxito | •	Se as informações forem preenchidas corretamente, o sistema deve direcionar o usuário para uma tela onde constará uma mensagem de sucesso relativa à alteração do funcionário. Após a alteração ser efetuada, as informações do usuário devem ser atualizadas na tabela [CRM_AUTO].[dbo].[FUNCIONARIO].
+ 
+   Caso de Teste | CT-16: Exclusão de funcionário da oficina
+---|---
+Requisitos Associados | RF-01: O sistema deve permitir Incluir/Excluir/Alterar dados de um funcionário ou cliente da oficina.
+Objetivo do Teste | Garantir que o sistema permite a exclusão do cadastro de um funcionário da oficina
+Passos | 1.	Executar a aplicação <br>	2.	Fazer login no sistema <br>3.	No painel de controle, selecionar a opção Menu Funcionários <br>4. Clicar no botão para editar as informações de um funcionário<br>5. Validar as informações carregadas automaticamente do funcionário que deseja excluir<br>6. Clicar em Excluir
+Critérios de Êxito | •	Após clicar em excluir, o sistema deve direcionar o usuário para uma tela onde constará uma mensagem de sucesso relativa à exclusão do funcionário. Após a exclusão ser efetuada, o registro do funcionário deve ser excluído na tabela [CRM_AUTO].[dbo].[FUNCIONARIO].
  
 ## Ferramentas de Testes (Opcional)
 
