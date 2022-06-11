@@ -202,7 +202,7 @@ Pontos a melhorar
 5. Preencher corretamente o formulário de alteração com os novos dados
 6. Clicar em Alterar
 
-**Critério de êxito:** Se as informações forem preenchidas corretamente, o sistema deve direcionar o usuário para uma tela onde constará uma mensagem de sucesso relativa à alteração do funcionário. Após a alteração ser efetuada, as informações do usuário devem ser atualizadas na tabela [CRM_AUTO].[dbo].[FUNCIONARIO].
+**Critério de êxito:** Se as informações forem alteradas corretamente, o sistema deve direcionar o usuário para uma tela onde constará uma mensagem de sucesso relativa à alteração do funcionário. Após a alteração ser efetuada, as informações do usuário devem ser atualizadas na tabela [CRM_AUTO].[dbo].[FUNCIONARIO].
 
 **Resultado do teste:** *Passou*
 
