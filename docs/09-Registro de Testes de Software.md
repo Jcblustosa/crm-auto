@@ -173,14 +173,14 @@ Após clicar em Inserir, o usuário é direcionado para uma tela onde é apresen
 
 Funcionário cadastrado é apresentado na tela:
 
-![img7](https://raw.githubusercontent.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t3-crm-auto/main/docs/img/registro%20de%20testes/CT%2011/Evidencia7_CT14.png)
-<p align="center">Evidência de teste 7 - Funcionário apresentado na tela</p>
+![img6](https://raw.githubusercontent.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t3-crm-auto/main/docs/img/registro%20de%20testes/CT%2011/Evidencia7_CT14.png)
+<p align="center">Evidência de teste 6 - Funcionário apresentado na tela</p>
 </br>
 
 Funcionário cadastrado inserido na tabela [CRM_AUTO].[dbo].[FUNCIONARIO]:
 
-![img6](https://raw.githubusercontent.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t3-crm-auto/main/docs/img/registro%20de%20testes/CT%2011/Evidencia6_CT14.png)
-<p align="center">Evidência de teste 6 - Funcionário inserido no banco de dados</p>
+![img7](https://raw.githubusercontent.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t3-crm-auto/main/docs/img/registro%20de%20testes/CT%2011/Evidencia6_CT14.png)
+<p align="center">Evidência de teste 7 - Funcionário inserido no banco de dados</p>
 </br>
 
 **Observações:**
