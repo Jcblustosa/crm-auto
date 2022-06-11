@@ -310,7 +310,7 @@ Após clicar em Excluir, o usuário é direcionado para uma tela onde é apresen
 <p align="center">Evidência de teste 6 - Mensagem de sucesso apresentada ao usuário</p>
 </br>
 
-Funcionário não é mais na tela:
+Funcionário não é mais apresentado na tela:
 
 ![img7](https://raw.githubusercontent.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t3-crm-auto/main/docs/img/registro%20de%20testes/CT%2011/Evidencia7_CT16.png)
 <p align="center">Evidência de teste 7 - Lista de funcionários atualizada</p>
