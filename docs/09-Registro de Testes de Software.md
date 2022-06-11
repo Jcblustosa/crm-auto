@@ -48,9 +48,9 @@ Pontos a melhorar
 **Objetivo:** Verificar se o colaborador é capaz de realizar login no sistema
 
 **Passos:** 
-1.	Executar a aplicação; 
-2.	Clicar no botão "Sou colaborador da empresa";
-3.	Preencher os campos Login e Senha;
+1.	Executar a aplicação
+2.	Clicar no botão "Sou colaborador da empresa"
+3.	Preencher os campos Login e Senha
 4.	Clicar em Log in
 
 **Critério de êxito:** Se as informações forem preenchidas corretamente, o sistema deve direcionar o usuário para o painel de controle da oficina
