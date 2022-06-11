@@ -233,25 +233,25 @@ Informações atuais do funcionário na tabela [CRM_AUTO].[dbo].[FUNCIONARIO]:
 Os dados 'função' e 'oficina' do funcionário são alterados:
 
 ![img5](https://raw.githubusercontent.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t3-crm-auto/main/docs/img/registro%20de%20testes/CT%2011/Evidencia4_CT15.png)
-<p align="center">Evidência de teste 4 - Alteração das informações</p>
+<p align="center">Evidência de teste 5 - Alteração das informações</p>
 </br>
 
 Após clicar em Alterar, o usuário é direcionado para uma tela onde é apresentada a mensagem de sucesso na alteração do funcionário:
 
 ![img6](https://raw.githubusercontent.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t3-crm-auto/main/docs/img/registro%20de%20testes/CT%2011/Evidencia5_CT15.png)
-<p align="center">Evidência de teste 5 - Mensagem de sucesso apresentada ao usuário</p>
+<p align="center">Evidência de teste 6 - Mensagem de sucesso apresentada ao usuário</p>
 </br>
 
 Informações atualizadas na tela:
 
 ![img7](https://raw.githubusercontent.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t3-crm-auto/main/docs/img/registro%20de%20testes/CT%2011/Evidencia6_CT15.png)
-<p align="center">Evidência de teste 6 - Informações atualizadas na tela</p>
+<p align="center">Evidência de teste 7 - Informações atualizadas na tela</p>
 </br>
 
 Informações atualizadas na tabela [CRM_AUTO].[dbo].[FUNCIONARIO]:
 
 ![img8](https://raw.githubusercontent.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t3-crm-auto/main/docs/img/registro%20de%20testes/CT%2011/Evidencia7_CT15.png)
-<p align="center">Evidência de teste 7 - Informações atualizadas no banco de dados</p>
+<p align="center">Evidência de teste 8 - Informações atualizadas no banco de dados</p>
 </br>
 
 **Observações:**
