@@ -119,10 +119,8 @@ namespace CRM_Auto.Controllers
         [HttpPost]
         public IActionResult ExcluirFuncionario(FuncionarioModel funcionario)
         {
-            string nome = funcionario.Nome;
-            string funcao = funcionario.Funcao;
-
-            funcionario.ExcluirFuncionario(nome, funcao);
+ 
+            funcionario.ExcluirFuncionario(funcionario);
 
             TempData["msg"] = "Exclusão realizada com sucesso!";
             TempData["msgDetalhes"] = "A exclusão do funcionário foi finalizada e você já pode consultar as informações atualizadas no sistema da sua oficina.";

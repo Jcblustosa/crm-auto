@@ -49,7 +49,9 @@ h1{
     transform: translateY(4px);
   }
 
-.footer{
+
+
+.footer {
     position: fixed;
     bottom: 0rem;
 }

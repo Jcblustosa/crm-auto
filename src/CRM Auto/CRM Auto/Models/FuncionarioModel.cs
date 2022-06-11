@@ -38,7 +38,7 @@ namespace CRM_Auto.Models
             DataTable Id_oficina = cnn.GetData($"SELECT ID_OFICINA FROM OFICINA WHERE ID_OFICINA = '{funcionario.Id_oficina}'");
 
             string command = $"INSERT INTO FUNCIONARIO (NOME, FUNCAO, ID_OFICINA) " +
-                $"VALUES ('{funcionario.Nome}', '{funcionario.Funcao}', '{Id_oficina.Rows[0]["Id_oficina"]}')";
+                $"VALUES ('{funcionario.Nome}', '{funcionario.Funcao}', '{funcionario.Id_oficina}')";
 
             //DAL dal = new DAL();
             //dal.InsertData(command);
@@ -126,16 +126,16 @@ namespace CRM_Auto.Models
             cnn1.InsertData(command);
         }
 
-        public void ExcluirFuncionario(string nome, string funcao)
+        public void ExcluirFuncionario(FuncionarioModel funcionario)
         {
 
             //Exclui o usuário (necessário excluir antes porque o id_funcionario é chave estrangeira na tabela Usuario)
             string command = $"DELETE FROM USUARIO " +
-                $"WHERE ID_FUNCIONARIO IN (SELECT ID_FUNCIONARIO FROM FUNCIONARIO WHERE NOME = '{nome}')";
+                $"WHERE ID_FUNCIONARIO = {funcionario.Id_funcionario}";
 
             //Exclui o funcionário
             string command2 = $"DELETE FROM FUNCIONARIO " +
-                $"WHERE NOME = '{nome}' AND FUNCAO = '{funcao}'";
+                $"WHERE ID_FUNCIONARIO = {funcionario.Id_funcionario}";
 
 
             //DAL dal = new DAL();

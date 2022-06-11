@@ -78,7 +78,7 @@
     </div>
 
     @{
-        <div onload="init" class="tbl-container bdr">
+        <div onload="init" class="tbl-container bdr" asp-controller="Oficina">
             <input type="hidden" id="hiddenBuscarOficinas" value="@System.Text.Json.JsonSerializer.Serialize(ViewBag.BuscarOficinas)" />
             <table class="table align-middle mb-0 bg-white table-striped table-bordered" id="showTable">
                 <thead class="bg-light">
@@ -96,24 +96,21 @@
                         <tr>
                             <td scope="row">
                                 <div class="d-flex align-items-center">
-                                    <p class="fw-bold mb-1">@funcionario.Nome</p>
+                                    <p class="fw-bold mb-1" id="funcionarioNome" asp-for="Nome">@funcionario.Nome</p>
                                 </div>
                             </td>
                             <td>
                                 <p class="fw-normal mb-1">@funcionario.Login_usuario</p>
                             </td>
                             <td>
-                                <p class="fw-normal mb-1">@funcionario.Funcao</p>
-                                <p class="text-muted mb-0">@funcionario.Id_oficina</p>
+                                <p class="fw-normal mb-1" id="funcionarioFuncao" asp-for="Funcao">@funcionario.Funcao</p>
+                                <p class="text-muted mb-0" id="funcionarioOficina" asp-for="Nome_oficina">@funcionario.Nome_oficina</p>
                             <td>
                                 <button type="button"
                                     class="btn btn-link btn-rounded btn-sm fw-bold btnEditFuncionario"
-                                    data-mdb-ripple-color="dark" data-placement="right" title="Edit" data-toggle="modal" data-target="#editFuncionario"
+                                    data-mdb-ripple-color="dark" data-placement="right" title="Editar as informações" data-toggle="modal" data-target="#editFuncionario"
                                     value="@System.Text.Json.JsonSerializer.Serialize(funcionario)">
                                     <i class="bi bi-pencil-fill"></i>
-                                </button>
-                                <button type="submit" class="btn btn-danger btn-sm" id="btnDelete" asp-action="ExcluirFuncionario">
-                                    <i class="bi bi-trash"></i>
                                 </button>
                             </td>
                         </tr>
@@ -148,27 +145,25 @@
                             <input type="text" class="form-control" id="inputFuncao" placeholder="Informe o Cargo" asp-for="Funcao">
                         </div>
 
-                         <div class="form-group col-8">
+                        <div class="form-group col-8">
                             <label for="inputEmail">E-mail</label>
                             <input type="text" class="form-control" id="inputEmail" placeholder="Informe o E-mail" asp-for="Login_usuario">
                         </div>
 
-                         <div class="form-group col-8">
+                        <div class="form-group col-8">
                             <label for="inputSenha">Senha</label>
                             <input type="password" class="form-control" id="inputSenha" placeholder="Informe a senha" asp-for="Senha_usuario">
                         </div>
 
                         <div class="form-group col-8">
                             <label for="inputOficina">Oficina (*)</label>
-                            <fieldset class="form-control" id="inputOficina" required placeholder="Informe a Oficina">
-                                <select id="oficina" required" asp-for="Id_oficina">
-                                    <option>Selecione...</option>
-                                    @foreach (var oficina in ViewBag.BuscarOficinas)
-                                    {
-                                        <option value="@oficina.Id_oficina">@oficina.Nome_oficina</option>
-                                    }
-                                </select>
-                            </fieldset>
+                            <select id="oficina" required class="form-select" asp-for="Id_oficina">
+                                <option>Selecione...</option>
+                                @foreach (var oficina in ViewBag.BuscarOficinas)
+                                {
+                                 <option value="@oficina.Id_oficina">@oficina.Nome_oficina</option>
+                                }
+                            </select>
                         </div>
 
                         <div class="form-group row">
@@ -229,7 +224,8 @@
 
                         <div class="form-group row pb-3 float-end">
                             <div class="col-sm-17">
-                                <button type="submit" class="btn btn-warning btn-sm" id="btnUpdate" asp-action="AlterarFuncionario">Alterar</button>                                
+                                <button type="submit" class="btn btn-warning btn-sm" id="btnUpdate" asp-action="AlterarFuncionario">Alterar</button>
+                                <button type="submit" class="btn btn-danger btn-sm" id="btnDelete" asp-action="ExcluirFuncionario">Excluir</button>
                                 <button type="reset" class="btn btn-secondary btn-sm" id="btnClear">Limpar Form</button>
                             </div>
                         </div>
@@ -249,13 +245,13 @@
         for (i = 0; i < db.data.length; i++) {
             let contato = db.data[i];
             $("#table-contatos").append(`<tr><td scope="row">${contato.id}</td>
-                                                        <td>${contato.nome}</td>
-                                                        <td>${contato.matricula}</td>
-                                                        <td>${contato.email}</td>
-                                                        <td>${contato.cidade}</td>
-                                                        <td>${contato.categoria}</td>
-                                                        <td>${contato.website}</td>
-                                                    </tr>`);
+                                                            <td>${contato.nome}</td>
+                                                            <td>${contato.matricula}</td>
+                                                            <td>${contato.email}</td>
+                                                            <td>${contato.cidade}</td>
+                                                            <td>${contato.categoria}</td>
+                                                            <td>${contato.website}</td>
+                                                        </tr>`);
         }
     }
     function init() {
@@ -355,7 +351,7 @@
         exibeContatos();
     }
 
-    $(".btnEditFuncionario").click(function(){
+    $(".btnEditFuncionario").click(function() {
         var valor = JSON.parse($(this).val());
         $("#editIdFuncionario").val(valor.Id_funcionario);
         $("#editFuncionarioNome").val(valor.Nome);
@@ -372,6 +368,8 @@
             }));
         }
 
-        $('#editFuncionarioOficina option[value="' + valor.Id_oficina +'"]').prop("selected", true);
+        $('#editFuncionarioOficina option[value="' + valor.Id_oficina + '"]').prop("selected", true);
     });
+
+
 </script>
