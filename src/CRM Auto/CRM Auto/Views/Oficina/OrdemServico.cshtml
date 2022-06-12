@@ -1,4 +1,5 @@
-@model OrdemServico
+@using CRM_Auto.ViewModels
+@model OficinaOrdemServicoViewModel
 
 
     <header class="header" id="header">
@@ -76,63 +77,51 @@
             <h3>Ordem de serviços/Adicionar Serviços</h3>
             <div class="row">
                 <div class="form-group col-sm-4">
-                    <label for="inputcliente">CPF do Cliente (*)</label>
-                    <input type="text" class="form-control" id="inputcliente" required placeholder="Informe a Cliente" onchange="BuscaPlacas(this)">
+                    <label asp-for="OrdemServico.CpfCnpj">CPF do Cliente (*)</label>
+                    <input type="text" class="form-control" asp-for="OrdemServico.CpfCnpj" required placeholder="Informe a Cliente" onchange="BuscaPlacas(this)">
                 </div>
     
                 <div class="form-group col-sm-4">
-                    <label for="inputVeiculo">Placa do Veículo (*)</label>
-                    <select id="placaCliente" class="form-control">
+                    <label asp-for="OrdemServico.PlacaVeiculo">Placa do Veículo (*)</label>
+                    <select asp-for="OrdemServico.PlacaVeiculo" id="placaCliente" class="form-control">
 
                     </select>
                 </div>
                 
-                <div class="form-group col-sm-4">
-                    <label for="inputOrdemservico">Data da ordem de Serviço (*)</label>
-                    <input type="text" class="form-control" id="inputOrdemservico" required placeholder="Informe a data da ordem de Serviço">
+                <div class="form-group col-sm-2">
+                    <label asp-for="OrdemServico.DataOrdem">Data da ordem de Serviço</label>
+                    <input type="text" class="form-control" asp-for="OrdemServico.DataOrdem" value="@DateTime.Now" disabled placeholder="@DateTime.Now">
                 </div>
             </div>
             
             
             <div class="row ">
                 <div class="form-group col-sm-2">
-                    <label for="inputTelefone">Telefone/contato (*)</label>
-                    <input type="text" class="form-control" id="inputTelefone" required placeholder="Informe o telefone">
+                    <label asp-for="OrdemServico.Telefone">Telefone/contato (*)</label>
+                    <input type="text" class="form-control" asp-for="OrdemServico.Telefone" required placeholder="Informe o telefone">
                 </div>
 
                 <div class="form-group col-sm-4">
-                    <label for="inputEmail">E-mail (*)</label>
-                    <input type="text" class="form-control" id="inputEmail" required placeholder="Informe o E-mail">
+                    <label asp-for="OrdemServico.Email">E-mail (*)</label>
+                    <input type="text" class="form-control" asp-for="OrdemServico.Email" required placeholder="Informe o E-mail">
                 </div>
 
-                <div class="form-group col-sm-2">
+                @*<div class="form-group col-sm-2">
                     <label for="inputAgendamento">Agendamento (*)</label>
                     <input type="text" class="form-control" id="inputAgendamento" required placeholder="Informe Agendamento">
-                </div> 
+                </div>*@ 
             </div>
 
-            
-
-            <div class="form-group col-sm-4">
-                <label for="inputAprovado">Aprovado(Sim ou Não)(*)</label>
-                <input type="text" class="form-control" id="inputAprovado" required placeholder="Informe Sim ou NÃO Aprovado">
-            </div>
-
-            <div class="form-group col-sm-4">
-                <label for="inputValorServico">Valor do Serviço (*)</label>
-                <input type="text" class="form-control" id="inputValorServico" required placeholder="Informe o Valor do serviço">
-            </div> 
             
             <div class="row form-group">
                 <table class="table">
                     <thead>
                         <tr>
-                            <th class="tb-item-desc" style="width: 5px;" scope="col">#</th>
                             <th class="tb-desc-servico" scope="col">Descrição do Serviço</th>
                             <th class="tb-mecanico" scope="col">Mecânico responsável</th>
                             <th class="tb-dt-inicial" scope="col">Hora inicial</th>
                             <th class="tb-dt-final" scope="col">Hora final</th>
-                            <th class="tb-vlr-servico" scope="col">Valor do Serviço</th>
+                            <th class="tb-vlr-servico" scope="col">Valor do Serviço (un.)</th>
                             <th class="tb-check" scope="col">Aprovado</th>
                             <th class="tb-qtde" scope="col">Qtde</th>
                             <th class="tb-btn" scope="col"></th>
@@ -140,33 +129,27 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td scope="row">1</td>
                             <td>
-                                <select id="desc-servico" class="form-control" asp-items="@ViewBag.ListaServicos">
+                                <select asp-for="Servico.Descricao" class="form-control" asp-items="@ViewBag.ListaServicos" onchange="BuscarPreco(this)">
                                     <option selected>Selecione um serviço...</option>
                                 </select>
                             </td>
                             <td>
-                                <select id="desc-servico" class="form-control" asp-items="@ViewBag.ListaMecanicos">
-                                    <option selected>Selecione um mecânico...</option>
-                                </select>
+                                <select asp-for="Servico.IdMecanicoResponsavel" class="form-control">
+                                    <option>Selecionar</option>
+                                @foreach (MecanicoModel mecanico in ViewBag.ListaMecanicos)
+                                {
+                                    <option value="@mecanico.IdMecanico">@mecanico.Nome</option>
+                                }
+                            </select>
                             </td>
-                            <td>
-                                <input type="datetime-local">
-                            </td>
-                            <td>
-                                <input type="datetime-local">
-                            </td>
-                            <td >
-                                R$ 425,50
-                            </td>
-                            <td>
-                                <input class="form-check-input tb-check-vlr" type="checkbox" id="check1" name="option1" value="true">
-                            </td>
-                            <td>2</td>
-                            <td>
-                                <button>Salvar</button>
-                            </td>
+                            <td><input asp-for="Servico.InicioServico"></td>
+                            <td><input asp-for="Servico.FimServico"></td>
+                            <td><select id="PrecoServico" class="form-control">
+                                <option>Selecione</option>
+                            </select></td>
+                            <td><input asp-for="Servico.ServicoAprovado"></td>
+                            <td><input asp-for="Servico.Quantidade" class="form-control"/></td>
                             
                         </tr>
                         
@@ -200,11 +183,10 @@
                     </table>
                 </div>
             </div> -->
-            <div class="col-sm-12">
-                <a href="lista_contatos.html"><input type="button" class="btn btn-warning" id="btnClear" value="Salvar Ordem de Serviço"></a>
-            </div>
-            <small>(*) Campos obrigatórios</small>
+            <input type="submit" value="Salvar Ordem de Serviço" class="btn btn-success"/>
+            
         </form>
+        <small>(*) Campos obrigatórios</small>
     </div> <!-- Fim div CONTAINER -->
 
 
@@ -223,6 +205,19 @@
                     console.log(item)
                     options.append('<option value="' +item + '">' + item + '</option>');
                 }
+            }
+        })
+    }
+
+    function BuscarPreco(e){
+        document.getElementById('PrecoServico').options.length = 0;
+        console.log(e.value)
+        $.post("BuscarPreco", {Descricao: e.value}, function(result,status,xhr) {
+            console.log(`data: ${result}, status: ${status}`);
+            if (status === 'success') {
+                const displayValor = $("#PrecoServico");
+                displayValor.innerHTML = "";
+                displayValor.append('<option value="' +result + '">' + result + '</option>');
             }
         })
     }

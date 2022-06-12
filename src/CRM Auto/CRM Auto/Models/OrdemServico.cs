@@ -34,23 +34,6 @@ namespace CRM_Auto.Models
             return servicos;
         }
 
-        public List<string> ListarMecanicos(string idOficina)
-        {
-            List<string> mecanicos = new List<string>();
-            string command = "SELECT NOME FROM FUNCIONARIO " +
-                $"WHERE FUNCAO = 'Mecânico' AND ID_OFICINA = {idOficina}";
-
-            CNN cnn = new CNN();
-            DataTable dt = cnn.GetData(command);
-
-            for (int i = 0; i < dt.Rows.Count; i++)
-            {
-                mecanicos.Add(dt.Rows[i]["NOME"].ToString());
-            }
-
-            return mecanicos;
-        }
-
         public List<string> BuscarPlacas(string cnpj_cpf)
         {
             List<string> placas = new List<string>();

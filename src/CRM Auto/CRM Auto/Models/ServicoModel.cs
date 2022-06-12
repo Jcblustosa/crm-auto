@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CRM_Auto.Util;
+using System;
+using System.Data;
 
 namespace CRM_Auto.Models
 {
@@ -12,21 +14,23 @@ namespace CRM_Auto.Models
         public bool ServicoAprovado { get; set; }
         public TimeSpan TempoDeExecucao { get; set; }
         public double CustoHora { get; set; }
+        public int IdMecanicoResponsavel { get; set; }
+
 
         public ServicoModel()
         {
 
         }
 
-        public ServicoModel(string descricao, int quantidade, TimeSpan tempoPrevisto, DateTime inicioServico, DateTime fimServico, bool servicoAprovado, double custoHora)
+        public string BuscarValor(string descricao)
         {
-            Descricao = descricao;
-            Quantidade = quantidade;
-            TempoPrevisto = tempoPrevisto;
-            InicioServico = inicioServico;
-            FimServico = fimServico;
-            ServicoAprovado = servicoAprovado;
-            CustoHora = custoHora;
+            string command = "SELECT CUSTO_HORA FROM SERVICO " +
+                $"WHERE DESCRICAO = '{descricao}';";
+
+            CNN cnn = new CNN();
+            DataTable dt = cnn.GetData(command);
+
+            return dt.Rows[0]["CUSTO_HORA"].ToString();
         }
     }
 }

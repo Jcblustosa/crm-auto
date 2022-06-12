@@ -20,9 +20,6 @@ namespace CRM_Auto.Models
         public Cor Cor { get; set; }
 
 
-        
-
-
         public void CadastroVeiculo()
         {
             string command = $"INSERT INTO VEICULO(ID_MODELO, PLACA_VEICULO, MOTORIZACAO, ANO_FABRICACAO, ANO_MODELO, RENAVAN, COR) VALUES({IdModelo}, '{Placa}', '{Motorizacao}', '{AnoFabricacao}', '{AnoModelo}', '{Renavan}', '{(Cor)Cor}');";

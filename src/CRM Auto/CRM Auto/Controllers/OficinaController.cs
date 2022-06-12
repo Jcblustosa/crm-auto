@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using CRM_Auto.ViewModels;
 
 namespace CRM_Auto.Controllers
 {
@@ -136,7 +137,8 @@ namespace CRM_Auto.Controllers
             OrdemServico os = new OrdemServico();
             ViewBag.ListaServicos = new SelectList(os.ListarServicos());
             string idOficina = HttpContextAccessor.HttpContext.Session.GetString("IdOficina");
-            ViewBag.ListaMecanicos = new SelectList(os.ListarMecanicos(idOficina));
+            MecanicoModel mecanico = new MecanicoModel();
+            ViewBag.ListaMecanicos = mecanico.ListarMecanicos(idOficina);
             return View();
         }
 
@@ -148,8 +150,15 @@ namespace CRM_Auto.Controllers
         }
 
         [HttpPost]
-        public IActionResult GerarOS(OrdemServico ordemServico)
+        public string BuscarPreco(ServicoModel servico)
         {
+            return servico.BuscarValor(servico.Descricao);
+        }
+
+        [HttpPost]
+        public IActionResult GerarOS(OficinaOrdemServicoViewModel ordemServico)
+        {
+
             return RedirectToAction("OrdemServico");
         }
    
