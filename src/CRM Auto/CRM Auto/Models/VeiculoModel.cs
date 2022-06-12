@@ -10,6 +10,7 @@ namespace CRM_Auto.Models
     {
 
         public int IdVeiculo { get; set; }
+        [Display(Name = "Modelo")]
         public int IdModelo { get; set; }
         public string Placa { get; set; }
         public string Motorizacao { get; set; }
@@ -17,9 +18,6 @@ namespace CRM_Auto.Models
         public string AnoModelo { get; set; }
         public string Renavan { get; set; }
         public Cor Cor { get; set; }
-
-
-        
 
 
         public void CadastroVeiculo()

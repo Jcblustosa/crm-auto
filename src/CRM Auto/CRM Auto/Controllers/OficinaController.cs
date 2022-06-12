@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using CRM_Auto.ViewModels;
 
 namespace CRM_Auto.Controllers
 {
@@ -29,6 +30,7 @@ namespace CRM_Auto.Controllers
                 string[] nomeEIdFuncionario = usuario.NomeEIdFuncionario(usuario.Login_usuario, usuario.Senha_usuario);
                 HttpContext.Session.SetString("Nome", nomeEIdFuncionario[0]);
                 HttpContext.Session.SetString("IdFuncionario", nomeEIdFuncionario[1]);
+                HttpContext.Session.SetString("IdOficina", nomeEIdFuncionario[2]);
                 TempData["Nome"] = HttpContextAccessor.HttpContext.Session.GetString("Nome");
                 TempData["IdFuncionario"] = HttpContextAccessor.HttpContext.Session.GetString("IdFuncionario");
                 return RedirectToAction("Sucesso");
@@ -71,13 +73,10 @@ namespace CRM_Auto.Controllers
         [HttpPost]
         public IActionResult InserirFuncionario(FuncionarioModel funcionario)
         {
-            string nome = funcionario.Nome;
-            string funcao = funcionario.Funcao;
-            string nome_oficina = funcionario.Nome_oficina;
+            
+            funcionario.InserirFuncionario(funcionario);
 
-            funcionario.InserirFuncionario(nome, funcao, nome_oficina);
-
-            bool resultadoInsercao = funcionario.ValidarInsercaoFuncionario();
+            bool resultadoInsercao = funcionario.ValidarInsercaoFuncionario(funcionario);
             if (resultadoInsercao)
             {
                 TempData["msg"] = "Inclusão realizada com sucesso!";
@@ -97,10 +96,7 @@ namespace CRM_Auto.Controllers
 
                 OficinaModel oficina = new OficinaModel();
                 List<OficinaModel> lista = oficina.BuscarOficinas();
-                var nomesOficinas = from oficinaLista in lista 
-                                    select oficinaLista.Nome_oficina;
-
-                ViewBag.BuscarOficinas = nomesOficinas;
+                ViewBag.BuscarOficinas = lista.Select(o => new { o.Id_oficina, o.Nome_oficina });
 
                 return View("CadastroDeFuncionario");
             }
@@ -113,11 +109,7 @@ namespace CRM_Auto.Controllers
         [HttpPost]
         public IActionResult AlterarFuncionario(FuncionarioModel funcionario)
         {
-            string nome = funcionario.Nome;
-            string funcao = funcionario.Funcao;
-            string nome_oficina = funcionario.Nome_oficina;
-
-            funcionario.AlterarFuncionario(nome, funcao, nome_oficina);
+            funcionario.AlterarFuncionario(funcionario);
 
             TempData["msg"] = "Alteração realizada com sucesso!";
             TempData["msgDetalhes"] = "A alteração do funcionário foi finalizada e você já pode consultar as informações atualizadas no sistema da sua oficina.";
@@ -129,16 +121,45 @@ namespace CRM_Auto.Controllers
         [HttpPost]
         public IActionResult ExcluirFuncionario(FuncionarioModel funcionario)
         {
-            string nome = funcionario.Nome;
-            string funcao = funcionario.Funcao;
-
-            funcionario.ExcluirFuncionario(nome, funcao);
+ 
+            funcionario.ExcluirFuncionario(funcionario);
 
             TempData["msg"] = "Exclusão realizada com sucesso!";
             TempData["msgDetalhes"] = "A exclusão do funcionário foi finalizada e você já pode consultar as informações atualizadas no sistema da sua oficina.";
 
             return View("CadastroRealizadoComSucesso");
 
+        }
+
+        [HttpGet]
+        public IActionResult OrdemServico()
+        {
+            OrdemServico os = new OrdemServico();
+            ViewBag.ListaServicos = new SelectList(os.ListarServicos());
+            string idOficina = HttpContextAccessor.HttpContext.Session.GetString("IdOficina");
+            MecanicoModel mecanico = new MecanicoModel();
+            ViewBag.ListaMecanicos = mecanico.ListarMecanicos(idOficina);
+            return View();
+        }
+
+        [HttpPost]
+        public List<string> BuscarPlacas(BuscaPlacas buscaPlacas)
+        {
+            OrdemServico os = new OrdemServico();
+            return os.BuscarPlacas(buscaPlacas.Cnpj_cpf);
+        }
+
+        [HttpPost]
+        public string BuscarPreco(ServicoModel servico)
+        {
+            return servico.BuscarValor(servico.Descricao);
+        }
+
+        [HttpPost]
+        public IActionResult GerarOS(OficinaOrdemServicoViewModel ordemServico)
+        {
+
+            return RedirectToAction("OrdemServico");
         }
    
     }
