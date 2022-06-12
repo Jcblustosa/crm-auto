@@ -15,8 +15,6 @@ namespace CRM_Auto.Models
         public DateTime DataFimServico { get; set; }
         public double ValorUnitario { get; set; }
 
-
-
         public List<DetalhamentoModel> ConsultarDetalhamento(int id)
         {
             string command = "SELECT OS.ID_ORDEM_SERVICO, S.DESCRICAO, F.NOME, D.TEMPO_PREVISTO, D.DATA_INICIO_SERVICO, D.DATA_FIM_SERVICO, D.VALOR_UNITARIO " +
