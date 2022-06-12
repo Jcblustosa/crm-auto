@@ -77,22 +77,21 @@
         <!-- class="bg-light"-->
         <form id="fCadCliente" asp-controller="Cliente" asp-action="OperacaoCadastroCliente">
             <div class="row">
-                <div class="form-group col-md-3">
-                    <label for="chkTipoPessoa">Selecione a opção</label>
-                    <div id="chkTipoPessoa" class="box-tipo-pessoa">
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="tipoPessoa" id="pessoaFisica" value="F" asp-for="Tipo_fisica">
-                            <label class="form-check-label" for="pessoaFisica">Física</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="tipoPessoa" id="pessoaJuridica" value="J" asp-for="Tipo_juridica">
-                            <label class="form-check-label" for="pessoaJuridica">Jurídica</label>
-                        </div>
+                <div class="row">
+                    @*INPUT DO CNPJ*@
+                    <div class="form-group col-md-3">
+                        <label for="cpf_cnpj">Informe o CPF</label>
+                        <input type="text" class="form-control obrigatorio cpf" id="cpf_cnpj" name="cpf" placeholder="11.222.333-33" maxlength="14" asp-for="Cnpj_cpf">
                     </div>
-                </div>
-                <div class="form-group col-md-3">
-                    <label for="cpf_cnpj">Informe o CPF</label>
-                    <input type="text" class="form-control" id="cpf_cnpj" name="Cnpj_cpf" maxlength="14" asp-for="Cnpj_cpf">
+                    @*SELECT PARA SELEÇÃO DO TIPO DE PESSOA: FÍSICA OU JURÍDICA*@
+                    <div class="form-group col-md-3">
+                        <label for="tipo-pessoa">Selecione o tipo de pessoa</label>
+                        <select id="tipo-pessoa" class="form-select" asp-for="Cnpj_ou_cpf">
+                            <option selected>Selecione...</option>
+                            <option value="F">Pessoa física</option>
+                            <option value="J">Pessoa jurídica</option>
+                        </select>
+                    </div>
                 </div>
             </div>
             <div class="row">
@@ -132,7 +131,6 @@
                                 <div id="app" class="form-group col-md-2">
                                     <label for="cep">CEP</label>
                                     <input type="text" class="form-control" v-model="cep" id="cep" onclick="this.value=''" maxlength="8" placeholder="" asp-for="Cep">
-                                    @*<div class="error">{{error}}</div>*@
                                 </div>
                                 <div class="form-group col-md-6">
                                     <!-- INÍCIO DIV CONTEÚDO DO FORM LOGRADOURO -->
@@ -232,30 +230,31 @@
                                     <td>2018/2018</td>
                                     <td>36123</td>
                                     <td>
-                                        <button class="btn btn-primary">Ver</button>
+                                        <button type="button" class="btn btn-link btn-rounded btn-sm fw-bold" data-mdb-ripple-color="prymary" 
+                                            data-placement="right" data-bs-toggle="tooltip" title="Detalhe" data-toggle="modal" data-target="#deleteClienteVeiculo">
+                                            <i class="bi bi-view-list"></i>
+                                        </button>
+
+                                        <button type="button" class="btn btn-link btn-rounded btn-sm fw-bold" data-mdb-ripple-color="prymary" 
+                                            data-placement="right" data-bs-toggle="tooltip" title="Editar" data-toggle="modal" data-target="#editClienteVeiculo">
+                                            <i class="bi bi-pencil"></i>
+                                        </button>
+                                        
+                                        <button type="button" class="btn btn-link btn-rounded btn-sm fw-bold" data-mdb-ripple-color="prymary" 
+                                            data-placement="right" data-bs-toggle="tooltip" title="Excluir" data-toggle="modal" data-target="#deleteClienteVeiculo">
+                                            <i class="bi bi-x-circle"></i>
+                                        </button>
                                     </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">2</th>
-                                    <td>EFG7H66</td>
-                                    <td>ONIX PLUS LTZ</td>
-                                    <td>2019/2020</td>
-                                    <td>5630</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">3</th>
-                                    <td>IJK5L44</td>
-                                    <td>HB20X DIAMOND PLUS</td>
-                                    <td>2021/2021</td>
-                                    <td>19208</td>
                                 </tr>
                             </tbody>
                         </table>
                     </div> <!-- FIM DIV ABA CADASTRO DE VEÍCULOS -->
                 </div> <!-- FIM DIV ABAS -->
             </div>
-            <div>
-                <input type="submit" id="ok" name="ok" class="btn btn-primary" value="Ok">
+            <div class="grupo-btn-comando">
+                <input type="submit" id="salvar" name="salvar" class="btn btn-primary btn-salvar" value="Salvar">
+                <input type="submit" id="cancelar" name="cancelar" class="btn btn-danger btn-cancelar" value="Cancelar">
+                <input type="submit" id="excluir" name="excluir" class="btn btn-dark btn-excluir" value="Excluir">
             </div>
         </form>
     </div> <!-- FIM DIV CONTAINER -->

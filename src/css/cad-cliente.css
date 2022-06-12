@@ -17,7 +17,7 @@
     font-size: var(--normal-font-size);
 }
 
-.form-control{
+.form-control, .form-select{
     font-size: var(--normal-font-size);
 }
 
@@ -30,11 +30,9 @@
 }
 
 .TabControl{
-    padding-left: 10px;
-    padding-right: 10px;
     width: 98%;
     overflow: hidden;
-    height: 420px;
+    height: 100%;
 }
 
 .TabControl #header{
@@ -47,7 +45,7 @@
     width: 100%;
     border: 1px solid var(--first-color-light);
     overflow: hidden;
-    height: 80%;
+    height: 310px;
 }
 
 .TabControl .abas{
@@ -134,6 +132,18 @@ form{
 .form-group{
     margin-top: 15px;
 }
+
+.grupo-btn-comando{
+    /* border: soli d 1px; */
+    width: 310px;
+    float: right;
+    margin-right: 36px;
+}
+
+.btn-salvar, .btn-cancelar, .btn-excluir{
+    width: 100px;
+}
+
 
 /* ESTILO DO FORMULÁRIO LOGRADOURO */
 

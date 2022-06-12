@@ -229,5 +229,7 @@ namespace CRM_Auto.Models
         //     CNN cnn2 = new CNN();
         //     cnn2.InsertData(command2);
         // }
+
+
     }
 }
