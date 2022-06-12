@@ -2,47 +2,49 @@
     Layout = "../Shared/_Layout_Menu_Funcionario.cshtml";
 }
 
-    <div class="container-fluid p-1 rounded" style="background-color: #687A86;">
-        <img src="~/img/crmauto.jpg" alt="CRM Auto" width="120" height="70" style="margin-left: 1rem;">
-        Painel de controle
-    </div>
-    <br />
-    
-    <div class="toast-body" >
-        <h1>Seja bem vindo!</h1>
-        <p>O que você deseja fazer?</p>
-    </div>
-    <br />
+<div class="container-fluid p-1 rounded" style="background-color: #687A86">
+    <img src="~/img/crmauto.jpg" alt="CRM Auto" width="120" height="70" style="margin-left: 1rem;">
+    <p class="painel">Painel de controle</p>
+</div>
+<br />
 
-    <div class="container justify-content-center">
-        <div class="row justify-content-around">
+<div class="toast-body">
+    <h2>Seja bem-vindo (a), <b>@TempData["Nome"]</b>!</h2>
+    <br />
+    <p>O que você deseja fazer?</p>
+</div>
+
+<div class="align-content-center" style="margin-left: 250px;">
+<div class="container justify-content-center">
+    <div class="row justify-content-center">
+        <div class="col-md-6" style="margin-right: -140px">
+            <a type="button" class="btn btn-lg" style="font-weight: bold; height: 85px" asp-controller="Oficina" asp-action="BuscarFuncionariosEOficinas">Menu funcionários</a>
+        </div>
+
         <div class="col-md-6">
-            <a type = "button" class="btn" asp-controller="Oficina" asp-action="BuscarFuncionarios">Cadastrar funcionário</a>
+            <a type="button" href="#" class="btn btn-lg" style="font-weight: bold; height: 85px">Menu clientes</a>
         </div>
-        <br>
+    </div>
+</div>
 
-        <div class="col-sm-6">
-            <a type = "button" class="btn" asp-controller="Cliente" asp-action="CadastroCliente">Cadastrar cliente</a>
+<div class="container justify-content-center">
+     <div class="row justify-content-center">
+        <div class="col-md-6" style="margin-right: -140px">
+            <a type="button" href="#" class="btn btn-lg" style="font-weight: bold; height: 85px">Menu oficinas</a>
         </div>
-      <br>
 
-      <div class="col-sm-6">
-            <a href="#" class="btn">Cadastrar oficina</a>
-          </div>
-          <br>
-
-      <div class="col-sm-6">
-            <a class="btn" asp-controller="Oficina" asp-action="CadastroVeiculo">Cadastrar veículo</a>
-          </div>
-      </div>
-
+        <div class="col-md-6">
+            <a type="button" class="btn btn-lg" style="font-weight: bold; height: 85px" asp-controller="Oficina" asp-action="CadastroVeiculo">Menu veículos</a>
+        </div>
     </div>
 
-    <!-- Footer -->
-    <footer class="bg-light text-center fixed-bottom">
+</div>
+</div>
+<!-- Footer -->
+<footer class="bg-light text-center fixed-bottom">
     <!-- Copyright -->
     <div class="text-center text-white p-2" style="background-color: #687a86ee">
-        © Copyright CRM Auto 2022
+        <b>© Copyright CRM Auto 2022</b>
     </div>
     <!-- Copyright -->
-    </footer>
+</footer>

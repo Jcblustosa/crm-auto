@@ -1,333 +1,376 @@
-﻿@model CRM_Auto.Models.FuncionarioOficinaModel
+﻿@using CRM_Auto.Models
+@model FuncionarioModel
 
 @{
     Layout = "../Shared/_Layout_Cadastro_Funcionario.cshtml";
 }
 
-    <header class="header" id="header">
-        <div class="header_toggle">
-            <i class='bx bx-menu' id="header-toggle"></i> 
-        </div>
-        <div id="header_user" class="header_img">
-            <button id="dropdownMenuButton" type="button" class="btn btn-secondary btn-user dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="26" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 22">
+<header class="header" id="header">
+    <div class="header_toggle">
+        <i class='bx bx-menu' id="header-toggle"></i>
+    </div>
+    <div id="header_user" class="header_img">
+        <button id="dropdownMenuButton" type="button" class="btn btn-secondary btn-user dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="26" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 22">
                 <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"></path>
                 <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"></path>
-                </svg>
-            </button>
-            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="#">Perfil</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Sair</a>
-            </div>
+            </svg>
+        </button>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="#">Perfil</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Sair</a>
         </div>
-    </header>
-    <div class="l-navbar" id="nav-bar">
-        <nav class="nav">
-            <div> 
-                <div href="#" class="col p-2">
-                    <img src="~/img/crmautodark.jpg" class="img-fluid" alt="CRM Auto" style="width: 60%; height: auto; margin-left: -10px; margin-top: -15px;">
-                </div>
-                <div class="nav_list">
-                    <a href="sucesso" class="nav_link active"> 
-                        <i class='bx bx-grid-alt nav_icon' data-bs-toggle="tooltip" title="Painel"></i> 
-                        <span class="nav_name">Painel</span> 
-                    </a>
-                    <a href="#" class="nav_link">
-                        <i class='bx bx-message-square-detail nav_icon' data-bs-toggle="tooltip" title="Ordens de serviços"></i>
-                        <span class="nav_name">Ordens de serviços</span>
-                    </a>
-                    <a href="#" class="nav_link">
-                        <i class='bi bi-people nav_icon' data-bs-toggle="tooltip" title="Clientes"></i>
-                        <span class="nav_name">Clientes</span>
-                    </a>
-                    <a href="#" class="nav_link">
-                        <i class="bi bi-wrench-adjustable nav_icon" data-bs-toggle="tooltip" title="Oficina"></i>
-                        <span class="nav_name">Oficina</span>
-                    </a>
-                    <a href="#" class="nav_link">
-                        <i class='bi bi-person-video2 nav_icon' data-bs-toggle="tooltip" title="Funcionários"></i>
-                        <span class="nav_name">Funcionários</span>
-                    </a>
-                    <a href="#" class="nav_link">
-                        <i class='bx bx-bar-chart-alt-2 nav_icon' data-bs-toggle="tooltip" title="Relatórios"></i>
-                        <span class="nav_name">Relatórios</span>
-                    </a>
-                </div>
-            </div>
-            <a href="Homepage.html" class="nav_link">
-                <i class='bx bx-log-out nav_icon' data-bs-toggle="tooltip" title="Sair"></i>
-                <span class="nav_name">Sair</span>
-            </a>
-        </nav>
     </div>
-    
-    <div class="mx-auto" id="main"> 
-    <h1>Funcionários</h1>
-
-        <div class="container">
-            <div class="row">
-                <div class="input-group col-sm">
-                    <span class="input-group-text" id="basic-addon1"><i class="bi bi-search small"></i></span>
-                    <input id="tableSearch" type="text" class="form-control col-5" placeholder="Pesquise um funcionário" aria-label="Username" aria-describedby="basic-addon1">
-                </div>
-                <div class="col-sm">
-                    <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#addFuncionario"><i class="bi bi-plus"></i> Novo funcionário</button>
-                </div>
+</header>
+<div class="l-navbar" id="nav-bar">
+    <nav class="nav">
+        <div>
+            <div href="#" class="col p-2">
+                <img src="~/img/crmautodark.jpg" class="img-fluid" alt="CRM Auto" style="width: 60%; height: auto; margin-left: -10px; margin-top: -15px;">
+            </div>
+            <div class="nav_list">
+                <a href="#" class="nav_link active">
+                    <i class='bx bx-grid-alt nav_icon' data-bs-toggle="tooltip" title="Painel"></i>
+                    <span class="nav_name">Painel</span>
+                </a>
+                <a href="#" class="nav_link">
+                    <i class='bx bx-message-square-detail nav_icon' data-bs-toggle="tooltip" title="Ordens de serviços"></i>
+                    <span class="nav_name">Ordens de serviços</span>
+                </a>
+                <a href="#" class="nav_link">
+                    <i class='bi bi-people nav_icon' data-bs-toggle="tooltip" title="Clientes"></i>
+                    <span class="nav_name">Clientes</span>
+                </a>
+                <a href="#" class="nav_link">
+                    <i class="bi bi-wrench-adjustable nav_icon" data-bs-toggle="tooltip" title="Oficina"></i>
+                    <span class="nav_name">Oficina</span>
+                </a>
+                <a href="#" class="nav_link">
+                    <i class='bi bi-person-video2 nav_icon' data-bs-toggle="tooltip" title="Funcionários"></i>
+                    <span class="nav_name">Funcionários</span>
+                </a>
+                <a href="#" class="nav_link">
+                    <i class='bx bx-bar-chart-alt-2 nav_icon' data-bs-toggle="tooltip" title="Relatórios"></i>
+                    <span class="nav_name">Relatórios</span>
+                </a>
             </div>
         </div>
+        <a href="Homepage.html" class="nav_link">
+            <i class='bx bx-log-out nav_icon' data-bs-toggle="tooltip" title="Sair"></i>
+            <span class="nav_name">Sair</span>
+        </a>
+    </nav>
+</div>
 
-        @{
-         <div onload="init" class="tbl-container bdr">
-            <table class="table align-middle mb-0 bg-white table-striped table-bordered" id="showTable">
-                <thead class="bg-light">
-                    <tr>
-                        <th>Nome</th>
-                        <th>Email</th>
-                        <th>Cargo</th>
-                        <th>Opções</th>
-                    </tr>
-                </thead>
-                <tbody id="table-contatos">
+<div class="mx-auto" id="main">
+    <h2 style="font-weight: bold; margin-top: 70px; margin-bottom: 30px">Funcionários</h2>
 
-                    @foreach (FuncionarioModel funcionario in ViewBag.BuscarFuncionarios)
+    <div class="container">
+        <div class="row">
+            <div class="input-group col-sm">
+                <span class="input-group-text" id="basic-addon1"><i class="bi bi-search small"></i></span>
+                <input id="tableSearch" type="text" class="form-control col-5" placeholder="Pesquise um funcionário" aria-label="Username" aria-describedby="basic-addon1">
+            </div>
+            <div class="col-sm">
+                <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#addFuncionario"><i class="bi bi-plus"></i> Novo funcionário</button>
+            </div>
+        </div>
+    </div>
+
+    @{
+                <div onload="init" class="tbl-container bdr" asp-controller="Oficina">
+                    <input type="hidden" id="hiddenBuscarOficinas" value="@System.Text.Json.JsonSerializer.Serialize(ViewBag.BuscarOficinas)" />
+                    <table class="table align-middle mb-0 bg-white table-striped table-bordered" id="showTable">
+                        <thead class="bg-light">
+                            <tr>
+                                <th>Nome</th>
+                                <th>Email</th>
+                                <th>Cargo</th>
+                                <th>Opções</th>
+                            </tr>
+                        </thead>
+                        <tbody id="table-contatos">
+
+                            @foreach (FuncionarioModel funcionario in ViewBag.BuscarFuncionarios)
                     {
-                        <tr>
-                            <td scope="row">
-                                <div class="d-flex align-items-center">
-                                    <p class="fw-bold mb-1">@funcionario.Nome</p>
-                                </div>
-                            </td>
-                            <td>
-                                <p class="fw-normal mb-1">@funcionario.Login_usuario</p>
-                            </td>
-                            <td>
-                                <p class="fw-normal mb-1">@funcionario.Funcao</p>
-                                <p class="text-muted mb-0">@funcionario.Id_oficina</p>
-                            <td>
-                                <button type="button"
-                                    lass="btn btn-link btn-rounded btn-sm fw-bold"
-                                    data-mdb-ripple-color="dark" data-placement="right" title="Edit" data-toggle="modal" data-target="#editFuncionario">
-                                    <i class="bi bi-pencil-fill"></i>
-                                </button>
-                            </td>
-                        </tr>
+                                <tr>
+                                    <td scope="row">
+                                        <div class="d-flex align-items-center">
+                                            <p class="fw-bold mb-1" id="funcionarioNome" asp-for="Nome">@funcionario.Nome</p>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <p class="fw-normal mb-1">@funcionario.Login_usuario</p>
+                                    </td>
+                                    <td>
+                                        <p class="fw-normal mb-1" id="funcionarioFuncao" asp-for="Funcao">@funcionario.Funcao</p>
+                                        <p class="text-muted mb-0" id="funcionarioOficina" asp-for="Nome_oficina">@funcionario.Nome_oficina</p>
+                                    <td>
+                                        <button type="button"
+                                            class="btn btn-secondary btn-sm btnEditFuncionario"
+                                            data-mdb-ripple-color="dark" data-placement="right" title="Editar as informações" data-toggle="modal" data-target="#editFuncionario"
+                                            value="@System.Text.Json.JsonSerializer.Serialize(funcionario)">
+                                            <i class="bi bi-pencil-fill"></i>
+                                        </button>
+                                    </td>
+                                </tr>
                     }
-                </tbody>
-            </table>
-        </div>
-        }
-    </div>
+                        </tbody>
+                    </table>
+                </div>
+    }
+</div>
 
 <!------------------------------------MODAL-------------------------------------->
-@{
-    <div class="modal fade modal-fullscreen-xl hide modal" id="addFuncionario" tabindex="-1" role="dialog" aria-labelledby="addFuncionarioLabel" aria-hidden="true" style="width: 100% !important; border: 0">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header border-bottom-0">
-                    <h5 class="modal-title" id="addFuncionarioLabel">Cadastre um novo funcionário</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
 
-                <form asp-controller="Oficina">
-                    <div class="modal-body">
-                        <div class="form-group col-8">
-                            <label for="inputNome">Nome (*)</label>
-                            <input type="text" class="form-control" id="inputNome" required placeholder="Informe o Nome" asp-for="Nome">
-                        </div>
-
-                        <div class="form-group col-8">
-                            <label for="inputFuncao">Função</label>
-                            <input type="text" class="form-control" id="inputFuncao" placeholder="Informe o Cargo" asp-for="Funcao">
-                        </div>
-
-                        <div class="form-group col-8">
-                            <label for="inputOficina">Oficina (*)</label>
-                            <fieldset class="form-control" id="inputOficina" required placeholder="Informe a Oficina">
-                                    <select id="oficina" required" asp-for="Nome_oficina">
-                                        <option></option>
-                                        <option>Centro Automotivo Santa Monica</option>
-                                        <option>Centro Automotivo Pampulha</option>
-                                    </select>
-                            </fieldset>
-                        </div>
-
-                        <div class="form-group row">
-                            <div class="form-group">
-                                <small>(*) Campos obrigatórios</small>
-                            </div>
-                        </div>
-
-                        <div class="form-group row pb-3 float-end">
-                            <div class="col-sm-17">
-                                <button type="submit" class="btn btn-success btn-sm" id="btnInsert" asp-action="InserirFuncionario">Inserir</button>
-                                <button type="reset" class="btn btn-secondary btn-sm" id="btnClear">Limpar Form</button>
-                            </div>
-                        </div>
-                    </div>
-                </form>
+<div class="modal fade modal-fullscreen-xl hide modal" id="addFuncionario" tabindex="-1" role="dialog" aria-labelledby="addFuncionarioLabel" aria-hidden="true" style="width: 100% !important; border: 0">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header border-bottom-0">
+                <h5 class="modal-title" id="addFuncionarioLabel">Cadastre um novo funcionário</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" asp-controller="Oficina" asp-action="BuscarOficinas">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
+            @{
+                        <form asp-controller="Oficina">
+                            <div class="modal-body">
+                                <div class="form-group col-8">
+                                    <label for="inputNome">Nome (*)</label>
+                                    <input type="text" class="form-control" id="inputNome" required placeholder="Informe o Nome" asp-for="Nome">
+                                </div>
+
+                                <div class="form-group col-8">
+                                    <label for="inputFuncao">Função</label>
+                                    <input type="text" class="form-control" id="inputFuncao" placeholder="Informe o Cargo" asp-for="Funcao">
+                                </div>
+
+                                <div class="form-group col-8">
+                                    <label for="inputEmail">E-mail</label>
+                                    <input type="text" class="form-control" id="inputEmail" placeholder="Informe o E-mail" asp-for="Login_usuario">
+                                </div>
+
+                                <div class="form-group col-8">
+                                    <label for="inputSenha">Senha</label>
+                                    <input type="password" class="form-control" id="inputSenha" placeholder="Informe a senha" asp-for="Senha_usuario">
+                                </div>
+
+                                <div class="form-group col-8">
+                                    <label for="inputOficina">Oficina (*)</label>
+                                    <select id="oficina" required class="form-select" asp-for="Id_oficina">
+                                        <option>Selecione...</option>
+                                        @foreach (var oficina in ViewBag.BuscarOficinas)
+                                {
+                                         <option value="@oficina.Id_oficina">@oficina.Nome_oficina</option>
+                                }
+                                    </select>
+                                </div>
+
+                                <div class="form-group row">
+                                    <div class="form-group">
+                                        <small>(*) Campos obrigatórios</small>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row pb-3 float-end">
+                                    <div class="col-sm-17">
+                                        <button type="submit" class="btn btn-success btn-sm" id="btnInsert" asp-action="InserirFuncionario">Inserir</button>
+                                        <button type="reset" class="btn btn-secondary btn-sm" id="btnClear">Limpar formulário</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+            }
         </div>
     </div>
-}
+</div>
+
 
 <!------------------------------------MODAL-------------------------------------->
 <div class="modal fade modal-fullscreen-xl hide modal" id="editFuncionario" tabindex="-1" role="dialog" aria-labelledby="addFuncionarioLabel" aria-hidden="true" style="width: 100% !important; border: 0">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header border-bottom-0">
-                <h5 class="modal-title" id="addFuncionarioLabel">Edite as informações de funcionário</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <h5 class="modal-title" id="addFuncionarioLabel">Edite as informações do funcionário</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" asp-controller="Oficina" asp-action="BuscarOficinas">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
+            @{
+                        <form asp-controller="Oficina">
+                            <input type="hidden" id="editIdFuncionario" asp-for="Id_funcionario" />
+                            <div class="modal-body">
+                                <div class="form-group col-8">
+                                    <label for="editFuncionarioNome">Nome (*)</label>
+                                    <input type="text" class="form-control" id="editFuncionarioNome" required placeholder="Informe o Nome" asp-for="Nome">
+                                </div>
 
-            <form asp-controller="Oficina">
-                <div class="modal-body">
-                    <div class="form-group col-8">
-                        <label for="inputNome">Nome (*)</label>
-                        <input type="text" class="form-control" id="inputNome" required placeholder="Informe o Nome" asp-for="Nome">
-                    </div>
+                                <div class="form-group col-8">
+                                    <label for="editFuncionarioFuncao">Função (*)</label>
+                                    <input type="text" class="form-control" id="editFuncionarioFuncao" required placeholder="Informe o Cargo" asp-for="Funcao">
+                                </div>
 
-                    <div class="form-group col-8">
-                        <label for="inputCidade">Função</label>
-                        <input type="text" class="form-control" id="inputFuncao" required placeholder="Informe o Cargo" asp-for="Funcao">
-                    </div>
+                                <div class="form-group col-8">
+                                    <label for="editFuncionarioOficina">Oficina (*)</label>
+                                    <select id="editFuncionarioOficina" required class="form-select" asp-for="Id_oficina">
+                                    </select>
+                                </div>
 
-                    <div class="form-group col-8">
-                        <label for="inputSite">Oficina (*)</label>
-                        <input type="text" class="form-control" id="inputOficina" required placeholder="Informe a Oficina" asp-for="Id_oficina">
-                    </div>
+                                <div class="form-group row">
+                                    <div class="form-group">
+                                        <small>(*) Campos obrigatórios</small>
+                                    </div>
+                                </div>
 
-                    <div class="form-group row">
-                        <div class="form-group">
-                            <small>(*) Campos obrigatórios</small>
-                        </div>
-                    </div>
-
-                    <div class="form-group row pb-3 float-end">
-                        <div class="col-sm-17">
-                            <button type="submit" class="btn btn-warning btn-sm" id="btnUpdate" asp-action="AlterarFuncionario">Alterar</button>
-                            <button type="submit" class="btn btn-danger btn-sm" id="btnDelete" asp-action="ExcluirFuncionario">Excluir</button>
-                            <button type="reset" class="btn btn-secondary btn-sm" id="btnClear">Limpar Form</button>
-                        </div>
-                    </div>
-                </div>
-            </form>
+                                <div class="form-group row pb-3 float-end">
+                                    <div class="col-sm-17">
+                                        <button type="submit" class="btn btn-warning btn-sm" id="btnUpdate" asp-action="AlterarFuncionario">Alterar</button>
+                                        <button type="submit" class="btn btn-danger btn-sm" id="btnDelete" asp-action="ExcluirFuncionario">Excluir</button>
+                                        <button type="reset" class="btn btn-secondary btn-sm" id="btnClear">Limpar formulário</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+            }
         </div>
     </div>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-    <script src="app.js"></script>
-    <script>
-        function exibeContatos() {
-            // Remove todas as linhas do corpo da tabela
-            $("#table-contatos").html("");
-            // Popula a tabela com os registros do banco de dados
-            for (i = 0; i < db.data.length; i++) {
-                let contato = db.data[i];    
-                $("#table-contatos").append(`<tr><td scope="row">${contato.id}</td>
-                                                <td>${contato.nome}</td>
-                                                <td>${contato.matricula}</td>
-                                                <td>${contato.email}</td>
-                                                <td>${contato.cidade}</td>
-                                                <td>${contato.categoria}</td>
-                                                <td>${contato.website}</td>
-                                            </tr>`);
+<script src="app.js"></script>
+<script>
+    function exibeContatos() {
+        // Remove todas as linhas do corpo da tabela
+        $("#table-contatos").html("");
+        // Popula a tabela com os registros do banco de dados
+        for (i = 0; i < db.data.length; i++) {
+            let contato = db.data[i];
+            $("#table-contatos").append(`<tr><td scope="row">${contato.id}</td>
+                                                            <td>${contato.nome}</td>
+                                                            <td>${contato.matricula}</td>
+                                                            <td>${contato.email}</td>
+                                                            <td>${contato.cidade}</td>
+                                                            <td>${contato.categoria}</td>
+                                                            <td>${contato.website}</td>
+                                                        </tr>`);
+        }
+    }
+    function init() {
+        // Adiciona funções para tratar os eventos
+        $("#btnInsert").click(function() {
+            // Verfica se o formulário está preenchido corretamente
+            if (!$('#form-contato')[0].checkValidity()) {
+                displayMessage("Preencha o formulário corretamente.");
+                return;
             }
-        }
-        function init() {
-            // Adiciona funções para tratar os eventos 
-            $("#btnInsert").click(function () {
-                // Verfica se o formulário está preenchido corretamente
-                if (!$('#form-contato')[0].checkValidity()) {
-                    displayMessage("Preencha o formulário corretamente.");
-                    return;
-                }
-                // Obtem os valores dos campos do formulário
-                let campoNome = $("#inputNome").val();
-                let campoMatricula= $("#inputTelefone").val();
-                let campoEmail = $('#inputEmail').val();
-                let campoCidade = $("#inputCidade").val();
-                let campoCategoria = $('#inputCategoria').val();
-                let campoSite = $('#inputSite').val();
-                let contato = { nome: campoNome, 
-                    matricula: campomatricula, 
-                    email: campoEmail, 
-                    cidade: campoCidade, 
-                    categoria: campoCategoria,
-                    website: campoSite };
-                insertContato(contato);
-                // Reexibe os contatos
-                exibeContatos();
-                // Limpa o formulario
-                $("#form-contato")[0].reset();
-            });
-            // Intercepta o click do botão Alterar
-            $("#btnUpdate").click(function () {
-                // Obtem os valores dos campos do formulário
-                let campoId = $("#inputId").val();
-                if (campoId == "") {
-                    displayMessage("Selecione um contato para ser alterado.");
-                    return;
-                }
-                let campoNome = $("#inputNome").val();
-                let campoMatricula= $("#inputMatricula").val();
-                let campoEmail = $("#inputEmail").val();
-                let campoCidade = $("#inputCidade").val();
-                let campoCategoria = $("#inputCategoria").val();
-                let campoSite = $('#inputSite').val();
-                let contato = { nome: campoNome, 
-                    matricula: campoMatricula, 
-                    email: campoEmail, 
-                    cidade: campoCidade, 
-                    categoria: campoCategoria,
-                    website: campoSite };
-                updateContato(parseInt(campoId), contato);
-                // Reexibe os contatos
-                exibeContatos();
-                // Limpa o formulario
-                $("#form-contato")[0].reset();
-            });
-            // Intercepta o click do botão Excluir
-            $("#btnDelete").click(function () {
-                let campoId = $("#inputId").val();
-                if (campoId == "") {
-                    displayMessage("Selecione um contato a ser excluído.");
-                    return;
-                }
-                deleteContato(parseInt(campoId));
-                // Reexibe os contatos
-                exibeContatos();
-                // Limpa o formulario
-                $("#form-contato")[0].reset();
-            });
-            // Intercepta o click do botão Listar Contatos
-            $("#btnClear").click(function () {
-                $("#form-contato")[0].reset();
-            });
-            // Oculta a mensagem de aviso após alguns segundos
-            $('#msg').bind("DOMSubtreeModified", function () {
-                window.setTimeout(function () {
-                    $(".alert").fadeTo(500, 0).slideUp(500, function () {
-                        $(this).remove();
-                    });
-                }, 5000);
-            });
-            // Preenche o formulário quando o usuario clicar em uma linha da tabela 
-            $("#grid-contatos").on("click", "tr", function (e) {
-                let linhaContato = this;
-                colunas = linhaContato.querySelectorAll("td");
-                $("#inputId").val(colunas[0].innerText);
-                $("#inputNome").val(colunas[1].innerText);
-                $("#inputmatricula").val(colunas[2].innerText);
-                $("#inputEmail").val(colunas[3].innerText);
-                $("#inputCidade").val(colunas[4].innerText);
-                $("#inputCategoria").val(colunas[5].innerText);
-                $("#inputSite").val(colunas[6].innerText);
-            });
+            // Obtem os valores dos campos do formulário
+            let campoNome = $("#inputNome").val();
+            let campoMatricula = $("#inputTelefone").val();
+            let campoEmail = $('#inputEmail').val();
+            let campoCidade = $("#inputCidade").val();
+            let campoCategoria = $('#inputCategoria').val();
+            let campoSite = $('#inputSite').val();
+            let contato = {
+                nome: campoNome,
+                matricula: campomatricula,
+                email: campoEmail,
+                cidade: campoCidade,
+                categoria: campoCategoria,
+                website: campoSite
+            };
+            insertContato(contato);
+            // Reexibe os contatos
             exibeContatos();
+            // Limpa o formulario
+            $("#form-contato")[0].reset();
+        });
+        // Intercepta o click do botão Alterar
+        $("#btnUpdate").click(function() {
+            // Obtem os valores dos campos do formulário
+            let campoId = $("#inputId").val();
+            if (campoId == "") {
+                displayMessage("Selecione um contato para ser alterado.");
+                return;
+            }
+            let campoNome = $("#inputNome").val();
+            let campoMatricula = $("#inputMatricula").val();
+            let campoEmail = $("#inputEmail").val();
+            let campoCidade = $("#inputCidade").val();
+            let campoCategoria = $("#inputCategoria").val();
+            let campoSite = $('#inputSite').val();
+            let contato = {
+                nome: campoNome,
+                matricula: campoMatricula,
+                email: campoEmail,
+                cidade: campoCidade,
+                categoria: campoCategoria,
+                website: campoSite
+            };
+            updateContato(parseInt(campoId), contato);
+            // Reexibe os contatos
+            exibeContatos();
+            // Limpa o formulario
+            $("#form-contato")[0].reset();
+        });
+        // Intercepta o click do botão Excluir
+        $("#btnDelete").click(function() {
+            let campoId = $("#inputId").val();
+            if (campoId == "") {
+                displayMessage("Selecione um contato a ser excluído.");
+                return;
+            }
+            deleteContato(parseInt(campoId));
+            // Reexibe os contatos
+            exibeContatos();
+            // Limpa o formulario
+            $("#form-contato")[0].reset();
+        });
+        // Intercepta o click do botão Listar Contatos
+        $("#btnClear").click(function() {
+            $("#form-contato")[0].reset();
+        });
+        // Oculta a mensagem de aviso após alguns segundos
+        $('#msg').bind("DOMSubtreeModified", function() {
+            window.setTimeout(function() {
+                $(".alert").fadeTo(500, 0).slideUp(500, function() {
+                    $(this).remove();
+                });
+            }, 5000);
+        });
+        // Preenche o formulário quando o usuario clicar em uma linha da tabela
+        $("#grid-contatos").on("click", "tr", function(e) {
+            let linhaContato = this;
+            colunas = linhaContato.querySelectorAll("td");
+            $("#inputId").val(colunas[0].innerText);
+            $("#inputNome").val(colunas[1].innerText);
+            $("#inputmatricula").val(colunas[2].innerText);
+            $("#inputEmail").val(colunas[3].innerText);
+            $("#inputCidade").val(colunas[4].innerText);
+            $("#inputCategoria").val(colunas[5].innerText);
+            $("#inputSite").val(colunas[6].innerText);
+        });
+        exibeContatos();
+    }
+
+    $(".btnEditFuncionario").click(function() {
+        var valor = JSON.parse($(this).val());
+        $("#editIdFuncionario").val(valor.Id_funcionario);
+        $("#editFuncionarioNome").val(valor.Nome);
+        $("#editFuncionarioFuncao").val(valor.Funcao);
+
+        var buscarOficinas = JSON.parse($("#hiddenBuscarOficinas").val());
+
+        $('#editFuncionarioOficina').find('option').remove().end().append('<option value="">Selecione...</option>');
+
+        for (var n = 0; n < buscarOficinas.length; n++) {
+            $('#editFuncionarioOficina').append($('<option>', {
+                value: buscarOficinas[n].Id_oficina,
+                text: buscarOficinas[n].Nome_oficina
+            }));
         }
-    </script>
+
+        $('#editFuncionarioOficina option[value="' + valor.Id_oficina + '"]').prop("selected", true);
+    });
+
+
+</script>

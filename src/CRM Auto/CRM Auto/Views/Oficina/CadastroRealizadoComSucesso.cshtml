@@ -21,19 +21,25 @@
 
 <div class="alert alert-success d-flex align-items-center" role="alert">
   <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
-  <div>
-    <h4>Inclusão realizada com sucesso!</h4>
-  </div>
+ @if(TempData["msg"] != null)
+    {
+      <div id="mensagem">
+        <h4>@TempData["msg"]</h4>
+      </div>
+    }
 </div>
 
-<div class="alert alert-light" role="alert">
- <h6>O cadastro do funcionário foi finalizado e você já pode consultá-lo no sistema da sua oficina.</h6>
-</div>
+@if(TempData["msgDetalhes"] != null)
+    {
+      <div class="alert alert-light" role="alert">
+        <h6>@TempData["msgDetalhes"]</h6>
+      </div>
+    }
 <br />
 
 <div class="d-grid gap-2 col-6 mx-auto">
-  <a class="btn btn-outline-success" asp-controller="Oficina" asp-action="CadastrarFuncionario">Cadastrar um novo funcionário</a>
-  <a class="btn btn-outline-dark" type="button" asp-controller="Oficina" asp-action="Sucesso">Voltar para o painel de controle</a>
+  <a class="btn btn-outline-success" asp-controller="Oficina" asp-action="BuscarFuncionariosEOficinas">Voltar para o Menu Funcionários</a>
+  <a class="btn btn-outline-dark" asp-controller="Oficina" asp-action="Sucesso">Voltar para o Painel de Controle</a>
 </div>
 
 <!-- Footer -->
