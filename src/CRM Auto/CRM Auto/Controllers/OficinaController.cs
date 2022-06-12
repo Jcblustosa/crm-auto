@@ -31,6 +31,7 @@ namespace CRM_Auto.Controllers
                 HttpContext.Session.SetString("Nome", nomeEIdFuncionario[0]);
                 HttpContext.Session.SetString("IdFuncionario", nomeEIdFuncionario[1]);
                 HttpContext.Session.SetString("IdOficina", nomeEIdFuncionario[2]);
+                HttpContext.Session.SetString("IdUsuario", nomeEIdFuncionario[3]);
                 TempData["Nome"] = HttpContextAccessor.HttpContext.Session.GetString("Nome");
                 TempData["IdFuncionario"] = HttpContextAccessor.HttpContext.Session.GetString("IdFuncionario");
                 return RedirectToAction("Sucesso");
@@ -135,7 +136,7 @@ namespace CRM_Auto.Controllers
         public IActionResult OrdemServico()
         {
             OrdemServico os = new OrdemServico();
-            ViewBag.ListaServicos = new SelectList(os.ListarServicos());
+            ViewBag.ListaServicos = os.ListarServicos();
             string idOficina = HttpContextAccessor.HttpContext.Session.GetString("IdOficina");
             MecanicoModel mecanico = new MecanicoModel();
             ViewBag.ListaMecanicos = mecanico.ListarMecanicos(idOficina);
@@ -156,9 +157,31 @@ namespace CRM_Auto.Controllers
         }
 
         [HttpPost]
-        public IActionResult GerarOS(OficinaOrdemServicoViewModel ordemServico)
+        public IActionResult GerarOS(string CpfCnjp, string Placa, DateTime DataOrdem, string Tel, string Email, int IdServico, int IdMecanico, DateTime InicioServico, DateTime FimServico, double Preco, bool ServicoAprovado, int Quantidade)
         {
-
+            OrdemServico OrdemServico = new OrdemServico();
+            OrdemServico.CpfCnpj = CpfCnjp;
+            OrdemServico.PlacaVeiculo = Placa;
+            OrdemServico.DataOrdem = DataOrdem;
+            OrdemServico.Telefone = Tel;
+            OrdemServico.Email = Email; 
+            ServicoModel Servico = new ServicoModel();
+            Servico.IdServico = IdServico;
+            Servico.IdMecanicoResponsavel = IdMecanico;
+            Servico.InicioServico = InicioServico;
+            Servico.FimServico = FimServico;
+            Servico.CustoHora = Preco;
+            Servico.ServicoAprovado = ServicoAprovado;
+            Servico.Quantidade = Quantidade;
+            AgendamentoServicoModel agendamento = new AgendamentoServicoModel();
+            string idCliente = agendamento.BuscarIdCliente(OrdemServico.CpfCnpj);
+            string idVeiculo = agendamento.BuscarIdCarro(OrdemServico.PlacaVeiculo);
+            string idAgendamento = agendamento.GerarAgendamento(idCliente, idVeiculo);
+            string idUsuarioCad = HttpContextAccessor.HttpContext.Session.GetString("IdUsuario");
+            OrdemServico.IdOficina = HttpContextAccessor.HttpContext.Session.GetString("IdOficina");
+            string idOS = OrdemServico.GerarOS(idCliente, idAgendamento, idUsuarioCad);
+            Servico.CadastrarServico(idOS);
+            TempData["ordemCadastrada"] = "Ordem de Serviço cadastrada com sucesso!";
             return RedirectToAction("OrdemServico");
         }
    

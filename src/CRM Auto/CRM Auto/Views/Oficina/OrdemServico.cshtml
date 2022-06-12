@@ -1,4 +1,3 @@
-@using CRM_Auto.Models
 @using CRM_Auto.ViewModels
 @model OficinaOrdemServicoViewModel
 
@@ -88,25 +87,32 @@
     
 <!-- SÓ TRABALHAR DAQUI PARA BAIXO...  -->
 
+@if (TempData["ordemCadastrada"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["ordemCadastrada"]
+    </div>
+}
+
     <div class="height-100"> <!--Container Main start-->
-        <form asp-controller="GerarOS">
+        <form asp-action="GerarOS">
             <h3>Ordem de serviços/Adicionar Serviços</h3>
             <div class="row">
                 <div class="form-group col-sm-4">
                     <label asp-for="OrdemServico.CpfCnpj">CPF do Cliente (*)</label>
-                    <input type="text" class="form-control" asp-for="OrdemServico.CpfCnpj" required placeholder="Informe a Cliente" onchange="BuscaPlacas(this)">
+                    <input type="text" name="CpfCnjp" class="form-control" asp-for="OrdemServico.CpfCnpj" required placeholder="Informe a Cliente" onchange="BuscaPlacas(this)">
                 </div>
     
                 <div class="form-group col-sm-4">
                     <label asp-for="OrdemServico.PlacaVeiculo">Placa do Veículo (*)</label>
-                    <select asp-for="OrdemServico.PlacaVeiculo" id="placaCliente" class="form-control">
+                    <select asp-for="OrdemServico.PlacaVeiculo" name="Placa" id="placaCliente" class="form-control">
 
                     </select>
                 </div>
                 
                 <div class="form-group col-sm-2">
                     <label asp-for="OrdemServico.DataOrdem">Data da ordem de Serviço</label>
-                    <input type="text" class="form-control" asp-for="OrdemServico.DataOrdem" value="@DateTime.Now" disabled placeholder="@DateTime.Now">
+                    <input type="text" class="form-control" name="DataOrdem" asp-for="OrdemServico.DataOrdem" value="@DateTime.Now" disabled placeholder="@DateTime.Now">
                 </div>
             </div>
             
@@ -114,12 +120,12 @@
             <div class="row ">
                 <div class="form-group col-sm-2">
                     <label asp-for="OrdemServico.Telefone">Telefone/contato (*)</label>
-                    <input type="text" class="form-control" asp-for="OrdemServico.Telefone" required placeholder="Informe o telefone">
+                    <input type="text" name="Tel" class="form-control" asp-for="OrdemServico.Telefone" required placeholder="Informe o telefone">
                 </div>
 
                 <div class="form-group col-sm-4">
                     <label asp-for="OrdemServico.Email">E-mail (*)</label>
-                    <input type="text" class="form-control" asp-for="OrdemServico.Email" required placeholder="Informe o E-mail">
+                    <input type="text" name="Email" class="form-control" asp-for="OrdemServico.Email" required placeholder="Informe o E-mail">
                 </div>
 
                 @*<div class="form-group col-sm-2">
@@ -146,12 +152,16 @@
                     <tbody>
                         <tr>
                             <td>
-                                <select asp-for="Servico.Descricao" class="form-control" asp-items="@ViewBag.ListaServicos" onchange="BuscarPreco(this)">
+                                <select asp-for="Servico.Descricao" name="IdServico" class="form-control" onchange="BuscarPreco(this)">
                                     <option selected>Selecione um serviço...</option>
-                                </select>
+                                @foreach (ServicoModel servico in ViewBag.ListaServicos)
+                                {
+                                    <option value="@servico.IdServico">@servico.Descricao</option>
+                                }
+                            </select>
                             </td>
                             <td>
-                                <select asp-for="Servico.IdMecanicoResponsavel" class="form-control">
+                                <select name="IdMecanico" asp-for="Servico.IdMecanicoResponsavel" class="form-control">
                                     <option>Selecionar</option>
                                 @foreach (MecanicoModel mecanico in ViewBag.ListaMecanicos)
                                 {
@@ -159,13 +169,13 @@
                                 }
                             </select>
                             </td>
-                            <td><input asp-for="Servico.InicioServico"></td>
-                            <td><input asp-for="Servico.FimServico"></td>
-                            <td><select id="PrecoServico" class="form-control">
+                            <td><input name="InicioServico" asp-for="Servico.InicioServico"></td>
+                            <td><input name="FimServico" asp-for="Servico.FimServico"></td>
+                            <td><select name="Preco" id="PrecoServico" asp-for="Servico.CustoHora" class="form-control">
                                 <option>Selecione</option>
                             </select></td>
-                            <td><input asp-for="Servico.ServicoAprovado"></td>
-                            <td><input asp-for="Servico.Quantidade" class="form-control"/></td>
+                            <td><input name="ServicoAprovado" asp-for="Servico.ServicoAprovado"></td>
+                            <td><input name="Quantidade" asp-for="Servico.Quantidade" class="form-control"/></td>
                             
                         </tr>
                         
