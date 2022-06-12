@@ -29,6 +29,7 @@ namespace CRM_Auto.Controllers
                 string[] nomeEIdFuncionario = usuario.NomeEIdFuncionario(usuario.Login_usuario, usuario.Senha_usuario);
                 HttpContext.Session.SetString("Nome", nomeEIdFuncionario[0]);
                 HttpContext.Session.SetString("IdFuncionario", nomeEIdFuncionario[1]);
+                HttpContext.Session.SetString("IdOficina", nomeEIdFuncionario[2]);
                 TempData["Nome"] = HttpContextAccessor.HttpContext.Session.GetString("Nome");
                 TempData["IdFuncionario"] = HttpContextAccessor.HttpContext.Session.GetString("IdFuncionario");
                 return RedirectToAction("Sucesso");
@@ -139,6 +140,29 @@ namespace CRM_Auto.Controllers
 
             return View("CadastroRealizadoComSucesso");
 
+        }
+
+        [HttpGet]
+        public IActionResult OrdemServico()
+        {
+            OrdemServico os = new OrdemServico();
+            ViewBag.ListaServicos = new SelectList(os.ListarServicos());
+            string idOficina = HttpContextAccessor.HttpContext.Session.GetString("IdOficina");
+            ViewBag.ListaMecanicos = new SelectList(os.ListarMecanicos(idOficina));
+            return View();
+        }
+
+        [HttpPost]
+        public List<string> BuscarPlacas(BuscaPlacas buscaPlacas)
+        {
+            OrdemServico os = new OrdemServico();
+            return os.BuscarPlacas(buscaPlacas.Cnpj_cpf);
+        }
+
+        [HttpPost]
+        public IActionResult GerarOS(OrdemServico ordemServico)
+        {
+            return RedirectToAction("OrdemServico");
         }
    
     }

@@ -1,19 +1,6 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ordem de Serviço</title> 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/menu.css">
-    <link rel="stylesheet" href="css/cad-cliente.css">
-    <link rel="stylesheet" href="css/cadastros.css">
-    <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>    
-</head>
-<body id="body-pd">
+@model OrdemServico
+
+
     <header class="header" id="header">
         <div class="header_toggle">
             <i class='bx bx-menu' id="header-toggle"></i>
@@ -85,17 +72,19 @@
 <!-- SÓ TRABALHAR DAQUI PARA BAIXO...  -->
 
     <div class="height-100"> <!--Container Main start-->
-        <form>
+        <form asp-controller="GerarOS">
             <h3>Ordem de serviços/Adicionar Serviços</h3>
             <div class="row">
                 <div class="form-group col-sm-4">
-                    <label for="inputcliente">Cliente (*)</label>
-                    <input type="text" class="form-control" id="inputcliente" required placeholder="Informe a Cliente">
+                    <label for="inputcliente">CPF do Cliente (*)</label>
+                    <input type="text" class="form-control" id="inputcliente" required placeholder="Informe a Cliente" onchange="BuscaPlacas(this)">
                 </div>
     
                 <div class="form-group col-sm-4">
-                    <label for="inputVeiculo">Veículo (*)</label>
-                    <input type="text" class="form-control" id="inputVeiculo" required placeholder="Informe o Veículo">
+                    <label for="inputVeiculo">Placa do Veículo (*)</label>
+                    <select id="placaCliente" class="form-control">
+
+                    </select>
                 </div>
                 
                 <div class="form-group col-sm-4">
@@ -153,24 +142,13 @@
                         <tr>
                             <td scope="row">1</td>
                             <td>
-                                <select id="desc-servico" class="form-control">
+                                <select id="desc-servico" class="form-control" asp-items="@ViewBag.ListaServicos">
                                     <option selected>Selecione um serviço...</option>
-                                    <option value="1">ALINHAMENTO E BALANCIAMENTO</option>
-                                    <option value="2">TROCA DE ÓLEO</option>
-                                    <option value="3">TROCA AMORTECEDOR TRASEIRO</option>
-                                    <option value="4">TROCA AMORTECEDOR DIANTEIRO</option>
-                                    <option value="5">TROCA CORRÊIA DENTADA</option>
                                 </select>
                             </td>
                             <td>
-                                <select id="desc-servico" class="form-control">
+                                <select id="desc-servico" class="form-control" asp-items="@ViewBag.ListaMecanicos">
                                     <option selected>Selecione um mecânico...</option>
-                                    <option value="1">Allana Tavares</option>
-                                    <option value="2">Ciro Artiga</option>
-                                    <option value="3">Júlio Lustosa</option>
-                                    <option value="4">Mariane</option>
-                                    <option value="5">Mislene Tavares</option>
-                                    <option value="6">Rafaela</option>
                                 </select>
                             </td>
                             <td>
@@ -229,16 +207,24 @@
         </form>
     </div> <!-- Fim div CONTAINER -->
 
-<!-- SÓ MEXER DAQUI PARA CIMA.. -->
 
-</body>
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
-<script src="js/menu.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.10/vue.min.js"></script>
-</html>
+    <script>
 
+    function BuscaPlacas(e){
+        document.getElementById('placaCliente').options.length = 0;
+        console.log(e.value)
+        $.post("BuscarPlacas", {Cnpj_cpf: e.value}, function(result,status,xhr) {
+            console.log(`data: ${result}, status: ${status}`);
+            if (status === 'success') {
+                const options = $("#placaCliente");
+                options.innerHTML = "";
+                for (let i = 0; i < result.length; i++) {
+                    const item = result[i];
+                    console.log(item)
+                    options.append('<option value="' +item + '">' + item + '</option>');
+                }
+            }
+        })
+    }
 
+</script>

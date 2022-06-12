@@ -55,13 +55,13 @@ namespace CRM_Auto.Models
 
         public string[] NomeEIdFuncionario(string login, string senha)
         {
-            string command = "SELECT F.NOME, F.ID_FUNCIONARIO " +
+            string command = "SELECT F.NOME, F.ID_FUNCIONARIO, F.ID_OFICINA " +
                 "FROM FUNCIONARIO F " +
                 "INNER JOIN USUARIO U " +
                 "ON F.ID_FUNCIONARIO = U.ID_FUNCIONARIO " +
                 $"WHERE U.LOGIN_USUARIO = '{login}' AND U.SENHA_USUARIO = '{senha}';";
 
-            string[] nomeEIdFuncionario = new string[2];
+            string[] nomeEIdFuncionario = new string[3];
 
             CNN cnn = new CNN();
             DataTable dt = cnn.GetData(command);
@@ -70,6 +70,7 @@ namespace CRM_Auto.Models
             {
                 nomeEIdFuncionario[0] = dt.Rows[0]["NOME"].ToString();
                 nomeEIdFuncionario[1] = dt.Rows[0]["ID_FUNCIONARIO"].ToString();
+                nomeEIdFuncionario[2] = dt.Rows[0]["ID_OFICINA"].ToString();
             }
             catch { }
 
