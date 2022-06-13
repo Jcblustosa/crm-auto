@@ -10,6 +10,23 @@ Discorra sobre os resultados do teste. Ressaltando pontos fortes e fracos identi
 
 ### CT-08: Cadastro de veículo de cliente
 
+**Objetivo:** Verificar se o colaborador é capaz de cadastrar veículo no sistema
+
+**Passos:** 
+1.	Executar a aplicação
+2.	Clicar no botão "Sou colaborador da empresa"
+3.	Preencher os campos Login e Senha
+4.	Clicar em Log in
+5.	Selecionar a opção de Cadastro de Veículo
+6.	Preencher os campos
+7.	Clicar em Ok
+
+**Critério de êxito:** Se as informações forem preenchidas corretamente, o sistema deve cadastrar um novo registro de veículo no banco de dados, avisando o usuário que a operação foi bem sucedida.
+
+**Resultado do teste:** *Passou*
+
+**Evidências:**
+
 Ao executar a aplicação, o usuário deverá fazer login como Colaborador, preenchendo os campos solicitados.
 
 ![img1](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t3-crm-auto/blob/main/docs/img/registro%20de%20testes/CT%2008/login.png)
