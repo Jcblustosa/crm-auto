@@ -55,10 +55,7 @@ namespace CRM_Auto.Models
 
         }
 
-        public void InserirOficina(int Id_oficina, string Cnpj, string Nome_oficina, string Apelido,
-                            string Insc_estadual, string Insc_municipal, string Cep, string Logradouro,
-                            string Numero, string Complemento, string Bairro, string Cidade, string Telefone1,
-                            string Telefone2, string Email, string Email_Nf, string Opcao_cadastro)
+        public void InserirOficina(OficinaModel oficina)
         {
 
             CNN cnn = new CNN();
@@ -79,7 +76,7 @@ namespace CRM_Auto.Models
 
         public List<OficinaModel> BuscarOficinas()
         {
-            ArrayListOficina<OficinaModel> oficinas = new ArrayListOficina<OficinaModel>();
+            ArrayListOficina<OficinaModel> oficinas = new ArrayList<OficinaModel>();
 
             string command = $"SELECT * FROM OFICINA ORDER BY NOME_OFICINA";
 
@@ -114,19 +111,16 @@ namespace CRM_Auto.Models
             return oficinas;
         }
 
-        public void AlterarOficina(int Id_oficina, string Cnpj, string Nome_oficina, string Apelido,
-                            string Insc_estadual, string Insc_municipal, string Cep, string Logradouro,
-                            string Numero, string Complemento, string Bairro, string Cidade, string Telefone1,
-                            string Telefone2, string Email, string Email_Nf, string Opcao_cadastro)
+        public void AlterarOficina(OficinaModel oficina)
         {
             string command = $"UPDATE OFICINA " +
-                $"`CNPJ` = <{Cnpj}>, `NOME_OFICINA` = <{Nome_oficina}>, `APELIDO` = <{Apelido}>," +
+                $"SET `CNPJ` = <{Cnpj}>, `NOME_OFICINA` = <{Nome_oficina}>, `APELIDO` = <{Apelido}>," +
                 $"`INSC_ESTADUAL` = <{Insc_estadual}>,`INSC_MUNICIPAL` = <{Insc_municipal}>," +
                 $"`CEP` = <{Cep}>,`LOGRADOURO` = <{Logradouro}>, `NUMERO` = <{Numero}>," +
                 $"`COMPLEMENTO` = <{Complemento}>, `BAIRRO` = <{Bairro}>, `CIDADE` = <{Cidade}>," +
                 $"`TELEFONE1` = <{Telefone1}>, `TELEFONE2` = <{Telefone2}>, `EMAIL` = <{Email}>," +
                 $"`EMAIL_NF` = <{Email_Nf}>,`OPCAO_CADASTRO` = <{Opcao_cadastro}>" +
-                $"WHERE `ID_OFICINA` = <{Id_oficina}>";
+                $"WHERE `ID_OFICINA` = {oficina.Id_oficina}";
 
             //DAL dal = new DAL();
             //dal.InsertData(command);

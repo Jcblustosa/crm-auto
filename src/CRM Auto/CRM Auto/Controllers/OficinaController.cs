@@ -111,8 +111,10 @@ namespace CRM_Auto.Controllers
         {
             try
             {
+
                 OficinaModel oficina = new OficinaModel();
                 ViewBag.BuscarOficinas = oficina.BuscarOficinas();
+
                 return View("CadastroDeOficina");
             }
             catch (Exception ex)
@@ -136,28 +138,11 @@ namespace CRM_Auto.Controllers
         [HttpPost]
         public IActionResult AlterarOficina(OficinaModel oficina)
         {
-            int Id_oficina = oficina.Id_oficina;
-            string Cnpj = oficina.Cnpj;
-            string Nome_oficina = oficina.Nome_oficina;
-            string Apelido = oficina.Apelido;
-            string Insc_estadual = oficina.Insc_estadual;
-            string Insc_municipal = oficina.Insc_municipal;
-            string Cep = oficina.Cep;
-            string Logradouro = oficina.Logradouro;
-            string Numero = oficina.Numero;
-            string Complemento = oficina.Complemento;
-            string Bairro = oficina.Bairro;
-            string Cidade = oficina.Cidade;
-            string Telefone1 = oficina.Telefone1;
-            string Telefone2 = oficina.Telefone2;
-            string Email = oficina.Email;
-            string Email_Nf = oficina.Email_Nf;
-            string Opcao_cadastro = oficina.Opcao_cadastro;
+            oficina.AlterarOficina(oficina);
 
-            oficina.AlterarOficina(Id_oficina, Cnpj, Nome_oficina, Apelido,
-                 Insc_estadual, Insc_municipal, Cep, Logradouro,
-                 Numero, Complemento, Bairro, Cidade, Telefone1,
-                 Telefone2, Email, Email_Nf, Opcao_cadastro);
+            TempData["msg"] = "Alteração realizada com sucesso!";
+            TempData["msgDetalhes"] = "A alteração da oficina foi finalizada e você já pode consultar as informações atualizadas no sistema da sua oficina.";
+
 
             return View("CadastroRealizadoComSucesso");
 
