@@ -55,6 +55,28 @@ namespace CRM_Auto.Models
 
         }
 
+        public void InserirOficina(int Id_oficina, string Cnpj, string Nome_oficina, string Apelido,
+                            string Insc_estadual, string Insc_municipal, string Cep, string Logradouro,
+                            string Numero, string Complemento, string Bairro, string Cidade, string Telefone1,
+                            string Telefone2, string Email, string Email_Nf, string Opcao_cadastro)
+        {
+
+            CNN cnn = new CNN();
+
+            string command = $"INSERT INTO OFICINA (ID_OFICINA, CNPJ, NOME_OFICINA, APELIDO, INSC_ESTADUAL," +
+                $"INSC_MUNICIPAL, CEP, LOGRADOURO, NUMERO, COMPLEMENTO, BAIRRO, CIDADE, TELEFONE1,TELEFONE2," +
+                $"EMAIL,EMAIL_NF,OPCAO_CADASTRO, ID_OFICINA)" +
+                $"VALUES ('{Id_oficina}','{Cnpj}','{Nome_oficina}','{Apelido}','{Insc_estadual}','{Insc_municipal}', '{Cep}'," +
+                $"'{Logradouro}', '{Numero}', '{Complemento}', '{Bairro}', '{Cidade}', '{Telefone1}', '{Telefone2}'," +
+                $"'{Email}', '{Email_Nf}', '{Opcao_cadastro}') ";
+
+            //DAL dal = new DAL();
+            //dal.InsertData(command);
+
+            CNN cnn1 = new CNN();
+            cnn1.InsertData(command);
+        }
+
         public List<OficinaModel> BuscarOficinas()
         {
             ArrayListOficina<OficinaModel> oficinas = new ArrayListOficina<OficinaModel>();
@@ -90,6 +112,27 @@ namespace CRM_Auto.Models
                 oficinas.Add(oficina);
             }
             return oficinas;
+        }
+
+        public void AlterarOficina(int Id_oficina, string Cnpj, string Nome_oficina, string Apelido,
+                            string Insc_estadual, string Insc_municipal, string Cep, string Logradouro,
+                            string Numero, string Complemento, string Bairro, string Cidade, string Telefone1,
+                            string Telefone2, string Email, string Email_Nf, string Opcao_cadastro)
+        {
+            string command = $"UPDATE OFICINA " +
+                $"`CNPJ` = <{Cnpj}>, `NOME_OFICINA` = <{Nome_oficina}>, `APELIDO` = <{Apelido}>," +
+                $"`INSC_ESTADUAL` = <{Insc_estadual}>,`INSC_MUNICIPAL` = <{Insc_municipal}>," +
+                $"`CEP` = <{Cep}>,`LOGRADOURO` = <{Logradouro}>, `NUMERO` = <{Numero}>," +
+                $"`COMPLEMENTO` = <{Complemento}>, `BAIRRO` = <{Bairro}>, `CIDADE` = <{Cidade}>," +
+                $"`TELEFONE1` = <{Telefone1}>, `TELEFONE2` = <{Telefone2}>, `EMAIL` = <{Email}>," +
+                $"`EMAIL_NF` = <{Email_Nf}>,`OPCAO_CADASTRO` = <{Opcao_cadastro}>" +
+                $"WHERE `ID_OFICINA` = <{Id_oficina}>";
+
+            //DAL dal = new DAL();
+            //dal.InsertData(command);
+
+            CNN cnn = new CNN();
+            cnn.InsertData(command);
         }
     }
 }

@@ -14,6 +14,9 @@
     --z-fixed: 90
 }
 
+html{
+    background-color: #051821;
+}
 
 *,
 ::before,
@@ -52,6 +55,7 @@ body {
     height: 100vh;
     overflow: hidden;
 }
+
 
 
 a {
@@ -184,7 +188,7 @@ a {
     body {
         margin: calc(var(--header-height) + 1rem) 0 0 0;
         padding-left: calc(var(--nav-width) + 2rem);
-        border-radius: 38px 0px 0px 38px;
+
     }
 
     .header {
