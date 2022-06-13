@@ -60,6 +60,53 @@ Pontos a melhorar
 
 1) As configurações de estilo da página de cadastro de veículo devem ser corretamente aplicadas;
 
+### CT-10: Visualização do processo de manutenção
+
+**Objetivo:** Verificar se o cliente da oficina é capaz de visualizar os serviços que estão sendo feitos em seu veículo
+
+**Passos:** 
+1.	Executar a aplicação
+2.	Clicar no botão "Sou cliente"
+3.	Preencher os campos Login e Senha
+4.	Clicar em Log in
+5.	Selecionar a opção de Serviço Atual
+
+**Critério de êxito:** Os serviços que estão em andamento deverão ser apresentados na tela em forma de tabela.
+
+**Resultado do teste:** *Passou*
+
+**Evidências:**
+
+Ao executar a aplicação, o cliente deve escolher a opção "Sou Cliente".
+
+![img1](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t3-crm-auto/blob/main/docs/img/registro%20de%20testes/CT%2010/telaLogin.png)
+<p align="center">Evidência de teste 10.1 - Homepage com as opções de login</p>
+</br>
+
+Ao clicar na opção "Sou Cliente", os campos de usuário e senha deverão ser preenchidos.
+
+![img2](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t3-crm-auto/blob/main/docs/img/registro%20de%20testes/CT%2010/telaLogin2.png)
+<p align="center">Evidência de teste 10.2 - Tela de login de Cliente</p>
+</br>
+
+Após entrar, uma tela com opções é exibida.
+
+![img3](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t3-crm-auto/blob/main/docs/img/registro%20de%20testes/CT%2010/menuCliente.png)
+<p align="center">Evidência de teste 10.3 - Tela de opções do cliente</p>
+</br>
+
+Ao clicar em Serviço Atual, o detalhamento de serviços que estão em andamento aparecerá em tabela.
+
+![img4](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t3-crm-auto/blob/main/docs/img/registro%20de%20testes/CT%2010/visualizacaoServicos.png)
+<p align="center">Evidência de teste 10.4 - Tela de detalhamento de serviços</p>
+</br>
+
+**Observações:**
+
+Pontos a melhorar
+
+1) As folhas de estilo ainda não foram importadas pelo documento que compõe as views do fluxo de cliente.
+
 ### CT-11: Login de Colaborador
 
 **Objetivo:** Verificar se o colaborador é capaz de realizar login no sistema
