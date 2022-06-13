@@ -32,10 +32,13 @@ namespace CRM_Auto.Models
                 $"{this.IdMecanicoResponsavel}, " +
                 $"{this.Quantidade}, " +
                 $"'{this.TempoPrevisto}', " +
-                $"'{this.InicioServico}', " +
-                $"'{this.FimServico}', " +
+                $"'{this.InicioServico.ToString("yyyy/MM/dd HH:mm:ss")}', " +
+                $"'{this.FimServico.ToString("yyyy/MM/dd HH:mm:ss")}', " +
                 $"{this.ServicoAprovado}, " +
                 $"{this.CustoHora});";
+
+            CNN cnn = new CNN();
+            cnn.InsertData(command);
         }
 
         public string BuscarValor(string idServico)
