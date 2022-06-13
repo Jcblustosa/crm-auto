@@ -107,6 +107,22 @@ namespace CRM_Auto.Controllers
             }
         }
 
+        public IActionResult BuscarOficinas()
+        {
+            try
+            {
+
+                OficinaModel oficina = new OficinaModel();
+                ViewBag.BuscarOficinas = oficina.BuscarOficinas();
+
+                return View("CadastroDeOficina");
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
         [HttpPost]
         public IActionResult AlterarFuncionario(FuncionarioModel funcionario)
         {
@@ -114,6 +130,19 @@ namespace CRM_Auto.Controllers
 
             TempData["msg"] = "Alteração realizada com sucesso!";
             TempData["msgDetalhes"] = "A alteração do funcionário foi finalizada e você já pode consultar as informações atualizadas no sistema da sua oficina.";
+
+            return View("CadastroRealizadoComSucesso");
+
+        }
+
+        [HttpPost]
+        public IActionResult AlterarOficina(OficinaModel oficina)
+        {
+            oficina.AlterarOficina(oficina);
+
+            TempData["msg"] = "Alteração realizada com sucesso!";
+            TempData["msgDetalhes"] = "A alteração da oficina foi finalizada e você já pode consultar as informações atualizadas no sistema da sua oficina.";
+
 
             return View("CadastroRealizadoComSucesso");
 

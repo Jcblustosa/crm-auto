@@ -3,13 +3,12 @@
 }
 
 <div class="container-fluid p-1 rounded" style="background-color: #687A86">
-    <img src="~/img/crmauto.jpg" alt="CRM Auto" width="120" height="70" style="margin-left: 1rem;">
-    <p class="painel">Painel de controle</p>
+    <img src="~/img/crmauto.jpg" alt="CRM Auto" width="120" height="70" style="margin-left: 1rem;"><span class="navbar-brand mb-0 h1" style="color:antiquewhite;">Painel de controle da oficina</span>
 </div>
 <br />
 
 <div class="toast-body">
-    <h2>Seja bem-vindo (a), <b>@TempData["Nome"]</b>!</h2>
+    <h1>Seja bem-vindo (a), <b>@TempData["Nome"]</b>!</h1>
     <br />
     <p>O que você deseja fazer?</p>
 </div>
@@ -30,7 +29,7 @@
 <div class="container justify-content-center">
      <div class="row justify-content-center">
         <div class="col-md-6" style="margin-right: -140px">
-            <a type="button" href="#" class="btn btn-lg" style="font-weight: bold; height: 85px">Menu oficinas</a>
+            <a type="button" class="btn btn-lg" style="font-weight: bold; height: 85px" asp-controller="Oficina" asp-action="BuscarOficinas">Menu oficinas</a>
         </div>
 
         <div class="col-md-6">
@@ -44,7 +43,7 @@
 <footer class="bg-light text-center fixed-bottom">
     <!-- Copyright -->
     <div class="text-center text-white p-2" style="background-color: #687a86ee">
-        <b>© Copyright CRM Auto 2022</b>
+        <a>© Copyright CRM Auto 2022</a>
     </div>
     <!-- Copyright -->
 </footer>
