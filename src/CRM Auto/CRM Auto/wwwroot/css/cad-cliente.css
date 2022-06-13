@@ -9,7 +9,7 @@
     --text-color: #051821;
     --body-font: 'Nunito', sans-serif;
     --normal-font-size: 0.9rem;
-    --z-fixed: 90
+    --z-fixed: 90;
 }
 
 #idContainer {
@@ -35,27 +35,26 @@
     height: 100%;
 }
 
-    .TabControl #header {
-        width: 100%;
-        overflow: hidden;
-        cursor: hand;
-    }
+.TabControl #header {
+    width: 100%;
+    overflow: hidden;
+}
 
-    .TabControl #content {
-        width: 100%;
-        border: 1px solid var(--first-color-light);
-        overflow: hidden;
-        height: 310px;
-    }
+.TabControl #content {
+    width: 100%;
+    border: 1px solid var(--first-color-light);
+    overflow: hidden;
+    height: 310px;
+}
 
-    .TabControl .abas {
-        display: inline;
-    }
+.TabControl .abas {
+    display: inline;
+}
 
-        .TabControl .abas li {
-            float: left;
-            list-style: none;
-        }
+.TabControl .abas li {
+    float: left;
+    list-style: none;
+}
 
 .aba {
     width: 100px;
@@ -77,9 +76,9 @@
     background: var(--first-color);
 }
 
-    .ativa span, .selected span {
-        color: #fff;
-    }
+.ativa span, .selected span {
+    color: #fff;
+}
 
 .TabControl #content {
     background: var(--first-color-light); /*#27408B;*/
@@ -144,70 +143,6 @@ form {
     width: 100px;
 }
 
-
-/* ESTILO DO FORMULÁRIO LOGRADOURO */
-
-/* #row-pg-1{
-    width: 88%;
-}
-
-#row-pg-2{
-    width: 120%;
-}
-
-#row-pg-3{
-    width: 112%;
-}
-
-#cep{
-    width: 128px;
-}
-
-#endereco{
-    width: 30rem;
-}
-
-#numero{
-    width: 80px;
-}
-
-#cidade, #estado{
-    width: 277px;
-}
-
-#complemento{
-    width: 300px;
-} */
-
-/*.body{font-family:Calibri, Tahoma, Arial}*/
-
-/* @media screen and (max-width: 1200x) {
-    .TabControl{
-        width: 80%;
-        overflow: hidden;
-        height: 100%;
-    }
-
-    #cep{
-        width: 128px;
-    }
-
-    #endereco{
-        width: 30rem;
-    }
-
-    #numero{
-        width: 80px;
-    }
-
-    #cidade, #estado{
-        width: 277px;
-    }
-
-    #complemento{
-        width: 400px;
-    }
-} */
 
 @media screen and (max-width: 768px) {
     .TabControl {

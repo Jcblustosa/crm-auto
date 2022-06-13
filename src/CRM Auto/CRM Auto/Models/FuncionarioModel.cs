@@ -92,9 +92,6 @@ namespace CRM_Auto.Models
                 $"INNER JOIN USUARIO U ON F.ID_FUNCIONARIO = U.ID_FUNCIONARIO " +
                 $"ORDER BY F.NOME";
 
-            //DAL dal = new DAL();
-            //DataTable dt = dal.GetData(command);
-
             CNN cnn = new CNN();
             DataTable dt = cnn.GetData(command);
 

@@ -50,7 +50,7 @@ namespace CRM_Auto.Controllers
             return View("CadastroCliente");
         }
 
-        public IActionResult OperacaoCadastroCliente(ClienteModel cliente)
+        public IActionResult InserirCliente(ClienteModel cliente)
         {
             cliente.CadastroCliente();
             return RedirectToAction("CadastroCliente");

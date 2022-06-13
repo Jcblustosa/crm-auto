@@ -10,8 +10,8 @@ namespace CRM_Auto.Models
     {
         public bool Tipo_fisica { get; set; }
         public bool Tipo_juridica { get; set; }
-        
         public List<string> Tipo_pessoa;
+        public int Id_cliente { get; set; }
         public string Cnpj_cpf { get; set; }
         public string Nome_cliente { get; set; }
         public char Cnpj_ou_cpf { get; set; }
@@ -29,61 +29,64 @@ namespace CRM_Auto.Models
         public string Estado { get; set; }
         public string Telefone { get; set; }
         public string Celular { get; set; }
+        public string Placa_modelo { get; set; }
+        public string Modelo_carro { get; set; }
+        public string Ano_modelo { get; set; }
+        public string Cor { get; set; }
 
-        // public ClienteModel(bool Tipo_fisica, bool Tipo_juridica, string Cnpj_cpf, string Nome_cliente, char Cnpj_ou_cpf, string Apelido,
-        //                     DateTime Data_nascimento, DateTime Data_cadastro, int Id_usuario_cad, string Email_nf, string Cep,
-        //                     string Logradouro, string Numero, string Complemento, string Bairro, string Cidade, string Estado,
-        //                     string Telefone, string Celular)
-        // {
-        //     this.Tipo_fisica = Tipo_fisica;
-        //     this.Tipo_juridica = Tipo_juridica;
-        //     this.Cnpj_cpf = Cnpj_cpf;
-        //     this.Nome_cliente = Nome_cliente;
-        //     this.Cnpj_ou_cpf = Cnpj_ou_cpf;
-        //     this.Apelido = Apelido;
-        //     this.Data_nascimento = Data_nascimento;
-        //     this.Data_cadastro = Data_cadastro;
-        //     this.Id_usuario_cad = Id_usuario_cad;
-        //     this.Email_nf = Email_nf;
-        //     this.Cep = Cep;
-        //     this.Logradouro = Logradouro;
-        //     this.Numero = Numero;
-        //     this.Complemento = Complemento;
-        //     this.Bairro = Bairro;
-        //     this.Cidade = Cidade;
-        //     this.Estado = Estado;
-        //     this.Telefone = Telefone;
-        //     this.Celular = Celular;
-        // }
+        //public ClienteModel(bool Tipo_fisica, bool Tipo_juridica, string Cnpj_cpf, string Nome_cliente, char Cnpj_ou_cpf, string Apelido,
+        //                    DateTime Data_nascimento, DateTime Data_cadastro, int Id_usuario_cad, string Email_nf, string Cep,
+        //                    string Logradouro, string Numero, string Complemento, string Bairro, string Cidade, string Estado,
+        //                    string Telefone, string Celular)
+        //{
+        //    this.Tipo_fisica = Tipo_fisica;
+        //    this.Tipo_juridica = Tipo_juridica;
+        //    this.Cnpj_cpf = Cnpj_cpf;
+        //    this.Nome_cliente = Nome_cliente;
+        //    this.Cnpj_ou_cpf = Cnpj_ou_cpf;
+        //    this.Apelido = Apelido;
+        //    this.Data_nascimento = Data_nascimento;
+        //    this.Data_cadastro = Data_cadastro;
+        //    this.Id_usuario_cad = Id_usuario_cad;
+        //    this.Email_nf = Email_nf;
+        //    this.Cep = Cep;
+        //    this.Logradouro = Logradouro;
+        //    this.Numero = Numero;
+        //    this.Complemento = Complemento;
+        //    this.Bairro = Bairro;
+        //    this.Cidade = Cidade;
+        //    this.Estado = Estado;
+        //    this.Telefone = Telefone;
+        //    this.Celular = Celular;
+        //}
 
-        // public ClienteModel{
+        //public ClienteModel(string Placa_modelo, string Modelo_carro, string Ano_modelo, string Cor)
+        //{
+        //    this.Placa_modelo = Placa_modelo;
+        //    this.Modelo_carro = Modelo_carro;
+        //    this.Ano_modelo = Ano_modelo;
+        //    this.Cor = Cor;
+        //}
 
-        // }
+        //public ClienteModel()
+        //{
+
+        //}
 
         public void CadastroCliente()
         {
             Id_usuario_cad = 1;
 
-            List<string> TipoPessoa = new List<string>();
+            //int length = Cnpj_cpf.Length;
 
-            TipoPessoa = Tipo_pessoa;
-
-            foreach(var tp in TipoPessoa){
-                if (tp != null){
-                    Cnpj_ou_cpf = Convert.ToChar(tp);
-                }
-            }
-
-            int length = Cnpj_cpf.Length;
-
-            if (length == 11)
-            {
-                Cnpj_ou_cpf = 'F';
-            }
-            else if (length == 14)
-            {
-                Cnpj_ou_cpf = 'J';
-            }
+            //if (length == 11)
+            //{
+            //    Cnpj_ou_cpf = 'F';
+            //}
+            //else if (length == 14)
+            //{
+            //    Cnpj_ou_cpf = 'J';
+            //}
 
             Data_cadastro = DateTime.Now;
 
@@ -123,9 +126,104 @@ namespace CRM_Auto.Models
                                     $"'{Telefone}', " +
                                     $"'{Celular}')";
 
-            DAL dal = new DAL();
-            dal.InsertData(command);
+            CNN cnn = new CNN();
+            cnn.InsertData(command);
         }
+
+        public void BuscarCliente()
+        {
+            string comando = $"SELECT TOP 1 [CNPJ_CPF] " +
+                                    $",[NOME_CLIENTE] " +
+                                    $",[CNPJ_OU_CPF] " +
+                                    $",[APELIDO] " +
+                                    $",[DATA_NASCIMENTO] " +
+                                    $",[DATA_CADASTRO] " +
+                                    $",[ID_USUARIO_CAD] " +
+                                    $",[EMAIL_NF] " +
+                                    $",[CEP] " +
+                                    $",[LOGRADOURO] " +
+                                    $",[NUMERO] " +
+                                    $",[COMPLEMENTO] " +
+                                    $",[BAIRRO] " +
+                                    $",[CIDADE] " +
+                                    $",[ESTADO] " +
+                                    $",[TELEFONE] " +
+                                    $",[CELULAR] " + 
+                                $"FROM [CLIENTE] " +
+                                $"WHERE [CNPJ_CPF] = '{Cnpj_cpf}';";
+
+            CNN cnn = new CNN();
+            cnn.GetData(comando);
+
+            DataTable dt = cnn.GetData(comando);
+
+            ClienteModel cliente = new ClienteModel();
+
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                cliente.Nome_cliente = dt.Rows[i]["NOME_CLIENTE"].ToString();
+                cliente.Cnpj_ou_cpf = char.Parse(dt.Rows[i]["CNPJ_OU_CPF"].ToString());
+                cliente.Apelido = dt.Rows[i]["APELIDO"].ToString();
+                cliente.Apelido = dt.Rows[i]["DATA_NASCIMENTO"].ToString();
+                cliente.Apelido = dt.Rows[i]["EMAIL_NF"].ToString();
+                cliente.Apelido = dt.Rows[i]["CEP"].ToString();
+                cliente.Apelido = dt.Rows[i]["LOGRADOURO"].ToString();
+                cliente.Apelido = dt.Rows[i]["NUMERO"].ToString();
+                cliente.Apelido = dt.Rows[i]["COMPLEMENTO"].ToString();
+                cliente.Apelido = dt.Rows[i]["BAIRRO"].ToString();
+                cliente.Apelido = dt.Rows[i]["CIDADE"].ToString();
+                cliente.Apelido = dt.Rows[i]["ESTADO"].ToString();
+                cliente.Apelido = dt.Rows[i]["TELEFONE"].ToString();
+                cliente.Apelido = dt.Rows[i]["CELULAR"].ToString();
+            }
+
+            return cliente;
+        }
+
+        public void AtualizaCliente(ClienteModel cliente)
+        {
+            string comando = $"UPDATE CLIENTE " +
+                                $"SET NOME_CLIENTE = '{cliente.Nome_cliente}', " +
+                                    $"APELIDO =  = '{cliente.Apelido}', " +
+                                    $"DATA_NASCIMENTO = '{cliente.Data_nascimento}', " +
+                                    $"EMAIL_NF = '{cliente.Email_nf}', " +
+                                    $"CEP = '{cliente.Cep}', " +
+                                    $"LOGRADOURO = '{cliente.Logradouro}', " +
+                                    $"NUMERO = '{cliente.Numero}', " +
+                                    $"COMPLEMENTO = '{cliente.Complemento}', " +
+                                    $"BAIRRO = '{cliente.Bairro}', " +
+                                    $"CIDADE = '{cliente.Cidade}', " +
+                                    $"TELEFONE = '{cliente.Telefone}', " +
+                                    $"CELULAR = '{cliente.Celular}', " +
+                                    $"ESTADO = '{cliente.Estado}' " +
+                                $"WHERE CNPJ_CPF = '{cliente.Cnpj_cpf}';";
+
+            CNN cnn = new CNN();
+            cnn.InsertData(comando);
+
+        }
+
+        public void ExcluirCliente(ClienteModel cliente)
+        {
+            string comando = $"SELECT ID_SERVICO FROM ORDEM SERVICO WHERE ID_CLIENTE = SELECT ID_CLIENTE FROM CLIENTE WHERE CNPJ_CPF = '{cliente.Cnpj_cpf}";
+
+            CNN cnn = new CNN();
+            DataTable dt = cnn.GetData(comando);
+
+            if (dt.Rows.Count == 0)
+            {
+                comando = $"DELETE CLIENTE WHERE CNPJ_CPF = '{cliente.Cnpj_cpf}';";
+                cnn.InsertData(comando);
+            }
+            else
+            {
+                comando = $"UPDATE CLIENTE SET EXCLUIDO = 1 WHERE CNPJ_CPF = '{cliente.Cnpj_cpf}';";
+                cnn.InsertData(comando);
+            }
+
+            cnn = null;
+        }
+
 
         // public bool ValidarInsercaoCliente()
         // {
