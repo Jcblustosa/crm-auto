@@ -41,7 +41,7 @@ Em relação à severidade dos problemas encontrados, define-se seu impacto como
 
 Será considerada a escala Likert para avaliação, de 1 a 5, sendo:
 
-| Nota | SFacilidade de uso |
+| Nota | Facilidade de uso (deduções por erros) |
 | ---- |---- |
 | 5 | O usuário não apresentou erros nem demora. |
 | 4 | O usuário não apresentou erros, mas demorou para a finalização do teste. |
