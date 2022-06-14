@@ -113,6 +113,7 @@ namespace CRM_Auto.Controllers
             {
 
                 OficinaModel oficina = new OficinaModel();
+                List<OficinaModel> lista = oficina.BuscarOficinas();
                 ViewBag.BuscarOficinas = oficina.BuscarOficinas();
 
                 return View("CadastroDeOficina");
