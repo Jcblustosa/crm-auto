@@ -76,7 +76,7 @@ namespace CRM_Auto.Models
 
         public List<OficinaModel> BuscarOficinas()
         {
-            ArrayListOficina<OficinaModel> oficinas = new ArrayList<OficinaModel>();
+            List<OficinaModel> oficinas = new List<OficinaModel>();
 
             string command = $"SELECT * FROM OFICINA ORDER BY NOME_OFICINA";
 
