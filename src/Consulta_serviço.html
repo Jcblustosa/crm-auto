@@ -17,50 +17,13 @@
         <div class="header_toggle">
             <i class='bx bx-menu' id="header-toggle"></i> 
         </div>
-        <div id="header_user" class="header_img">
-            <button id="dropdownMenuButton" type="button" class="btn btn-secondary btn-user dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="26" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 22">
-                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"></path>
-                <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"></path>
-                </svg>
-            </button>
-            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="#">Perfil</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Sair</a>
-            </div>
-        </div>
     </header>
     <div class="l-navbar" id="nav-bar">
         <nav class="nav">
             <div> 
-                <div href="#" class="col p-2">
-                    <img src="images/crmautodark.jpg" class="img-fluid" alt="CRM Auto" style="width: 60%; height: auto; margin-left: -10px; margin-top: -15px;"></img>
-                </div>
-                <div class="nav_list">
-                    <a href="#" class="nav_link active"> 
-                        <i class='bx bx-grid-alt nav_icon' data-bs-toggle="tooltip" title="Painel"></i> 
-                        <span class="nav_name">Painel</span> 
-                    </a>
                     <a href="#" class="nav_link">
                         <i class='bx bx-message-square-detail nav_icon' data-bs-toggle="tooltip" title="Ordens de serviços"></i>
                         <span class="nav_name">Ordens de serviços</span>
-                    </a>
-                    <a href="#" class="nav_link">
-                        <i class='bi bi-people nav_icon' data-bs-toggle="tooltip" title="Clientes"></i>
-                        <span class="nav_name">Clientes</span>
-                    </a>
-                    <a href="#" class="nav_link">
-                        <i class="bi bi-wrench-adjustable nav_icon" data-bs-toggle="tooltip" title="Oficina"></i>
-                        <span class="nav_name">Oficina</span>
-                    </a>
-                    <a href="#" class="nav_link">
-                        <i class='bi bi-person-video2 nav_icon' data-bs-toggle="tooltip" title="Funcionários"></i>
-                        <span class="nav_name">Funcionários</span>
-                    </a>
-                    <a href="#" class="nav_link">
-                        <i class='bx bx-bar-chart-alt-2 nav_icon' data-bs-toggle="tooltip" title="Relatórios"></i>
-                        <span class="nav_name">Relatórios</span>
                     </a>
                 </div>
             </div>
@@ -79,9 +42,9 @@
             <div class="input-group col-sm">
                 <span class="input-group-text" id="basic-addon1"><i class="bi bi-search small"></i></span>
                 <input id="tableSearch" type="text" class="form-control col-5" placeholder="Pesquise um serviço" aria-label="Username" aria-describedby="basic-addon1">
-            </div>
-            <div class="col-sm">
-                <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#addServico"><i class="bi bi-plus"></i> Novo serviço</button>
+                <td>
+                    <button id="ID_SERVICO">Pesquisar</button>
+                </td>
             </div>
         </div>
     </div>
@@ -91,13 +54,14 @@
         <table class="table align-middle mb-0 bg-white table-striped table-bordered" id="showTable">
         <thead class="bg-light">
           <tr>
-            <th>Nº da O.S.</th>
-            <th>Nome</th>
-            <th>Serviço</th>
-            <th>Data início</th>
-            <th>Placa</th>
-            <th>Valor</th>
-            <th>Detalhamento</th>
+            <th id="ID_ORDEM_SERVICO">Nº da O.S.</th>
+            <th id="ID_SERVICO">Descrição do Serviço</th>
+            <th id="ID_MEC_RESPONSAVEL">Mecânico responsável</th>
+            <th id="DATA_ORDEM">Hora inicial</th>
+            <th id="DATA_ORDEM">Hora final</th>
+            <th id="PLACA_VEICULO">Placa</th>
+            <th id="VALOR_UNITARIO">Valor</th>
+            <th id="QUANTIDADE">Qtde</th>
           </tr>
         </thead>
         <tbody>
@@ -108,285 +72,63 @@
                 </div>
               </td>
               <td>
-                <p class="fw-normal mb-1">Jéssica Melo</p>
-              </td>
-            <td>
-              <p class="fw-normal mb-1">Troca de óleo</p>
-            </td>
-            <td>
-                <p class="fw-normal mb-1">03/11/2020</p>
-           </td>
-           <td>
-            <p class="fw-normal mb-1">JPA-7075</p>
-        </td>
-       <td>
-        <p class="fw-normal mb-1">R$400,00 </p>
-        </td>
-            <td>
-                <button
-                type="button"
-                class="btn btn-link btn-rounded btn-sm fw-bold"
-                data-mdb-ripple-color="dark" data-placement="right" title="Edit" data-toggle="modal" data-target="#editServico"
-                >
-                <i class="bi bi-pencil-fill"></i>
-        </button>
-            </td>
-          </tr>
-          <tr>
-            <td>
-                <div class="d-flex align-items-center">
-                    <p class="fw-bold mb-1">889944</p>
-                </div>
+                <p class="fw-normal mb-1">TROCA AMORTECEDOR DIANTEIRO</p>
               </td>
               <td>
-                <p class="fw-normal mb-1">Roberto Paulo</p>
+                <p class="fw-normal mb-1">Mislene</p>
               </td>
             <td>
-              <p class="fw-normal mb-1">Troca de pastilha</p>
-            </td>
-            <td>
-                <p class="fw-normal mb-1">08/04/2020</p>
+                <input id="ID_AGENDAMENTO" type="datetime-local">
            </td>
            <td>
-            <p class="fw-normal mb-1">JYI-2646</p>
+                <input id="ID_AGENDAMENTO" type="datetime-local">
         </td>
        <td>
-        <p class="fw-normal mb-1">R$150,00 </p>
+        <p class="fw-normal mb-1">JTR-1226 </p>
         </td>
-            <td>
-                <button
-                type="button"
-                class="btn btn-link btn-rounded btn-sm fw-bold"
-                data-mdb-ripple-color="dark" data-placement="right" title="Edit" data-toggle="modal" data-target="#editServico"
-                >
-                <i class="bi bi-pencil-fill"></i>
-        </button>
-            </td>
-          </tr>
-          <tr>
-            <td>
-                <div class="d-flex align-items-center">
-                    <p class="fw-bold mb-1">771133</p>
-                </div>
-              </td>
-              <td>
-                <p class="fw-normal mb-1">Regina Antônia</p>
-              </td>
-            <td>
-              <p class="fw-normal mb-1">Manutenção preventiva</p>
-            </td>
-            <td>
-                <p class="fw-normal mb-1">21/02/2020</p>
-           </td>
-           <td>
-            <p class="fw-normal mb-1">JYI-2646</p>
-        </td>
-       <td>
-        <p class="fw-normal mb-1">R$363,19 </p>
-        </td>
-            <td>
-                <button
-                type="button"
-                class="btn btn-link btn-rounded btn-sm fw-bold"
-                data-mdb-ripple-color="dark" data-placement="right" title="Edit" data-toggle="modal" data-target="#editServico"
-                >
-                <i class="bi bi-pencil-fill"></i>
-        </button>
-            </td>
+        <td>
+            <p class="fw-normal mb-1">R$ 425,00</p>
+          </td>
+          <td>
+            <p class="fw-normal mb-1">1</p>
+          </td>
           </tr>
         </tbody>
+
+        <tbody>
+            <tr>
+              <td>
+                  <div class="d-flex align-items-center">
+                      <p class="fw-bold mb-1">551122</p>
+                  </div>
+                </td>
+                <td>
+                  <p class="fw-normal mb-1">TROCA DE ÓLEO</p>
+                </td>
+                <td>
+                  <p class="fw-normal mb-1">Rafaela</p>
+                </td>
+              <td>
+                  <input id="ID_AGENDAMENTO" type="datetime-local">
+             </td>
+             <td>
+                  <input id="ID_AGENDAMENTO" type="datetime-local">
+          </td>
+         <td>
+          <p class="fw-normal mb-1">JTR-1226 </p>
+          </td>
+          <td>
+              <p class="fw-normal mb-1">R$ 253,00</p>
+            </td>
+            <td>
+              <p class="fw-normal mb-1">1</p>
+            </td>
+            </tr>
+          </tbody>
       </table>
       </div>
     </div>
 </div>
-
-<!------------------------------------MODAL REGISTRO-------------------------------------->
-    <div class="modal fade modal-fullscreen-xl hide modal" id="addServico" tabindex="-1" role="dialog" aria-labelledby="addServicoLabel" aria-hidden="true" style="width: 100% !important; border: 0">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-        <div class="modal-header border-bottom-0">
-            <h5 class="modal-title" id="addFuncionarioLabel">Registre um novo serviço</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-    
-        <form asp-controller="Oficina" asp-action="InserirCadastro">
-            <div class="modal-body">
-                <div class="form-group col-8">
-                    <label for="inputNome">Cliente (*)</label>
-                    <input type="text" class="form-control" id="inputCliente" required placeholder="Informe o Nome" asp-for="Nome">
-                </div>
-        
-                <div class="form-group col-8">
-                    <label for="inputCidade">Veículo</label>
-                    <input type="text" class="form-control" id="inputVeiculo" placeholder="Informe o Modelo do Veículo" asp-for="Veiculo">
-                </div>
-                    
-                <div class="form-group col-8">
-                    <label for="inputSite">Data da O.S. (*)</label>
-                    <input type="text" class="form-control" id="inputDataOs" required placeholder="Informe a data da O.S." asp-for="OrdemServico">
-                </div>
-
-                <div class="form-group col-8">
-                    <label for="inputSite">Nº da O.S. (*)</label>
-                    <input type="text" class="form-control" id="inputNumeroOs" required placeholder="Informe o nº da O.S." asp-for="inputNumeroOs">
-                </div>
-                
-                <div class="form-group col-8">
-                    <label for="inputCidade">Telefone (*)</label>
-                    <input type="text" class="form-control" id="inputTelefone" placeholder="Informe o Telefone" asp-for="Telefone">
-                </div>
-                    
-                <div class="form-group col-8">
-                    <label for="inputSite">Email (*)</label>
-                    <input type="text" class="form-control" id="inputEmail" required placeholder="Informe o Email" asp-for="Email">
-                </div>
-
-                <div class="form-group col-8">
-                    <label for="inputSite">Serviço (*)</label>
-                    <input type="text" class="form-control" id="inputServiço" required placeholder="Informe o serviço" asp-for="Serviço">
-                </div>
-
-                <div class="form-group col-8">
-                    <label for="inputSite">Responsável (*)</label>
-                    <input type="text" class="form-control" id="inputResponsavel" required placeholder="Informe o nome do funcionário" asp-for="Responsavel">
-                </div>
-
-                <div class="form-group col-8">
-                    <label for="inputSite">Tempo previsto (*)</label>
-                    <input type="text" class="form-control" id="inputTempoPrevisto" required placeholder="Tempo previsto" asp-for="Email">
-                </div>
-
-                <div class="form-group col-8">
-                    <label for="inputSite">Data início (*)</label>
-                    <input type="text" class="form-control" id="inputDataInicio" required placeholder="Informe a data de início" asp-for="DataInicio">
-                </div>
-
-                <div class="form-group col-8">
-                    <label for="inputSite">Data fim (*)</label>
-                    <input type="text" class="form-control" id="inputDataFim" required placeholder="Informe a data de fim" asp-for="DataFim">
-                </div>
-
-                <div class="form-group col-8">
-                    <label for="inputSite">Valor (*)</label>
-                    <input type="text" class="form-control" id="inputValor" required placeholder="Informe o valor" asp-for="DataFim">
-                </div>
-
-                <div class="form-group row">
-                    <div class="form-group">
-                    <small>(*) Campos obrigatórios</small>
-                    </div>
-                </div>
-        
-                <div class="form-group row pb-3 float-end">
-                    <div class="col-sm-17">
-                        <button type="submit" class="btn btn-success btn-sm" id="btnInsert">Inserir</button>
-                        <button type="submit" class="btn btn-warning btn-sm" id="btnUpdate">Alterar</button>
-                        <button type="submit" class="btn btn-danger btn-sm" id="btnDelete">Excluir</button>
-                        <button type="submit" class="btn btn-secondary btn-sm" id="btnClear">Limpar Form</button>
-                    </div>
-                </div>
-            </div>
-            </form>
-      </div>
-    </div>
-  </div>
-
-
-<!------------------------------------MODAL DETALHAMENTO/EDIÇÃO-------------------------------------->
-  <div class="modal fade modal-fullscreen-xl hide modal" id="editServico" tabindex="-1" role="dialog" aria-labelledby="editServicoLabel" aria-hidden="true" style="width: 100% !important; border: 0">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-        <div class="modal-header border-bottom-0">
-            <h5 class="modal-title" id="editServicoLabel">Detalhamento do Serviço</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-    
-        <form asp-controller="Oficina" asp-action="InserirCadastro">
-            <div class="modal-body">
-                <div class="form-group col-8">
-                    <label for="inputNome">Cliente (*)</label>
-                    <input type="text" class="form-control" id="inputCliente" required placeholder="Informe o Nome" asp-for="Nome">
-                </div>
-        
-                <div class="form-group col-8">
-                    <label for="inputCidade">Veículo</label>
-                    <input type="text" class="form-control" id="inputVeiculo" placeholder="Informe o Modelo do Veículo" asp-for="Veiculo">
-                </div>
-                    
-                <div class="form-group col-8">
-                    <label for="inputSite">Data da O.S. (*)</label>
-                    <input type="text" class="form-control" id="inputDataOs" required placeholder="Informe a data da O.S." asp-for="OrdemServico">
-                </div>
-
-                <div class="form-group col-8">
-                    <label for="inputSite">Nº da O.S. (*)</label>
-                    <input type="text" class="form-control" id="inputNumeroOs" required placeholder="Informe o nº da O.S." asp-for="inputNumeroOs">
-                </div>
-                
-                <div class="form-group col-8">
-                    <label for="inputCidade">Telefone (*)</label>
-                    <input type="text" class="form-control" id="inputTelefone" placeholder="Informe o Telefone" asp-for="Telefone">
-                </div>
-                    
-                <div class="form-group col-8">
-                    <label for="inputSite">Email (*)</label>
-                    <input type="text" class="form-control" id="inputEmail" required placeholder="Informe o Email" asp-for="Email">
-                </div>
-
-                <div class="form-group col-8">
-                    <label for="inputSite">Serviço (*)</label>
-                    <input type="text" class="form-control" id="inputServiço" required placeholder="Informe o serviço" asp-for="Serviço">
-                </div>
-
-                <div class="form-group col-8">
-                    <label for="inputSite">Responsável (*)</label>
-                    <input type="text" class="form-control" id="inputResponsavel" required placeholder="Informe o nome do funcionário" asp-for="Responsavel">
-                </div>
-
-                <div class="form-group col-8">
-                    <label for="inputSite">Tempo previsto (*)</label>
-                    <input type="text" class="form-control" id="inputTempoPrevisto" required placeholder="Tempo previsto" asp-for="Email">
-                </div>
-
-                <div class="form-group col-8">
-                    <label for="inputSite">Data início (*)</label>
-                    <input type="text" class="form-control" id="inputDataInicio" required placeholder="Informe a data de início" asp-for="DataInicio">
-                </div>
-
-                <div class="form-group col-8">
-                    <label for="inputSite">Data fim (*)</label>
-                    <input type="text" class="form-control" id="inputDataFim" required placeholder="Informe a data de fim" asp-for="DataFim">
-                </div>
-
-                <div class="form-group col-8">
-                    <label for="inputSite">Valor (*)</label>
-                    <input type="text" class="form-control" id="inputValor" required placeholder="Informe o valor" asp-for="DataFim">
-                </div>
-
-                <div class="form-group row">
-                    <div class="form-group">
-                    <small>(*) Campos obrigatórios</small>
-                    </div>
-                </div>
-        
-                <div class="form-group row pb-3 float-end">
-                    <div class="col-sm-17">
-                        <button type="submit" class="btn btn-success btn-sm" id="btnInsert">Inserir</button>
-                        <button type="submit" class="btn btn-warning btn-sm" id="btnUpdate">Alterar</button>
-                        <button type="submit" class="btn btn-danger btn-sm" id="btnDelete">Excluir</button>
-                        <button type="submit" class="btn btn-secondary btn-sm" id="btnClear">Limpar Form</button>
-                    </div>
-                </div>
-            </div>
-            </form>
-      </div>
-    </div>
-  </div>
-
 </body>
 <!-- Bootstrap 5.0.0 -->
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
