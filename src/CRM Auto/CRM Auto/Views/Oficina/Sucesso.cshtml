@@ -8,37 +8,48 @@
 <br />
 
 <div class="toast-body">
-    <h1>Seja bem-vindo (a), <b>@TempData["Nome"]</b>!</h1>
+    <h2>Seja bem-vindo (a), <b>@TempData["Nome"]</b>!</h2>
     <br />
     <p>O que você deseja fazer?</p>
 </div>
 
 <div class="align-content-center" style="margin-left: 250px;">
-<div class="container justify-content-center">
-    <div class="row justify-content-center">
-        <div class="col-md-6" style="margin-right: -140px">
-            <a type="button" class="btn btn-lg" style="font-weight: bold; height: 85px" asp-controller="Oficina" asp-action="BuscarFuncionariosEOficinas">Menu funcionários</a>
-        </div>
+    <div class="container justify-content-center">
+        <div class="row justify-content-center">
+            <div class="col-md-6" style="margin-right: -140px">
+                <a type="button" class="btn btn-lg" style="font-weight: bold; height: 85px" asp-controller="Oficina" asp-action="BuscarFuncionariosEOficinas">Menu funcionários</a>
+            </div>
 
-        <div class="col-md-6">
-            <a type="button" href="#" class="btn btn-lg" style="font-weight: bold; height: 85px">Menu clientes</a>
+            <div class="col-md-6">
+                <a type="button" href="#" class="btn btn-lg" style="font-weight: bold; height: 85px">Menu clientes</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container justify-content-center">
+        <div class="row justify-content-center">
+            <div class="col-md-6" style="margin-right: -140px">
+                <a type="button" class="btn btn-lg" style="font-weight: bold; height: 85px" asp-controller="Oficina" asp-action="BuscarOficinas">Menu oficinas</a>
+            </div>
+
+            <div class="col-md-6">
+                <a type="button" class="btn btn-lg" style="font-weight: bold; height: 85px" asp-controller="Oficina" asp-action="CadastroVeiculo">Menu veículos</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container justify-content-center">
+        <div class="row justify-content-center">
+            <div class="col-md-6" style="margin-right: -140px">
+                <a type="button" class="btn btn-lg" style="font-weight: bold; height: 85px" asp-controller="Oficina" asp-action="BuscarServicos">Menu serviços</a>
+            </div>
+            <div class="col-md-6">
+                
+            </div>
         </div>
     </div>
 </div>
 
-<div class="container justify-content-center">
-     <div class="row justify-content-center">
-        <div class="col-md-6" style="margin-right: -140px">
-            <a type="button" class="btn btn-lg" style="font-weight: bold; height: 85px" asp-controller="Oficina" asp-action="BuscarOficinas">Menu oficinas</a>
-        </div>
-
-        <div class="col-md-6">
-            <a type="button" class="btn btn-lg" style="font-weight: bold; height: 85px" asp-controller="Oficina" asp-action="CadastroVeiculo">Menu veículos</a>
-        </div>
-    </div>
-
-</div>
-</div>
 <!-- Footer -->
 <footer class="bg-light text-center fixed-bottom">
     <!-- Copyright -->

@@ -6,12 +6,14 @@ using System.Linq;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using CRM_Auto.ViewModels;
+using AngleSharp.Html.Dom;
 
 namespace CRM_Auto.Controllers
 {
     public class OficinaController : Controller
     {
         private IHttpContextAccessor HttpContextAccessor;
+       
         public OficinaController(IHttpContextAccessor httpContextAccessor)
         {
             HttpContextAccessor = httpContextAccessor;
@@ -74,7 +76,7 @@ namespace CRM_Auto.Controllers
         [HttpPost]
         public IActionResult InserirFuncionario(FuncionarioModel funcionario)
         {
-            
+
             funcionario.InserirFuncionario(funcionario);
 
             bool resultadoInsercao = funcionario.ValidarInsercaoFuncionario(funcionario);
@@ -152,7 +154,7 @@ namespace CRM_Auto.Controllers
         [HttpPost]
         public IActionResult ExcluirFuncionario(FuncionarioModel funcionario)
         {
- 
+
             funcionario.ExcluirFuncionario(funcionario);
 
             TempData["msg"] = "Exclusão realizada com sucesso!";
@@ -201,6 +203,33 @@ namespace CRM_Auto.Controllers
             TempData["ordemCadastrada"] = "Ordem de Serviço cadastrada com sucesso!";
             return RedirectToAction("OrdemServico");
         }
-   
+
+        public IActionResult BuscarServicos()
+        {
+            try
+            {
+                ServicoModel servico = new ServicoModel();
+                ViewBag.BuscarServicos = servico.BuscarServicos();
+
+                return View("Servicos");
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        [HttpPost]
+        public IActionResult InserirNovoServico(ServicoModel servico)
+        {
+            servico.InserirNovoServico(servico);
+
+            ViewBag.BuscarServicos = servico.BuscarServicos();
+            TempData["servicoIncluido"] = "Serviço cadastrado com sucesso!";
+
+            return View("Servicos");
+
+        }
+
     }
 }
