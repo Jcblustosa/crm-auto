@@ -4,22 +4,22 @@
     Layout = "../Shared/_Layout_Login_Client.cshtml";
 }
 
-<div class="container-fluid p-1 rounded" style="background-color: #FDF9BC;">
-    <img src="~/img/crmautofr.jpg" alt="CRM Auto" width="120" height="70" style="margin-left: 1rem;">
+<div class="container-fluid p-1 rounded" style="background-color: #051821;">
+    <img src="images/crmautodark.jpg" alt="CRM Auto" width="120" height="70" style="margin-left: 1rem;">
 </div>
 
 <div class="wrapper fadeInDown">
   <div id="formContent">
 
     <div id="text">
-      <h1> Login de Cliente</h1>
+      <h1> Login de Cliente </h1>
       <br>
-      <p> Faça seu login para ter acesso a <br> informações sobre seu serviço</p>
+      <p> Faça seu login para ter acesso a informações sobre seus serviços</p>
     </div>
 
     <form asp-controller="Cliente" asp-action="ValidarLogin">
-      <input type="email" id="login" class="fadeIn second" placeholder="acesso@email.com" asp-for="Login_usuario">
-      <input type="password" id="password" class="fadeIn third" placeholder="Senha de acesso" asp-for="Senha_usuario">
+      <input type="text" id="LOGIN_USUARIO" class="fadeIn second" name="login" placeholder="acesso@email.com" asp-for="Login_usuario">
+      <input type="password" id="SENHA_USUARIO" name="senha" placeholder="Senha de acesso" asp-for="Senha_usuario">
       <input type="submit" class="fadeIn fourth" value="Log In">
     </form>
 
@@ -33,8 +33,8 @@
 <!-- Footer -->
 <footer class="bg-light text-center fixed-bottom">
 <!-- Copyright -->
-    <div class="text-center p-2" style="color: #051821; background-color: #FDF7FF">
-        © Copyright CRM Auto 2022
+    <div class="text-center text-white p-2" style="background-color: #687A86">
+        © Copyright CRM Auto 2022 </a>
   </div>
   <!-- Copyright -->
 
