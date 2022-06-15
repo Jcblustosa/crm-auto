@@ -1,7 +1,7 @@
 ﻿@model UsuarioModel
 
 @{
-    Layout = "../Shared/_Layout_Login_Client.cshtml";
+    Layout = "../Shared/_Layout_Login_client.cshtml";
 }
 
 <div class="container-fluid p-1 rounded" style="background-color: #051821;">
@@ -18,8 +18,8 @@
     </div>
 
     <form asp-controller="Cliente" asp-action="ValidarLogin">
-      <input type="text" id="LOGIN_USUARIO" class="fadeIn second" name="login" placeholder="acesso@email.com" asp-for="Login_usuario">
-      <input type="password" id="SENHA_USUARIO" name="senha" placeholder="Senha de acesso" asp-for="Senha_usuario">
+      <input type="email" id="LOGIN_USUARIO" class="fadeIn second" placeholder="acesso@email.com" asp-for="Login_usuario">
+      <input type="password" id="SENHA_USUARIO" placeholder="Senha de acesso" asp-for="Senha_usuario">
       <input type="submit" class="fadeIn fourth" value="Log In">
     </form>
 

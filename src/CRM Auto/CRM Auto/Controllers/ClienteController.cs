@@ -44,7 +44,7 @@ namespace CRM_Auto.Controllers
                 HttpContext.Session.SetString("IdUsuario", nomeEId[1]);
                 TempData["NomeUsuario"] = HttpContextAccessor.HttpContext.Session.GetString("NomeUsuario");
                 TempData["IdUsuario"] = HttpContextAccessor.HttpContext.Session.GetString("IdUsuario");
-                return RedirectToAction("Index");
+                return RedirectToAction("BemVindoCliente");
             }
             return RedirectToAction("LoginCliente");
         }
