@@ -82,10 +82,15 @@ namespace CRM_Auto.Controllers
             bool resultadoInsercao = funcionario.ValidarInsercaoFuncionario(funcionario);
             if (resultadoInsercao)
             {
-                TempData["msg"] = "Inclusão realizada com sucesso!";
-                TempData["msgDetalhes"] = "O cadastro do funcionário foi finalizado e você já pode consultá-lo no sistema da sua oficina.";
+                TempData["msg"] = "Funcionário incluído com sucesso!";
 
-                return View("CadastroRealizadoComSucesso");
+                ViewBag.BuscarFuncionarios = funcionario.BuscarFuncionarios();
+
+                OficinaModel oficina = new OficinaModel();
+                List<OficinaModel> lista = oficina.BuscarOficinas();
+                ViewBag.BuscarOficinas = lista.Select(o => new { o.Id_oficina, o.Nome_oficina });
+
+                return View("CadastroDeFuncionario");
             }
             return RedirectToAction("Sucesso");
         }
@@ -131,10 +136,15 @@ namespace CRM_Auto.Controllers
         {
             funcionario.AlterarFuncionario(funcionario);
 
-            TempData["msg"] = "Alteração realizada com sucesso!";
-            TempData["msgDetalhes"] = "A alteração do funcionário foi finalizada e você já pode consultar as informações atualizadas no sistema da sua oficina.";
+            TempData["msg"] = "Funcionário alterado com sucesso!";
 
-            return View("CadastroRealizadoComSucesso");
+            ViewBag.BuscarFuncionarios = funcionario.BuscarFuncionarios();
+
+            OficinaModel oficina = new OficinaModel();
+            List<OficinaModel> lista = oficina.BuscarOficinas();
+            ViewBag.BuscarOficinas = lista.Select(o => new { o.Id_oficina, o.Nome_oficina });
+
+            return View("CadastroDeFuncionario");
 
         }
 
@@ -157,10 +167,16 @@ namespace CRM_Auto.Controllers
 
             funcionario.ExcluirFuncionario(funcionario);
 
-            TempData["msg"] = "Exclusão realizada com sucesso!";
-            TempData["msgDetalhes"] = "A exclusão do funcionário foi finalizada e você já pode consultar as informações atualizadas no sistema da sua oficina.";
+            TempData["msg"] = "Funcionário excluído com sucesso!";
 
-            return View("CadastroRealizadoComSucesso");
+            ViewBag.BuscarFuncionarios = funcionario.BuscarFuncionarios();
+
+            OficinaModel oficina = new OficinaModel();
+            List<OficinaModel> lista = oficina.BuscarOficinas();
+            ViewBag.BuscarOficinas = lista.Select(o => new { o.Id_oficina, o.Nome_oficina });
+
+
+            return View("CadastroDeFuncionario");
 
         }
 
