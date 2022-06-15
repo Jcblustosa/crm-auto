@@ -43,6 +43,9 @@ namespace CRM_Auto.Controllers
 
         public IActionResult Sucesso()
         {
+            SucessoModel sucesso = new SucessoModel();
+            TempData["Nome"] = HttpContextAccessor.HttpContext.Session.GetString("Nome");
+            ViewBag.ListaOS = sucesso.BuscarDados(HttpContextAccessor.HttpContext.Session.GetString("IdOficina"));
             return View("Sucesso");
         }
 
