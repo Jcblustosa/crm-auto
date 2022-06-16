@@ -13,7 +13,7 @@ namespace CRM_Auto.Controllers
     public class OficinaController : Controller
     {
         private IHttpContextAccessor HttpContextAccessor;
-       
+
         public OficinaController(IHttpContextAccessor httpContextAccessor)
         {
             HttpContextAccessor = httpContextAccessor;
@@ -98,6 +98,7 @@ namespace CRM_Auto.Controllers
             return RedirectToAction("Sucesso");
         }
 
+        [HttpGet]
         public IActionResult BuscarFuncionariosEOficinas()
         {
             try
@@ -117,6 +118,7 @@ namespace CRM_Auto.Controllers
             }
         }
 
+        [HttpGet]
         public IActionResult BuscarOficinas()
         {
             try
@@ -223,6 +225,7 @@ namespace CRM_Auto.Controllers
             return RedirectToAction("OrdemServico");
         }
 
+        [HttpGet]
         public IActionResult BuscarServicos()
         {
             try
@@ -250,5 +253,22 @@ namespace CRM_Auto.Controllers
 
         }
 
+        [HttpGet]
+        public IActionResult GerarRelatorioEmPDFFuncionarios()
+        {
+            FuncionarioModel funcionario = new FuncionarioModel();
+            funcionario.GerarRelatorioEmPDF();
+
+            ViewBag.BuscarFuncionarios = funcionario.BuscarFuncionarios();
+
+            OficinaModel oficina = new OficinaModel();
+            List<OficinaModel> lista = oficina.BuscarOficinas();
+            ViewBag.BuscarOficinas = lista.Select(o => new { o.Id_oficina, o.Nome_oficina });
+
+
+            return View("CadastroDeFuncionario");
+
+
+        }
     }
 }
