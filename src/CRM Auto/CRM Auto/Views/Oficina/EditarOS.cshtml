@@ -1,4 +1,4 @@
-@using CRM_Auto.ViewModels
+﻿@using CRM_Auto.ViewModels
 @model OficinaOrdemServicoViewModel
 
 @{
@@ -87,16 +87,10 @@
     
 <!-- SÓ TRABALHAR DAQUI PARA BAIXO...  -->
 
-@if (TempData["ordemCadastrada"] != null)
-{
-    <div class="alert alert-success">
-        @TempData["ordemCadastrada"]
-    </div>
-}
-
     <div class="height-100"> <!--Container Main start-->
-        <form asp-action="GerarOS">
-            
+        <form asp-action="EditarOS">
+            <input type="hidden" value="@Model.OrdemServico.IdOS"/>
+            <input type="hidden" value="@Model.Servico.IdDetalhamento"/>
             <partial name="_FormOS"/>
 
             <!-- <div class="row">
@@ -124,7 +118,7 @@
                     </table>
                 </div>
             </div> -->
-            <input type="submit" value="Salvar Ordem de Serviço" class="btn btn-success"/>
+            <input type="submit" value="Editar Ordem de Serviço" class="btn btn-warning"/>
             
         </form>
         <small>(*) Campos obrigatórios</small>

@@ -204,6 +204,35 @@ namespace CRM_Auto.Controllers
             TempData["ordemCadastrada"] = "Ordem de Serviço cadastrada com sucesso!";
             return RedirectToAction("OrdemServico");
         }
+
+        [HttpGet]
+        public IActionResult EditarOS(int id)
+        {
+            string idOficina = HttpContextAccessor.HttpContext.Session.GetString("IdOficina");
+            OficinaOrdemServicoViewModel oficinaOrdemServicoViewModel = new OficinaOrdemServicoViewModel();
+            OrdemServico os = new OrdemServico();
+            ServicoModel servico = new ServicoModel();
+            MecanicoModel mecanico = new MecanicoModel();
+            ViewBag.ListaServicos = os.ListarServicos();
+            ViewBag.ListaMecanicos = mecanico.ListarMecanicos(idOficina);
+            oficinaOrdemServicoViewModel.Servico = servico.BuscarServico(id);
+            oficinaOrdemServicoViewModel.OrdemServico = os.BuscarOS(id);
+
+            return View(oficinaOrdemServicoViewModel);
+        }
+
+        [HttpPost]
+        public IActionResult EditarOS(OficinaOrdemServicoViewModel oficinaOrdemServicoViewModel)
+        {
+            OrdemServico os = oficinaOrdemServicoViewModel.OrdemServico;
+            ServicoModel servico = oficinaOrdemServicoViewModel.Servico;
+
+            os.EditarOS();
+            servico.EditarDetalhamento();
+            TempData["ordemEditada"] = "Ordem de Serviço editada com sucesso!";
+
+            return RedirectToAction("Sucesso");
+        }
    
     }
 }

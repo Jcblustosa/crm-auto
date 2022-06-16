@@ -6,6 +6,7 @@ namespace CRM_Auto.Models
 {
     public class ServicoModel
     {
+        public int IdDetalhamento { get; set; }
         public string Descricao { get; set; }
         public int IdServico { get; set; }
         public int Quantidade { get; set; }
@@ -50,6 +51,34 @@ namespace CRM_Auto.Models
             DataTable dt = cnn.GetData(command);
 
             return dt.Rows[0]["CUSTO_HORA"].ToString();
+        }
+
+        public ServicoModel BuscarServico(int id)
+        {
+            ServicoModel servico = new ServicoModel();
+            string command = "SELECT S.ID_SERVICO, D.ID_MEC_RESPONSAVEL, D.DATA_INICIO_SERVICO, D.DATA_FIM_SERVICO, D.APROVADO, D.QUANTIDADE " +
+                "FROM DETALHE_OS D " +
+                "INNER JOIN SERVICO S  " +
+                "ON D.ID_SERVICO = S.ID_SERVICO " +
+                $"WHERE D.ID_ORDEM = {id};";
+
+            CNN cnn = new CNN();
+            DataTable dt = cnn.GetData(command);
+
+            servico.IdDetalhamento = id;
+            servico.IdServico = int.Parse(dt.Rows[0]["ID_SERVICO"].ToString());
+            servico.IdMecanicoResponsavel = int.Parse(dt.Rows[0]["ID_MEC_RESPONSAVEL"].ToString());
+            servico.InicioServico = DateTime.Parse(dt.Rows[0]["DATA_INICIO_SERVICO"].ToString());
+            servico.FimServico = DateTime.Parse(dt.Rows[0]["DATA_FIM_SERVICO"].ToString());
+            servico.ServicoAprovado = dt.Rows[0]["APROVADO"].ToString() == "1" ? true : false;
+            servico.Quantidade = int.Parse(dt.Rows[0]["QUANTIDADE"].ToString());
+
+            return servico;
+        }
+
+        public void EditarDetalhamento()
+        {
+
         }
     }
 }

@@ -7,6 +7,7 @@ namespace CRM_Auto.Models
 {
     public class OrdemServico
     {
+        public int IdOS { get; set; }
         public int IdCliente { get; set; }
         public string CpfCnpj { get; set; }
         public int IdVeiculo { get; set; }
@@ -81,6 +82,37 @@ namespace CRM_Auto.Models
 
             DataTable dt = cnn.GetData(command);
             return dt.Rows[0]["ID_ORDEM_SERVICO"].ToString();
+        }
+
+        public OrdemServico BuscarOS(int id)
+        {
+            OrdemServico os = new OrdemServico();
+
+            string command = "SELECT C.CNPJ_CPF, V.PLACA_VEICULO, O.DATA_ORDEM, O.TELEFONE_CONTATO, O.EMAIL_CONTATO " +
+                "FROM ORDEM_SERVICO O " +
+                "INNER JOIN CLIENTE C " +
+                "ON O.ID_CLIENTE = C.ID_CLIENTE " +
+                "INNER JOIN CLIENTE_VEICULO CV " +
+                "ON O.ID_VEICULO = CV.ID_CLI_VEICULO " +
+                "INNER JOIN VEICULO V " +
+                "ON CV.ID_VEICULO = V.ID_VEICULO " +
+                $"WHERE O.ID_ORDEM_SERVICO = {id};";
+
+            CNN cnn = new CNN();
+            DataTable dt = cnn.GetData(command);
+
+            os.IdOS = id;
+            os.CpfCnpj = dt.Rows[0]["CNPJ_CPF"].ToString();
+            os.PlacaVeiculo = dt.Rows[0]["PLACA_VEICULO"].ToString();
+            os.DataOrdem = DateTime.Parse(dt.Rows[0]["DATA_ORDEM"].ToString());
+            os.Telefone = dt.Rows[0]["TELEFONE_CONTATO"].ToString();
+            os.Email = dt.Rows[0]["EMAIL_CONTATO"].ToString();
+            return os;
+        }
+
+        public void EditarOS()
+        {
+
         }
     }
 

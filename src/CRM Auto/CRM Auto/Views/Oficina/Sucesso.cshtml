@@ -53,6 +53,13 @@
 <div class="mx-auto" id="main">
     <h2 style="font-weight: bold; margin-top: 70px; margin-bottom: 30px">Bem vindo, @TempData["Nome"]</h2>
 
+    @if (TempData["ordemEditada"] != null)
+    {
+        <div class="alert alert-warning">
+            @TempData["ordemEditada"]
+        </div>
+    }
+
     <div class="container">
         <div class="row">
             <div class="input-group col-sm">
@@ -76,6 +83,7 @@
                     <th>Data de Emissão</th>
                     <th>Telefone (cliente)</th>
                     <th>Identificação do Veículo</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody id="table-contatos">
@@ -85,7 +93,7 @@
                     <tr>
                         <td scope="row">
 
-                                <p class="fw-bold mb-1">@os.IdOrdemServico</p>
+                            <p class="fw-bold mb-1">@os.IdOrdemServico</p>
 
                         </td>
                         <td>
@@ -99,6 +107,10 @@
                         </td>
                         <td>
                             <p class="text-muted mb-0">@os.PlacaVeiculo</p>
+                        </td>
+                        <td>
+                            <a class="btn btn-sm btn-outline-dark">Exibir detalhes</a>
+                            <a class="btn btn-sm btn-outline-warning" asp-action="EditarOS" asp-route-id="@os.IdOrdemServico">Editar</a>
                         </td>
                     </tr>
                 }
