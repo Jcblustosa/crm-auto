@@ -41,6 +41,9 @@ namespace CRM_Auto.Controllers
 
         public IActionResult Sucesso()
         {
+            SucessoModel sucesso = new SucessoModel();
+            TempData["Nome"] = HttpContextAccessor.HttpContext.Session.GetString("Nome");
+            ViewBag.ListaOS = sucesso.BuscarDados(HttpContextAccessor.HttpContext.Session.GetString("IdOficina"));
             return View("Sucesso");
         }
 
@@ -187,30 +190,17 @@ namespace CRM_Auto.Controllers
         }
 
         [HttpPost]
-        public IActionResult GerarOS(string CpfCnjp, string Placa, DateTime DataOrdem, string Tel, string Email, int IdServico, int IdMecanico, DateTime InicioServico, DateTime FimServico, double Preco, bool ServicoAprovado, int Quantidade)
+        public IActionResult GerarOS(OficinaOrdemServicoViewModel oficinaOS)
         {
-            OrdemServico OrdemServico = new OrdemServico();
-            OrdemServico.CpfCnpj = CpfCnjp;
-            OrdemServico.PlacaVeiculo = Placa;
-            OrdemServico.DataOrdem = DataOrdem;
-            OrdemServico.Telefone = Tel;
-            OrdemServico.Email = Email; 
-            ServicoModel Servico = new ServicoModel();
-            Servico.IdServico = IdServico;
-            Servico.IdMecanicoResponsavel = IdMecanico;
-            Servico.InicioServico = InicioServico;
-            Servico.FimServico = FimServico;
-            Servico.CustoHora = Preco;
-            Servico.ServicoAprovado = ServicoAprovado;
-            Servico.Quantidade = Quantidade;
             AgendamentoServicoModel agendamento = new AgendamentoServicoModel();
-            string idCliente = agendamento.BuscarIdCliente(OrdemServico.CpfCnpj);
-            string idVeiculo = agendamento.BuscarIdCarro(OrdemServico.PlacaVeiculo);
-            string idAgendamento = agendamento.GerarAgendamento(idCliente, idVeiculo);
+            agendamento.DataAgendamento = oficinaOS.OrdemServico.DataOrdem;
+            string idCliente = agendamento.BuscarIdCliente(oficinaOS.OrdemServico.CpfCnpj);
+            string idCliVeiculo = agendamento.BuscarIdClienteVeiculo(oficinaOS.OrdemServico.PlacaVeiculo, idCliente);
+            string idAgendamento = agendamento.GerarAgendamento(idCliente, idCliVeiculo);
             string idUsuarioCad = HttpContextAccessor.HttpContext.Session.GetString("IdUsuario");
-            OrdemServico.IdOficina = HttpContextAccessor.HttpContext.Session.GetString("IdOficina");
-            string idOS = OrdemServico.GerarOS(idCliente, idAgendamento, idUsuarioCad);
-            Servico.CadastrarServico(idOS);
+            oficinaOS.OrdemServico.IdOficina = HttpContextAccessor.HttpContext.Session.GetString("IdOficina");
+            string idOS = oficinaOS.OrdemServico.GerarOS(idCliente, idAgendamento, idUsuarioCad, idCliVeiculo);
+            oficinaOS.Servico.CadastrarServico(idOS);
             TempData["ordemCadastrada"] = "Ordem de Serviço cadastrada com sucesso!";
             return RedirectToAction("OrdemServico");
         }
