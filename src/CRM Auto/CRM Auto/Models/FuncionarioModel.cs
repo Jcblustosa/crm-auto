@@ -163,13 +163,13 @@ namespace CRM_Auto.Models
         {
             FuncionarioModel funcionarios = new FuncionarioModel();
 
-            var funcionariosSelecionados = funcionarios.BuscarFuncionarios().ToList();
+            var funcionariosLista = funcionarios.BuscarFuncionarios().ToList();
 
-            if (funcionariosSelecionados.Count > 0)
+            if (funcionariosLista.Count > 0)
             {
                 //Cálculo da quantidade total de páginas
                 int totalPaginas = 1;
-                int totalLinhas = funcionariosSelecionados.Count;
+                int totalLinhas = funcionariosLista.Count;
                 if (totalLinhas > 24)
                     totalPaginas += (int)Math.Ceiling((totalLinhas - 24) / 29F);
 
@@ -190,7 +190,7 @@ namespace CRM_Auto.Models
 
                 writer.PageEvent = new EventosDePagina(totalPaginas);
 
-                //Inicialização do objeto para que ele receba conteúdo
+                //Inicialização do objeto para que ele possa receber conteúdo
                 pdf.Open();
   
                 //Adição do título
@@ -199,6 +199,22 @@ namespace CRM_Auto.Models
                 var titulo = new Paragraph("Relatório de Funcionários\n\n", fonteParagrafo);
                 titulo.SpacingAfter = 4;
                 pdf.Add(titulo);
+
+                //Adição da logo
+                var caminhoImagem = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "crmauto.jpg");
+
+                if (File.Exists(caminhoImagem))
+                {
+                    iTextSharp.text.Image logo = iTextSharp.text.Image.GetInstance(caminhoImagem);
+                    float razaoAlturaLargura = logo.Width / logo.Height;
+                    float alturaLogo = 35;
+                    float larguraLogo = alturaLogo * razaoAlturaLargura;
+                    logo.ScaleToFit(larguraLogo, alturaLogo);
+                    var margemEsquerda = pdf.PageSize.Width - pdf.RightMargin - larguraLogo;
+                    var margemTopo = pdf.PageSize.Height - pdf.TopMargin - 35;
+                    logo.SetAbsolutePosition(margemEsquerda, margemTopo);
+                    writer.DirectContent.AddImage(logo, false);
+                }
 
                 //Adição da tabela de dados
                 var tabela = new PdfPTable(5);
@@ -214,12 +230,12 @@ namespace CRM_Auto.Models
                 CriarCelula(tabela, "Nome da oficina", PdfCell.ALIGN_LEFT, true);
                 CriarCelula(tabela, "E-mail", PdfCell.ALIGN_LEFT, true);
 
-                foreach (var funcionario in funcionariosSelecionados)
+                foreach (var funcionario in funcionariosLista)
                 {
                     CriarCelula(tabela, funcionario.Id_funcionario.ToString(), PdfCell.ALIGN_CENTER, true);
                     CriarCelula(tabela, funcionario.Nome.ToString());
                     CriarCelula(tabela, funcionario.Funcao.ToString());
-                    CriarCelula(tabela, funcionario.Apelido.ToString());
+                    CriarCelula(tabela, funcionario.Nome_oficina.ToString());
                     CriarCelula(tabela, funcionario.Login_usuario.ToString());
                 }
 
