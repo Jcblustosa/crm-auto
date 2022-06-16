@@ -12,7 +12,6 @@ using System.Linq;
 
 namespace CRM_Auto.Models
 {
-    [Serializable]
     public class FuncionarioModel
     {
         public int Id_funcionario { get; set; }
@@ -193,7 +192,6 @@ namespace CRM_Auto.Models
 
                 //Inicialização do objeto para que ele receba conteúdo
                 pdf.Open();
-
   
                 //Adição do título
                 var fonteParagrafo = new iTextSharp.text.Font(fonteBase, 15,
@@ -204,7 +202,7 @@ namespace CRM_Auto.Models
 
                 //Adição da tabela de dados
                 var tabela = new PdfPTable(5);
-                float[] largurasColunas = { 0.7f, 1.9f, 1.9f, 1.9f, 2.8f };
+                float[] largurasColunas = { 0.7f, 1.9f, 1.9f, 1.9f, 2.9f };
                 tabela.SetWidths(largurasColunas);
                 tabela.DefaultCell.BorderWidth = 0;
                 tabela.WidthPercentage = 100;
@@ -227,13 +225,6 @@ namespace CRM_Auto.Models
 
                 pdf.Add(tabela);
 
-
-
-
-
-
-
-
                 pdf.Close();
                 arquivo.Close();
 
@@ -247,15 +238,11 @@ namespace CRM_Auto.Models
                         CreateNoWindow = true
                     });
                 }
-
-
-
             }
         }
 
         public void CriarCelula(PdfPTable tabela, string texto, int alinhamentoHorizontal = PdfPCell.ALIGN_LEFT,
             bool negrito = false, bool italico = false, int tamanhoFonte = 10, int alturaCelula = 25)
-
 
         {
             int estilo = iTextSharp.text.Font.NORMAL;

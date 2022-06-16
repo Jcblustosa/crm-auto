@@ -40,7 +40,6 @@ namespace CRM_Auto.Controllers
             }
             return RedirectToAction("LoginColaborador");
         }
-
         public IActionResult Sucesso()
         {
             SucessoModel sucesso = new SucessoModel();
@@ -161,7 +160,6 @@ namespace CRM_Auto.Controllers
             TempData["msg"] = "Alteração realizada com sucesso!";
             TempData["msgDetalhes"] = "A alteração da oficina foi finalizada e você já pode consultar as informações atualizadas no sistema da sua oficina.";
 
-
             return View("CadastroRealizadoComSucesso");
 
         }
@@ -179,7 +177,6 @@ namespace CRM_Auto.Controllers
             OficinaModel oficina = new OficinaModel();
             List<OficinaModel> lista = oficina.BuscarOficinas();
             ViewBag.BuscarOficinas = lista.Select(o => new { o.Id_oficina, o.Nome_oficina });
-
 
             return View("CadastroDeFuncionario");
 
@@ -265,10 +262,7 @@ namespace CRM_Auto.Controllers
             List<OficinaModel> lista = oficina.BuscarOficinas();
             ViewBag.BuscarOficinas = lista.Select(o => new { o.Id_oficina, o.Nome_oficina });
 
-
             return View("CadastroDeFuncionario");
-
-
         }
     }
 }
