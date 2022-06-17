@@ -1,4 +1,5 @@
-﻿@model FuncionarioModel
+﻿@using CRM_Auto.Models
+@model FuncionarioModel
 
 @{
     Layout = "../Shared/_Layout_Cadastro_Funcionario.cshtml";
@@ -8,20 +9,8 @@
     <div class="header_toggle">
         <i class='bx bx-menu' id="header-toggle"></i>
     </div>
-    <div id="header_user" class="header_img">
-        <button id="dropdownMenuButton" type="button" class="btn btn-secondary btn-user dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="26" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 22">
-                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"></path>
-                <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"></path>
-            </svg>
-        </button>
-        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="#">Perfil</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Sair</a>
-        </div>
-    </div>
 </header>
+
 <div class="l-navbar" id="nav-bar">
     <nav class="nav">
         <div>
@@ -29,7 +18,7 @@
                 <img src="~/img/crmautodark.jpg" class="img-fluid" alt="CRM Auto" style="width: 60%; height: auto; margin-left: -10px; margin-top: -15px;">
             </div>
             <div class="nav_list">
-                <a href="#" class="nav_link active">
+                <a href="/Oficina/Sucesso" class="nav_link active">
                     <i class='bx bx-grid-alt nav_icon' data-bs-toggle="tooltip" title="Painel"></i>
                     <span class="nav_name">Painel</span>
                 </a>
@@ -49,7 +38,7 @@
                     <i class='bi bi-person-video2 nav_icon' data-bs-toggle="tooltip" title="Funcionários"></i>
                     <span class="nav_name">Funcionários</span>
                 </a>
-                <a href="#" class="nav_link">
+                <a class="nav_link" asp-controller="Oficina" asp-action="GerarRelatorioEmPDFFuncionarios">
                     <i class='bx bx-bar-chart-alt-2 nav_icon' data-bs-toggle="tooltip" title="Relatórios"></i>
                     <span class="nav_name">Relatórios</span>
                 </a>
@@ -63,8 +52,32 @@
 </div>
 
 <div class="mx-auto" id="main">
-    <h2 style="font-weight: bold; margin-top: 70px; margin-bottom: 30px">Funcionários</h2>
+    <h2 style="font-weight: bold; margin-top: 40px; margin-bottom: 30px">Funcionários</h2>
 
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+        <symbol id="check-circle-fill" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
+        </symbol>
+        <symbol id="info-fill" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z" />
+        </symbol>
+        <symbol id="exclamation-triangle-fill" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+        </symbol>
+    </svg>
+
+    @if (TempData["msg"] != null)
+    {
+        <div class="alert alert-success d-flex align-items-center" role="alert">
+            <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill" /></svg>
+            <div id="mensagem">
+                <h6>@TempData["msg"]</h6>
+            </div>
+        </div>
+    }
+
+
+    <br />
     <div class="container">
         <div class="row">
             <div class="input-group col-sm">
@@ -78,46 +91,46 @@
     </div>
 
     @{
-                <div onload="init" class="tbl-container bdr" asp-controller="Oficina">
-                    <input type="hidden" id="hiddenBuscarOficinas" value="@System.Text.Json.JsonSerializer.Serialize(ViewBag.BuscarOficinas)" />
-                    <table class="table align-middle mb-0 bg-white table-striped table-bordered" id="showTable">
-                        <thead class="bg-light">
-                            <tr>
-                                <th>Nome</th>
-                                <th>Email</th>
-                                <th>Cargo</th>
-                                <th>Opções</th>
-                            </tr>
-                        </thead>
-                        <tbody id="table-contatos">
+        <div onload="init" class="tbl-container bdr" asp-controller="Oficina">
+            <input type="hidden" id="hiddenBuscarOficinas" value="@System.Text.Json.JsonSerializer.Serialize(ViewBag.BuscarOficinas)" />
+            <table class="table align-middle mb-0 bg-white table-striped table-bordered" id="showTable">
+                <thead class="bg-light">
+                    <tr>
+                        <th>Nome</th>
+                        <th>Email</th>
+                        <th>Cargo</th>
+                        <th>Opções</th>
+                    </tr>
+                </thead>
+                <tbody id="table-contatos">
 
-                            @foreach (FuncionarioModel funcionario in ViewBag.BuscarFuncionarios)
+                    @foreach (FuncionarioModel funcionario in ViewBag.BuscarFuncionarios)
                     {
-                                <tr>
-                                    <td scope="row">
-                                        <div class="d-flex align-items-center">
-                                            <p class="fw-bold mb-1" id="funcionarioNome" asp-for="Nome">@funcionario.Nome</p>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <p class="fw-normal mb-1">@funcionario.Login_usuario</p>
-                                    </td>
-                                    <td>
-                                        <p class="fw-normal mb-1" id="funcionarioFuncao" asp-for="Funcao">@funcionario.Funcao</p>
-                                        <p class="text-muted mb-0" id="funcionarioOficina" asp-for="Nome_oficina">@funcionario.Nome_oficina</p>
-                                    <td>
-                                        <button type="button"
-                                            class="btn btn-secondary btn-sm btnEditFuncionario"
-                                            data-mdb-ripple-color="dark" data-placement="right" title="Editar as informações" data-toggle="modal" data-target="#editFuncionario"
-                                            value="@System.Text.Json.JsonSerializer.Serialize(funcionario)">
-                                            <i class="bi bi-pencil-fill"></i>
-                                        </button>
-                                    </td>
-                                </tr>
+                        <tr>
+                            <td scope="row">
+                                <div class="d-flex align-items-center">
+                                    <p class="fw-bold mb-1" id="funcionarioNome" asp-for="Nome">@funcionario.Nome</p>
+                                </div>
+                            </td>
+                            <td>
+                                <p class="fw-normal mb-1">@funcionario.Login_usuario</p>
+                            </td>
+                            <td>
+                                <p class="fw-normal mb-1" id="funcionarioFuncao" asp-for="Funcao">@funcionario.Funcao</p>
+                                <p class="text-muted mb-0" id="funcionarioOficina" asp-for="Nome_oficina">@funcionario.Nome_oficina</p>
+                            <td>
+                                <button type="button"
+                                    class="btn btn-secondary btn-sm btnEditFuncionario"
+                                    data-mdb-ripple-color="dark" data-placement="right" title="Editar as informações" data-toggle="modal" data-target="#editFuncionario"
+                                    value="@System.Text.Json.JsonSerializer.Serialize(funcionario)">
+                                    <i class="bi bi-pencil-fill"></i>
+                                </button>
+                            </td>
+                        </tr>
                     }
-                        </tbody>
-                    </table>
-                </div>
+                </tbody>
+            </table>
+        </div>
     }
 </div>
 
@@ -133,53 +146,53 @@
                 </button>
             </div>
             @{
-                        <form asp-controller="Oficina">
-                            <div class="modal-body">
-                                <div class="form-group col-8">
-                                    <label for="inputNome">Nome (*)</label>
-                                    <input type="text" class="form-control" id="inputNome" required placeholder="Informe o Nome" asp-for="Nome">
-                                </div>
+                <form asp-controller="Oficina">
+                    <div class="modal-body">
+                        <div class="form-group col-8">
+                            <label for="inputNome">Nome (*)</label>
+                            <input type="text" class="form-control" id="inputNome" required placeholder="Informe o Nome" asp-for="Nome">
+                        </div>
 
-                                <div class="form-group col-8">
-                                    <label for="inputFuncao">Função</label>
-                                    <input type="text" class="form-control" id="inputFuncao" placeholder="Informe o Cargo" asp-for="Funcao">
-                                </div>
+                        <div class="form-group col-8">
+                            <label for="inputFuncao">Função</label>
+                            <input type="text" class="form-control" id="inputFuncao" placeholder="Informe o Cargo" asp-for="Funcao">
+                        </div>
 
-                                <div class="form-group col-8">
-                                    <label for="inputEmail">E-mail</label>
-                                    <input type="text" class="form-control" id="inputEmail" placeholder="Informe o E-mail" asp-for="Login_usuario">
-                                </div>
+                        <div class="form-group col-8">
+                            <label for="inputEmail">E-mail</label>
+                            <input type="text" class="form-control" id="inputEmail" placeholder="Informe o E-mail" asp-for="Login_usuario">
+                        </div>
 
-                                <div class="form-group col-8">
-                                    <label for="inputSenha">Senha</label>
-                                    <input type="password" class="form-control" id="inputSenha" placeholder="Informe a senha" asp-for="Senha_usuario">
-                                </div>
+                        <div class="form-group col-8">
+                            <label for="inputSenha">Senha</label>
+                            <input type="password" class="form-control" id="inputSenha" placeholder="Informe a senha" asp-for="Senha_usuario">
+                        </div>
 
-                                <div class="form-group col-8">
-                                    <label for="inputOficina">Oficina (*)</label>
-                                    <select id="oficina" required class="form-select" asp-for="Id_oficina">
-                                        <option>Selecione...</option>
-                                        @foreach (var oficina in ViewBag.BuscarOficinas)
+                        <div class="form-group col-8">
+                            <label for="inputOficina">Oficina (*)</label>
+                            <select id="oficina" required class="form-select" asp-for="Id_oficina">
+                                <option>Selecione...</option>
+                                @foreach (var oficina in ViewBag.BuscarOficinas)
                                 {
-                                         <option value="@oficina.Id_oficina">@oficina.Nome_oficina</option>
+                                    <option value="@oficina.Id_oficina">@oficina.Nome_oficina</option>
                                 }
-                                    </select>
-                                </div>
+                            </select>
+                        </div>
 
-                                <div class="form-group row">
-                                    <div class="form-group">
-                                        <small>(*) Campos obrigatórios</small>
-                                    </div>
-                                </div>
-
-                                <div class="form-group row pb-3 float-end">
-                                    <div class="col-sm-17">
-                                        <button type="submit" class="btn btn-success btn-sm" id="btnInsert" asp-action="InserirFuncionario">Inserir</button>
-                                        <button type="reset" class="btn btn-secondary btn-sm" id="btnClear">Limpar formulário</button>
-                                    </div>
-                                </div>
+                        <div class="form-group row">
+                            <div class="form-group">
+                                <small>(*) Campos obrigatórios</small>
                             </div>
-                        </form>
+                        </div>
+
+                        <div class="form-group row pb-3 float-end">
+                            <div class="col-sm-17">
+                                <button type="submit" class="btn btn-success btn-sm" id="btnInsert" asp-action="InserirFuncionario">Inserir</button>
+                                <button type="reset" class="btn btn-secondary btn-sm" id="btnClear">Limpar formulário</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
             }
         </div>
     </div>
@@ -197,40 +210,40 @@
                 </button>
             </div>
             @{
-                        <form asp-controller="Oficina">
-                            <input type="hidden" id="editIdFuncionario" asp-for="Id_funcionario" />
-                            <div class="modal-body">
-                                <div class="form-group col-8">
-                                    <label for="editFuncionarioNome">Nome (*)</label>
-                                    <input type="text" class="form-control" id="editFuncionarioNome" required placeholder="Informe o Nome" asp-for="Nome">
-                                </div>
+                <form asp-controller="Oficina">
+                    <input type="hidden" id="editIdFuncionario" asp-for="Id_funcionario" />
+                    <div class="modal-body">
+                        <div class="form-group col-8">
+                            <label for="editFuncionarioNome">Nome (*)</label>
+                            <input type="text" class="form-control" id="editFuncionarioNome" required placeholder="Informe o Nome" asp-for="Nome">
+                        </div>
 
-                                <div class="form-group col-8">
-                                    <label for="editFuncionarioFuncao">Função (*)</label>
-                                    <input type="text" class="form-control" id="editFuncionarioFuncao" required placeholder="Informe o Cargo" asp-for="Funcao">
-                                </div>
+                        <div class="form-group col-8">
+                            <label for="editFuncionarioFuncao">Função (*)</label>
+                            <input type="text" class="form-control" id="editFuncionarioFuncao" required placeholder="Informe o Cargo" asp-for="Funcao">
+                        </div>
 
-                                <div class="form-group col-8">
-                                    <label for="editFuncionarioOficina">Oficina (*)</label>
-                                    <select id="editFuncionarioOficina" required class="form-select" asp-for="Id_oficina">
-                                    </select>
-                                </div>
+                        <div class="form-group col-8">
+                            <label for="editFuncionarioOficina">Oficina (*)</label>
+                            <select id="editFuncionarioOficina" required class="form-select" asp-for="Id_oficina">
+                            </select>
+                        </div>
 
-                                <div class="form-group row">
-                                    <div class="form-group">
-                                        <small>(*) Campos obrigatórios</small>
-                                    </div>
-                                </div>
-
-                                <div class="form-group row pb-3 float-end">
-                                    <div class="col-sm-17">
-                                        <button type="submit" class="btn btn-warning btn-sm" id="btnUpdate" asp-action="AlterarFuncionario">Alterar</button>
-                                        <button type="submit" class="btn btn-danger btn-sm" id="btnDelete" asp-action="ExcluirFuncionario">Excluir</button>
-                                        <button type="reset" class="btn btn-secondary btn-sm" id="btnClear">Limpar formulário</button>
-                                    </div>
-                                </div>
+                        <div class="form-group row">
+                            <div class="form-group">
+                                <small>(*) Campos obrigatórios</small>
                             </div>
-                        </form>
+                        </div>
+
+                        <div class="form-group row pb-3 float-end">
+                            <div class="col-sm-17">
+                                <button type="submit" class="btn btn-warning btn-sm" id="btnUpdate" asp-action="AlterarFuncionario">Alterar</button>
+                                <button type="submit" class="btn btn-danger btn-sm" id="btnDelete" asp-action="ExcluirFuncionario">Excluir</button>
+                                <button type="reset" class="btn btn-secondary btn-sm" id="btnClear">Limpar formulário</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
             }
         </div>
     </div>
@@ -245,13 +258,13 @@
         for (i = 0; i < db.data.length; i++) {
             let contato = db.data[i];
             $("#table-contatos").append(`<tr><td scope="row">${contato.id}</td>
-                                                            <td>${contato.nome}</td>
-                                                            <td>${contato.matricula}</td>
-                                                            <td>${contato.email}</td>
-                                                            <td>${contato.cidade}</td>
-                                                            <td>${contato.categoria}</td>
-                                                            <td>${contato.website}</td>
-                                                        </tr>`);
+                                                                                <td>${contato.nome}</td>
+                                                                                <td>${contato.matricula}</td>
+                                                                                <td>${contato.email}</td>
+                                                                                <td>${contato.cidade}</td>
+                                                                                <td>${contato.categoria}</td>
+                                                                                <td>${contato.website}</td>
+                                                                            </tr>`);
         }
     }
     function init() {

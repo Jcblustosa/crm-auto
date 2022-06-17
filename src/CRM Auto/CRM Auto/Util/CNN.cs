@@ -8,8 +8,8 @@ namespace CRM_Auto.Util
     public class CNN
     {
         private const string _strCon = @"server=ns254.hostgator.com.br;" +
-                                    "user id=devacc56_homolog;" +
-                                    "password=sga6cmr#;" +
+                                    "user id=devacc56_rafa;" +
+                                    "password=sga6crm#R;" +
                                     "database=devacc56_CRMAUTO;" +
                                     "persistsecurityinfo=False";
         private string vsql = "";

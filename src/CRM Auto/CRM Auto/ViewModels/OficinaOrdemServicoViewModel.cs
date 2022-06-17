@@ -6,5 +6,11 @@ namespace CRM_Auto.ViewModels
     {
         public OrdemServico OrdemServico { get; set; }
         public ServicoModel Servico { get; set; }
+
+        public OficinaOrdemServicoViewModel()
+        {
+            OrdemServico = new OrdemServico();
+            Servico = new ServicoModel();
+        }
     }
 }
