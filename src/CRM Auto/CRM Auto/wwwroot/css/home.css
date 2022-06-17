@@ -19,12 +19,13 @@
     box-sizing: border-box
 }
 
-h2{
-   color: var(--text-color); 
+.title{
+   color: red; 
    padding-top: 2rem;
    height: 2rem;
    position: sticky;
    text-align: center;
+   align-content:center;
 }
 
 .container{
@@ -55,7 +56,6 @@ h2{
     align-items: center;
     justify-content: center
 }
-
 
 
 .footer {
