@@ -27,6 +27,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="Views\Oficina\Cadastro de oficina" />
     <None Remove="Views\Oficina\Cadastro de oficina - Cópia" />
   </ItemGroup>
 

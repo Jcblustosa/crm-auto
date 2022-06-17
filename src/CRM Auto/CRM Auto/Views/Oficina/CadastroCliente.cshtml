@@ -5,7 +5,7 @@
     Layout = "../Shared/_Layout_Cadastro_Cliente.cshtml";
 }
 <body id="body-pd">
-    <header class="header" id="header">
+    @*<header class="header" id="header">
         <div class="header_toggle">
             <i class='bx bx-menu' id="header-toggle"></i>
         </div>
@@ -71,12 +71,12 @@
                 <span class="nav_name">Sair</span>
             </a>
         </nav>
-    </div>
+    </div>*@
     <!--Container Main start-->
     <div id="idContainer">
         <!-- class="bg-light"-->
         @{
-            <form asp-controller="Cliente">
+            <form asp-controller="Oficina">
                 <div class="row">
                     <div class="row">
                         @*INPUT DO CNPJ*@
@@ -195,7 +195,7 @@
                                         <th class="tb-1" scope="col"></th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                @*<tbody>
                                     @foreach (ClienteVeiculo veiculo in ViewBag.ListarVeiculoCliente)
                                     {
                                             <tr>
@@ -215,7 +215,7 @@
                                                 </td>
                                             </tr>
                                     }
-                                </tbody>
+                                </tbody>*@
                             </table>
                         </div> <!-- FIM DIV ABA CADASTRO DE VEÍCULOS -->
                     </div> <!-- FIM DIV ABAS -->

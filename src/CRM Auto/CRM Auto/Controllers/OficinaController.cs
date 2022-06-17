@@ -87,6 +87,23 @@ namespace CRM_Auto.Controllers
             return RedirectToAction("Sucesso");
         }
 
+        public IActionResult BuscarOficinas()
+        {
+            try
+            {
+
+                OficinaModel oficina = new OficinaModel();
+                List<OficinaModel> lista = oficina.BuscarOficinas();
+                ViewBag.BuscarOficinas = oficina.BuscarOficinas();
+
+                return View("CadastroDeOficina");
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
         public IActionResult BuscarFuncionariosEOficinas()
         {
             try
@@ -106,16 +123,20 @@ namespace CRM_Auto.Controllers
             }
         }
 
-        [HttpPost]
-        public IActionResult AlterarFuncionario(FuncionarioModel funcionario)
+        public IActionResult ListarClientes()
         {
-            funcionario.AlterarFuncionario(funcionario);
+            try
+            {
+                ClienteModel cliente = new ClienteModel();
+                List<ClienteModel> lista = cliente.ListarClientes();
+                ViewBag.ListarClientes = cliente.ListarClientes();
 
-            TempData["msg"] = "Alteração realizada com sucesso!";
-            TempData["msgDetalhes"] = "A alteração do funcionário foi finalizada e você já pode consultar as informações atualizadas no sistema da sua oficina.";
-
-            return View("CadastroRealizadoComSucesso");
-
+                return View("ListaCliente");
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
 
         [HttpPost]
@@ -141,6 +162,7 @@ namespace CRM_Auto.Controllers
             ViewBag.ListaMecanicos = mecanico.ListarMecanicos(idOficina);
             return View();
         }
+
 
         [HttpPost]
         public List<string> BuscarPlacas(BuscaPlacas buscaPlacas)

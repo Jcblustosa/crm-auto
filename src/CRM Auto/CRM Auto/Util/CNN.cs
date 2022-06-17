@@ -12,7 +12,7 @@ namespace CRM_Auto.Util
                                     "password=sga6cmr#;" +
                                     "database=devacc56_CRMAUTO;" +
                                     "persistsecurityinfo=False";
-        private string vsql = "";
+        //private string vsql = "";
 
         public MySqlConnection objCon = null;
 
@@ -80,6 +80,23 @@ namespace CRM_Auto.Util
                 MySqlCommand.ExecuteNonQuery();
 
                 desconectar();
+            }
+
+            catch (MySqlException ex)
+            {
+                throw new Exception(ex.Message);
+            }
+
+        }
+
+        //Comando Insert, Update e Delete
+        public void DeleteData(string command)
+        {
+            MySqlCommand MySqlCommand = new MySqlCommand(command, objCon);
+
+            try
+            {
+                MySqlCommand.ExecuteNonQuery();
             }
 
             catch (MySqlException ex)
