@@ -1,7 +1,11 @@
-﻿using CRM_Auto.Models;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using CRM_Auto.Models;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using CRM_Auto.ViewModels;
 
 namespace CRM_Auto.Controllers
 {
@@ -40,7 +44,7 @@ namespace CRM_Auto.Controllers
                 HttpContext.Session.SetString("IdUsuario", nomeEId[1]);
                 TempData["NomeUsuario"] = HttpContextAccessor.HttpContext.Session.GetString("NomeUsuario");
                 TempData["IdUsuario"] = HttpContextAccessor.HttpContext.Session.GetString("IdUsuario");
-                return RedirectToAction("Index");
+                return RedirectToAction("BemVindoCliente");
             }
             return RedirectToAction("LoginCliente");
         }
