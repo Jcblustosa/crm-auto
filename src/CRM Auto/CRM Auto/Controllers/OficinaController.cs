@@ -97,7 +97,6 @@ namespace CRM_Auto.Controllers
             return RedirectToAction("Sucesso");
         }
 
-<<<<<<< HEAD
         public IActionResult BuscarOficinas()
         {
             try
@@ -115,9 +114,7 @@ namespace CRM_Auto.Controllers
             }
         }
 
-=======
         [HttpGet]
->>>>>>> c71f3f1f359cab2e128c869cde824e50a3560a43
         public IActionResult BuscarFuncionariosEOficinas()
         {
             try
@@ -144,17 +141,8 @@ namespace CRM_Auto.Controllers
                 ClienteModel cliente = new ClienteModel();
                 List<ClienteModel> lista = cliente.ListarClientes();
                 ViewBag.ListarClientes = cliente.ListarClientes();
-        [HttpGet]
-        public IActionResult BuscarOficinas()
-        {
-            try
-            {
 
-                OficinaModel oficina = new OficinaModel();
-                List<OficinaModel> lista = oficina.BuscarOficinas();
-                ViewBag.BuscarOficinas = oficina.BuscarOficinas();
-
-                return View("CadastroDeOficina");
+                return View("ListaCliente");
             }
             catch (Exception ex)
             {
