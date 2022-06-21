@@ -4,6 +4,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CRM_Auto.Models;
+using CRM_Auto.ViewModels;
 
 namespace CRM_Auto.Controllers
 {
@@ -70,18 +72,30 @@ namespace CRM_Auto.Controllers
         }
 
         // POST: CadastroCliente/Delete/5
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult Delete(int id, IFormCollection collection)
+        //{
+        //    try
+        //    {
+        //        return RedirectToAction(nameof(Index));
+        //    }
+        //    catch
+        //    {
+        //        return View();
+        //    }
+        //}
+
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public IActionResult ExcluirCliente(ClienteModel cliente)
         {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            cliente.ExcluirCliente(cliente);
+
+            TempData["msg"] = "Exclusão realizada com sucesso!";
+            TempData["msgDetalhes"] = "A exclusão do funcionário foi finalizada e você já pode consultar as informações atualizadas no sistema da sua oficina.";
+
+            return View("CadastroRealizadoComSucesso");
+
         }
     }
 }

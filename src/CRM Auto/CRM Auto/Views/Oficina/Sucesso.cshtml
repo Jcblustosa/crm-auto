@@ -7,13 +7,19 @@
 </div>
 <br />
 
+<<<<<<< HEAD
 <div class="toast-body" style="align-content:center; align-items:center; align-self:center;">
     <h1>Seja bem-vindo (a), <b>@TempData["Nome"]</b>!</h1>
+=======
+<div class="toast-body">
+    <h2>Seja bem-vindo (a), <b>@TempData["Nome"]</b>!</h2>
+>>>>>>> Back-end
     <br />
     <p>O que você deseja fazer?</p>
 </div>
 
 <div class="align-content-center" style="margin-left: 250px;">
+<<<<<<< HEAD
 
     @if (TempData["ordemEditada"] != null)
     {
@@ -27,14 +33,38 @@
             <div class="input-group col-sm">
                 <span class="input-group-text" id="basic-addon1"><i class="bi bi-search small"></i></span>
                 <input id="tableSearch" type="text" class="form-control col-5" placeholder="Pesquise uma ordem de serviço" aria-label="Username" aria-describedby="basic-addon1">
+=======
+    <div class="container justify-content-center">
+        <div class="row justify-content-center">
+            <div class="col-md-6" style="margin-right: -140px">
+<<<<<<< HEAD
+                <a type="button" class="btn btn-lg" style="font-weight: bold; height: 85px" 
+                    asp-controller="Oficina" asp-action="BuscarFuncionariosEOficinas">Menu funcionários</a>
+>>>>>>> Back-end
             </div>
-            <div class="col-sm">
-                <a class="btn btn-success btn-sm" asp-action="OrdemServico"><i class="bi bi-plus"></i> Cadastrar O.S.</a>
+
+            <div class="col-md-6">
+                <a type="button" class="btn btn-lg" style="font-weight: bold; height: 85px"
+                    asp-controller="Oficina" asp-action="ListarClientes">Menu clientes</a>
+=======
+                <a type="button" class="btn btn-lg" style="font-weight: bold; height: 85px" asp-controller="Oficina" asp-action="BuscarFuncionariosEOficinas">Menu funcionários</a>
+            </div>
+
+            <div class="col-md-6">
+                <a type="button" href="#" class="btn btn-lg" style="font-weight: bold; height: 85px">Menu clientes</a>
+>>>>>>> c71f3f1f359cab2e128c869cde824e50a3560a43
             </div>
         </div>
     </div>
 
+    <div class="container justify-content-center">
+<<<<<<< HEAD
+         <div class="row justify-content-center">
+            <div class="col-md-6" style="margin-right: -140px">
+                <a type="button" href="#" class="btn btn-lg" style="font-weight: bold; height: 85px">Menu oficinas</a>
+            </div>
 
+<<<<<<< HEAD
     <div onload="init" class="tbl-container bdr" asp-controller="Oficina">
         <input type="hidden" id="hiddenBuscarOficinas" />
         <table class="table align-middle mb-0 bg-white table-striped table-bordered" id="showTable">
@@ -49,12 +79,21 @@
                 </tr>
             </thead>
             <tbody id="table-contatos">
+=======
+            <div class="col-md-6">
+                <a type="button" class="btn btn-lg" style="font-weight: bold; height: 
+                    85px" asp-controller="Oficina" asp-action="CadastroVeiculo">Menu veículos</a>
+            </div>
+        </div>
+>>>>>>> Back-end
 
-                @foreach (SucessoModel os in ViewBag.ListaOS)
-                {
-                    <tr>
-                        <td scope="row">
+=======
+        <div class="row justify-content-center">
+            <div class="col-md-6" style="margin-right: -140px">
+                <a type="button" class="btn btn-lg" style="font-weight: bold; height: 85px" asp-controller="Oficina" asp-action="BuscarOficinas">Menu oficinas</a>
+            </div>
 
+<<<<<<< HEAD
                             <p class="fw-bold mb-1">@os.IdOrdemServico</p>
 
                         </td>
@@ -81,8 +120,25 @@
                 }
             </tbody>
         </table>
+=======
+            <div class="col-md-6">
+                <a type="button" class="btn btn-lg" style="font-weight: bold; height: 85px" asp-controller="Oficina" asp-action="CadastroVeiculo">Menu veículos</a>
+            </div>
+        </div>
+>>>>>>> Back-end
     </div>
 
+    <div class="container justify-content-center">
+        <div class="row justify-content-center">
+            <div class="col-md-6" style="margin-right: -140px">
+                <a type="button" class="btn btn-lg" style="font-weight: bold; height: 85px" asp-controller="Oficina" asp-action="BuscarServicos">Menu serviços</a>
+            </div>
+            <div class="col-md-6">
+                
+            </div>
+        </div>
+>>>>>>> c71f3f1f359cab2e128c869cde824e50a3560a43
+    </div>
 </div>
 <!-- Footer -->
 <footer class="bg-light text-center fixed-bottom">

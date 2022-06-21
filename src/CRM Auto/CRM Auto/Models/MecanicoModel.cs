@@ -13,7 +13,7 @@ namespace CRM_Auto.Models
         {
             List<MecanicoModel> mecanicos = new List<MecanicoModel>();
             string command = "SELECT ID_FUNCIONARIO, NOME FROM FUNCIONARIO " +
-                $"WHERE FUNCAO = 'Mecânico' AND ID_OFICINA = '{idOficina}'";
+                            $"WHERE FUNCAO = 'Mecânico' AND ID_OFICINA = '{idOficina}'";
 
             CNN cnn = new CNN();
             DataTable dt = cnn.GetData(command);

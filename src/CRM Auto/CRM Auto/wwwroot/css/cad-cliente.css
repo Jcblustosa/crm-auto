@@ -4,24 +4,24 @@
     --first-color: #5669a7;
     --first-color-light: #BACDDA;
     --second-color-light: #FDF9BC;
-    --third-color-light: #A5DCBF ;
+    --third-color-light: #A5DCBF;
     --white-color: #FDF7FF;
     --text-color: #051821;
     --body-font: 'Nunito', sans-serif;
     --normal-font-size: 0.9rem;
-    --z-fixed: 90
+    --z-fixed: 90;
 }
 
-#idContainer{
+#idContainer {
     font-family: var(--body-font);
     font-size: var(--normal-font-size);
 }
 
-.form-control{
+.form-control, .form-select {
     font-size: var(--normal-font-size);
 }
 
-.box-tipo-pessoa{
+.box-tipo-pessoa {
     border: 1px solid var(--first-color-light);
     border-radius: 4px;
     background-color: white;
@@ -29,47 +29,44 @@
     height: 35px;
 }
 
-.TabControl{
-    padding-left: 10px;
-    padding-right: 10px;
+.TabControl {
     width: 98%;
     overflow: hidden;
-    height: 420px;
+    height: 100%;
 }
 
-.TabControl #header{
+.TabControl #header {
     width: 100%;
     overflow: hidden;
-    cursor: hand;
 }
 
-.TabControl #content{
+.TabControl #content {
     width: 100%;
     border: 1px solid var(--first-color-light);
     overflow: hidden;
-    height: 80%;
+    height: 310px;
 }
 
-.TabControl .abas{
+.TabControl .abas {
     display: inline;
 }
 
-.TabControl .abas li{
+.TabControl .abas li {
     float: left;
     list-style: none;
 }
 
-.aba{
+.aba {
     width: 100px;
     height: 30px;
-    border:  1px solid var(--border-color);
+    border: 1px solid var(--border-color);
     border-radius: 5px 5px 0 0;
     text-align: center;
     padding-top: 5px;
     background: var(--first-color-light);
 }
 
-.ativa{
+.ativa {
     width: 100px;
     height: 30px;
     border: 1px solid var(--border-color);
@@ -79,15 +76,15 @@
     background: var(--first-color);
 }
 
-.ativa span, .selected span{
-    color:#fff;
+.ativa span, .selected span {
+    color: #fff;
 }
 
-.TabControl #content{
+.TabControl #content {
     background: var(--first-color-light); /*#27408B;*/
 }
 
-.TabControl .conteudo{
+.TabControl .conteudo {
     padding-left: 10px;
     padding-right: 10px;
     width: 100%;
@@ -96,7 +93,7 @@
     height: 100%;
 }
 
-.selected{
+.selected {
     width: 100px;
     height: 30px;
     border: 1px solid var(--border-color);
@@ -106,138 +103,82 @@
     background: var(--first-color);
 }
 
-#abaVeiculo .table{
+#abaVeiculo .table {
     width: 80%;
     font-size: 0.8rem;
 }
 
-.tb-item-veiculo{
+.tb-item-veiculo {
     width: 25px;
 }
 
-.tb-placa{
+.tb-placa {
     width: 55px;
 }
 
-.tb-veiculo{
+.tb-veiculo {
     width: 250px;
 }
 
-.tb-ano-modelo, .tb-km{
+.tb-ano-modelo, .tb-km {
     width: 85px;
 }
 
-form{
+form {
     padding: 3px 15px 15px 10px;
 }
 
-.form-group{
+.form-group {
     margin-top: 15px;
 }
 
-#estado{
-    width: 40px;
+.grupo-btn-comando {
+    /* border: soli d 1px; */
+    width: 310px;
+    float: right;
+    margin-top: 20px;
+    margin-right: 36px;
 }
 
-/* ESTILO DO FORMULÁRIO LOGRADOURO */
-
-/* #row-pg-1{
-    width: 88%;
+.btn-salvar, .btn-cancelar, .btn-excluir {
+    width: 100px;
 }
 
-#row-pg-2{
-    width: 120%;
-}
-
-#row-pg-3{
-    width: 112%;
-}
-
-#cep{
-    width: 128px;
-}
-
-#endereco{
-    width: 30rem;
-}
-
-#numero{
-    width: 80px;
-}
-
-#cidade, #estado{
-    width: 277px;
-}
-
-#complemento{
-    width: 300px;
-} */
-
-/*.body{font-family:Calibri, Tahoma, Arial}*/
-
-/* @media screen and (max-width: 1200x) {
-    .TabControl{
-        width: 80%;
-        overflow: hidden;
-        height: 100%;
-    }
-
-    #cep{
-        width: 128px;
-    }
-
-    #endereco{
-        width: 30rem;
-    }
-
-    #numero{
-        width: 80px;
-    }
-
-    #cidade, #estado{
-        width: 277px;
-    }
-
-    #complemento{
-        width: 400px;
-    }
-} */
 
 @media screen and (max-width: 768px) {
-    .TabControl{
+    .TabControl {
         width: 100%;
         overflow: hidden;
         height: 100%;
     }
 
-    #row-pg-1{
+    #row-pg-1 {
         width: 100%;
     }
 
-    #row-pg-2{
+    #row-pg-2 {
         width: 100%;
     }
 
     /* ESTILO DO FORMULÁRIO LOGRADOURO */
 
-    #cep{
+    #cep {
         width: 128px;
     }
 
-    #endereco{
+    #endereco {
         width: 26rem;
     }
 
-    #numero{
+    #numero {
         width: 80px;
     }
 
-    #cidade, #estado{
+    #cidade, #estado {
         width: 90px;
     }
 
-    #complemento{
+    #complemento {
         width: 300px;
     }
-
 }

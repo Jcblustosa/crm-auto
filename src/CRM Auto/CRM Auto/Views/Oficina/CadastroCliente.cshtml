@@ -1,0 +1,232 @@
+﻿@using CRM_Auto.Models
+@model ClienteModel
+
+@{
+    Layout = "../Shared/_Layout_Cadastro_Cliente.cshtml";
+}
+<body id="body-pd">
+    @*<header class="header" id="header">
+        <div class="header_toggle">
+            <i class='bx bx-menu' id="header-toggle"></i>
+        </div>
+        <div id="header_user" class="header_img">
+            <button id="dropdownMenuButton" type="button" class="btn btn-secondary btn-user dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="26" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 22">
+                    <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"></path>
+                    <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"></path>
+                </svg>
+            </button>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">Perfil</a>
+                <a class="dropdown-item" href="#">Configurações</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Sair</a>
+            </div>
+        </div>
+    </header>
+    <div class="l-navbar" id="nav-bar">
+        <nav class="nav">
+            <div>
+                <a href="#" class="nav_logo">
+                    <i class='bx bx-layer nav_logo-icon'></i>
+                    <span class="nav_logo-name">CRMAuto</span>
+                </a>
+                <div class="nav_list">
+                    <a href="#" class="nav_link active">
+                        <i class='bx bx-grid-alt nav_icon' data-bs-toggle="tooltip" title="Painel"></i>
+                        <span class="nav_name">Painel</span>
+                    </a>
+                    <a href="#" class="nav_link">
+                        <i class='bx bx-message-square-detail nav_icon' data-bs-toggle="tooltip" title="Ordens de serviços"></i>
+                        <span class="nav_name">Ordens de serviços</span>
+                    </a>
+                    <a href="#" class="nav_link">
+                        <i class='bx bx-bookmark nav_icon' data-bs-toggle="tooltip" title="Orçamentos"></i>
+                        <span class="nav_name">Orçamentos</span>
+                    </a>
+                    <a href="#" class="nav_link">
+                        <i class='bi bi-people nav_icon' data-bs-toggle="tooltip" title="Clientes"></i>
+                        <span class="nav_name">Clientes</span>
+                    </a>
+                    <a href="#" class="nav_link">
+                        <i class="bi bi-wrench-adjustable nav_icon" data-bs-toggle="tooltip" title="Oficina"></i>
+                        <span class="nav_name">Oficina</span>
+                    </a>
+                    <a href="#" class="nav_link">
+                        <i class='bi bi-person-video2 nav_icon' data-bs-toggle="tooltip" title="Funcionários"></i>
+                        <span class="nav_name">Funcionários</span>
+                    </a>
+                    <a href="#" class="nav_link">
+                        <i class='bx bx-bar-chart-alt-2 nav_icon' data-bs-toggle="tooltip" title="Relatórios"></i>
+                        <span class="nav_name">Relatórios</span>
+                    </a>
+                    <a href="#" class="nav_link">
+                        <i class='bx bx-user nav_icon' data-bs-toggle="tooltip" title="Usuários"></i>
+                        <span class="nav_name">Usuários</span>
+                    </a>
+                </div>
+            </div>
+            <a href="Homepage.html" class="nav_link">
+                <i class='bx bx-log-out nav_icon' data-bs-toggle="tooltip" title="Sair"></i>
+                <span class="nav_name">Sair</span>
+            </a>
+        </nav>
+    </div>*@
+    <!--Container Main start-->
+    <div id="idContainer">
+        <!-- class="bg-light"-->
+        @{
+            <form asp-controller="Oficina">
+                <div class="row">
+                    <div class="row">
+                        @*INPUT DO CNPJ*@
+                        <div class="form-group col-md-3">
+                            <label for="cpf_cnpj">Informe o CPF</label>
+                            <input type="text" class="form-control obrigatorio cpf" id="cpf_cnpj" name="cpf" 
+                            placeholder="11.222.333-33" maxlength="14" 
+                            asp-for="Cnpj_cpf" asp-controller="Cliente" asp-action="InserirCliente" >
+                        </div>
+                        @*SELECT PARA SELEÇÃO DO TIPO DE PESSOA: FÍSICA OU JURÍDICA*@
+                        <div class="form-group col-md-3">
+                            <label for="tipo-pessoa">Selecione o tipo de pessoa</label>
+                            <select id="tipo-pessoa" class="form-select" asp-for="Cnpj_ou_cpf">
+                                <option selected>Selecione...</option>
+                                <option value="F">Pessoa física</option>
+                                <option value="J">Pessoa jurídica</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label for="nomeCliente">Nome do cliente</label>
+                        <input type="text" class="form-control" id="nomeCliente" placeholder="Nome do cliente" asp-for="Nome_cliente">
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label for="idApelido">Apelido</label>
+                        <input type="text" class="form-control" id="idApelido" placeholder="Apelido do cliente" asp-for="Apelido">
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="idDtNascimento">Data de nascimento</label>
+                        <input type="date" class="form-control" id="idDtNascimento" placeholder="00/00/0000" asp-for="Data_nascimento">
+                    </div>
+                </div>
+
+                <div class="TabControl mt-3">
+                    <div id="header">
+                        <ul class="abas">
+                            <li onclick="AtivaAba('abaRes')">
+                                <div class="aba">
+                                    <span>Residencial</span>
+                                </div>
+                            </li>
+                            <li onclick="AtivaAba('abaVeiculo')">
+                                <div class="aba">
+                                    <span>Veículos</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div id="content">
+                        <div id="abaRes" class="conteudo" style="display: block">
+                            <!-- INÍCIO ABA RESIDENCIAL -->
+                            <div id="row-pg-1" class="row">
+                                <div id="app" class="form-group col-md-2">
+                                    <label for="cep">CEP</label>
+                                    <input type="text" class="form-control" v-model="cep" id="cep" onclick="this.value=''" maxlength="8" placeholder="" asp-for="Cep">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <!-- INÍCIO DIV CONTEÚDO DO FORM LOGRADOURO -->
+                                    <label for="endereco">Endereço</label>
+                                    <input type="text" class="form-control" id="endereco" placeholder="Rua, avenida, praça, fazenda..." asp-for="Logradouro">
+                                </div>
+                                <div class="form-group col-md-2">
+                                    <label for="numero">Número</label>
+                                    <input type="text" class="form-control" id="numero" asp-for="Numero">
+                                </div>
+                            </div> <!-- FIM DIV CONTEÚDO DO FORM LOGRADOURO -->
+
+                            <div id="row-pg-2" class="row">
+                                <div class="form-group col-md-3">
+                                    <label for="bairro">Bairro</label>
+                                    <input type="text" class="form-control" id="bairro" asp-for="Bairro">
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label for="cidade">Cidade</label>
+                                    <input type="text" class="form-control" id="cidade" asp-for="Cidade">
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label for="estado">Estado</label>
+                                    <input type="text" class="form-control" id="estado" asp-for="Estado">
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label for="complemento">Complemento</label>
+                                    <input type="text" class="form-control" id="complemento" placeholder="Apartamento, casa, lote..." asp-for="Complemento">
+                                </div>
+                            </div>
+
+                            <div id="row-pg-3" class="row">
+                                <!-- INICIO DIV CIDADE E ESTADO -->
+                                <div class="form-group col-md-2">
+                                    <label for="telefone">Telefone</label>
+                                    <input type="tel" class="form-control" id="telefone" placeholder="(98) 9999-8888" asp-for="Telefone">
+                                </div>
+                                <div class="form-group col-md-2">
+                                    <label for="celular">Celuar</label>
+                                    <input type="tel" class="form-control" id="celular" placeholder="(98) 98888-7777" asp-for="Celular">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="email">Email</label>
+                                    <input type="email" class="form-control email" id="email" placeholder="crm.auto@crmauto.com.br" asp-for="Email_nf">                                
+                                </div>
+                            </div> <!-- FIM DIV CIDADE E ESTADO -->
+                        </div> <!-- FIM ABA RESIDENCIAL-->
+
+                        <div id="abaVeiculo" class="conteudo" style="display: none">
+                            <!-- INÍCIO DIV ABA CADASTRO DE VEÍCULOS -->
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th class="tb-item-veiculo" scope="col">#</th>
+                                        <th class="tb-placa" scope="col">Placa</th>
+                                        <th class="tb-veiculo" scope="col">Veículo</th>
+                                        <th class="tb-ano-modelo" scope="col">Ano modelo</th>
+                                        <th class="tb-km" scope="col">KM atual</th>
+                                        <th class="tb-1" scope="col"></th>
+                                    </tr>
+                                </thead>
+                                @*<tbody>
+                                    @foreach (ClienteVeiculo veiculo in ViewBag.ListarVeiculoCliente)
+                                    {
+                                            <tr>
+                                                <td scope="row">
+                                                    <div class="d-flex align-items-center">
+                                                        <p class="fw-normal mb-1" id="cliVeiculo">@veiculo.Placa_modelo</p>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <p class="fw-normal mb-1">@veiculo.Modelo_carro</p>
+                                                </td>
+                                                <td>
+                                                    <p class="fw-normal mb-1">@veiculo.Ano_modelo</p>
+                                                </td>
+                                                <td>
+                                                    <p class="fw-normal mb-1">@veiculo.Cor"></p>
+                                                </td>
+                                            </tr>
+                                    }
+                                </tbody>*@
+                            </table>
+                        </div> <!-- FIM DIV ABA CADASTRO DE VEÍCULOS -->
+                    </div> <!-- FIM DIV ABAS -->
+                </div>
+                <div class="grupo-btn-comando">
+                    <input type="submit" id="salvar" name="salvar" class="btn btn-primary btn-salvar" value="Salvar" asp-action="InserirCliente">
+                    <input type="submit" id="cancelar" name="cancelar" class="btn btn-danger btn-cancelar" value="Cancelar">
+                    <input type="submit" id="excluir" name="excluir" class="btn btn-dark btn-excluir" value="Excluir" asp-action="ExcluirCliente">
+                </div>
+            </form>
+        }
+    </div> <!-- FIM DIV CONTAINER -->
+</body>
+@*</html>*@
