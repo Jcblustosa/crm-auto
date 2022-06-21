@@ -6,12 +6,14 @@ using System.Linq;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using CRM_Auto.ViewModels;
+using AngleSharp.Html.Dom;
 
 namespace CRM_Auto.Controllers
 {
     public class OficinaController : Controller
     {
         private IHttpContextAccessor HttpContextAccessor;
+
         public OficinaController(IHttpContextAccessor httpContextAccessor)
         {
             HttpContextAccessor = httpContextAccessor;
@@ -38,7 +40,6 @@ namespace CRM_Auto.Controllers
             }
             return RedirectToAction("LoginColaborador");
         }
-
         public IActionResult Sucesso()
         {
             SucessoModel sucesso = new SucessoModel();
@@ -77,20 +78,46 @@ namespace CRM_Auto.Controllers
         [HttpPost]
         public IActionResult InserirFuncionario(FuncionarioModel funcionario)
         {
-            
+
             funcionario.InserirFuncionario(funcionario);
 
             bool resultadoInsercao = funcionario.ValidarInsercaoFuncionario(funcionario);
             if (resultadoInsercao)
             {
-                TempData["msg"] = "Inclusão realizada com sucesso!";
-                TempData["msgDetalhes"] = "O cadastro do funcionário foi finalizado e você já pode consultá-lo no sistema da sua oficina.";
+                TempData["msg"] = "Funcionário incluído com sucesso!";
 
-                return View("CadastroRealizadoComSucesso");
+                ViewBag.BuscarFuncionarios = funcionario.BuscarFuncionarios();
+
+                OficinaModel oficina = new OficinaModel();
+                List<OficinaModel> lista = oficina.BuscarOficinas();
+                ViewBag.BuscarOficinas = lista.Select(o => new { o.Id_oficina, o.Nome_oficina });
+
+                return View("CadastroDeFuncionario");
             }
             return RedirectToAction("Sucesso");
         }
 
+<<<<<<< HEAD
+        public IActionResult BuscarOficinas()
+        {
+            try
+            {
+
+                OficinaModel oficina = new OficinaModel();
+                List<OficinaModel> lista = oficina.BuscarOficinas();
+                ViewBag.BuscarOficinas = oficina.BuscarOficinas();
+
+                return View("CadastroDeOficina");
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+=======
+        [HttpGet]
+>>>>>>> c71f3f1f359cab2e128c869cde824e50a3560a43
         public IActionResult BuscarFuncionariosEOficinas()
         {
             try
@@ -110,6 +137,14 @@ namespace CRM_Auto.Controllers
             }
         }
 
+        public IActionResult ListarClientes()
+        {
+            try
+            {
+                ClienteModel cliente = new ClienteModel();
+                List<ClienteModel> lista = cliente.ListarClientes();
+                ViewBag.ListarClientes = cliente.ListarClientes();
+        [HttpGet]
         public IActionResult BuscarOficinas()
         {
             try
@@ -132,10 +167,15 @@ namespace CRM_Auto.Controllers
         {
             funcionario.AlterarFuncionario(funcionario);
 
-            TempData["msg"] = "Alteração realizada com sucesso!";
-            TempData["msgDetalhes"] = "A alteração do funcionário foi finalizada e você já pode consultar as informações atualizadas no sistema da sua oficina.";
+            TempData["msg"] = "Funcionário alterado com sucesso!";
 
-            return View("CadastroRealizadoComSucesso");
+            ViewBag.BuscarFuncionarios = funcionario.BuscarFuncionarios();
+
+            OficinaModel oficina = new OficinaModel();
+            List<OficinaModel> lista = oficina.BuscarOficinas();
+            ViewBag.BuscarOficinas = lista.Select(o => new { o.Id_oficina, o.Nome_oficina });
+
+            return View("CadastroDeFuncionario");
 
         }
 
@@ -147,21 +187,31 @@ namespace CRM_Auto.Controllers
             TempData["msg"] = "Alteração realizada com sucesso!";
             TempData["msgDetalhes"] = "A alteração da oficina foi finalizada e você já pode consultar as informações atualizadas no sistema da sua oficina.";
 
-
             return View("CadastroRealizadoComSucesso");
 
+                return View("ListaCliente");
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
 
         [HttpPost]
         public IActionResult ExcluirFuncionario(FuncionarioModel funcionario)
         {
- 
+
             funcionario.ExcluirFuncionario(funcionario);
 
-            TempData["msg"] = "Exclusão realizada com sucesso!";
-            TempData["msgDetalhes"] = "A exclusão do funcionário foi finalizada e você já pode consultar as informações atualizadas no sistema da sua oficina.";
+            TempData["msg"] = "Funcionário excluído com sucesso!";
 
-            return View("CadastroRealizadoComSucesso");
+            ViewBag.BuscarFuncionarios = funcionario.BuscarFuncionarios();
+
+            OficinaModel oficina = new OficinaModel();
+            List<OficinaModel> lista = oficina.BuscarOficinas();
+            ViewBag.BuscarOficinas = lista.Select(o => new { o.Id_oficina, o.Nome_oficina });
+
+            return View("CadastroDeFuncionario");
 
         }
 
@@ -175,6 +225,7 @@ namespace CRM_Auto.Controllers
             ViewBag.ListaMecanicos = mecanico.ListarMecanicos(idOficina);
             return View();
         }
+
 
         [HttpPost]
         public List<string> BuscarPlacas(BuscaPlacas buscaPlacas)
@@ -247,5 +298,47 @@ namespace CRM_Auto.Controllers
             return RedirectToAction("Sucesso");
         }
    
+        [HttpGet]
+        public IActionResult BuscarServicos()
+        {
+            try
+            {
+                ServicoModel servico = new ServicoModel();
+                ViewBag.BuscarServicos = servico.BuscarServicos();
+
+                return View("Servicos");
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        [HttpPost]
+        public IActionResult InserirNovoServico(ServicoModel servico)
+        {
+            servico.InserirNovoServico(servico);
+
+            ViewBag.BuscarServicos = servico.BuscarServicos();
+            TempData["servicoIncluido"] = "Serviço cadastrado com sucesso!";
+
+            return View("Servicos");
+
+        }
+
+        [HttpGet]
+        public IActionResult GerarRelatorioEmPDFFuncionarios()
+        {
+            FuncionarioModel funcionario = new FuncionarioModel();
+            funcionario.GerarRelatorioEmPDF();
+
+            ViewBag.BuscarFuncionarios = funcionario.BuscarFuncionarios();
+
+            OficinaModel oficina = new OficinaModel();
+            List<OficinaModel> lista = oficina.BuscarOficinas();
+            ViewBag.BuscarOficinas = lista.Select(o => new { o.Id_oficina, o.Nome_oficina });
+
+            return View("CadastroDeFuncionario");
+        }
     }
 }
