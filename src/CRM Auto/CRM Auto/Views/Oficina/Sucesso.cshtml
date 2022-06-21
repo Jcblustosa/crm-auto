@@ -1,41 +1,75 @@
 ﻿@{
-    Layout = "../Shared/_Layout_Menu_Funcionario.cshtml";
+    Layout = "../Shared/_Layout_Cadastro_Funcionario.cshtml";
 }
 
-<div class="container-fluid p-1 rounded" style="background-color: #687A86">
-    <img src="~/img/crmauto.jpg" alt="CRM Auto" width="120" height="70" style="margin-left: 1rem;"><span class="navbar-brand mb-0 h1" style="color:antiquewhite;">Painel de controle da oficina</span>
+<header class="header" id="header">
+    <div class="header_toggle">
+        <i class='bx bx-menu' id="header-toggle"></i>
+    </div>
+</header>
+
+<div class="l-navbar" id="nav-bar">
+    <nav class="nav">
+        <div>
+            <div href="#" class="col p-2">
+                <img src="~/img/crmautodark.jpg" class="img-fluid" alt="CRM Auto" style="width: 60%; height: auto; margin-left: -10px; margin-top: -15px;">
+            </div>
+            <div class="nav_list">
+                <a href="/Oficina/Sucesso" class="nav_link active">
+                    <i class='bx bx-grid-alt nav_icon' data-bs-toggle="tooltip" title="Painel"></i>
+                    <span class="nav_name">Painel</span>
+                </a>
+                <a href="#" class="nav_link">
+                    <i class='bx bx-message-square-detail nav_icon' data-bs-toggle="tooltip" title="Ordens de serviços"></i>
+                    <span class="nav_name">Ordens de serviços</span>
+                </a>
+                <a href="#" class="nav_link">
+                    <i class='bi bi-people nav_icon' data-bs-toggle="tooltip" title="Clientes"></i>
+                    <span class="nav_name">Clientes</span>
+                </a>
+                <a href="#" class="nav_link">
+                    <i class="bi bi-wrench-adjustable nav_icon" data-bs-toggle="tooltip" title="Oficina"></i>
+                    <span class="nav_name">Oficina</span>
+                </a>
+                <a href="#" class="nav_link">
+                    <i class='bi bi-person-video2 nav_icon' data-bs-toggle="tooltip" title="Funcionários"></i>
+                    <span class="nav_name">Funcionários</span>
+                </a>
+                <a href="#" class="nav_link">
+                    <i class='bx bx-bar-chart-alt-2 nav_icon' data-bs-toggle="tooltip" title="Relatórios"></i>
+                    <span class="nav_name">Relatórios</span>
+                </a>
+            </div>
+        </div>
+        <a href="Homepage.html" class="nav_link">
+            <i class='bx bx-log-out nav_icon' data-bs-toggle="tooltip" title="Sair"></i>
+            <span class="nav_name">Sair</span>
+        </a>
+    </nav>
 </div>
-<br />
 
-<div class="toast-body" style="align-content:center; align-items:center; align-self:center;">
-    <h1>Seja bem-vindo (a), <b>@TempData["Nome"]</b>!</h1>
-    <br />
-    <p>O que você deseja fazer?</p>
-</div>
-
-<div class="align-content-center" style="margin-left: 250px;">
-
+<div class="mx-auto" id="main">
+    <h2 style="font-weight: bold; margin-top: 70px; margin-bottom: 30px">Seja bem-vindo (a), <b>@TempData["Nome"]</b>!</h2>
     @if (TempData["ordemEditada"] != null)
     {
         <div class="alert alert-warning">
             @TempData["ordemEditada"]
         </div>
     }
-
     <div class="container">
         <div class="row">
             <div class="input-group col-sm">
                 <span class="input-group-text" id="basic-addon1"><i class="bi bi-search small"></i></span>
-                <input id="tableSearch" type="text" class="form-control col-5" placeholder="Pesquise uma ordem de serviço" aria-label="Username" aria-describedby="basic-addon1">
+                <input id="tableSearch" type="text" class="form-control col-5" placeholder="Pesquisar ordem de serviço" aria-label="Username" aria-describedby="basic-addon1">
             </div>
             <div class="col-sm">
-                <a class="btn btn-success btn-sm" asp-action="OrdemServico"><i class="bi bi-plus"></i> Cadastrar O.S.</a>
+                <a class="btn btn-success">Pesquisar</a>
             </div>
         </div>
     </div>
 
 
-    <div onload="init" class="tbl-container bdr" asp-controller="Oficina">
+    <div onload="init" class="tbl-container bdr">
         <input type="hidden" id="hiddenBuscarOficinas" />
         <table class="table align-middle mb-0 bg-white table-striped table-bordered" id="showTable">
             <thead class="bg-light">
@@ -73,9 +107,9 @@
                         <td>
                             <a class="btn btn-sm btn-outline-dark">Exibir detalhes</a>
                             <form asp-action="EditarOS">
-                                <input type="hidden" value="@os.IdOrdemServico" name="id"/>
+                                <input type="hidden" value="@os.IdOrdemServico" name="id" />
                                 <input type="submit" class="btn btn-sm btn-outline-warning" value="Editar" />
-                            </form> 
+                            </form>
                         </td>
                     </tr>
                 }
@@ -84,6 +118,9 @@
     </div>
 
 </div>
+
+
+
 <!-- Footer -->
 <footer class="bg-light text-center fixed-bottom">
     <!-- Copyright -->
