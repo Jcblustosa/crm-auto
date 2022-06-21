@@ -14,6 +14,7 @@ namespace CRM_Auto.Models
     internal class ArrayListServico<T> : List<ServicoModel>
     {
     }
+    
     internal class ArrayListCliente<T> : List<ClienteModel>
     {
         public List<ClienteModel> Cliente { get; set; }
