@@ -1,103 +1,106 @@
 ﻿@using CRM_Auto.Models
 @model ClienteModel
 
-@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
 @{
     Layout = "../Shared/_Layout_Cadastro_Cliente.cshtml";
 }
+  
+<div class="mx-auto" id="main"> 
+    <h2>Lista de cliente</h2>
 
-    <div class="mx-auto" id="main"> 
-        <h1>Clientes</h1>
-
-        <div class="container">
-            <div class="row">
-                <div class="input-group col-sm">
-                    <span class="input-group-text" id="basic-addon1"><i class="bi bi-search small"></i></span>
-                    <input id="tableSearch" type="text" class="form-control col-5" placeholder="Pesquise um cliente" aria-label="Username" aria-describedby="basic-addon1">
-                </div>
-                <div class="col-sm mt-2 mb-2">
-                    <a type="button" class="btn btn-success btn-sm" asp-controller="Oficina" asp-action="CadastroCliente"><i class="bi bi-plus">Novo cliente</a>
-                </div>
+    <div class="container">
+        <div class="row">
+            <div class="input-group inp-pesquisa">
+                <span class="input-group-text" id="basic-addon1"><i class="bi bi-search small"></i></span>
+                <input id="tableSearch" type="text" class="form-control col-5" placeholder="Pesquise um cliente" aria-label="Username" aria-describedby="basic-addon1">
+            </div>
+            <div class="input-group btn-novo-cadastro">
+                <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#addFuncionario"><i class="bi bi-plus"></i> Novo cliente</button>
             </div>
         </div>
-
-        @{
-            <div onload="init" class="tbl-container bdr" asp-controller="Oficina">
-                <table class="table align-middle mb-0 bg-white table-striped table-bordered" id="showTable">
-                    <thead class="bg-light">
-                        <tr>
-                            <th>Nome</th>
-                            <th>Nº documento</th>
-                            <th>Contato</th>
-                            <th>Ordem serviço</th>
-                            <th>Ações</th>
-                        </tr>
-                    </thead>
-                    <tbody id="table-lista-cliente">
-
-                        @foreach (ClienteModel cliente in ViewBag.ListarClientes)
-                        {
-                            <tr>
-                                <td scope="row">
-                                    <p class="fw-bold mb-1">@cliente.Nome_cliente</p>
-                                    <p class="text-muted mb-0">@cliente.Apelido</p>
-                                </td>
-                                <td>
-                                    <p class="fw-normal mb-1">@cliente.Cnpj_cpf</p>
-                                </td>
-                                <td>
-                                    <p class="fw-normal mb-1">@cliente.Email_nf</p>
-                                    <p class="fw-normal mb-1">@cliente.Celular</p>
-                                </td>
-                                <td>
-                                    <p class="fw-normal mb-1">Em aberto: @cliente.Cep</p>
-                                    <p class="fw-normal mb-1">Em concluída: @cliente.Numero</p>
-                                </td>
-                                <td>
-                                    <button type="button"
-                                        lass="btn btn-link btn-rounded btn-sm fw-bold"
-                                        data-mdb-ripple-color="dark" data-placement="right" title="Edit" data-toggle="modal" data-target="#editaCliente"
-                                        value="@System.Text.Json.JsonSerializer.Serialize(cliente)">
-                                        <i class="bi bi-pencil-fill"></i>
-                                    </button>
-                                </td>
-                            </tr>
-                        }
-                    </tbody>
-                </table>
-            </div>
-        }
     </div>
+    @{
+        <div onload="init" class="tbl-container bdr" asp-controller="Oficina">
+            <table class="table align-middle mb-0 bg-white table-striped table-bordered" id="showTable">
+                <thead class="bg-light">
+                    <tr>
+                        <th>Nome</th>
+                        <th>Nº documento</th>
+                        <th>Contato</th>
+                        <th>Ordem serviço</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody id="table-lista-cliente">
 
-<!-- MODAL PARA CADASTRO E EDIÇÃO DE CLINTES ---------------------------------------------------------------------------->
-@{
-    <div class="modal fade modal-fullscreen-xl hide modal" id="editaCliente" tabindex="-1" role="dialog" aria-labelledby="addOficinaLabel" aria-hidden="true" style="width: 100% !important; border: 0">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header border-bottom-0">
-                    <h5 class="modal-title" id="addOficinaLabel">Cadastro de novo cliente</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" asp-controller="Oficina" asp-action="ListarClientes">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
+                    @foreach (ClienteModel cliente in ViewBag.ListarClientes)
+                    {
+                        <tr>
+                            <td scope="row">
+                                <p class="fw-bold mb-1">@cliente.Nome_cliente</p>
+                                <p class="text-muted mb-0">@cliente.Apelido</p>
+                            </td>
+                            <td>
+                                <p class="fw-normal mb-1">@cliente.Cnpj_cpf</p>
+                            </td>
+                            <td>
+                                <p class="fw-normal mb-1">@cliente.Email_nf</p>
+                                <p class="fw-normal mb-1">@cliente.Celular</p>
+                            </td>
+                            <td>
+                                <p class="fw-normal mb-1">Em aberto: @cliente.Cep</p>
+                                <p class="fw-normal mb-1">Em concluída: @cliente.Numero</p>
+                            </td>
+                            <td>
+                                <button type="button"
+                                    lass="btn btn-link btn-rounded btn-sm fw-bold"
+                                    data-mdb-ripple-color="dark" data-placement="right" title="Edit" data-toggle="modal" data-target="#editaCliente"
+                                    value="@System.Text.Json.JsonSerializer.Serialize(cliente)">
+                                    <i class="bi bi-pencil-fill"></i>
+                                </button>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+</div>
 
-                <form asp-controller="Oficina">
+@* MODAL PARA CADASTRO E EDIÇÃO DE CLINTES *@
+<div class="modal fade bd-example-modal-lg" id="editFuncionario" tabindex="-1" role="dialog" aria-labelledby="addClienteLabel" aria-hidden="true" style="width: 100% !important; border: 0">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            @{
+                <form asp-controller="Oficina" asp-action="SalvarRegistroCliente">
                     <div class="modal-body">
-                        
                         <div class="row">
-                            <div class="form-group col-md-6">
-                                <label for="nomeCliente">Nome do cliente</label>
-                                <input type="text" class="form-control" id="nomeCliente" placeholder="Nome do cliente" asp-for="Nome_cliente">
-                            </div>
-                            <div class="form-group col-md-2">
-                                <label for="idApelido">Apelido</label>
-                                <input type="text" class="form-control" id="idApelido" placeholder="Apelido do cliente" asp-for="Apelido">
+                            <div class="form-group col-md-3">
+                                <label for="cpf_cnpj">Informe o CPF</label>
+                                <input type="text" class="form-control obrigatorio cpf" id="cpf_cnpj" name="cpf" placeholder="11.222.333-33" maxlength="14">
                             </div>
                             <div class="form-group col-md-3">
-                                <label for="idDtNascimento">Data de nascimento</label>
-                                <input type="date" class="form-control" id="idDtNascimento" placeholder="00/00/0000" asp-for="Data_nascimento">
+                                <label for="tipo-pessoa">Selecione o tipo de pessoa</label>
+                                <select name="tipoPessoa" id="tipo-pessoa" class="form-select">
+                                    <option selected>Selecione...</option>
+                                    <option value="F">Pessoa física</option>
+                                    <option value="J">Pessoa jurídica</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="row linhas">
+                            <div class="form-group col-md-7">
+                                <label for="nomeCliente">Nome do cliente</label>
+                                <input type="text" class="form-control" id="nomeCliente" placeholder="Nome do cliente">
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="idApelido">Apelido</label>
+                                <input type="text" class="form-control" id="idApelido" placeholder="Apelido do cliente">
+                            </div>
+                            <div class="form-group col-md-2">
+                                <label for="idDtNascimento">Data nascimento</label>
+                                <input type="text" class="form-control" id="idDtNascimento" placeholder="00/00/0000">
                             </div>
                         </div>
 
@@ -105,7 +108,7 @@
                             <div id="header">
                                 <ul class="abas">
                                     <li onclick="AtivaAba('abaRes')">
-                                        <div class="aba">
+                                        <div class="aba" >
                                             <span>Residencial</span>
                                         </div>
                                     </li>
@@ -117,62 +120,86 @@
                                 </ul>
                             </div>
                             <div id="content">
-                                <div id="abaRes" class="conteudo" style="display: block">
-                                    <!-- INÍCIO ABA RESIDENCIAL -->
+                                <div id="abaRes" class="conteudo" style="display: block"> @*<!-- INÍCIO ABA RESIDENCIAL -->*@
                                     <div id="row-pg-1" class="row">
                                         <div id="app" class="form-group col-md-2">
                                             <label for="cep">CEP</label>
-                                            <input type="text" class="form-control" v-model="cep" id="cep" onclick="this.value=''" maxlength="8" placeholder="" asp-for="Cep">
+                                            <input type="text" class="form-control" v-model="cep" id="cep" onclick="this.value=''" maxlength="8" placeholder="" value="">
                                         </div>
-                                        <div class="form-group col-md-6">
-                                            <!-- INÍCIO DIV CONTEÚDO DO FORM LOGRADOURO -->
+                                        <div class="form-group col-md-8"> @*<!-- INÍCIO DIV CONTEÚDO DO FORM LOGRADOURO -->*@
                                             <label for="endereco">Endereço</label>
-                                            <input type="text" class="form-control" id="endereco" placeholder="Rua, avenida, praça, fazenda..." asp-for="Logradouro">
+                                            <input type="text" class="form-control" id="endereco" placeholder="Rua, avenida, praça, fazenda...">
                                         </div>
                                         <div class="form-group col-md-2">
                                             <label for="numero">Número</label>
-                                            <input type="text" class="form-control" id="numero" asp-for="Numero">
+                                            <input type="text" class="form-control" id="numero" placeholder="">
                                         </div>
-                                    </div> <!-- FIM DIV CONTEÚDO DO FORM LOGRADOURO -->
-
+                                    </div> @*<!-- FIM DIV CONTEÚDO DO FORM LOGRADOURO -->*@
+                                    
                                     <div id="row-pg-2" class="row">
-                                        <div class="form-group col-md-3">
+                                        <div class="form-group col-md-5">
                                             <label for="bairro">Bairro</label>
-                                            <input type="text" class="form-control" id="bairro" asp-for="Bairro">
+                                            <input type="text" class="form-control" id="bairro">
                                         </div>
-                                        <div class="form-group col-md-3">
+                                        <div class="form-group col-md-5">
                                             <label for="cidade">Cidade</label>
-                                            <input type="text" class="form-control" id="cidade" asp-for="Cidade">
+                                            <input type="text" class="form-control" id="cidade">
                                         </div>
-                                        <div class="form-group col-md-3">
+                                        <div class="form-group col-md-2">
                                             <label for="estado">Estado</label>
-                                            <input type="text" class="form-control" id="estado" asp-for="Estado">
-                                        </div>
-                                        <div class="form-group col-md-4">
-                                            <label for="complemento">Complemento</label>
-                                            <input type="text" class="form-control" id="complemento" placeholder="Apartamento, casa, lote..." asp-for="Complemento">
+                                            <select id="estado" class="form-select">
+                                                <option value="AC">AC</option>
+                                                <option value="AL">AL</option>
+                                                <option value="AM">AM</option>
+                                                <option value="AP">AP</option>
+                                                <option value="BA">BA</option>
+                                                <option value="CE">CE</option>
+                                                <option value="DF">DF</option>
+                                                <option value="ES">ES</option>
+                                                <option value="GO">GO</option>
+                                                <option value="MA">MA</option>
+                                                <option value="MG">MG</option>
+                                                <option value="MS">MS</option>
+                                                <option value="MT">MT</option>
+                                                <option value="PA">PA</option>
+                                                <option value="PB">PB</option>
+                                                <option value="PE">PE</option>
+                                                <option value="PI">PI</option>
+                                                <option value="PR">PR</option>
+                                                <option value="RJ">RJ</option>
+                                                <option value="RN">RN</option>
+                                                <option value="RO">RO</option>
+                                                <option value="RR">RR</option>
+                                                <option value="RS">RS</option>
+                                                <option value="SC">SC</option>
+                                                <option value="SE">SE</option>
+                                                <option value="SP">SP</option>
+                                                <option value="TO">TO</option>
+                                            </select>
                                         </div>
                                     </div>
-
-                                    <div id="row-pg-3" class="row">
-                                        <!-- INICIO DIV CIDADE E ESTADO -->
-                                        <div class="form-group col-md-2">
-                                            <label for="telefone">Telefone</label>
-                                            <input type="tel" class="form-control" id="telefone" placeholder="(98) 9999-8888" asp-for="Telefone">
+                                    <div class="row">
+                                        <div class="form-group col-md-12">
+                                            <label for="complemento">Complemento</label>
+                                            <input type="text" class="form-control" id="complemento" placeholder="Apartamento, casa, lote...">
                                         </div>
-                                        <div class="form-group col-md-2">
+                                    </div>
+                                    <div id="row-pg-3" class="row"> @*<!-- INICIO DIV CIDADE E ESTADO -->*@
+                                        <div class="form-group col-md-3">
+                                            <label for="telefone">Telefone</label>
+                                            <input type="tel" class="form-control" id="telefone" placeholder="(98) 9999-8888" asp-for="telefone">
+                                        </div>
+                                        <div class="form-group col-md-3">
                                             <label for="celular">Celuar</label>
-                                            <input type="tel" class="form-control" id="celular" placeholder="(98) 98888-7777" asp-for="Celular">
+                                            <input type="tel" class="form-control" id="celular" placeholder="(98) 98888-7777" asp-for="celular">
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label for="email">Email</label>
-                                            <input type="email" class="form-control email" id="email" placeholder="crm.auto@crmauto.com.br" asp-for="Email_nf">                                
+                                            <input type="email" class="form-control email" id="email" placeholder="crm.auto@crmauto.com.br" asp-for="email_nf">
                                         </div>
-                                    </div> <!-- FIM DIV CIDADE E ESTADO -->
-                                </div> <!-- FIM ABA RESIDENCIAL-->
-
-                                <div id="abaVeiculo" class="conteudo" style="display: none">
-                                    <!-- INÍCIO DIV ABA CADASTRO DE VEÍCULOS -->
+                                    </div> @*<!-- FIM DIV CIDADE E ESTADO -->*@
+                                </div> @*<!-- FIM ABA RESIDENCIAL-->*@
+                                <div id="abaVeiculo" class="conteudo" style="display: none"> @*<!-- INÍCIO DIV ABA CADASTRO DE VEÍCULOS -->*@
                                     <table class="table">
                                         <thead>
                                             <tr>
@@ -184,116 +211,51 @@
                                                 <th class="tb-1" scope="col"></th>
                                             </tr>
                                         </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row">1</th>
+                                                <td>ABC9D88</td>
+                                                <td>CRUZE SPORT6 LTZ</td>
+                                                <td>2018/2018</td>
+                                                <td>36123</td>
+                                                <td>
+                                                    <button type="button" class="btn btn-link btn-rounded btn-sm fw-bold" data-mdb-ripple-color="prymary" 
+                                                        data-placement="right" data-bs-toggle="tooltip" title="Detalhe" data-toggle="modal" data-target="#deleteClienteVeiculo">
+                                                        <i class="bi bi-view-list"></i>
+                                                    </button>
+            
+                                                    <button type="button" class="btn btn-link btn-rounded btn-sm fw-bold" data-mdb-ripple-color="prymary" 
+                                                        data-placement="right" data-bs-toggle="tooltip" title="Editar" data-toggle="modal" data-target="#editClienteVeiculo">
+                                                        <i class="bi bi-pencil"></i>
+                                                    </button>
+                                                    
+                                                    <button type="button" class="btn btn-link btn-rounded btn-sm fw-bold" data-mdb-ripple-color="prymary" 
+                                                        data-placement="right" data-bs-toggle="tooltip" title="Excluir" data-toggle="modal" data-target="#deleteClienteVeiculo">
+                                                        <i class="bi bi-x-circle"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
                                     </table>
-                                </div> <!-- FIM DIV ABA CADASTRO DE VEÍCULOS -->
-                            </div> <!-- FIM DIV ABAS -->
+                                </div> @*<!-- FIM DIV ABA CADASTRO DE VEÍCULOS -->*@
+                            </div>
                         </div>
-                        <div class="grupo-btn-comando">
-                            <input type="submit" id="salvar" name="salvar" class="btn btn-primary btn-salvar" value="Salvar" asp-action="InserirCliente">
-                            <input type="submit" id="cancelar" name="cancelar" class="btn btn-danger btn-cancelar" value="Cancelar">
-                            <input type="submit" id="excluir" name="excluir" class="btn btn-dark btn-excluir" value="Excluir" asp-action="ExcluirCliente">
-                        </div>
-
-                        @*<div class="form-group col-5">
-                            <label for="inputCNPJ">CNPJ (*)</label>
-                            <input type="text" class="form-control" id="inputCNPJ" required placeholder="Informe o CNPJ " asp-for="Cnpj_cpf">
-                        </div>
-                
-                        <div class="form-group col-8">
-                            <label for="inputNome">Nome (*)</label>
-                            <input type="text" class="form-control" id="inputNome" required placeholder="Nome do cliente" asp-for="Nome_cliente">
-                        </div>
-                
-                        <div class="form-group col-8">
-                            <label for="inputNome">Apelido (*)</label>
-                            <input type="text" class="form-control" id="inputApelido" required placeholder="Apelido" asp-for="Apelido">
-                        </div>
-                               
-                        <div class="form-group col-6">
-                            <label for="inputNome">CEP (*)</label>
-                            <input type="text" class="form-control" id="inputCep" required placeholder="Informe o Cep" asp-for="Cep">
-                        </div>
-        
-                        <div class="form-group col-8">
-                            <label for="inputNome">Logradouro (*)</label>
-                            <input type="text" class="form-control" id="inputLogradouro" required placeholder="Informe o Logradouro" asp-for="Logradouro">
-                        </div>
-        
-                        <div class="form-group row">
-                        <div class="form-group col-4">
-                            <label for="inputNome">Número (*)</label>
-                            <input type="text" class="form-control" id="inputNumero" required placeholder="Informe o Número" asp-for="Numero">
-                        </div>
-        
-                        <div class="form-group col-4">
-                            <label for="inputNome">Complemento(*)</label>
-                            <input type="text" class="form-control" id="inputComplemento" required placeholder="Complemento" asp-for="Complemento">
-                        </div>
-                        </div>
-        
-                        <div class="form-group col-8">
-                            <label for="inputNome">Bairro (*)</label>
-                            <input type="text" class="form-control" id="inputBairro" required placeholder="Informe o Bairro" asp-for="Bairro">
-                        </div>
-        
-                        <div class="form-group col-8">
-                            <label for="inputNome">Cidade (*)</label>
-                            <input type="text" class="form-control" id="inputCidade" required placeholder="Informe a Cidade" asp-for="Cidade">
-                        </div>
-                
-                        <div class="form-group row">
-                        <div class="form-group col-6">
-                            <label for="inputNome">Telefone 1 (*)</label>
-                            <input type="text" class="form-control" id="inputTelefone1" required placeholder="Informe o Telefone 1" asp-for="Telefone">
-                        </div>
-                
-                        <div class="form-group col-6">
-                            <label for="inputNome">Telefone 2</label>
-                            <input type="text" class="form-control" id="inputTelefone2" required placeholder="Informe o Telefone 2" asp-for="Celular">
-                        </div>
-                        </div>
-                
-                        <div class="form-group col-8">
-                            <label for="inputNome"> E-mail (*)</label>
-                            <input type="text" class="form-control" id="inputEmail" required placeholder="Informe o E-mail" asp-for="Email_nf">
-                        </div>  
 
                         <div class="form-group row">
                             <div class="form-group">
                             <small>(*) Campos obrigatórios</small>
                             </div>
                         </div>
-        
+                
                         <div class="form-group row pb-3 float-end">
                             <div class="col-sm-17">
-                                <button type="submit" class="btn btn-success btn-sm" id="btnInsert" asp-action="InserirOficina">Inserir</button>
-                                <button type="submit" class="btn btn-secondary btn-sm" id="btnClear">Limpar Form</button>
+                                <button type="submit" class="btn btn-primary btn-sm btn-atualizar" id="btnUpdate">Salvar</button>
+                                <button type="button" class="btn btn-secondary btn-sm btn-fechar" data-dismiss="modal" aria-label="Close">Fechar</button>
                             </div>
-                        </div>*@
+                        </div>
                     </div>
                 </form>
-            </div>
+            }
         </div>
     </div>
-}
-
-<script>
-    function exibeContatos() {
-        // Remove todas as linhas do corpo da tabela
-        $("#table-lista-cliente").html("");
-        // Popula a tabela com os registros do banco de dados
-        for (i = 0; i < db.data.length; i++) {
-            let lst_cliente = db.data[i];
-            $("#table-lista-cliente").append(`<tr>
-                                                <td scope="row">${lst_cliente.id}</td>
-                                                <td>${lst_cliente.nome}</td>
-                                                <td>${lst_cliente.matricula}</td>
-                                                <td>${lst_cliente.email}</td>
-                                                <td>${lst_cliente.cidade}</td>
-                                                <td>${lst_cliente.categoria}</td>
-                                                <td>${lst_cliente.website}</td>
-                                            </tr>`);
-        }
-    }
-
-</script>
+</div>

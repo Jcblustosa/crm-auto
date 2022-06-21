@@ -46,11 +46,6 @@ body {
     padding: 0 1rem;
     font-family: var(--body-font);
     font-size: var(--normal-font-size);
-    /* transition: .5s; */
-    /* border: 5px solid #051821; */
-    /* border-radius: 20px; */
-    /* background-color: #FDF7FF; */
-    /* justify-content: center; */
     width: 100%;
     height: 93%; /*100vh;*/
     /* overflow: hidden; */
@@ -90,6 +85,13 @@ a {
     overflow: hidden;
 }
 
+.icn-crm-auto{
+    width: 50%; 
+    height: 35%; 
+    margin-left: -10px; 
+    margin-top: -15px;
+}
+
 .container{
     margin-left: 0;
 }
@@ -98,8 +100,108 @@ a {
     height: 650px;
 }
 
+#main{
+    margin-top: -25px;
+}
+
+.inp-pesquisa{
+    margin-left: -11px;
+    width: 550px;
+}
+
+.TabControl{
+    width: 100%;
+    overflow: hidden;
+    height: 100%;
+}
+
+.TabControl #header{
+    width: 100%;
+    overflow: hidden;
+    cursor: hand;
+}
+
+.TabControl #content{
+    width: 100%;
+    border: 1px solid var(--first-color-light);
+    overflow: hidden;
+    height: 250px;
+    padding: 8px;
+}
+
+.TabControl .abas{
+    display: inline;
+}
+
+.TabControl .abas li{
+    float: left;
+    list-style: none;
+    cursor: pointer;
+}
+
+.aba{
+    width: 100px;
+    height: 30px;
+    border:  1px solid var(--border-color);
+    border-radius: 5px 5px 0 0;
+    text-align: center;
+    padding-top: 5px;
+    background: var(--first-color-light);
+}
+
+.ativa{
+    width: 100px;
+    height: 30px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px 5px 0 0;
+    text-align: center;
+    padding-top: 5px;
+    background: var(--first-color);
+}
+
+.ativa span, .selected span{
+    color:#fff;
+}
+
+.TabControl .conteudo{
+    width: 100%;
+    background: white;
+    display: none;
+}
+
+.selected{
+    width: 100px;
+    height: 30px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px 5px 0 0;
+    text-align: center;
+    padding-top: 5px;
+    background: #5669a7; /*var(--first-color);*/
+}
+
+#abaVeiculo .table{
+    width: 80%;
+    font-size: 0.8rem;
+}
+
+.tb-item-veiculo{
+    width: 25px;
+}
+
+.tb-placa{
+    width: 55px;
+}
+
+.tb-veiculo{
+    width: 250px;
+}
+
+.tb-ano-modelo, .tb-km{
+    width: 85px;
+}
+
 .row{
-    margin-top: 10px;
+    margin-top: 5px;
 }
 
 .btn-user{
@@ -170,7 +272,6 @@ a {
 
 .body-pd {
     padding-left: calc(var(--nav-width) + 1rem);
-    /* border-radius: 38px 0px 0px 38px; */
 }
 
 .active {
@@ -190,11 +291,6 @@ a {
     height: 100vh;
 }
 
-.inp-pesquisa{
-    margin-left: 0;
-    width: 550px;
-}
-
 #estado{
     width: 60px;
 }
@@ -206,6 +302,14 @@ a {
 
 .btn-novo-cadastro{
     width: 300px;
+}
+
+.btn-atualizar, .btn-fechar{
+    width: 80px;
+}
+
+.btn-atualizar{
+    margin-right: 7px;
 }
 
 @media screen and (min-width: 768px) {
@@ -248,11 +352,12 @@ a {
 }
 
 .tbl-container {
-    margin: 10px;
+    /* margin-left: 2px; */
+    margin-right: 11px;
     margin-top: 1.5rem;
   }
 
 .bdr {
-    border-radius: 6px;
+    border-radius: 3px;
     overflow: hidden;
   }
