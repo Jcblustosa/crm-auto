@@ -14,11 +14,6 @@
 </div>
 
 <div class="align-content-center" style="margin-left: 250px;">
-<div class="container justify-content-center">
-    <div class="row justify-content-center">
-        <div class="col-md-6" style="margin-right: -140px">
-            <a type="button" class="btn btn-lg" style="font-weight: bold; height: 85px" asp-controller="Oficina" asp-action="BuscarFuncionariosEOficinas">Menu funcionários</a>
-        </div>
 
     @if (TempData["ordemEditada"] != null)
     {
@@ -88,23 +83,6 @@
         </table>
     </div>
 
-        <div class="col-md-6">
-            <a type="button" href="#" class="btn btn-lg" style="font-weight: bold; height: 85px">Menu clientes</a>
-        </div>
-
-
-<div class="container justify-content-center">
-     <div class="row justify-content-center">
-        <div class="col-md-6" style="margin-right: -140px">
-            <a type="button" class="btn btn-lg" style="font-weight: bold; height: 85px" asp-controller="Oficina" asp-action="BuscarOficinas">Menu oficinas</a>
-        </div>
-
-        <div class="col-md-6">
-            <a type="button" class="btn btn-lg" style="font-weight: bold; height: 85px" asp-controller="Oficina" asp-action="CadastroVeiculo">Menu veículos</a>
-        </div>
-    </div>
-
-</div>
 </div>
 <!-- Footer -->
 <footer class="bg-light text-center fixed-bottom">
