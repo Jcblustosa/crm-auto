@@ -14,15 +14,15 @@
     --z-fixed: 90
 }
 
-html{
+/* html{
     background-color: #051821;
-}
+} */
 
-*,
+/* *,
 ::before,
 ::after {
     box-sizing: border-box;
-}
+} */
 
 ::-webkit-scrollbar {
     width: 20px;
@@ -40,23 +40,21 @@ html{
     background: #051821;
   }
   
-
 body {
     position: absolute;
     margin: var(--header-height) 0 0 0;
     padding: 0 1rem;
     font-family: var(--body-font);
     font-size: var(--normal-font-size);
-    transition: .5s;
-    border: 5px solid #051821;
-    border-radius: 20px;
-    background-color: #FDF7FF;
-    justify-content: center;
-    height: 100vh;
-    overflow: hidden;
+    /* transition: .5s; */
+    /* border: 5px solid #051821; */
+    /* border-radius: 20px; */
+    /* background-color: #FDF7FF; */
+    /* justify-content: center; */
+    width: 100%;
+    height: 93%; /*100vh;*/
+    /* overflow: hidden; */
 }
-
-
 
 a {
     text-decoration: none;
@@ -92,8 +90,16 @@ a {
     overflow: hidden;
 }
 
+.container{
+    margin-left: 0;
+}
+
 #idContainer{
     height: 650px;
+}
+
+.row{
+    margin-top: 10px;
 }
 
 .btn-user{
@@ -164,7 +170,7 @@ a {
 
 .body-pd {
     padding-left: calc(var(--nav-width) + 1rem);
-    border-radius: 38px 0px 0px 38px;
+    /* border-radius: 38px 0px 0px 38px; */
 }
 
 .active {
@@ -182,6 +188,24 @@ a {
 
 .height-100 {
     height: 100vh;
+}
+
+.inp-pesquisa{
+    margin-left: 0;
+    width: 550px;
+}
+
+#estado{
+    width: 60px;
+}
+
+.form-select{
+    font-family: var(--body-font);
+    font-size: var(--normal-font-size);
+}
+
+.btn-novo-cadastro{
+    width: 300px;
 }
 
 @media screen and (min-width: 768px) {
@@ -232,5 +256,3 @@ a {
     border-radius: 6px;
     overflow: hidden;
   }
-
-

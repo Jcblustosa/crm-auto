@@ -191,40 +191,15 @@ namespace CRM_Auto.Models
             if (dt.Rows.Count == 0)
             {
                 comando = $"DELETE CLIENTE WHERE CNPJ_CPF = '{cliente.Cnpj_cpf}';";
-                cnn.InsertData(comando);
+                cnn.DeleteData(comando);
             }
             else
             {
                 comando = $"UPDATE CLIENTE SET EXCLUIDO = 1 WHERE CNPJ_CPF = '{cliente.Cnpj_cpf}';";
-                cnn.InsertData(comando);
+                cnn.DeleteData(comando);
             }
 
             cnn.desconectar();
         }
-
-
-        // public void ExcluirCliente(string nome, string funcao)
-        // {
-
-        //     //Exclui o usuário (necessário excluir antes porque o id_funcionario é chave estrangeira na tabela Usuario)
-        //     string command = $"DELETE FROM USUARIO " +
-        //         $"WHERE ID_FUNCIONARIO IN (SELECT ID_FUNCIONARIO FROM FUNCIONARIO WHERE NOME = '{nome}')";
-
-        //     //Exclui o funcionário
-        //     string command2 = $"DELETE FROM FUNCIONARIO " +
-        //         $"WHERE NOME = '{nome}' AND FUNCAO = '{funcao}'";
-
-
-        //     //DAL dal = new DAL();
-        //     //dal.InsertData(command);
-
-        //     CNN cnn = new CNN();
-        //     cnn.InsertData(command);
-
-        //     CNN cnn2 = new CNN();
-        //     cnn2.InsertData(command2);
-        // }
-
-
     }
 }

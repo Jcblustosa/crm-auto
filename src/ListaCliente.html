@@ -3,15 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro de Veiculos</title>
+    <title>Consultar Clientes</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="~/css/menu.css">
-    <link rel="stylesheet" href="~/css/cad-cliente.css">
-    <link rel="stylesheet" href="~/css/ListarClientes.css">
+    <link href="css/cad-veiculo.css" rel="stylesheet">
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
-    <script type="text/javascript" src="~/js/cad-cliente.js"></script>
+    <script type="text/javascript" src="js/cad-cliente.js"></script>
 </head>
 <body id="body-pd">
     <header class="header" id="header">
@@ -135,35 +133,130 @@
             </table>
         </div>
     </div>
-    <!-- Bootstrap 5.0.0 -->
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/menu.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.10/vue.min.js"></script>
-    <script src="~/js/viacep.js"></script>
-    <script>
-        function exibeContatos() {
-            // Remove todas as linhas do corpo da tabela
-            $("#table-lista-cliente").html("");
-            // Popula a tabela com os registros do banco de dados
-            for (i = 0; i < db.data.length; i++) {
-                let lst_cliente = db.data[i];
-                $("#table-lista-cliente").append(`<tr>
-                                                    <td scope="row">${lst_cliente.id}</td>
-                                                    <td>${lst_cliente.nome}</td>
-                                                    <td>${lst_cliente.matricula}</td>
-                                                    <td>${lst_cliente.email}</td>
-                                                    <td>${lst_cliente.cidade}</td>
-                                                    <td>${lst_cliente.categoria}</td>
-                                                    <td>${lst_cliente.website}</td>
-                                                </tr>`);
-            }
-        }
-    </script>
+
+    <div class="modal fade modal-fullscreen-lg-down hide modal" id="editaCliente" tabindex="-1" role="dialog" aria-labelledby="addOficinaLabel" aria-hidden="true" style="width: 100% !important; border: 0">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header border-bottom-0">
+                    <h5 class="modal-title" id="addOficinaLabel">Cadastro de novo cliente</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" asp-controller="Oficina" asp-action="ListarClientes">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <form asp-controller="Oficina">
+                    <div class="modal-body">
+                        <div class="form-group col-5">
+                            <label for="inputCNPJ">CNPJ (*)</label>
+                            <input type="text" class="form-control" id="inputCNPJ" required placeholder="Informe o CNPJ " asp-for="Cnpj_cpf">
+                        </div>
+                
+                        <div class="form-group col-8">
+                            <label for="inputNome">Nome (*)</label>
+                            <input type="text" class="form-control" id="inputNome" required placeholder="Nome do cliente" asp-for="Nome_cliente">
+                        </div>
+                
+                        <div class="form-group col-8">
+                            <label for="inputNome">Apelido (*)</label>
+                            <input type="text" class="form-control" id="inputApelido" required placeholder="Apelido" asp-for="Apelido">
+                        </div>
+                               
+                        <div class="form-group col-6">
+                            <label for="inputNome">CEP (*)</label>
+                            <input type="text" class="form-control" id="inputCep" required placeholder="Informe o Cep" asp-for="Cep">
+                        </div>
+        
+                        <div class="form-group col-8">
+                            <label for="inputNome">Logradouro (*)</label>
+                            <input type="text" class="form-control" id="inputLogradouro" required placeholder="Informe o Logradouro" asp-for="Logradouro">
+                        </div>
+        
+                        <div class="form-group row">
+                        <div class="form-group col-4">
+                            <label for="inputNome">Número (*)</label>
+                            <input type="text" class="form-control" id="inputNumero" required placeholder="Informe o Número" asp-for="Numero">
+                        </div>
+        
+                        <div class="form-group col-4">
+                            <label for="inputNome">Complemento(*)</label>
+                            <input type="text" class="form-control" id="inputComplemento" required placeholder="Complemento" asp-for="Complemento">
+                        </div>
+                        </div>
+        
+                        <div class="form-group col-8">
+                            <label for="inputNome">Bairro (*)</label>
+                            <input type="text" class="form-control" id="inputBairro" required placeholder="Informe o Bairro" asp-for="Bairro">
+                        </div>
+        
+                        <div class="form-group col-8">
+                            <label for="inputNome">Cidade (*)</label>
+                            <input type="text" class="form-control" id="inputCidade" required placeholder="Informe a Cidade" asp-for="Cidade">
+                        </div>
+                
+                        <div class="form-group row">
+                        <div class="form-group col-6">
+                            <label for="inputNome">Telefone 1 (*)</label>
+                            <input type="text" class="form-control" id="inputTelefone1" required placeholder="Informe o Telefone 1" asp-for="Telefone">
+                        </div>
+                
+                        <div class="form-group col-6">
+                            <label for="inputNome">Telefone 2</label>
+                            <input type="text" class="form-control" id="inputTelefone2" required placeholder="Informe o Telefone 2" asp-for="Celular">
+                        </div>
+                        </div>
+                
+                        <div class="form-group col-8">
+                            <label for="inputNome"> E-mail (*)</label>
+                            <input type="text" class="form-control" id="inputEmail" required placeholder="Informe o E-mail" asp-for="Email_nf">
+                        </div>  
+
+                        <div class="form-group row">
+                            <div class="form-group">
+                            <small>(*) Campos obrigatórios</small>
+                            </div>
+                        </div>
+        
+                        <div class="form-group row pb-3 float-end">
+                            <div class="col-sm-17">
+                                <button type="submit" class="btn btn-success btn-sm" id="btnInsert" asp-action="InserirOficina">Inserir</button>
+                                <button type="submit" class="btn btn-secondary btn-sm" id="btnClear">Limpar Form</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </body>
+
+<!-- Bootstrap 5.0.0 -->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+<script src="~/js/menu.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.10/vue.min.js"></script>
+<script src="~/js/viacep.js"></script>
+<script>
+    function exibeContatos() {
+        // Remove todas as linhas do corpo da tabela
+        $("#table-lista-cliente").html("");
+        // Popula a tabela com os registros do banco de dados
+        for (i = 0; i < db.data.length; i++) {
+            let lst_cliente = db.data[i];
+            $("#table-lista-cliente").append(`<tr>
+                                                <td scope="row">${lst_cliente.id}</td>
+                                                <td>${lst_cliente.nome}</td>
+                                                <td>${lst_cliente.matricula}</td>
+                                                <td>${lst_cliente.email}</td>
+                                                <td>${lst_cliente.cidade}</td>
+                                                <td>${lst_cliente.categoria}</td>
+                                                <td>${lst_cliente.website}</td>
+                                            </tr>`);
+        }
+    }
+</script>
 </html>
 
     

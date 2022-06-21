@@ -62,6 +62,10 @@
                         <i class='bx bx-bar-chart-alt-2 nav_icon' data-bs-toggle="tooltip" title="Relatórios"></i>
                         <span class="nav_name">Relatórios</span>
                     </a>
+                    <a href="#" class="nav_link">
+                        <i class='bx bx-user nav_icon' data-bs-toggle="tooltip" title="Usuários"></i>
+                        <span class="nav_name">Usuários</span>
+                    </a>
                 </div>
             </div>
             <a href="Homepage.html" class="nav_link">
@@ -76,11 +80,11 @@
 
     <div class="container">
         <div class="row">
-            <div class="input-group col-sm">
+            <div class="input-group inp-pesquisa">
                 <span class="input-group-text" id="basic-addon1"><i class="bi bi-search small"></i></span>
                 <input id="tableSearch" type="text" class="form-control col-5" placeholder="Pesquise um cliente" aria-label="Username" aria-describedby="basic-addon1">
             </div>
-            <div class="col-sm">
+            <div class="input-group btn-novo-cadastro">
                 <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#addFuncionario"><i class="bi bi-plus"></i> Novo cliente</button>
             </div>
         </div>
@@ -297,7 +301,7 @@
 </div>
 
 <!------------------------------------MODAL-------------------------------------->
-    <div class="modal fade modal-fullscreen-xl hide modal" id="addFuncionario" tabindex="-1" role="dialog" aria-labelledby="addFuncionarioLabel" aria-hidden="true" style="width: 100% !important; border: 0">
+    <!-- <div class="modal fade modal-fullscreen-xl hide modal" id="addFuncionario" tabindex="-1" role="dialog" aria-labelledby="addFuncionarioLabel" aria-hidden="true" style="width: 100% !important; border: 0">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
         <div class="modal-header border-bottom-0">
@@ -309,16 +313,33 @@
     
         <form asp-controller="Oficina" asp-action="InserirCadastro">
             <div class="modal-body">
-                <div class="form-group col-8">
-                    <label for="inputNome">Nome (*)</label>
-                    <input type="text" class="form-control" id="inputNome" required placeholder="Informe o Nome" asp-for="Nome">
+                <div class="row">
+                    <div class="form-group col-8">
+                        <label for="inputNome">Nome (*)</label>
+                        <input type="text" class="form-control" id="inputNome" required placeholder="Informe o Nome" asp-for="Nome">
+                    </div>
+            
+                    <div class="form-group col-4">
+                        <label for="inputCidade">Documento (*)</label>
+                        <input type="text" class="form-control" id="inputDocumento" placeholder="Informe o Documento" asp-for="Documento">
+                    </div>
                 </div>
-        
-                <div class="form-group col-8">
-                    <label for="inputCidade">Documento (*)</label>
-                    <input type="text" class="form-control" id="inputDocumento" placeholder="Informe o Documento" asp-for="Documento">
+
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label for="nomeCliente">Nome do cliente</label>
+                        <input type="text" class="form-control" id="nomeCliente" placeholder="Nome do cliente">
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label for="idApelido">Apelido</label>
+                        <input type="text" class="form-control" id="idApelido" placeholder="Apelido do cliente">
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="idDtNascimento">Data de nascimento</label>
+                        <input type="text" class="form-control" id="idDtNascimento" placeholder="00/00/0000">
+                    </div>
                 </div>
-                    
+                
                 <div class="form-group col-8">
                     <label for="inputSite">Data de nascimento (*)</label>
                     <input type="text" class="form-control" id="inputDataNascimento" required placeholder="Informe a Data de nascimento" asp-for="DataNascimento">
@@ -367,76 +388,174 @@
             </form>
       </div>
     </div>
-  </div>
+  </div> -->
 
-
+  <!-- modal-fullscreen-xxl hide modal -->
 <!------------------------------------MODAL-------------------------------------->
-  <div class="modal fade modal-fullscreen-xl hide modal" id="editFuncionario" tabindex="-1" role="dialog" aria-labelledby="addFuncionarioLabel" aria-hidden="true" style="width: 100% !important; border: 0">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-        <div class="modal-header border-bottom-0">
-            <h5 class="modal-title" id="addFuncionarioLabel">Edite as informações do cliente</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
+    <div class="modal fade bd-example-modal-lg" id="editFuncionario" tabindex="-1" role="dialog" aria-labelledby="addClienteLabel" aria-hidden="true" style="width: 100% !important; border: 0">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header border-bottom-0">
+                    <h5 class="modal-title" id="addFuncionarioLabel">Edite as informações do cliente</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            
+                <form asp-controller="Oficina" asp-action="InserirCadastro">
+                    <div class="modal-body">
+                        <div class="row linhas">
+                            <div class="form-group col-md-3">
+                                <label for="cpf_cnpj">Informe o CPF</label>
+                                <input type="text" class="form-control obrigatorio cpf" id="cpf_cnpj" name="cpf" placeholder="11.222.333-33" maxlength="14">
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="tipo-pessoa">Selecione o tipo de pessoa</label>
+                                <select name="tipoPessoa" id="tipo-pessoa" class="form-select">
+                                    <option selected>Selecione...</option>
+                                    <option value="F">Pessoa física</option>
+                                    <option value="J">Pessoa jurídica</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="row linhas">
+                            <div class="form-group col-md-7">
+                                <label for="nomeCliente">Nome do cliente</label>
+                                <input type="text" class="form-control" id="nomeCliente" placeholder="Nome do cliente">
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="idApelido">Apelido</label>
+                                <input type="text" class="form-control" id="idApelido" placeholder="Apelido do cliente">
+                            </div>
+                            <div class="form-group col-md-2">
+                                <label for="idDtNascimento">Data nascimento</label>
+                                <input type="text" class="form-control" id="idDtNascimento" placeholder="00/00/0000">
+                            </div>
+                        </div>
+
+                        <div id="row-pg-1" class="row">
+                            <div id="app" class="form-group col-md-2">
+                                <label for="cep">CEP</label>
+                                <input type="text" class="form-control" v-model="cep" id="cep" onclick="this.value=''" maxlength="8" placeholder="" value="">
+                            </div>
+                            <div class="form-group col-md-8"> <!-- INÍCIO DIV CONTEÚDO DO FORM LOGRADOURO -->
+                                <label for="endereco">Endereço</label>
+                                <input type="text" class="form-control" id="endereco" placeholder="Rua, avenida, praça, fazenda...">
+                            </div>
+                            <div class="form-group col-md-2">
+                                <label for="numero">Número</label>
+                                <input type="text" class="form-control" id="numero" placeholder="">
+                            </div>
+                        </div> <!-- FIM DIV CONTEÚDO DO FORM LOGRADOURO -->
+                        
+                        <div id="row-pg-2" class="row">
+                            <div class="form-group col-md-5">
+                                <label for="bairro">Bairro</label>
+                                <input type="text" class="form-control" id="bairro" placeholder="">
+                            </div>
+                            <div class="form-group col-md-5">
+                                <label for="cidade">Cidade</label>
+                                <input type="text" class="form-control" id="cidade" placeholder="">
+                            </div>
+                            <div class="form-group col-md-2">
+                                <label for="estado">Estado</label>
+                                <select id="estado" class="form-select"">
+                                    <option selected>UF...</option>
+                                    <option value="AC">AC</option>
+                                    <option value="AL">AL</option>
+                                    <option value="AM">AM</option>
+                                    <option value="AP">AP</option>
+                                    <option value="BA">BA</option>
+                                    <option value="CE">CE</option>
+                                    <option value="DF">DF</option>
+                                    <option value="ES">ES</option>
+                                    <option value="GO">GO</option>
+                                    <option value="MA">MA</option>
+                                    <option value="MG">MG</option>
+                                    <option value="MS">MS</option>
+                                    <option value="MT">MT</option>
+                                    <option value="PA">PA</option>
+                                    <option value="PB">PB</option>
+                                    <option value="PE">PE</option>
+                                    <option value="PI">PI</option>
+                                    <option value="PR">PR</option>
+                                    <option value="RJ">RJ</option>
+                                    <option value="RN">RN</option>
+                                    <option value="RO">RO</option>
+                                    <option value="RR">RR</option>
+                                    <option value="RS">RS</option>
+                                    <option value="SC">SC</option>
+                                    <option value="SE">SE</option>
+                                    <option value="SP">SP</option>
+                                    <option value="TO">TO</option>
+                                </select>
+                            </div>
+                            
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-12">
+                                <label for="complemento">Complemento</label>
+                                <input type="text" class="form-control" id="complemento" placeholder="Apartamento, casa, lote...">
+                            </div>
+                        </div>
+
+                        <div id="row-pg-3" class="row"> <!-- INICIO DIV CIDADE E ESTADO -->
+                            <div class="form-group col-md-3">
+                                <label for="telefone">Telefone</label>
+                                <input type="tel" class="form-control" id="telefone" placeholder="(98) 9999-8888" asp-for="telefone">
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="celular">Celuar</label>
+                                <input type="tel" class="form-control" id="celular" placeholder="(98) 98888-7777" asp-for="celular">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="email">Email</label>
+                                <input type="email" class="form-control email" id="email" placeholder="crm.auto@crmauto.com.br" asp-for="email_nf">
+                            </div>
+                        </div> <!-- FIM DIV CIDADE E ESTADO -->
+                        
+                        <div class="row linhas">
+                            <div class="form-group col-3">
+                                <label for="inputSite">Veículo</label>
+                                <input type="text" class="form-control" id="inputOficina" required placeholder="Informe o Veículo" asp-for="Veiculo">
+                            </div> 
     
-        <form asp-controller="Oficina" asp-action="InserirCadastro">
-            <div class="modal-body">
-                <div class="form-group col-8">
-                    <label for="inputNome">Nome (*)</label>
-                    <input type="text" class="form-control" id="inputNome" required placeholder="Informe o Nome" asp-for="Nome">
-                </div>
-        
-                <div class="form-group col-8">
-                    <label for="inputCidade">Documento</label>
-                    <input type="text" class="form-control" id="inputFuncao" placeholder="Informe o Documento" asp-for="Documento">
-                </div>
-                    
-                <div class="form-group col-8">
-                    <label for="inputSite">Data de nascimento</label>
-                    <input type="text" class="form-control" id="inputOficina" required placeholder="Informe a Data de nascimento" asp-for="DataNascimento">
-                </div>
+                            <div class="form-group col-3">
+                                <label for="inputSite">Placa</label>
+                                <input type="text" class="form-control" id="inputOficina" required placeholder="Informe a Placa" asp-for="Placa">
+                            </div> 
+    
+                            <div class="form-group col-3">
+                                <label for="inputSite">Telefone</label>
+                                <input type="text" class="form-control" id="inputOficina" required placeholder="Informe o Telefone" asp-for="Telefone">
+                            </div> 
+    
+                            <div class="form-group col-3">
+                                <label for="inputSite">Email</label>
+                                <input type="text" class="form-control" id="inputOficina" required placeholder="Informe o Email" asp-for="Email">
+                            </div> 
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="form-group">
+                            <small>(*) Campos obrigatórios</small>
+                            </div>
+                        </div>
                 
-                <div class="form-group col-8">
-                    <label for="inputSite">Veículo</label>
-                    <input type="text" class="form-control" id="inputOficina" required placeholder="Informe o Veículo" asp-for="Veiculo">
-                </div> 
-
-                <div class="form-group col-8">
-                    <label for="inputSite">Placa</label>
-                    <input type="text" class="form-control" id="inputOficina" required placeholder="Informe a Placa" asp-for="Placa">
-                </div> 
-
-                <div class="form-group col-8">
-                    <label for="inputSite">Telefone</label>
-                    <input type="text" class="form-control" id="inputOficina" required placeholder="Informe o Telefone" asp-for="Telefone">
-                </div> 
-
-                <div class="form-group col-8">
-                    <label for="inputSite">Email</label>
-                    <input type="text" class="form-control" id="inputOficina" required placeholder="Informe o Email" asp-for="Email">
-                </div> 
-
-                <div class="form-group row">
-                    <div class="form-group">
-                    <small>(*) Campos obrigatórios</small>
+                        <div class="form-group row pb-3 float-end">
+                            <div class="col-sm-17">
+                                <button type="submit" class="btn btn-success btn-sm" id="btnInsert">Inserir</button>
+                                <button type="submit" class="btn btn-warning btn-sm" id="btnUpdate">Alterar</button>
+                                <button type="submit" class="btn btn-danger btn-sm" id="btnDelete">Excluir</button>
+                                <button type="submit" class="btn btn-secondary btn-sm" id="btnClear">Limpar Form</button>
+                            </div>
+                        </div>
                     </div>
-                </div>
-        
-                <div class="form-group row pb-3 float-end">
-                    <div class="col-sm-17">
-                        <button type="submit" class="btn btn-success btn-sm" id="btnInsert">Inserir</button>
-                        <button type="submit" class="btn btn-warning btn-sm" id="btnUpdate">Alterar</button>
-                        <button type="submit" class="btn btn-danger btn-sm" id="btnDelete">Excluir</button>
-                        <button type="submit" class="btn btn-secondary btn-sm" id="btnClear">Limpar Form</button>
-                    </div>
-                </div>
+                </form>
             </div>
-            </form>
-      </div>
+        </div>
     </div>
-  </div>
 
 </body>
 <!-- Bootstrap 5.0.0 -->
