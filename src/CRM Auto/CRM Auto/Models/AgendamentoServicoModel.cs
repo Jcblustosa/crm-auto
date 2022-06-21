@@ -54,5 +54,25 @@ namespace CRM_Auto.Models
             dt = cnn.GetData(command);
             return dt.Rows[0]["ID_CLI_VEICULO"].ToString();
         }
+
+        public string BuscarAgendamento(int id)
+        {
+            string command = "SELECT ID_AGENDAMENTO FROM ORDEM_SERVICO " +
+                $"WHERE ID_ORDEM_SERVICO = {id};";
+
+            CNN cnn = new CNN();
+            DataTable dt = cnn.GetData(command);
+
+            return dt.Rows[0]["ID_AGENDAMENTO"].ToString();
+        }
+
+        public void ApagarAgendamento(string id)
+        {
+            string command = "DELETE FROM AGENDAMENTO_SERVICO " +
+                $"WHERE ID_AGENDAMENTO = {id};";
+
+            CNN cnn = new CNN();
+            cnn.InsertData(command);
+        }
     }
 }

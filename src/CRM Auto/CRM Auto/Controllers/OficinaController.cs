@@ -205,7 +205,7 @@ namespace CRM_Auto.Controllers
             return RedirectToAction("OrdemServico");
         }
 
-        [HttpGet]
+        [HttpPost]
         public IActionResult EditarOS(int id)
         {
             string idOficina = HttpContextAccessor.HttpContext.Session.GetString("IdOficina");
@@ -222,13 +222,26 @@ namespace CRM_Auto.Controllers
         }
 
         [HttpPost]
-        public IActionResult EditarOS(OficinaOrdemServicoViewModel oficinaOrdemServicoViewModel)
+        public IActionResult AlterarOS(OficinaOrdemServicoViewModel oficinaOS)
         {
-            OrdemServico os = oficinaOrdemServicoViewModel.OrdemServico;
-            ServicoModel servico = oficinaOrdemServicoViewModel.Servico;
+            OrdemServico os = oficinaOS.OrdemServico;
+            ServicoModel servico = oficinaOS.Servico;
+            AgendamentoServicoModel agendamentoServico = new AgendamentoServicoModel();
+            string idAgendamento = agendamentoServico.BuscarAgendamento(os.IdOS);
 
-            os.EditarOS();
-            servico.EditarDetalhamento();
+            servico.ApagarDetalhamento(os.IdOS);
+            os.ApagarOS();
+            agendamentoServico.ApagarAgendamento(idAgendamento);
+
+            agendamentoServico.DataAgendamento = oficinaOS.OrdemServico.DataOrdem;
+            string idCliente = agendamentoServico.BuscarIdCliente(oficinaOS.OrdemServico.CpfCnpj);
+            string idCliVeiculo = agendamentoServico.BuscarIdClienteVeiculo(oficinaOS.OrdemServico.PlacaVeiculo, idCliente);
+            string idNovoAgendamento = agendamentoServico.GerarAgendamento(idCliente, idCliVeiculo);
+            string idUsuarioCad = HttpContextAccessor.HttpContext.Session.GetString("IdUsuario");
+            oficinaOS.OrdemServico.IdOficina = HttpContextAccessor.HttpContext.Session.GetString("IdOficina");
+            string idOS = oficinaOS.OrdemServico.GerarOS(idCliente, idNovoAgendamento, idUsuarioCad, idCliVeiculo);
+            oficinaOS.Servico.CadastrarServico(idOS);
+
             TempData["ordemEditada"] = "Ordem de Serviço editada com sucesso!";
 
             return RedirectToAction("Sucesso");

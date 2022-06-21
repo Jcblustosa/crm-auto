@@ -88,9 +88,9 @@
 <!-- SÓ TRABALHAR DAQUI PARA BAIXO...  -->
 
     <div class="height-100"> <!--Container Main start-->
-        <form asp-action="EditarOS">
-            <input type="hidden" value="@Model.OrdemServico.IdOS"/>
-            <input type="hidden" value="@Model.Servico.IdDetalhamento"/>
+        <form asp-action="AlterarOS">
+            <input type="hidden" asp-for="OrdemServico.IdOS" value="@Model.OrdemServico.IdOS"/>
+            <input type="hidden" asp-for="Servico.IdDetalhamento" value="@Model.Servico.IdDetalhamento"/>
             <partial name="_FormOS"/>
 
             <!-- <div class="row">

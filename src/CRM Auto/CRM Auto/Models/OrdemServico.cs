@@ -110,9 +110,13 @@ namespace CRM_Auto.Models
             return os;
         }
 
-        public void EditarOS()
+        public void ApagarOS()
         {
+            string command = "DELETE FROM ORDEM_SERVICO " +
+                $"WHERE ID_ORDEM_SERVICO = {this.IdOS};";
 
+            CNN cnn = new CNN();    
+            cnn.InsertData(command);
         }
     }
 

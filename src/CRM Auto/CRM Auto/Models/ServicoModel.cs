@@ -76,9 +76,13 @@ namespace CRM_Auto.Models
             return servico;
         }
 
-        public void EditarDetalhamento()
+        public void ApagarDetalhamento(int id)
         {
+            string command = "DELETE FROM DETALHE_OS " +
+                $"WHERE ID_ORDEM = {id};";
 
+            CNN cNN = new CNN();
+            cNN.InsertData(command);
         }
     }
 }

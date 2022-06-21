@@ -110,7 +110,10 @@
                         </td>
                         <td>
                             <a class="btn btn-sm btn-outline-dark">Exibir detalhes</a>
-                            <a class="btn btn-sm btn-outline-warning" asp-action="EditarOS" asp-route-id="@os.IdOrdemServico">Editar</a>
+                            <form asp-action="EditarOS">
+                                <input type="hidden" value="@os.IdOrdemServico" name="id"/>
+                                <input type="submit" class="btn btn-sm btn-outline-warning" value="Editar" />
+                            </form> 
                         </td>
                     </tr>
                 }
