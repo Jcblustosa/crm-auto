@@ -132,7 +132,23 @@ namespace CRM_Auto.Controllers
             {
                 throw new Exception(ex.Message);
             }
-        }        
+        }
+
+        public IActionResult ListarClientes()
+        {
+            try
+            {
+                ClienteModel cliente = new ClienteModel();
+                List<ClienteModel> lista = cliente.ListarClientes();
+                ViewBag.ListarClientes = cliente.ListarClientes();
+
+                return View("ListaCliente");
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
 
         [HttpPost]
         public IActionResult AlterarFuncionario(FuncionarioModel funcionario)
