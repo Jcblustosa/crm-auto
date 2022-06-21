@@ -8,11 +8,8 @@ namespace CRM_Auto.Models
 {
     public class ServicoModel
     {
-<<<<<<< HEAD
         public int IdDetalhamento { get; set; }
         public string Descricao { get; set; }
-=======
->>>>>>> Back-end
         public int IdServico { get; set; }
         public string Descricao { get; set; }
         public int Quantidade { get; set; }
@@ -64,17 +61,6 @@ namespace CRM_Auto.Models
 
             return dt.Rows[0]["CUSTO_HORA"].ToString();
         }
-<<<<<<< HEAD
-
-        public ServicoModel BuscarServico(int id)
-        {
-            ServicoModel servico = new ServicoModel();
-            string command = "SELECT S.ID_SERVICO, D.ID_MEC_RESPONSAVEL, D.DATA_INICIO_SERVICO, D.DATA_FIM_SERVICO, D.APROVADO, D.QUANTIDADE " +
-                "FROM DETALHE_OS D " +
-                "INNER JOIN SERVICO S  " +
-                "ON D.ID_SERVICO = S.ID_SERVICO " +
-                $"WHERE D.ID_ORDEM = {id};";
-=======
         public List<ServicoModel> BuscarServicos() 
         {
             ArrayListServico<ServicoModel> servicos = new ArrayListServico<ServicoModel>();
@@ -82,31 +68,10 @@ namespace CRM_Auto.Models
             string command = $"SELECT ID_SERVICO, DESCRICAO, TEMPO_EXEC_SERVICO, CUSTO_HORA " +
                 $"FROM SERVICO " +
                 $"ORDER BY ID_SERVICO ";
->>>>>>> Back-end
 
             CNN cnn = new CNN();
             DataTable dt = cnn.GetData(command);
 
-<<<<<<< HEAD
-            servico.IdDetalhamento = id;
-            servico.IdServico = int.Parse(dt.Rows[0]["ID_SERVICO"].ToString());
-            servico.IdMecanicoResponsavel = int.Parse(dt.Rows[0]["ID_MEC_RESPONSAVEL"].ToString());
-            servico.InicioServico = DateTime.Parse(dt.Rows[0]["DATA_INICIO_SERVICO"].ToString());
-            servico.FimServico = DateTime.Parse(dt.Rows[0]["DATA_FIM_SERVICO"].ToString());
-            servico.ServicoAprovado = dt.Rows[0]["APROVADO"].ToString() == "1" ? true : false;
-            servico.Quantidade = int.Parse(dt.Rows[0]["QUANTIDADE"].ToString());
-
-            return servico;
-        }
-
-        public void ApagarDetalhamento(int id)
-        {
-            string command = "DELETE FROM DETALHE_OS " +
-                $"WHERE ID_ORDEM = {id};";
-
-            CNN cNN = new CNN();
-            cNN.InsertData(command);
-=======
             for(int i = 0; i < dt.Rows.Count; i++)
             {
                 ServicoModel servico = new (int.Parse(dt.Rows[i]["ID_SERVICO"].ToString()),
@@ -128,7 +93,6 @@ namespace CRM_Auto.Models
 
             CNN cnn1 = new CNN();
             cnn1.InsertData(command);
->>>>>>> Back-end
         }
     }
 }
