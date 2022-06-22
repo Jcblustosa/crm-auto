@@ -25,6 +25,12 @@ namespace CRM_Auto.Controllers
         {
             return View();
         }
+
+        public IActionResult bemVindoCliente()
+        {
+            return View();
+        }
+
         [HttpGet]
         public IActionResult ConsultarDetalhamento(int id)
         {
@@ -44,7 +50,7 @@ namespace CRM_Auto.Controllers
                 HttpContext.Session.SetString("IdUsuario", nomeEId[1]);
                 TempData["NomeUsuario"] = HttpContextAccessor.HttpContext.Session.GetString("NomeUsuario");
                 TempData["IdUsuario"] = HttpContextAccessor.HttpContext.Session.GetString("IdUsuario");
-                return RedirectToAction("BemVindoCliente");
+                return RedirectToAction("bemVindoCliente");
             }
             return RedirectToAction("LoginCliente");
         }

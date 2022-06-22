@@ -19,20 +19,13 @@
     box-sizing: border-box;
 }
 
-<<<<<<< HEAD
-.title{
-   color: red; 
-=======
-
-
-h2{
-   color: var(--text-color); 
->>>>>>> Back-end
-   padding-top: 2rem;
-   height: 2rem;
-   position: sticky;
-   text-align: center;
-   align-content:center;
+.title {
+    color: #051821;
+    padding-top: 2rem;
+    height: 2rem;
+    position: sticky;
+    text-align: center;
+    align-content: center;
 }
 
 
