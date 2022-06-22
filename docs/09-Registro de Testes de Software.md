@@ -8,7 +8,7 @@ Relatório com as evidências dos testes de software realizados no sistema pela 
 
 Discorra sobre os resultados do teste. Ressaltando pontos fortes e fracos identificados na solução. Comente como o grupo pretende atacar esses pontos nas próximas iterações. Apresente as falhas detectadas e as melhorias geradas a partir dos resultados obtidos nos testes.
 
-### CT-08: Cadastro de veículo de cliente
+### CT-03: Cadastro de veículo de cliente
 
 **Objetivo:** Verificar se o colaborador é capaz de cadastrar veículo no sistema
 
@@ -60,7 +60,7 @@ Pontos a melhorar
 
 1) As configurações de estilo da página de cadastro de veículo devem ser corretamente aplicadas;
 
-### CT-10: Visualização do processo de manutenção
+### CT-05: Visualização do processo de manutenção
 
 **Objetivo:** Verificar se o cliente da oficina é capaz de visualizar os serviços que estão sendo feitos em seu veículo
 
@@ -107,7 +107,7 @@ Pontos a melhorar
 
 1) As folhas de estilo ainda não foram importadas pelo documento que compõe as views do fluxo de cliente.
 
-### CT-11: Login de Colaborador
+### CT-06: Login de Colaborador
 
 **Objetivo:** Verificar se o colaborador é capaz de realizar login no sistema
 
@@ -161,7 +161,7 @@ Pontos a melhorar
 
 1) Em caso de Login ou Senha incorretos, o sistema deve fornecer um retorno ao usuário, indicando que as informações não são válidas.
 
-### CT-12: Login de cliente da oficina
+### CT-07: Login de cliente da oficina
 
 Ao executar a aplicação, o usuário terá acesso às opções de login de colaborador e login de cliente. 
 
@@ -189,7 +189,7 @@ Pontos a melhorar
 2) Em caso de Login ou Senha incorretos, o sistema deve fornecer um retorno ao usuário, indicando que as informações não são válidas;
 3) Finalizar a página de cliente.
 
-### CT-14: Cadastro de funcionário
+### CT-09: Cadastro de funcionário
 
 **Objetivo:** Garantir que o sistema permite a inclusão do cadastro de um novo funcionário para determinada oficina
 
@@ -254,7 +254,7 @@ Pontos a melhorar
 1) Apresentar um combobox com as funções existentes na oficina, de forma que o usuário não tenha que digitar esse campo no formulário e apenas selecionar uma opção dentre as apresentadas.
 
 
-### CT-15: Alteração de funcionário
+### CT-10: Alteração de funcionário
 
 **Objetivo:** Garantir que o sistema permite a alteração do cadastro de um funcionário da oficina
 
@@ -324,7 +324,7 @@ Pontos a melhorar
 
 1) Apresentar um combobox com as funções existentes na oficina, de forma que o usuário não tenha que digitar esse campo no formulário e apenas selecionar uma opção dentre as apresentadas.
 
-### CT-16: Exclusão de funcionário
+### CT-11: Exclusão de funcionário
 
 **Objetivo:** Garantir que o sistema permite a exclusão do cadastro de um funcionário da oficina
 
