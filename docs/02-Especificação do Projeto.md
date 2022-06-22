@@ -40,7 +40,7 @@ As tabelas que a seguir apresentam os requisitos funcionais e não funcionais qu
 
 ### Requisitos Funcionais
 
-| ID  | Descrição do Requisito | PRIORIDADE |  
+| ID    | Descrição do Requisito | PRIORIDADE |  
 |---|---|---|
 | RF-01 | O sistema deve permitir que um colaborador cadastrado faça login.| ALTA |
 | RF-02 | O sistema deve permitir que um cliente cadastrado faça login.| ALTA |
