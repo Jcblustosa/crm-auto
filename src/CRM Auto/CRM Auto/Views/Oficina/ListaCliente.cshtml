@@ -4,22 +4,32 @@
 @{
     Layout = "../Shared/_Layout_Cadastro_Cliente.cshtml";
 }
-  
-<div class="mx-auto" id="main"> 
-    <h2>Lista de cliente</h2>
 
-    <div class="container">
-        <div class="row">
-            <div class="input-group inp-pesquisa">
-                <span class="input-group-text" id="basic-addon1"><i class="bi bi-search small"></i></span>
-                <input id="tableSearch" type="text" class="form-control col-5" placeholder="Pesquise um cliente" aria-label="Username" aria-describedby="basic-addon1">
-            </div>
-            <div class="input-group btn-novo-cadastro">
-                <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#addFuncionario"><i class="bi bi-plus"></i> Novo cliente</button>
+@*@section LinkCss
+{
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="~/css/menu.css">
+    <link rel="stylesheet" href="~/css/cad-veiculo.css">
+}*@
+ 
+@{
+    <div class="mx-auto" id="main"> 
+        <h2>Lista de cliente</h2>
+
+        <div class="container">
+            <div class="row">
+                <div class="input-group inp-pesquisa">
+                    <span class="input-group-text" id="basic-addon1"><i class="bi bi-search small"></i></span>
+                    <input id="tableSearch" type="text" class="form-control col-5" placeholder="Pesquise um cliente" aria-label="Username" aria-describedby="basic-addon1">
+                </div>
+                <div class="input-group btn-novo-cadastro">
+                    <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#addFuncionario"><i class="bi bi-plus"></i> Novo cliente</button>
+                </div>
             </div>
         </div>
-    </div>
-    @{
+    
         <div onload="init" class="tbl-container bdr" asp-controller="Oficina">
             <table class="table align-middle mb-0 bg-white table-striped table-bordered" id="showTable">
                 <thead class="bg-light">
@@ -53,8 +63,8 @@
                             </td>
                             <td>
                                 <button type="button"
-                                    lass="btn btn-link btn-rounded btn-sm fw-bold"
-                                    data-mdb-ripple-color="dark" data-placement="right" title="Edit" data-toggle="modal" data-target="#editaCliente"
+                                    class="btn btn-link btn-rounded btn-sm fw-bold" data-mdb-ripple-color="dark" data-placement="right" 
+                                    title="Edit" data-toggle="modal" data-target="#editaCliente"
                                     value="@System.Text.Json.JsonSerializer.Serialize(cliente)">
                                     <i class="bi bi-pencil-fill"></i>
                                 </button>
@@ -64,198 +74,201 @@
                 </tbody>
             </table>
         </div>
-    }
-</div>
+    </div>
+}
 
 @* MODAL PARA CADASTRO E EDIÇÃO DE CLINTES *@
-<div class="modal fade bd-example-modal-lg" id="editFuncionario" tabindex="-1" role="dialog" aria-labelledby="addClienteLabel" aria-hidden="true" style="width: 100% !important; border: 0">
+@{
+<div class="modal fade bd-example-modal-lg" id="editaCliente" tabindex="-1" role="dialog" aria-labelledby="addClienteLabel" aria-hidden="true" style="width: 100% !important; border: 0">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
-            @{
-                <form asp-controller="Oficina" asp-action="SalvarRegistroCliente">
-                    <div class="modal-body">
-                        <div class="row">
-                            <div class="form-group col-md-3">
-                                <label for="cpf_cnpj">Informe o CPF</label>
-                                <input type="text" class="form-control obrigatorio cpf" id="cpf_cnpj" name="cpf" placeholder="11.222.333-33" maxlength="14">
-                            </div>
-                            <div class="form-group col-md-3">
-                                <label for="tipo-pessoa">Selecione o tipo de pessoa</label>
-                                <select name="tipoPessoa" id="tipo-pessoa" class="form-select">
-                                    <option selected>Selecione...</option>
-                                    <option value="F">Pessoa física</option>
-                                    <option value="J">Pessoa jurídica</option>
-                                </select>
-                            </div>
+            <form asp-controller="Oficina" asp-action="SalvarRegistroCliente">
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="form-group col-md-3">
+                            <label for="cpf_cnpj">Informe o CPF</label>
+                            <input type="text" class="form-control obrigatorio cpf" id="cpf_cnpj" name="cpf" placeholder="11.222.333-33" maxlength="14">
                         </div>
-
-                        <div class="row linhas">
-                            <div class="form-group col-md-7">
-                                <label for="nomeCliente">Nome do cliente</label>
-                                <input type="text" class="form-control" id="nomeCliente" placeholder="Nome do cliente">
-                            </div>
-                            <div class="form-group col-md-3">
-                                <label for="idApelido">Apelido</label>
-                                <input type="text" class="form-control" id="idApelido" placeholder="Apelido do cliente">
-                            </div>
-                            <div class="form-group col-md-2">
-                                <label for="idDtNascimento">Data nascimento</label>
-                                <input type="text" class="form-control" id="idDtNascimento" placeholder="00/00/0000">
-                            </div>
-                        </div>
-
-                        <div class="TabControl mt-3">
-                            <div id="header">
-                                <ul class="abas">
-                                    <li onclick="AtivaAba('abaRes')">
-                                        <div class="aba" >
-                                            <span>Residencial</span>
-                                        </div>
-                                    </li>
-                                    <li onclick="AtivaAba('abaVeiculo')">
-                                        <div class="aba">
-                                            <span>Veículos</span>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div id="content">
-                                <div id="abaRes" class="conteudo" style="display: block"> @*<!-- INÍCIO ABA RESIDENCIAL -->*@
-                                    <div id="row-pg-1" class="row">
-                                        <div id="app" class="form-group col-md-2">
-                                            <label for="cep">CEP</label>
-                                            <input type="text" class="form-control" v-model="cep" id="cep" onclick="this.value=''" maxlength="8" placeholder="" value="">
-                                        </div>
-                                        <div class="form-group col-md-8"> @*<!-- INÍCIO DIV CONTEÚDO DO FORM LOGRADOURO -->*@
-                                            <label for="endereco">Endereço</label>
-                                            <input type="text" class="form-control" id="endereco" placeholder="Rua, avenida, praça, fazenda...">
-                                        </div>
-                                        <div class="form-group col-md-2">
-                                            <label for="numero">Número</label>
-                                            <input type="text" class="form-control" id="numero" placeholder="">
-                                        </div>
-                                    </div> @*<!-- FIM DIV CONTEÚDO DO FORM LOGRADOURO -->*@
-                                    
-                                    <div id="row-pg-2" class="row">
-                                        <div class="form-group col-md-5">
-                                            <label for="bairro">Bairro</label>
-                                            <input type="text" class="form-control" id="bairro">
-                                        </div>
-                                        <div class="form-group col-md-5">
-                                            <label for="cidade">Cidade</label>
-                                            <input type="text" class="form-control" id="cidade">
-                                        </div>
-                                        <div class="form-group col-md-2">
-                                            <label for="estado">Estado</label>
-                                            <select id="estado" class="form-select">
-                                                <option value="AC">AC</option>
-                                                <option value="AL">AL</option>
-                                                <option value="AM">AM</option>
-                                                <option value="AP">AP</option>
-                                                <option value="BA">BA</option>
-                                                <option value="CE">CE</option>
-                                                <option value="DF">DF</option>
-                                                <option value="ES">ES</option>
-                                                <option value="GO">GO</option>
-                                                <option value="MA">MA</option>
-                                                <option value="MG">MG</option>
-                                                <option value="MS">MS</option>
-                                                <option value="MT">MT</option>
-                                                <option value="PA">PA</option>
-                                                <option value="PB">PB</option>
-                                                <option value="PE">PE</option>
-                                                <option value="PI">PI</option>
-                                                <option value="PR">PR</option>
-                                                <option value="RJ">RJ</option>
-                                                <option value="RN">RN</option>
-                                                <option value="RO">RO</option>
-                                                <option value="RR">RR</option>
-                                                <option value="RS">RS</option>
-                                                <option value="SC">SC</option>
-                                                <option value="SE">SE</option>
-                                                <option value="SP">SP</option>
-                                                <option value="TO">TO</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="form-group col-md-12">
-                                            <label for="complemento">Complemento</label>
-                                            <input type="text" class="form-control" id="complemento" placeholder="Apartamento, casa, lote...">
-                                        </div>
-                                    </div>
-                                    <div id="row-pg-3" class="row"> @*<!-- INICIO DIV CIDADE E ESTADO -->*@
-                                        <div class="form-group col-md-3">
-                                            <label for="telefone">Telefone</label>
-                                            <input type="tel" class="form-control" id="telefone" placeholder="(98) 9999-8888" asp-for="telefone">
-                                        </div>
-                                        <div class="form-group col-md-3">
-                                            <label for="celular">Celuar</label>
-                                            <input type="tel" class="form-control" id="celular" placeholder="(98) 98888-7777" asp-for="celular">
-                                        </div>
-                                        <div class="form-group col-md-6">
-                                            <label for="email">Email</label>
-                                            <input type="email" class="form-control email" id="email" placeholder="crm.auto@crmauto.com.br" asp-for="email_nf">
-                                        </div>
-                                    </div> @*<!-- FIM DIV CIDADE E ESTADO -->*@
-                                </div> @*<!-- FIM ABA RESIDENCIAL-->*@
-                                <div id="abaVeiculo" class="conteudo" style="display: none"> @*<!-- INÍCIO DIV ABA CADASTRO DE VEÍCULOS -->*@
-                                    <table class="table">
-                                        <thead>
-                                            <tr>
-                                                <th class="tb-item-veiculo" scope="col">#</th>
-                                                <th class="tb-placa" scope="col">Placa</th>
-                                                <th class="tb-veiculo" scope="col">Veículo</th>
-                                                <th class="tb-ano-modelo" scope="col">Ano modelo</th>
-                                                <th class="tb-km" scope="col">KM atual</th>
-                                                <th class="tb-1" scope="col"></th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <th scope="row">1</th>
-                                                <td>ABC9D88</td>
-                                                <td>CRUZE SPORT6 LTZ</td>
-                                                <td>2018/2018</td>
-                                                <td>36123</td>
-                                                <td>
-                                                    <button type="button" class="btn btn-link btn-rounded btn-sm fw-bold" data-mdb-ripple-color="prymary" 
-                                                        data-placement="right" data-bs-toggle="tooltip" title="Detalhe" data-toggle="modal" data-target="#deleteClienteVeiculo">
-                                                        <i class="bi bi-view-list"></i>
-                                                    </button>
-            
-                                                    <button type="button" class="btn btn-link btn-rounded btn-sm fw-bold" data-mdb-ripple-color="prymary" 
-                                                        data-placement="right" data-bs-toggle="tooltip" title="Editar" data-toggle="modal" data-target="#editClienteVeiculo">
-                                                        <i class="bi bi-pencil"></i>
-                                                    </button>
-                                                    
-                                                    <button type="button" class="btn btn-link btn-rounded btn-sm fw-bold" data-mdb-ripple-color="prymary" 
-                                                        data-placement="right" data-bs-toggle="tooltip" title="Excluir" data-toggle="modal" data-target="#deleteClienteVeiculo">
-                                                        <i class="bi bi-x-circle"></i>
-                                                    </button>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div> @*<!-- FIM DIV ABA CADASTRO DE VEÍCULOS -->*@
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <div class="form-group">
-                            <small>(*) Campos obrigatórios</small>
-                            </div>
-                        </div>
-                
-                        <div class="form-group row pb-3 float-end">
-                            <div class="col-sm-17">
-                                <button type="submit" class="btn btn-primary btn-sm btn-atualizar" id="btnUpdate">Salvar</button>
-                                <button type="button" class="btn btn-secondary btn-sm btn-fechar" data-dismiss="modal" aria-label="Close">Fechar</button>
-                            </div>
+                        <div class="form-group col-md-3">
+                            <label for="tipo-pessoa">Selecione o tipo de pessoa</label>
+                            <select name="tipoPessoa" id="tipo-pessoa" class="form-select">
+                                <option selected>Selecione...</option>
+                                <option value="F">Pessoa física</option>
+                                <option value="J">Pessoa jurídica</option>
+                            </select>
                         </div>
                     </div>
-                </form>
-            }
+
+                    <div class="row linhas">
+                        <div class="form-group col-md-7">
+                            <label for="nomeCliente">Nome do cliente</label>
+                            <input type="text" class="form-control" id="nomeCliente" placeholder="Nome do cliente">
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="idApelido">Apelido</label>
+                            <input type="text" class="form-control" id="idApelido" placeholder="Apelido do cliente">
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label for="idDtNascimento">Data nascimento</label>
+                            <input type="text" class="form-control" id="idDtNascimento" placeholder="00/00/0000">
+                        </div>
+                    </div>
+
+                    <div class="TabControl mt-3">
+                        <div id="header">
+                            <ul class="abas">
+                                <li onclick="AtivaAba('abaRes')">
+                                    <div class="aba" >
+                                        <span>Residencial</span>
+                                    </div>
+                                </li>
+                                <li onclick="AtivaAba('abaVeiculo')">
+                                    <div class="aba">
+                                        <span>Veículos</span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div id="content">
+                            <div id="abaRes" class="conteudo" style="display: block"> @*<!-- INÍCIO ABA RESIDENCIAL -->*@
+                                <div id="row-pg-1" class="row">
+                                    <div id="app" class="form-group col-md-2">
+                                        <label for="cep">CEP</label>
+                                        <input type="text" class="form-control" v-model="cep" id="cep" onclick="this.value=''" maxlength="8" placeholder="" value="">
+                                    </div>
+                                    <div class="form-group col-md-8"> @*<!-- INÍCIO DIV CONTEÚDO DO FORM LOGRADOURO -->*@
+                                        <label for="endereco">Endereço</label>
+                                        <input type="text" class="form-control" id="endereco" placeholder="Rua, avenida, praça, fazenda...">
+                                    </div>
+                                    <div class="form-group col-md-2">
+                                        <label for="numero">Número</label>
+                                        <input type="text" class="form-control" id="numero" placeholder="">
+                                    </div>
+                                </div> @*<!-- FIM DIV CONTEÚDO DO FORM LOGRADOURO -->*@
+                                    
+                                <div id="row-pg-2" class="row">
+                                    <div class="form-group col-md-5">
+                                        <label for="bairro">Bairro</label>
+                                        <input type="text" class="form-control" id="bairro">
+                                    </div>
+                                    <div class="form-group col-md-5">
+                                        <label for="cidade">Cidade</label>
+                                        <input type="text" class="form-control" id="cidade">
+                                    </div>
+                                    <div class="form-group col-md-2">
+                                        <label for="estado">Estado</label>
+                                        <select id="estado" class="form-select">
+                                            <option value="AC">AC</option>
+                                            <option value="AL">AL</option>
+                                            <option value="AM">AM</option>
+                                            <option value="AP">AP</option>
+                                            <option value="BA">BA</option>
+                                            <option value="CE">CE</option>
+                                            <option value="DF">DF</option>
+                                            <option value="ES">ES</option>
+                                            <option value="GO">GO</option>
+                                            <option value="MA">MA</option>
+                                            <option value="MG">MG</option>
+                                            <option value="MS">MS</option>
+                                            <option value="MT">MT</option>
+                                            <option value="PA">PA</option>
+                                            <option value="PB">PB</option>
+                                            <option value="PE">PE</option>
+                                            <option value="PI">PI</option>
+                                            <option value="PR">PR</option>
+                                            <option value="RJ">RJ</option>
+                                            <option value="RN">RN</option>
+                                            <option value="RO">RO</option>
+                                            <option value="RR">RR</option>
+                                            <option value="RS">RS</option>
+                                            <option value="SC">SC</option>
+                                            <option value="SE">SE</option>
+                                            <option value="SP">SP</option>
+                                            <option value="TO">TO</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group col-md-12">
+                                        <label for="complemento">Complemento</label>
+                                        <input type="text" class="form-control" id="complemento" placeholder="Apartamento, casa, lote...">
+                                    </div>
+                                </div>
+                                <div id="row-pg-3" class="row"> @*<!-- INICIO DIV CIDADE E ESTADO -->*@
+                                    <div class="form-group col-md-3">
+                                        <label for="telefone">Telefone</label>
+                                        <input type="tel" class="form-control" id="telefone" placeholder="(98) 9999-8888" asp-for="Telefone">
+                                    </div>
+                                    <div class="form-group col-md-3">
+                                        <label for="celular">Celuar</label>
+                                        <input type="tel" class="form-control" id="celular" placeholder="(98) 98888-7777" asp-for="Celular">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="email">Email</label>
+                                        <input type="email" class="form-control email" id="email" placeholder="crm.auto@crmauto.com.br" asp-for="Email_nf">
+                                    </div>
+                                </div> @*<!-- FIM DIV CIDADE E ESTADO -->*@
+                            </div> @*<!-- FIM ABA RESIDENCIAL-->*@
+                            <div id="abaVeiculo" class="conteudo" style="display: none"> @*<!-- INÍCIO DIV ABA CADASTRO DE VEÍCULOS -->*@
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th class="tb-item-veiculo" scope="col">#</th>
+                                            <th class="tb-placa" scope="col">Placa</th>
+                                            <th class="tb-veiculo" scope="col">Veículo</th>
+                                            <th class="tb-ano-modelo" scope="col">Ano modelo</th>
+                                            <th class="tb-km" scope="col">KM atual</th>
+                                            <th class="tb-1" scope="col"></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">1</th>
+                                            <td>ABC9D88</td>
+                                            <td>CRUZE SPORT6 LTZ</td>
+                                            <td>2018/2018</td>
+                                            <td>36123</td>
+                                            <td>
+                                                <button type="button" class="btn btn-link btn-rounded btn-sm fw-bold" data-mdb-ripple-color="prymary" 
+                                                    data-placement="right" data-bs-toggle="tooltip" title="Detalhe" data-toggle="modal" data-target="#deleteClienteVeiculo">
+                                                    <i class="bi bi-view-list"></i>
+                                                </button>
+            
+                                                <button type="button" class="btn btn-link btn-rounded btn-sm fw-bold" data-mdb-ripple-color="prymary" 
+                                                    data-placement="right" data-bs-toggle="tooltip" title="Editar" data-toggle="modal" data-target="#editClienteVeiculo">
+                                                    <i class="bi bi-pencil"></i>
+                                                </button>
+                                                    
+                                                <button type="button" class="btn btn-link btn-rounded btn-sm fw-bold" data-mdb-ripple-color="prymary" 
+                                                    data-placement="right" data-bs-toggle="tooltip" title="Excluir" data-toggle="modal" data-target="#deleteClienteVeiculo">
+                                                    <i class="bi bi-x-circle"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div> @*<!-- FIM DIV ABA CADASTRO DE VEÍCULOS -->*@
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="form-group">
+                        <small>(*) Campos obrigatórios</small>
+                        </div>
+                    </div>
+                
+                    <div class="form-group row pb-3 float-end">
+                        <div class="col-sm-17">
+                            <button type="button" class="btn btn-success btn-sm btn-novo">Novo</button>
+                            <button type="submit" class="btn btn-primary btn-sm btn-atualizar">Salvar</button>
+                            <button type="submit" class="btn btn-danger btn-sm btn-excluir">Excluir</button>
+                            <button type="button" class="btn btn-secondary btn-sm btn-fechar" data-dismiss="modal" aria-label="Close">Fechar</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            
         </div>
     </div>
 </div>
+}

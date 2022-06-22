@@ -90,7 +90,7 @@ namespace CRM_Auto.Util
         }
 
         //Comando Insert, Update e Delete
-        public void DeleteData(string command)
+        public void UpdateData(string command)
         {
             MySqlCommand MySqlCommand = new MySqlCommand(command, objCon);
 
