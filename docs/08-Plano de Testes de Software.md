@@ -92,7 +92,7 @@ Critérios de Êxito | •	O sistema deve gerar um arquivo em formato .pdf conte
 Requisitos Associados | RF-07: O sistema deve permitir o cadastro, alteração e exclusão dos serviços disponibilizados pelas oficinas.
 Objetivo do Teste | Garantir que o sistema permite a inclusão do cadastro de um novo serviço para as oficinas
 Passos | 1.	Executar a aplicação <br>	2.	Fazer login no sistema <br>3.	No painel de controle, selecionar a opção Menu Serviços <br>4. Clicar no botão "Novo serviço"<br>5. Preencher corretamente o formulário de cadastro<br>6. Clicar em Inserir
-Critérios de Êxito | •	Se as informações forem preenchidas corretamente, o sistema deve apresentar ao usuário uma mensagem de sucesso relativa à inserção do serviço. Após a inserção ser efetuada, as informações inseridas no formulário devem ser registradas no banco de dados na tabela [CRM_AUTO].[dbo].[SERVIÇO].
+Critérios de Êxito | •	Se as informações forem preenchidas corretamente, o sistema deve apresentar ao usuário uma mensagem de sucesso relativa à inserção do serviço. Após a inserção ser efetuada, as informações inseridas no formulário devem ser registradas no banco de dados na tabela [CRM_AUTO].[dbo].[SERVICO].
  
 ## Ferramentas de Testes (Opcional)
 
