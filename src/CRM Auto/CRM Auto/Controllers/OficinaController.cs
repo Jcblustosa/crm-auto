@@ -18,6 +18,15 @@ namespace CRM_Auto.Controllers
         {
             HttpContextAccessor = httpContextAccessor;
         }
+
+        private string NomeFuncionario(){return HttpContextAccessor.HttpContext.Session.GetString("Nome");}
+
+        private string IdFuncionario(){return HttpContextAccessor.HttpContext.Session.GetString("IdFuncionario");}
+
+        private string IdOficina(){return HttpContextAccessor.HttpContext.Session.GetString("IdOficina");}
+
+        private string IdUsuario(){return HttpContextAccessor.HttpContext.Session.GetString("IdUsuario");}
+
         public IActionResult LoginColaborador()
         {
             return View();
@@ -34,8 +43,8 @@ namespace CRM_Auto.Controllers
                 HttpContext.Session.SetString("IdFuncionario", nomeEIdFuncionario[1]);
                 HttpContext.Session.SetString("IdOficina", nomeEIdFuncionario[2]);
                 HttpContext.Session.SetString("IdUsuario", nomeEIdFuncionario[3]);
-                TempData["Nome"] = HttpContextAccessor.HttpContext.Session.GetString("Nome");
-                TempData["IdFuncionario"] = HttpContextAccessor.HttpContext.Session.GetString("IdFuncionario");
+                TempData["Nome"] = NomeFuncionario();
+                TempData["IdFuncionario"] = IdFuncionario();
                 return RedirectToAction("Sucesso");
             }
             return RedirectToAction("LoginColaborador");
@@ -43,9 +52,22 @@ namespace CRM_Auto.Controllers
         public IActionResult Sucesso()
         {
             SucessoModel sucesso = new SucessoModel();
-            TempData["Nome"] = HttpContextAccessor.HttpContext.Session.GetString("Nome");
-            ViewBag.ListaOS = sucesso.BuscarDados(HttpContextAccessor.HttpContext.Session.GetString("IdOficina"));
+            TempData["Nome"] = NomeFuncionario();
+            ViewBag.ListaOS = sucesso.BuscarDados(IdOficina());
             return View("Sucesso");
+        }
+
+        [HttpPost]
+        public List<string> BuscarDetalhamento(OrdemServico os)
+        {
+            ServicoModel servico = new ServicoModel();
+            servico.BuscarDetalhamento(os.IdOS);
+            List<string> lista = new List<string>();
+            lista.Add(servico.Descricao);
+            lista.Add(servico.MecanicoResponsavel);
+            lista.Add(servico.CustoHora.ToString());
+            lista.Add(servico.Quantidade.ToString());
+            return lista;
         }
 
         public IActionResult CadastroVeiculo()
@@ -192,7 +214,7 @@ namespace CRM_Auto.Controllers
         {
             OrdemServico os = new OrdemServico();
             ViewBag.ListaServicos = os.ListarServicos();
-            string idOficina = HttpContextAccessor.HttpContext.Session.GetString("IdOficina");
+            string idOficina = IdOficina();
             MecanicoModel mecanico = new MecanicoModel();
             ViewBag.ListaMecanicos = mecanico.ListarMecanicos(idOficina);
             return View();
@@ -220,8 +242,8 @@ namespace CRM_Auto.Controllers
             string idCliente = agendamento.BuscarIdCliente(oficinaOS.OrdemServico.CpfCnpj);
             string idCliVeiculo = agendamento.BuscarIdClienteVeiculo(oficinaOS.OrdemServico.PlacaVeiculo, idCliente);
             string idAgendamento = agendamento.GerarAgendamento(idCliente, idCliVeiculo);
-            string idUsuarioCad = HttpContextAccessor.HttpContext.Session.GetString("IdUsuario");
-            oficinaOS.OrdemServico.IdOficina = HttpContextAccessor.HttpContext.Session.GetString("IdOficina");
+            string idUsuarioCad = IdUsuario();
+            oficinaOS.OrdemServico.IdOficina = IdOficina();
             string idOS = oficinaOS.OrdemServico.GerarOS(idCliente, idAgendamento, idUsuarioCad, idCliVeiculo);
             oficinaOS.Servico.CadastrarServico(idOS);
             TempData["ordemCadastrada"] = "Ordem de Serviço cadastrada com sucesso!";
@@ -231,10 +253,15 @@ namespace CRM_Auto.Controllers
         [HttpGet]
         public IActionResult BuscarServicos()
         {
-            try
-            {
-                ServicoModel servico = new ServicoModel();
-                ViewBag.BuscarServicos = servico.BuscarServicos();
+            string idOficina = IdOficina();
+            OficinaOrdemServicoViewModel oficinaOrdemServicoViewModel = new OficinaOrdemServicoViewModel();
+            OrdemServico os = new OrdemServico();
+            ServicoModel servico = new ServicoModel();
+            MecanicoModel mecanico = new MecanicoModel();
+            ViewBag.ListaServicos = os.ListarServicos();
+            ViewBag.ListaMecanicos = mecanico.ListarMecanicos(idOficina);
+            oficinaOrdemServicoViewModel.Servico = servico.BuscarServico(id);
+            oficinaOrdemServicoViewModel.OrdemServico = os.BuscarOS(id);
 
                 return View("Servicos");
             }
@@ -262,7 +289,14 @@ namespace CRM_Auto.Controllers
             FuncionarioModel funcionario = new FuncionarioModel();
             funcionario.GerarRelatorioEmPDF();
 
-            ViewBag.BuscarFuncionarios = funcionario.BuscarFuncionarios();
+            agendamentoServico.DataAgendamento = oficinaOS.OrdemServico.DataOrdem;
+            string idCliente = agendamentoServico.BuscarIdCliente(oficinaOS.OrdemServico.CpfCnpj);
+            string idCliVeiculo = agendamentoServico.BuscarIdClienteVeiculo(oficinaOS.OrdemServico.PlacaVeiculo, idCliente);
+            string idNovoAgendamento = agendamentoServico.GerarAgendamento(idCliente, idCliVeiculo);
+            string idUsuarioCad = IdUsuario();
+            oficinaOS.OrdemServico.IdOficina = IdOficina();
+            string idOS = oficinaOS.OrdemServico.GerarOS(idCliente, idNovoAgendamento, idUsuarioCad, idCliVeiculo);
+            oficinaOS.Servico.CadastrarServico(idOS);
 
             OficinaModel oficina = new OficinaModel();
             List<OficinaModel> lista = oficina.BuscarOficinas();
