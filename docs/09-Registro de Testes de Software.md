@@ -392,6 +392,45 @@ Pontos a melhorar
 
 1) Apresentar o botão de excluir na coluna de opções da tabela de funcionários e não dentro do modal, afim de simplificar a experiência do usuário.
 
+### CT-12: Emissão de relatório de Funcionários
+
+**Objetivo:** Verificar se o relatório de funcionários está sendo gerado corretamente
+
+**Passos:** 
+1. Executar a aplicação
+2. Fazer login no sistema
+3. No painel de controle, selecionar a opção Menu Funcionários
+4. Clicar no ícone "Relatórios"
+
+**Critério de êxito:** O sistema deve gerar um arquivo em formato .pdf contendo as informações dos funcionários em uma tabela. O relatório deve conter também a data e hora de geração do arquivo.
+
+**Resultado do teste:** *Passou*
+
+**Evidências:**
+
+Após efetuar login no sistema, o Menu Funcionários é selecionado no Painel de Controle:
+
+![img1](https://raw.githubusercontent.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t3-crm-auto/main/docs/img/registro%20de%20testes/CT%2011/Evidencia1_CT14.png)
+<p align="center">Evidência de teste 1 - Selecionando o Menu Funcionários no Painel de Controle</p>
+</br>
+
+Ícone "Relatórios" é selecionado:
+
+![img2](https://raw.githubusercontent.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t3-crm-auto/main/docs/img/registro%20de%20testes/CT%2011/Evidencia1_CT12.png)
+<p align="center">Evidência de teste 2 - Clicando no ícone Relatórios</p>
+</br>
+
+Após clicar no ícone relatórios, o relatório em PDF contendo as informações dos funcionários é gerado:
+
+![img3](https://raw.githubusercontent.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t3-crm-auto/main/docs/img/registro%20de%20testes/CT%2011/Evidencia2_CT12.png)
+<p align="center">Evidência de teste 3 - Relatório gerado em PDF</p>
+</br>
+
+O arquivo contém as informações da data e hora da geração:
+
+![img4](https://raw.githubusercontent.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t3-crm-auto/main/docs/img/registro%20de%20testes/CT%2011/Evidencia3_CT12.png)
+<p align="center">Evidência de teste 4 - Rodapé contendo as informações de data e hora da geração do relatório</p>
+</br>
 
 > **Links Úteis**:
 > - [Ferramentas de Test para Java Script](https://geekflare.com/javascript-unit-testing/)
