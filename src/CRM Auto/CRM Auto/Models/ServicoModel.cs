@@ -1,5 +1,6 @@
 ﻿using CRM_Auto.Util;
 using System;
+using System.Collections.Generic;
 using System.Data;
 
 namespace CRM_Auto.Models
@@ -17,6 +18,7 @@ namespace CRM_Auto.Models
         public TimeSpan TempoDeExecucao { get; set; }
         public double CustoHora { get; set; }
         public int IdMecanicoResponsavel { get; set; }
+        public string MecanicoResponsavel { get; set; }
 
 
         public ServicoModel()
@@ -83,6 +85,25 @@ namespace CRM_Auto.Models
 
             CNN cNN = new CNN();
             cNN.InsertData(command);
+        }
+
+        public void BuscarDetalhamento(int id)
+        {
+            string command = "SELECT S.DESCRICAO, F.NOME, S.CUSTO_HORA, D.QUANTIDADE " +
+                "FROM DETALHE_OS D " +
+                "INNER JOIN SERVICO S " +
+                "ON D.ID_SERVICO = S.ID_SERVICO " +
+                "INNER JOIN FUNCIONARIO F " +
+                "ON D.ID_MEC_RESPONSAVEL = F.ID_FUNCIONARIO " +
+                $"WHERE D.ID_ORDEM = {id};";
+
+            CNN cnn = new CNN();
+            DataTable dt = cnn.GetData(command);
+
+            Descricao = dt.Rows[0]["DESCRICAO"].ToString();
+            MecanicoResponsavel = dt.Rows[0]["NOME"].ToString();
+            CustoHora = double.Parse(dt.Rows[0]["CUSTO_HORA"].ToString());
+            Quantidade = int.Parse(dt.Rows[0]["QUANTIDADE"].ToString());
         }
     }
 }

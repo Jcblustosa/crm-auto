@@ -63,7 +63,7 @@
                 <input id="tableSearch" type="text" class="form-control col-5" placeholder="Pesquisar ordem de serviço" aria-label="Username" aria-describedby="basic-addon1">
             </div>
             <div class="col-sm">
-                <a class="btn btn-success">Pesquisar</a>
+                <a asp-action="OrdemServico" class="btn btn-success">Abrir nova O.S.</a>
             </div>
         </div>
     </div>
@@ -105,7 +105,9 @@
                             <p class="text-muted mb-0">@os.PlacaVeiculo</p>
                         </td>
                         <td>
-                            <a class="btn btn-sm btn-outline-dark">Exibir detalhes</a>
+                            <button onclick="buscardetalhe(@os.IdOrdemServico)" type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#detalheOS">
+                                Exibir detalhes
+                            </button>
                             <form asp-action="EditarOS">
                                 <input type="hidden" value="@os.IdOrdemServico" name="id" />
                                 <input type="submit" class="btn btn-sm btn-outline-warning" value="Editar" />
@@ -129,3 +131,56 @@
     </div>
     <!-- Copyright -->
 </footer>
+
+
+<!-- Modal -->
+<div class="modal fade" id="detalheOS" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Detalhamento</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Serviço</th>
+                            <th>Mecânico resp.</th>
+                            <th>Valor (un.)</th>
+                            <th>Qtde.</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr id="corpoDetalhamento">
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    function buscardetalhe(e){
+            document.getElementById('corpoDetalhamento').innerHTML = "";
+            console.log(e)
+            $.post("BuscarDetalhamento", {IdOS: e}, function(result,status,xhr) {
+                console.log(`data: ${result}, status: ${status}`);
+                if (status === 'success') {
+                    const options = $("#corpoDetalhamento");
+                    options.innerHTML = "";
+                    for (let i = 0; i < result.length; i++) {
+                        const item = result[i];
+                        console.log(item)
+                        options.append('<td>' + item + '</td>');
+                    }
+                }
+            })
+        }
+
+</script>
