@@ -125,7 +125,7 @@ Pontos a melhorar
 
 Após a execução da aplicação, a homepage é apresentada ao usuário:
 
-![img1](https://raw.githubusercontent.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t3-crm-auto/main/docs/img/registro%20de%20testes/CT%2011/Evidencia1.png)
+![img1](https://raw.githubusercontent.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t3-crm-auto/main/docs/img/registro%20de%20testes/CT%2011/Evidencia1_CT11.png)
 <p align="center">Evidência de teste 1 - Homepage com as opções de login</p>
 </br>
 
@@ -231,7 +231,7 @@ Os dados do novo funcionário são preenchidos:
 
 Após clicar em Inserir, a mensagem de sucesso na inclusão do novo funcionário é apresentada:
 
-![img5]([https://raw.githubusercontent.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t3-crm-auto/main/docs/img/registro%20de%20testes/CT%2011/Evidencia5_CT14.png](https://raw.githubusercontent.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t3-crm-auto/main/docs/img/registro%20de%20testes/CT%2011/Evidencia1.png))
+![img5](https://raw.githubusercontent.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t3-crm-auto/main/docs/img/registro%20de%20testes/CT%2011/Evidencia1.png)
 <p align="center">Evidência de teste 5 - Mensagem de sucesso apresentada ao usuário</p>
 </br>
 
