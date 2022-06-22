@@ -229,9 +229,9 @@ Os dados do novo funcionário são preenchidos:
 <p align="center">Evidência de teste 4 - Preenchimento das informações do novo funcionário</p>
 </br>
 
-Após clicar em Inserir, o usuário é direcionado para uma tela onde é apresentada a mensagem de sucesso na inclusão do novo funcionário:
+Após clicar em Inserir, a mensagem de sucesso na inclusão do novo funcionário é apresentada:
 
-![img5](https://raw.githubusercontent.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t3-crm-auto/main/docs/img/registro%20de%20testes/CT%2011/Evidencia5_CT14.png)
+![img5]([https://raw.githubusercontent.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t3-crm-auto/main/docs/img/registro%20de%20testes/CT%2011/Evidencia5_CT14.png](https://raw.githubusercontent.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t3-crm-auto/main/docs/img/registro%20de%20testes/CT%2011/Evidencia1.png))
 <p align="center">Evidência de teste 5 - Mensagem de sucesso apresentada ao usuário</p>
 </br>
 
