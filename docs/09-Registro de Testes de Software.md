@@ -366,11 +366,11 @@ Registro do funcionário na tabela [CRM_AUTO].[dbo].[FUNCIONARIO]:
 
 Após clicar em Excluir, a mensagem de sucesso na exclusão do funcionário é apresentada:
 
-![img5](https://raw.githubusercontent.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t3-crm-auto/main/docs/img/registro%20de%20testes/CT%2011/Evidencia3_CT09.png)
+![img5](https://raw.githubusercontent.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t3-crm-auto/main/docs/img/registro%20de%20testes/CT%2011/Evidencia4_CT16.png)
 <p align="center">Evidência de teste 5 - Clicando no botão Excluir</p>
 </br>
 
-![img6](https://raw.githubusercontent.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t3-crm-auto/main/docs/img/registro%20de%20testes/CT%2011/Evidencia6_CT16.png)
+![img6](https://raw.githubusercontent.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t3-crm-auto/main/docs/img/registro%20de%20testes/CT%2011/Evidencia3_CT09.png)
 <p align="center">Evidência de teste 6 - Mensagem de sucesso apresentada ao usuário</p>
 </br>
 
