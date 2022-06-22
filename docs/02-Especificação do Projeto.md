@@ -20,13 +20,13 @@ Com base na análise das personas foram identificadas as seguintes histórias de
 
 |EU COMO... `PERSONA`| QUERO/PRECISO ... `FUNCIONALIDADE`                                                                       |PARA ... `MOTIVO/VALOR`                                                                        |
 |--------------------|----------------------------------------------------------------------------------------------------------|-----------------------------------------------|
-|Gestor da oficina |Efetuar o cadastro, alteração e exclusão de oficinas no sistema |Que a gestão da oficina matriz e das oficinas filiais seja realizada de forma centralizada em um único sistema|
-|Gestor da oficina | Efetuar o cadastro, alteração e exclusão de funcionários no sistema |Conseguir realizar a gestão dos meus funcionários de maneira facilitada|
-|Gestor da oficina | Efetuar o cadastro, alteração e exclusão dos serviços disponibilizados pela oficina |Que seja possível incluir, alterar e excluir informações de um determinado serviço|
-|Gestor da oficina| Gerar relatórios sobre os serviços realizados pela oficina| Obter informações relevantes da minha empresa|
-|Gestor da oficina| Gerar relatórios sobre os clientes da oficina | Obter informações relevantes dos meus clientes|
-|Gestor da oficina / Funcionário da oficina| Efetuar o cadastro, alteração e exclusão de clientes no sistema| Que seja possível incluir e alterar informações de um determinado cliente|
-|Gestor da oficina / Funcionário da oficina| Consultar os clientes cadastrados no sistema| Conseguir realizar a gestão dos clientes de maneira otimizada|      
+|Funcionário da oficina |Efetuar o cadastro, alteração e exclusão de oficinas no sistema |Que a gestão da oficina matriz e das oficinas filiais seja realizada de forma centralizada em um único sistema|
+|Funcionário da oficina | Efetuar o cadastro, alteração e exclusão de funcionários no sistema |Conseguir realizar a gestão dos meus funcionários de maneira facilitada|
+|Funcionário da oficina | Efetuar o cadastro, alteração e exclusão dos serviços disponibilizados pela oficina |Que seja possível incluir, alterar e excluir informações de um determinado serviço|
+|Funcionário da oficina| Gerar relatórios sobre os serviços realizados pela oficina| Obter informações relevantes da minha empresa|
+|Funcionário da oficina| Gerar relatórios sobre os funcionários da oficina | Obter informações relevantes dos meus funcionários|
+|Funcionário da oficina| Efetuar o cadastro, alteração e exclusão de clientes no sistema| Que seja possível incluir e alterar informações de um determinado cliente|
+|Funcionário da oficina| Consultar os clientes cadastrados no sistema| Conseguir realizar a gestão dos clientes de maneira otimizada|      
 |Funcionário da oficina |Realizar o cadastro de veículo (s) para um determinado cliente no sistema| Conseguir realizar a inclusão dos serviços solicitados para o veículo|
 |Funcionário da oficina| Inserir, alterar e excluir informações sobre o andamento de um determinado serviço no sistema| Que o registro dessas informações esteja sempre atualizado|
 |Cliente da oficina| Acompanhar o andamento do serviço solicitado à oficina e a data prevista para finalização| Que eu tenha informações relevantes sobre a evolução do serviço contratado|
@@ -42,31 +42,29 @@ As tabelas que a seguir apresentam os requisitos funcionais e não funcionais qu
 
 | ID  | Descrição do Requisito | PRIORIDADE |  
 |---|---|---|
-| RF-01 | O sistema deve permitir Incluir/Excluir/Alterar dados de um funcionário ou cliente da oficina. |  MÉDIA| 
-| RF-02 | O sistema deve emitir relatórios de clientes. | ALTA | | 
-| RF-03 | O sistemea deve fazer consulta e alterações de dados pessoais de clientes.  | ALTA |  
-| RF-04 | O sistema deve realizar consulta de saldo ou estoque. |  ALTA|
-| RF-05 | O sistema deve permitir que o usuário cadastre tarefas. | ALTA  | 
-| RF-06 | O sistema deve emitir lembretes após passarem-se 11 meses desde a última revisão anual. | ALTA  | 
-| RF-07 | O sistema deve efetuar o cadastro, alteração e exclusão de oficinas no sistema.  | ALTA  |
-| RF-08 | O sistema deve efetuar o cadastro, alteração e exclusão dos serviços disponibilizados pela oficina.  | ALTA |
-| RF-09 | O sistema deve consultar os clientes cadastrados no sistema.| ALTA |
-| RF-10  | O sistema deve realizar o cadastro de veículo (s) para um determinado cliente no sistema.| ALTA |
-| RF-11  |O sistema deve inserir, alterar e excluir informações sobre o andamento de um determinado serviço no sistema.| ALTA |
-| RF-12  |O sistema deve acompanhar o andamento do serviço solicitado à oficina e a data prevista para finalização.| ALTA |
-| RF-13  |O sistema deve permitir o login de colaborador da oficina.| ALTA |
-| RF-14  |O sistema deve permitir o login como cliente da oficina.| ALTA |
+| RF-01 | O sistema deve permitir que um colaborador cadastrado faça login.| ALTA |
+| RF-02 | O sistema deve permitir que um cliente cadastrado faça login.| ALTA |
+| RF-03 | O sistema deve permitir a inserção, alteração e exclusão dos dados dos funcionários. | ALTA | 
+| RF-04 | O sistema deve permitir a emissão de relatório contendo as informações dos funcionários. | ALTA |
+| RF-05 | O sistema deve permitir a consulta e alteração de dados pessoais dos clientes. | ALTA |  
+| RF-06 | O sistema deve permitir o cadastro, alteração e exclusão de oficinas. | ALTA  |
+| RF-07 | O sistema deve permitir o cadastro, alteração e exclusão dos serviços disponibilizados pelas oficinas. | ALTA |
+| RF-08 | O sistema deve permitir a consulta dos clientes cadastrados. | ALTA |
+| RF-09 | O sistema deve permitir o cadastro de veículo (s) para o cliente.| ALTA |
+| RF-10 | O sistema deve permitir a inserção, alteração e exclusão das informações sobre o andamento de um determinado serviço. | ALTA |
+| RF-11 | O sistema deve permitir o acompanhamento do andamento de um serviço e a data prevista para finalização.| ALTA |
+| RF-12 | O sistema deve permitir a emissão de relatório contendo as informações dos serviços realizados pelas oficinas. | MÉDIA |
+| RF-13 | O sistema deve emitir lembretes para os clientes após 11 meses desde a última revisão anual. | BAIXA | 
 
 ### Requisitos não Funcionais
 
 | ID  | Descrição do Requisito | PRIORIDADE | 
 |---|---|---|
-| RNF-01 | Deve ser possível usar um módulo de informações cadastrais em modo off-line. |  MÉDIA  | 
-| RNF-02 | O sistema deve ter implementado com C# e JavaScript, complementado com front-end em Html e CSS. | ALTA |
-| RNF-03 | O sistema deverá se comunicar com o banco SQL. | ALTA | 
-| RNF-04 | Um relatório de surpervisão deverá ser fornecido toda sexta-feira.  | ALTA | 
-| RNF-05 | O sistema deve ser responsivo para rodar no navegador de um dispositivos móvel. | ALTA | 
-| RNF-06 | Deve processar requisições do usuário em no máximo 5s. |  ALTA  | 
+| RNF-01 | O sistema deve ser implementado utilizando as tecnologias C#, JavaScript, HTML e CSS. | ALTA |
+| RNF-02 | A persistência dos dados será feita no banco MySQL. | ALTA | 
+| RNF-03 | O sistema deve ser responsivo para rodar no navegador de um dispositivos móvel. | ALTA | 
+| RNF-04 | O projeto de software será feito utilizando o padrão arquitetutal MVC (Model-View-Controller). | ALTA | 
+
 
 ## Restrições
 
@@ -74,8 +72,9 @@ O projeto está restrito pelos itens apresentados na tabela a seguir.
 
 |ID| Restrição                                             |
 |--|-------------------------------------------------------|
-| RE-01 | O projeto deverá ser entregue até o final do semestre. |
-| RE-02 | O projeto deverá ser implementado com uso de tecnologias web, Front End e Back-End. |
+| RE-01 | O projeto deverá ser entregue até o final do semestre|
+| RE-02 | O escopo do projeto será restrito à uma aplicação web, portanto, não será contemplada uma solução mobile|
+
 
 ## Diagrama de Casos de Uso
 
