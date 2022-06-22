@@ -15,7 +15,7 @@ namespace CRM_Auto.Models
         public string Apelido { get; set; }
         public DateTime Data_nascimento { get; set; }
         public DateTime Data_cadastro { get; set; }
-        //public int Id_usuario_cad { get; set; }
+        public int Id_usuario_cad { get; set; }
         public string Email_nf { get; set; }
         public string Cep { get; set; }
         public string Logradouro { get; set; }
@@ -191,12 +191,12 @@ namespace CRM_Auto.Models
             if (dt.Rows.Count == 0)
             {
                 comando = $"DELETE CLIENTE WHERE CNPJ_CPF = '{cliente.Cnpj_cpf}';";
-                cnn.DeleteData(comando);
+                cnn.UpdateData(comando);
             }
             else
             {
                 comando = $"UPDATE CLIENTE SET EXCLUIDO = 1 WHERE CNPJ_CPF = '{cliente.Cnpj_cpf}';";
-                cnn.DeleteData(comando);
+                cnn.UpdateData(comando);
             }
 
             cnn.desconectar();

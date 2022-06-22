@@ -28,17 +28,17 @@
     width: 20px;
   }
   
-  ::-webkit-scrollbar-track {
-    background: #BACDDA;
-  }
-  
-  ::-webkit-scrollbar-thumb {
-    background: #687A86;
-  }
-  
-  ::-webkit-scrollbar-thumb:hover {
-    background: #051821;
-  }
+::-webkit-scrollbar-track {
+background: #BACDDA;
+}
+
+::-webkit-scrollbar-thumb {
+background: #687A86;
+}
+
+::-webkit-scrollbar-thumb:hover {
+background: #051821;
+}
   
 body {
     position: absolute;
@@ -304,11 +304,11 @@ a {
     width: 300px;
 }
 
-.btn-atualizar, .btn-fechar{
+.btn-atualizar, .btn-fechar, .btn-excluir, .btn-novo{
     width: 80px;
 }
 
-.btn-atualizar{
+.btn-atualizar, .btn-excluir, .btn-novo{
     margin-right: 7px;
 }
 
