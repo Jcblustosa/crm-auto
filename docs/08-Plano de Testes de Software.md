@@ -80,7 +80,7 @@ Objetivo do Teste | Garantir que o sistema permite a exclusão do cadastro de um
 Passos | 1.	Executar a aplicação <br>	2.	Fazer login no sistema <br>3.	No painel de controle, selecionar a opção Menu Funcionários <br>4. Clicar no botão para editar as informações de um funcionário<br>5. Validar as informações carregadas automaticamente do funcionário que deseja excluir<br>6. Clicar em Excluir
 Critérios de Êxito | •	Após clicar em excluir, o sistema deve apresentar ao usuário uma mensagem de sucesso relativa à exclusão do funcionário. Após a exclusão ser efetuada, o registro do funcionário deve ser excluído na tabela [CRM_AUTO].[dbo].[FUNCIONARIO].
  
- Caso de Teste | CT-12: Emissão de relatório de Funcionários
+ Caso de Teste | CT-12: Emissão de relatório dos Funcionários
 ---|---
 Requisitos Associados | RF-04: O sistema deve permitir a emissão de relatório contendo as informações dos funcionários. <br>
 Objetivo do Teste | Verificar se o relatório de funcionários está sendo gerado corretamente.
