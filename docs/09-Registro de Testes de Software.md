@@ -392,7 +392,7 @@ Pontos a melhorar
 
 1) Apresentar o botão de excluir na coluna de opções da tabela de funcionários e não dentro do modal, afim de simplificar a experiência do usuário.
 
-### CT-12: Emissão de relatório de Funcionários
+### CT-12: Emissão de relatório dos Funcionários
 
 **Objetivo:** Verificar se o relatório de funcionários está sendo gerado corretamente
 
@@ -431,6 +431,72 @@ O arquivo contém as informações da data e hora da geração:
 ![img4](https://raw.githubusercontent.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t3-crm-auto/main/docs/img/registro%20de%20testes/CT%2011/Evidencia3_CT12.png)
 <p align="center">Evidência de teste 4 - Rodapé contendo as informações de data e hora da geração do relatório</p>
 </br>
+
+**Observações:**
+
+Pontos a melhorar
+
+1) Criar uma tela para a geração personalizada do relatório, permitindo que o usuário aplique os filtres que desejar consultar.
+
+### CT-13: Cadastro de serviços da oficina
+
+**Objetivo:** Garantir que o sistema permite a inclusão do cadastro de um novo serviço para as oficinas
+
+**Passos:** 
+1. Executar a aplicação
+2. Fazer login no sistema
+3. No painel de controle, selecionar a opção Menu Serviços
+4. Clicar no botão "Novo serviço"
+5. Preencher corretamente o formulário de cadastro
+6. Clicar em Inserir
+
+**Critério de êxito:** Se as informações forem preenchidas corretamente, o sistema deve apresentar ao usuário uma mensagem de sucesso relativa à inserção do serviço. Após a inserção ser efetuada, as informações inseridas no formulário devem ser registradas no banco de dados na tabela [CRM_AUTO].[dbo].[SERVICO].
+
+**Resultado do teste:** *Passou*
+
+**Evidências:**
+
+Após efetuar login no sistema, o Menu Serviços é selecionado no Painel de Controle:
+
+![img1](https://raw.githubusercontent.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t3-crm-auto/main/docs/img/registro%20de%20testes/CT%2011/Evidencia1_CT13.png)
+<p align="center">Evidência de teste 1 - Selecionando o Menu Serviços no Painel de Controle</p>
+</br>
+
+Ao clicar no botão "Novo serviço", o formulário de cadastro é apresentado:
+
+![img2](https://raw.githubusercontent.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t3-crm-auto/main/docs/img/registro%20de%20testes/CT%2011/Evidencia2_CT13.png)
+<p align="center">Evidência de teste 2 - Clicando no botão "Novo Serviço"</p>
+</br>
+
+![img3](https://raw.githubusercontent.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t3-crm-auto/main/docs/img/registro%20de%20testes/CT%2011/Evidencia3_CT13.png)
+<p align="center">Evidência de teste 3 - Formulário de cadastro é apresentado</p>
+</br>
+
+Os dados do novo serviço são preenchidos:
+
+![img4](https://raw.githubusercontent.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t3-crm-auto/main/docs/img/registro%20de%20testes/CT%2011/Evidencia4_CT13.png)
+<p align="center">Evidência de teste 4 - Preenchimento das informações do novo serviço</p>
+</br>
+
+Após clicar em Inserir, a mensagem de sucesso na inclusão do novo serviço é apresentada:
+
+![img5](https://raw.githubusercontent.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t3-crm-auto/main/docs/img/registro%20de%20testes/CT%2011/Evidencia5_CT13.png)
+<p align="center">Evidência de teste 5 - Mensagem de sucesso apresentada ao usuário</p>
+</br>
+
+Serviço cadastrado é apresentado na tela:
+
+![img6](https://raw.githubusercontent.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t3-crm-auto/main/docs/img/registro%20de%20testes/CT%2011/Evidencia7_CT13.png)
+<p align="center">Evidência de teste 6 - Serviço apresentado na tela</p>
+</br>
+
+Serviço cadastrado inserido na tabela [CRM_AUTO].[dbo].[SERVICO]:
+
+![img7](https://raw.githubusercontent.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t3-crm-auto/main/docs/img/registro%20de%20testes/CT%2011/Evidencia6_CT13.png)
+<p align="center">Evidência de teste 7 - Serviço inserido no banco de dados</p>
+</br>
+
+
 
 > **Links Úteis**:
 > - [Ferramentas de Test para Java Script](https://geekflare.com/javascript-unit-testing/)
