@@ -3,6 +3,8 @@ using System.Data;
 using CRM_Auto.Util;
 using System.Data.SqlClient;
 using System.Collections.Generic;
+using System.Text.Json;
+using System.IO;
 
 namespace CRM_Auto.Models
 {
@@ -53,6 +55,11 @@ namespace CRM_Auto.Models
             this.Estado = Estado;
             this.Telefone = Telefone;
             this.Celular = Celular;
+        }
+
+        public ClienteModel(string Cnpj_cpf)
+        {
+            this.Cnpj_cpf = Cnpj_cpf;
         }
 
         public ClienteModel()
@@ -107,6 +114,84 @@ namespace CRM_Auto.Models
             cnn.InsertData(command);
         }
 
+        public void SalvaRegistroCliente()
+        {
+            string command = $"SELECT ID_CLIENTE FROM CLIENTE WHERE CNPJ_CPJ = '{Cnpj_cpf}';";
+
+            CNN cnn = new CNN();
+            DataTable dt = cnn.GetData(command);
+            
+            if (dt.Rows.Count > 0)
+            {
+                command = "UPDATE CLIENTE " +
+                                $"SET " +
+                                    $"CNPJ_CPF = '{Cnpj_cpf}'" +
+                                    $"NOME_CLIENTE = '{Nome_cliente}'" +
+                                    $"CNPJ_OU_CPF = '{Cnpj_ou_cpf}'" +
+                                    $"APELIDO = '{Apelido}'" +
+                                    $"DATA_NASCIMENTO = '{Data_nascimento}'" +
+                                    $"DATA_CADASTRO = '{Data_cadastro}'" +
+                                    // $"ID_USUARIO_CAD = '{Id_usuario_cad}'" +
+                                    $"EMAIL_NF = '{Email_nf}'" +
+                                    $"CEP = '{Cep}'" +
+                                    $"LOGRADOURO = '{Logradouro}'" +
+                                    $"NUMERO = '{Numero}'" +
+                                    $"COMPLEMENTO = '{Complemento}'" +
+                                    $"BAIRRO = '{Bairro}'" +
+                                    $"CIDADE = '{Cidade}'" +
+                                    $"TELEFONE = '{Telefone}'" +
+                                    $"CELULAR = '{Celular}'" +
+                                    $"ESTADO = '{Estado}'" +
+                                $"WHERE ID_CLIENTE = '{int.Parse(dt.Rows[0]["ID_CLIENTE"].ToString())}>;";
+
+                cnn.UpdateData(command);
+                cnn.desconectar();
+            }
+            else
+            {
+                Data_cadastro = DateTime.Now;
+                command = $"INSERT INTO [dbo].[CLIENTE] " +
+                                        $"([CNPJ_CPF] " +
+                                        $",[NOME_CLIENTE] " +
+                                        $",[CNPJ_OU_CPF] " +
+                                        $",[APELIDO] " +
+                                        $",[DATA_NASCIMENTO] " +
+                                        $",[DATA_CADASTRO] " +
+                                        //$",[ID_USUARIO_CAD] " +
+                                        $",[EMAIL_NF] " +
+                                        $",[CEP] " +
+                                        $",[LOGRADOURO] " +
+                                        $",[NUMERO] " +
+                                        $",[COMPLEMENTO] " +
+                                        $",[BAIRRO] " +
+                                        $",[CIDADE] " +
+                                        $",[ESTADO] " +
+                                        $",[TELEFONE] " +
+                                        $",[CELULAR]) " +
+                                    $"VALUES ('{Cnpj_cpf}', " +
+                                        $"'{Cnpj_cpf}', " +
+                                        $"'{Nome_cliente}', " +
+                                        $"'{Cnpj_ou_cpf}', " +
+                                        $"'{Apelido}', " +
+                                        $"'{Data_nascimento}', " +
+                                        $"'{Data_cadastro}', " +
+                                        //$"'{Id_usuario_cad}', " +
+                                        $"'{Email_nf}', " +
+                                        $"'{Cep}', " +
+                                        $"'{Logradouro}', " +
+                                        $"'{Numero}', " +
+                                        $"'{Complemento}', " +
+                                        $"'{Bairro}', " +
+                                        $"'{Cidade}', " +
+                                        $"'{Estado}', " +
+                                        $"'{Telefone}', " +
+                                        $"'{Celular}')";
+
+                cnn.InsertData(command);
+                cnn.desconectar();
+            }
+        }
+
         public List<ClienteModel> ListarClientes()
         {
             List<ClienteModel> clientes = new List<ClienteModel>();
@@ -153,35 +238,17 @@ namespace CRM_Auto.Models
                     dt.Rows[i]["ESTADO"].ToString(),
                     dt.Rows[i]["TELEFONE"].ToString(),
                     dt.Rows[i]["CELULAR"].ToString());
-
+                
+                //string fileName = "ListaClientes.json";
+                string jsonString = JsonSerializer.Serialize<ClienteModel>(cliente);
+                //File.WriteAllText(fileName, jsonString);
+                
                 clientes.Add(cliente);
             }
             return clientes;
         }
 
-        public void AtualizaCliente(ClienteModel cliente)
-        {
-            string comando = $"UPDATE CLIENTE " +
-                                $"SET NOME_CLIENTE = '{cliente.Nome_cliente}', " +
-                                    $"APELIDO =  = '{cliente.Apelido}', " +
-                                    $"DATA_NASCIMENTO = '{cliente.Data_nascimento}', " +
-                                    $"EMAIL_NF = '{cliente.Email_nf}', " +
-                                    $"CEP = '{cliente.Cep}', " +
-                                    $"LOGRADOURO = '{cliente.Logradouro}', " +
-                                    $"NUMERO = '{cliente.Numero}', " +
-                                    $"COMPLEMENTO = '{cliente.Complemento}', " +
-                                    $"BAIRRO = '{cliente.Bairro}', " +
-                                    $"CIDADE = '{cliente.Cidade}', " +
-                                    $"TELEFONE = '{cliente.Telefone}', " +
-                                    $"CELULAR = '{cliente.Celular}', " +
-                                    $"ESTADO = '{cliente.Estado}' " +
-                                $"WHERE CNPJ_CPF = '{cliente.Id_cliente}';";
-
-            CNN cnn = new CNN();
-            cnn.InsertData(comando);
-        }
-
-        public void ExcluirCliente(ClienteModel cliente)
+        public void ExcluirRegistroCliente(ClienteModel cliente)
         {
             string comando = $"SELECT ID_SERVICO FROM ORDEM SERVICO WHERE ID_CLIENTE = SELECT ID_CLIENTE FROM CLIENTE WHERE CNPJ_CPF = '{cliente.Cnpj_cpf}";
 
@@ -190,6 +257,9 @@ namespace CRM_Auto.Models
 
             if (dt.Rows.Count == 0)
             {
+                comando = $"DELETE CLIENTE_VEICULO WHERE ID_CLIENTE = '{cliente.Id_cliente}';";
+                cnn.UpdateData(comando);
+                
                 comando = $"DELETE CLIENTE WHERE CNPJ_CPF = '{cliente.Cnpj_cpf}';";
                 cnn.UpdateData(comando);
             }

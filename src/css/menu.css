@@ -2,7 +2,7 @@
 
 :root {
     --header-height: 2rem;
-    --nav-width: 68px;
+    --nav-width: 70px;
     --first-color: #5669a7;
     --first-color-light: #BACDDA;
     --second-color-light: #FDF9BC;
@@ -11,7 +11,7 @@
     --text-color: #051821;
     --body-font: 'Nunito', sans-serif;
     --normal-font-size: 0.8rem;
-    --z-fixed: 90
+    --z-fixed: 90;
 }
 
 /* *,
@@ -130,7 +130,7 @@ a {
 }
 
 .show {
-    left: 0
+    left: 0;
 }
 
 .body-pd {

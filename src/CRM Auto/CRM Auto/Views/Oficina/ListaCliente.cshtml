@@ -4,15 +4,6 @@
 @{
     Layout = "../Shared/_Layout_Cadastro_Cliente.cshtml";
 }
-
-@*@section LinkCss
-{
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="~/css/menu.css">
-    <link rel="stylesheet" href="~/css/cad-veiculo.css">
-}*@
  
 @{
     <div class="mx-auto" id="main"> 
@@ -25,7 +16,7 @@
                     <input id="tableSearch" type="text" class="form-control col-5" placeholder="Pesquise um cliente" aria-label="Username" aria-describedby="basic-addon1">
                 </div>
                 <div class="input-group btn-novo-cadastro">
-                    <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#addFuncionario"><i class="bi bi-plus"></i> Novo cliente</button>
+                    <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#editaCliente"><i class="bi bi-plus"></i> Novo cliente</button>
                 </div>
             </div>
         </div>
@@ -34,6 +25,7 @@
             <table class="table align-middle mb-0 bg-white table-striped table-bordered" id="showTable">
                 <thead class="bg-light">
                     <tr>
+                        <th>ID</th>
                         <th>Nome</th>
                         <th>Nº documento</th>
                         <th>Contato</th>
@@ -47,6 +39,9 @@
                     {
                         <tr>
                             <td scope="row">
+                                <p class="fw-bold mb-1">@cliente.Id_cliente</p>
+                            </td>
+                            <td>
                                 <p class="fw-bold mb-1">@cliente.Nome_cliente</p>
                                 <p class="text-muted mb-0">@cliente.Apelido</p>
                             </td>
@@ -65,10 +60,11 @@
                                 <button type="button"
                                     class="btn btn-link btn-rounded btn-sm fw-bold" data-mdb-ripple-color="dark" data-placement="right" 
                                     title="Edit" data-toggle="modal" data-target="#editaCliente"
-                                    value="@System.Text.Json.JsonSerializer.Serialize(cliente)">
+                                    value="@System.Text.Json.JsonSerializer.Serialize(cliente)" onclick="passarValores()">
                                     <i class="bi bi-pencil-fill"></i>
                                 </button>
                             </td>
+                            
                         </tr>
                     }
                 </tbody>
@@ -82,12 +78,13 @@
 <div class="modal fade bd-example-modal-lg" id="editaCliente" tabindex="-1" role="dialog" aria-labelledby="addClienteLabel" aria-hidden="true" style="width: 100% !important; border: 0">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
-            <form asp-controller="Oficina" asp-action="SalvarRegistroCliente">
+            <form asp-controller="Oficina">
                 <div class="modal-body">
+                    <input type="text" id="inputId" asp-for="Id_cliente"> @*disabled hidden="true"*@
                     <div class="row">
                         <div class="form-group col-md-3">
                             <label for="cpf_cnpj">Informe o CPF</label>
-                            <input type="text" class="form-control obrigatorio cpf" id="cpf_cnpj" name="cpf" placeholder="11.222.333-33" maxlength="14">
+                            <input type="text" class="form-control obrigatorio cpf" id="cpf_cnpj" name="cpf" placeholder="11.222.333-33" maxlength="14" asp-for="Cnpj_cpf">
                         </div>
                         <div class="form-group col-md-3">
                             <label for="tipo-pessoa">Selecione o tipo de pessoa</label>
@@ -97,8 +94,7 @@
                                 <option value="J">Pessoa jurídica</option>
                             </select>
                         </div>
-                    </div>
-
+                    </div>                    
                     <div class="row linhas">
                         <div class="form-group col-md-7">
                             <label for="nomeCliente">Nome do cliente</label>
@@ -260,14 +256,13 @@
                     <div class="form-group row pb-3 float-end">
                         <div class="col-sm-17">
                             <button type="button" class="btn btn-success btn-sm btn-novo">Novo</button>
-                            <button type="submit" class="btn btn-primary btn-sm btn-atualizar">Salvar</button>
-                            <button type="submit" class="btn btn-danger btn-sm btn-excluir">Excluir</button>
+                            <button type="submit" class="btn btn-primary btn-sm btn-atualizar" asp-action="SalvarRegistroCliente">Salvar</button>
+                            <button type="submit" class="btn btn-danger btn-sm btn-excluir"  asp-action="ExcluirRegistroCliente">Excluir</button>
                             <button type="button" class="btn btn-secondary btn-sm btn-fechar" data-dismiss="modal" aria-label="Close">Fechar</button>
                         </div>
                     </div>
                 </div>
             </form>
-            
         </div>
     </div>
 </div>

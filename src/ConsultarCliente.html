@@ -85,7 +85,7 @@
                     <input id="tableSearch" type="text" class="form-control col-5" placeholder="Pesquise um cliente" aria-label="Username" aria-describedby="basic-addon1">
                 </div>
                 <div class="input-group btn-novo-cadastro">
-                    <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#addFuncionario"><i class="bi bi-plus"></i> Novo cliente</button>
+                    <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#editaCliente"><i class="bi bi-plus"></i> Novo cliente</button>
                 </div>
             </div>
         </div>
@@ -135,7 +135,7 @@
                         </td>
                         <td>
                             <button type="button" class="btn btn-link btn-rounded btn-sm fw-bold" data-mdb-ripple-color="dark" 
-                                data-placement="right" title="Edit" data-toggle="modal" data-target="#editFuncionario">
+                                data-placement="right" title="Edit" data-toggle="modal" data-target="#editaCliente">
                                 <i class="bi bi-pencil-fill"></i>
                             </button>
                         </td>
@@ -171,7 +171,7 @@
                             <button
                             type="button"
                             class="btn btn-link btn-rounded btn-sm fw-bold"
-                            data-mdb-ripple-color="dark" data-placement="right" title="Edit" data-toggle="modal" data-target="#editFuncionario"
+                            data-mdb-ripple-color="dark" data-placement="right" title="Edit" data-toggle="modal" data-target="#editaCliente"
                             >
                             <i class="bi bi-pencil-fill"></i>
                             </button>
@@ -208,7 +208,7 @@
                             <button
                             type="button"
                             class="btn btn-link btn-rounded btn-sm fw-bold"
-                            data-mdb-ripple-color="dark" data-placement="right" title="Edit" data-toggle="modal" data-target="#editFuncionario"
+                            data-mdb-ripple-color="dark" data-placement="right" title="Edit" data-toggle="modal" data-target="#editaCliente"
                             >
                             <i class="bi bi-pencil-fill"></i>
                             </button>
@@ -245,7 +245,7 @@
                             <button
                             type="button"
                             class="btn btn-link btn-rounded btn-sm fw-bold"
-                            data-mdb-ripple-color="dark" data-placement="right" title="Edit" data-toggle="modal" data-target="#editFuncionario"
+                            data-mdb-ripple-color="dark" data-placement="right" title="Edit" data-toggle="modal" data-target="#editaCliente"
                             >
                             <i class="bi bi-pencil-fill"></i>
                             </button>
@@ -282,7 +282,7 @@
                             <button
                             type="button"
                             class="btn btn-link btn-rounded btn-sm fw-bold"
-                            data-mdb-ripple-color="dark" data-placement="right" title="Edit" data-toggle="modal" data-target="#editFuncionario"
+                            data-mdb-ripple-color="dark" data-placement="right" title="Edit" data-toggle="modal" data-target="#editaCliente"
                             >
                             <i class="bi bi-pencil-fill"></i>
                             </button>
@@ -295,7 +295,7 @@
     </div>
 
 <!------------------------------------MODAL-------------------------------------->
-    <div class="modal fade bd-example-modal-lg" id="editFuncionario" tabindex="-1" role="dialog" aria-labelledby="addClienteLabel" aria-hidden="true" style="width: 100% !important; border: 0">
+    <div class="modal fade bd-example-modal-lg" id="editaCliente" tabindex="-1" role="dialog" aria-labelledby="addClienteLabel" aria-hidden="true" style="width: 100% !important; border: 0">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
                 <!-- <div class="modal-header border-bottom-0">
@@ -304,7 +304,7 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div> -->
-            
+                <input type="text" id="inputID" disabled hidden="true">
                 <form asp-controller="Oficina" asp-action="SalvarRegistroCliente">
                     <div class="modal-body">
                         <div class="row">

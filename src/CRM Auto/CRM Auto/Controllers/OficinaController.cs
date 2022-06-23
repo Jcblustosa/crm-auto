@@ -151,6 +151,34 @@ namespace CRM_Auto.Controllers
         }
 
         [HttpPost]
+        // public IActionResult SalvarRegistroCliente()
+        // {
+        //     return View("SalvarRegistroCliente");
+        // }
+
+        public IActionResult SalvarRegistroCliente(ClienteModel cliente)
+        {
+            cliente.SalvaRegistroCliente();
+
+            TempData["msg"] = "Cliente atualizado com sucesso!";
+            ViewBag.ListarClientes = cliente.ListarClientes();
+
+            return View("ListaCliente");
+        }
+
+        [HttpPost]
+        public IActionResult ExcluirCliente(ClienteModel cliente)
+        {
+            cliente.ExcluirRegistroCliente(cliente);
+
+            TempData["msg"] = "Exclusão realizada com sucesso!";
+            TempData["msgDetalhes"] = "A exclusão do funcionário foi finalizada e você já pode consultar as informações atualizadas no sistema da sua oficina.";
+
+            return View("CadastroRealizadoComSucesso");
+
+        }
+
+        [HttpPost]
         public IActionResult AlterarFuncionario(FuncionarioModel funcionario)
         {
             funcionario.AlterarFuncionario(funcionario);
@@ -188,7 +216,6 @@ namespace CRM_Auto.Controllers
         [HttpPost]
         public IActionResult ExcluirFuncionario(FuncionarioModel funcionario)
         {
-
             funcionario.ExcluirFuncionario(funcionario);
 
             TempData["msg"] = "Funcionário excluído com sucesso!";
@@ -200,7 +227,6 @@ namespace CRM_Auto.Controllers
             ViewBag.BuscarOficinas = lista.Select(o => new { o.Id_oficina, o.Nome_oficina });
 
             return View("CadastroDeFuncionario");
-
         }
 
         [HttpGet]

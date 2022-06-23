@@ -12,27 +12,13 @@
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
     <script type="text/javascript" src="~/js/cad-cliente.js"></script>
 </head>
-<body class="pt-5" id="body-pd">
-    <header class="header" id="header">
+<body class="pt-5 body-pd" id="body-pd">
+    <header class="header body-pd" id="header">
         <div class="header_toggle">
             <i class='bx bx-menu' id="header-toggle"></i>
         </div>
-        @*<div id="header_user" class="header_img">
-            <button id="dropdownMenuButton" type="button" class="btn btn-secondary btn-user dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="26" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 22">
-                    <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"></path>
-                    <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"></path>
-                </svg>
-            </button>
-            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="#">Perfil</a>
-                <a class="dropdown-item" href="#">Configurações</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Sair</a>
-            </div>
-        </div>*@
     </header>
-    <div class="l-navbar" id="nav-bar">
+    <div class="l-navbar show" id="nav-bar">
         <nav class="nav">
             <div> 
                 <div href="HomePage#" class="col p-2">
@@ -41,31 +27,31 @@
                 <div class="nav_list">
                     <a href="#" class="nav_link active"> 
                         <i class='bx bx-grid-alt nav_icon' data-bs-toggle="tooltip" title="Painel"></i> 
-                        <span class="nav_name">Painel</span> 
+                        <span class="nav_name">Painel de controle</span> 
                     </a>
-                    <a href="#" class="nav_link">
+                    <a class="nav_link" asp-controller="Oficina" asp-action="BuscarServicos">
                         <i class='bx bx-message-square-detail nav_icon' data-bs-toggle="tooltip" title="Ordens de serviços"></i>
                         <span class="nav_name">Ordens de serviços</span>
                     </a>
-                    <a href="#" class="nav_link">
+                    <a class="nav_link" asp-controller="Oficina" asp-action="ListarClientes">
                         <i class='bi bi-people nav_icon' data-bs-toggle="tooltip" title="Clientes"></i>
                         <span class="nav_name">Clientes</span>
                     </a>
-                    <a href="#" class="nav_link">
+                    <a class="nav_link" asp-controller="Oficina" asp-action="BuscarOficinas">
                         <i class="bi bi-wrench-adjustable nav_icon" data-bs-toggle="tooltip" title="Oficina"></i>
                         <span class="nav_name">Oficina</span>
                     </a>
-                    <a href="#" class="nav_link">
+                    <a class="nav_link" asp-controller="Oficina" asp-action="BuscarFuncionariosEOficinas">
                         <i class='bi bi-person-video2 nav_icon' data-bs-toggle="tooltip" title="Funcionários"></i>
                         <span class="nav_name">Funcionários</span>
+                    </a>
+                    <a class="nav_link" asp-controller="Oficina" asp-action="CadastroVeiculo">
+                        <i class='fa-solid fa-car nav_icon' data-bs-toggle="tooltip" title="Cadastro de veículo"></i>
+                        <span class="nav_name">Cadastro de veículo</span>
                     </a>
                     <a href="#" class="nav_link">
                         <i class='bx bx-bar-chart-alt-2 nav_icon' data-bs-toggle="tooltip" title="Relatórios"></i>
                         <span class="nav_name">Relatórios</span>
-                    </a>
-                    <a href="#" class="nav_link">
-                        <i class='bx bx-user nav_icon' data-bs-toggle="tooltip" title="Usuários"></i>
-                        <span class="nav_name">Usuários</span>
                     </a>
                 </div>
             </div>
@@ -86,22 +72,33 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.10/vue.min.js"></script>
     <script>
-        function exibeContatos() {
+        function exibeListaClientes() {
             // Remove todas as linhas do corpo da tabela
             $("#table-lista-cliente").html("");
             // Popula a tabela com os registros do banco de dados
             for (i = 0; i < db.data.length; i++) {
-                let lst_cliente = db.data[i];
+                let lstCliente = db.data[i];
                 $("#table-lista-cliente").append(`<tr>
-                                                    <td scope="row">${lst_cliente.id}</td>
-                                                    <td>${lst_cliente.nome}</td>
-                                                    <td>${lst_cliente.matricula}</td>
-                                                    <td>${lst_cliente.email}</td>
-                                                    <td>${lst_cliente.cidade}</td>
-                                                    <td>${lst_cliente.categoria}</td>
-                                                    <td>${lst_cliente.website}</td>
-                                                </tr>`);
+                                                <td scope="row">${lstCliente.Id_cliente}</td>
+                                                <td>${lstCliente.Nome_cliente}</td>
+                                                <td>${lstCliente.Cnpj_cpf}</td>
+                                                <td>${lstCliente.Email_nf}</td>
+                                                <td>${lstCliente.Cep}</td>
+                                            </tr>`);
             }
+        }
+
+        function passarValores(){
+            $("#table-lista-cliente").on("click", "tr", function(e) {
+                let linhaContato = this;
+                colunas = linhaContato.querySelectorAll("td");
+                $("#inputId").val(colunas[0].innerText);
+                $("#nomeCliente").val(colunas[1].innerText);
+            });
+        }
+
+        function init(){
+            exibeListaClientes();
         }
 
     </script>

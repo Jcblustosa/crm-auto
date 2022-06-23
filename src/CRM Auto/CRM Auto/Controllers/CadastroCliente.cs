@@ -85,17 +85,5 @@ namespace CRM_Auto.Controllers
         //        return View();
         //    }
         //}
-
-        [HttpPost]
-        public IActionResult ExcluirCliente(ClienteModel cliente)
-        {
-            cliente.ExcluirCliente(cliente);
-
-            TempData["msg"] = "Exclusão realizada com sucesso!";
-            TempData["msgDetalhes"] = "A exclusão do funcionário foi finalizada e você já pode consultar as informações atualizadas no sistema da sua oficina.";
-
-            return View("CadastroRealizadoComSucesso");
-
-        }
     }
 }
