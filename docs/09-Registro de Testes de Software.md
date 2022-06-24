@@ -496,7 +496,85 @@ Serviço cadastrado inserido na tabela [CRM_AUTO].[dbo].[SERVICO]:
 <p align="center">Evidência de teste 7 - Serviço inserido no banco de dados</p>
 </br>
 
+### CT-14: Cadastro de ordem de serviço
 
+**Objetivo:** Garantir que o sistema permita a criação de uma ordem de serviço no cpf de um cliente da oficina
+
+**Passos:** 
+1. Executar a aplicação
+2. Fazer login no sistema
+3. No painel de controle, selecionar a opção Nova O.S.
+4. Preencher o formulário
+5. Clicar em Salvar
+
+**Critério de êxito:** Se as informações forem preenchidas corretamente, o sistema deve apresentar ao usuário uma mensagem de sucesso relativa à criação da O.S. Todas as informações inseridas no formulário devem ser registradas no banco de dados na tabela [CRM_AUTO].[dbo].[ORDEM_SERVICO].
+
+**Resultado do teste:** *Passou*
+
+**Evidências:**
+
+Após efetuar login no sistema, clicar em Abrir Nova O.S.:
+
+![img1](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t3-crm-auto/blob/main/docs/img/registro%20de%20testes/CT14/nova%20os.png)
+<p align="center">Evidência de teste 1 - Opção de gerar O.S.</p>
+</br>
+
+Depois, preencher o formulário com as informações corretas:
+
+![img2](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t3-crm-auto/blob/main/docs/img/registro%20de%20testes/CT14/os%20preenchida.png)
+<p align="center">Evidência de teste 2 - O.S. preenchida</p>
+</br>
+
+Quando o botão de Salvar for acionado, as informações preenchidas devem ser salvas no banco e uma mensagem de sucesso deve ser exibida ao usuário.
+
+![img3](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t3-crm-auto/blob/main/docs/img/registro%20de%20testes/CT14/msgSucesso.png)
+<p align="center">Evidência de teste 3 - Mensagem de sucesso</p>
+</br>
+
+![img4](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t3-crm-auto/blob/main/docs/img/registro%20de%20testes/CT14/evidenciaBD.png)
+<p align="center">Evidência de teste 4 - Informações salvas no banco de dados</p>
+</br>
+
+
+### CT-15: Edição de ordem de serviço
+
+**Objetivo:** Garantir que o sistema permita a edição de uma ordem de serviço existente.
+
+**Passos:** 
+1. Executar a aplicação
+2. Fazer login no sistema
+3. No painel de controle, selecionar a opção Editar em alguma ordem de serviço.
+4. Preencher o formulário
+5. Clicar em Salvar
+
+**Critério de êxito:** Se as informações forem preenchidas corretamente, o sistema deve apresentar ao usuário uma mensagem de sucesso relativa à edição da O.S. Todas as informações inseridas no formulário devem ser registradas no banco de dados na tabela [CRM_AUTO].[dbo].[ORDEM_SERVICO].
+
+**Resultado do teste:** *Passou*
+
+**Evidências:**
+
+Após efetuar login no sistema, clicar em Editar ao lado da ordem de serviço desejada:
+
+
+![img1](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t3-crm-auto/blob/main/docs/img/registro%20de%20testes/CT15/editarOS.png)
+<p align="center">Evidência de teste 1 - Opção de Editar O.S.</p>
+</br>
+
+Preencher as informações que se deseja alterar:
+
+![img2](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t3-crm-auto/blob/main/docs/img/registro%20de%20testes/CT15/OSeditada.png)
+<p align="center">Evidência de teste 2 - Ordem de serviço editada</p>
+</br>
+
+Após clicar em Editar, as informações inseridas devem ser salvas no banco, e uma mensagem de sucesso deve ser exibida ao usuário:
+
+![img3](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t3-crm-auto/blob/main/docs/img/registro%20de%20testes/CT15/msgSucesso.png)
+<p align="center">Evidência de teste 3 - Mensagem de sucesso</p>
+</br>
+
+![img4](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t3-crm-auto/blob/main/docs/img/registro%20de%20testes/CT15/evidenciaOS.png)
+<p align="center">Evidência de teste 4 - Informações salvas no banco de dados</p>
+</br>
 
 > **Links Úteis**:
 > - [Ferramentas de Test para Java Script](https://geekflare.com/javascript-unit-testing/)
