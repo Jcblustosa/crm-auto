@@ -8,7 +8,7 @@ Relatório com as evidências dos testes de software realizados no sistema pela 
 
 Discorra sobre os resultados do teste. Ressaltando pontos fortes e fracos identificados na solução. Comente como o grupo pretende atacar esses pontos nas próximas iterações. Apresente as falhas detectadas e as melhorias geradas a partir dos resultados obtidos nos testes.
 
-### CT-08: Cadastro de veículo de cliente
+### CT-03: Cadastro de veículo de cliente
 
 **Objetivo:** Verificar se o colaborador é capaz de cadastrar veículo no sistema
 
@@ -60,7 +60,7 @@ Pontos a melhorar
 
 1) As configurações de estilo da página de cadastro de veículo devem ser corretamente aplicadas;
 
-### CT-10: Visualização do processo de manutenção
+### CT-05: Visualização do processo de manutenção
 
 **Objetivo:** Verificar se o cliente da oficina é capaz de visualizar os serviços que estão sendo feitos em seu veículo
 
@@ -107,7 +107,7 @@ Pontos a melhorar
 
 1) As folhas de estilo ainda não foram importadas pelo documento que compõe as views do fluxo de cliente.
 
-### CT-11: Login de Colaborador
+### CT-06: Login de Colaborador
 
 **Objetivo:** Verificar se o colaborador é capaz de realizar login no sistema
 
@@ -125,7 +125,7 @@ Pontos a melhorar
 
 Após a execução da aplicação, a homepage é apresentada ao usuário:
 
-![img1](https://raw.githubusercontent.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t3-crm-auto/main/docs/img/registro%20de%20testes/CT%2011/Evidencia1.png)
+![img1](https://raw.githubusercontent.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t3-crm-auto/main/docs/img/registro%20de%20testes/CT%2011/Evidencia1_CT11.png)
 <p align="center">Evidência de teste 1 - Homepage com as opções de login</p>
 </br>
 
@@ -161,7 +161,7 @@ Pontos a melhorar
 
 1) Em caso de Login ou Senha incorretos, o sistema deve fornecer um retorno ao usuário, indicando que as informações não são válidas.
 
-### CT-12: Login de cliente da oficina
+### CT-07: Login de cliente da oficina
 
 Ao executar a aplicação, o usuário terá acesso às opções de login de colaborador e login de cliente. 
 
@@ -189,7 +189,7 @@ Pontos a melhorar
 2) Em caso de Login ou Senha incorretos, o sistema deve fornecer um retorno ao usuário, indicando que as informações não são válidas;
 3) Finalizar a página de cliente.
 
-### CT-14: Cadastro de funcionário
+### CT-09: Cadastro de funcionário
 
 **Objetivo:** Garantir que o sistema permite a inclusão do cadastro de um novo funcionário para determinada oficina
 
@@ -229,9 +229,9 @@ Os dados do novo funcionário são preenchidos:
 <p align="center">Evidência de teste 4 - Preenchimento das informações do novo funcionário</p>
 </br>
 
-Após clicar em Inserir, o usuário é direcionado para uma tela onde é apresentada a mensagem de sucesso na inclusão do novo funcionário:
+Após clicar em Inserir, a mensagem de sucesso na inclusão do novo funcionário é apresentada:
 
-![img5](https://raw.githubusercontent.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t3-crm-auto/main/docs/img/registro%20de%20testes/CT%2011/Evidencia5_CT14.png)
+![img5](https://raw.githubusercontent.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t3-crm-auto/main/docs/img/registro%20de%20testes/CT%2011/Evidencia1.png)
 <p align="center">Evidência de teste 5 - Mensagem de sucesso apresentada ao usuário</p>
 </br>
 
@@ -254,7 +254,7 @@ Pontos a melhorar
 1) Apresentar um combobox com as funções existentes na oficina, de forma que o usuário não tenha que digitar esse campo no formulário e apenas selecionar uma opção dentre as apresentadas.
 
 
-### CT-15: Alteração de funcionário
+### CT-10: Alteração de funcionário
 
 **Objetivo:** Garantir que o sistema permite a alteração do cadastro de um funcionário da oficina
 
@@ -300,9 +300,9 @@ Os dados 'função' e 'oficina' do funcionário são alterados:
 <p align="center">Evidência de teste 5 - Alteração das informações</p>
 </br>
 
-Após clicar em Alterar, o usuário é direcionado para uma tela onde é apresentada a mensagem de sucesso na alteração do funcionário:
+Após clicar em Alterar, a mensagem de sucesso na alteração do funcionário é apresentada::
 
-![img6](https://raw.githubusercontent.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t3-crm-auto/main/docs/img/registro%20de%20testes/CT%2011/Evidencia5_CT15.png)
+![img6](https://raw.githubusercontent.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t3-crm-auto/main/docs/img/registro%20de%20testes/CT%2011/Evidencia2_CT09.png)
 <p align="center">Evidência de teste 6 - Mensagem de sucesso apresentada ao usuário</p>
 </br>
 
@@ -324,7 +324,7 @@ Pontos a melhorar
 
 1) Apresentar um combobox com as funções existentes na oficina, de forma que o usuário não tenha que digitar esse campo no formulário e apenas selecionar uma opção dentre as apresentadas.
 
-### CT-16: Exclusão de funcionário
+### CT-11: Exclusão de funcionário
 
 **Objetivo:** Garantir que o sistema permite a exclusão do cadastro de um funcionário da oficina
 
@@ -364,13 +364,13 @@ Registro do funcionário na tabela [CRM_AUTO].[dbo].[FUNCIONARIO]:
 <p align="center">Evidência de teste 4 - Registro do funcionário no banco de dados</p>
 </br>
 
-Após clicar em Excluir, o usuário é direcionado para uma tela onde é apresentada a mensagem de sucesso na exclusão do funcionário:
+Após clicar em Excluir, a mensagem de sucesso na exclusão do funcionário é apresentada:
 
 ![img5](https://raw.githubusercontent.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t3-crm-auto/main/docs/img/registro%20de%20testes/CT%2011/Evidencia4_CT16.png)
 <p align="center">Evidência de teste 5 - Clicando no botão Excluir</p>
 </br>
 
-![img6](https://raw.githubusercontent.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t3-crm-auto/main/docs/img/registro%20de%20testes/CT%2011/Evidencia6_CT16.png)
+![img6](https://raw.githubusercontent.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t3-crm-auto/main/docs/img/registro%20de%20testes/CT%2011/Evidencia3_CT09.png)
 <p align="center">Evidência de teste 6 - Mensagem de sucesso apresentada ao usuário</p>
 </br>
 
@@ -391,6 +391,111 @@ Registro excluído na tabela [CRM_AUTO].[dbo].[FUNCIONARIO]:
 Pontos a melhorar
 
 1) Apresentar o botão de excluir na coluna de opções da tabela de funcionários e não dentro do modal, afim de simplificar a experiência do usuário.
+
+### CT-12: Emissão de relatório dos Funcionários
+
+**Objetivo:** Verificar se o relatório de funcionários está sendo gerado corretamente
+
+**Passos:** 
+1. Executar a aplicação
+2. Fazer login no sistema
+3. No painel de controle, selecionar a opção Menu Funcionários
+4. Clicar no ícone "Relatórios"
+
+**Critério de êxito:** O sistema deve gerar um arquivo em formato .pdf contendo as informações dos funcionários em uma tabela. O relatório deve conter também a data e hora de geração do arquivo.
+
+**Resultado do teste:** *Passou*
+
+**Evidências:**
+
+Após efetuar login no sistema, o Menu Funcionários é selecionado no Painel de Controle:
+
+![img1](https://raw.githubusercontent.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t3-crm-auto/main/docs/img/registro%20de%20testes/CT%2011/Evidencia1_CT14.png)
+<p align="center">Evidência de teste 1 - Selecionando o Menu Funcionários no Painel de Controle</p>
+</br>
+
+Ícone "Relatórios" é selecionado:
+
+![img2](https://raw.githubusercontent.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t3-crm-auto/main/docs/img/registro%20de%20testes/CT%2011/Evidencia1_CT12.png)
+<p align="center">Evidência de teste 2 - Clicando no ícone Relatórios</p>
+</br>
+
+Após clicar no ícone relatórios, o relatório em PDF contendo as informações dos funcionários é gerado:
+
+![img3](https://raw.githubusercontent.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t3-crm-auto/main/docs/img/registro%20de%20testes/CT%2011/Evidencia2_CT12.png)
+<p align="center">Evidência de teste 3 - Relatório gerado em PDF</p>
+</br>
+
+O arquivo contém as informações da data e hora da geração:
+
+![img4](https://raw.githubusercontent.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t3-crm-auto/main/docs/img/registro%20de%20testes/CT%2011/Evidencia3_CT12.png)
+<p align="center">Evidência de teste 4 - Rodapé contendo as informações de data e hora da geração do relatório</p>
+</br>
+
+**Observações:**
+
+Pontos a melhorar
+
+1) Criar uma tela para a geração personalizada do relatório, permitindo que o usuário aplique os filtres que desejar consultar.
+
+### CT-13: Cadastro de serviços da oficina
+
+**Objetivo:** Garantir que o sistema permite a inclusão do cadastro de um novo serviço para as oficinas
+
+**Passos:** 
+1. Executar a aplicação
+2. Fazer login no sistema
+3. No painel de controle, selecionar a opção Menu Serviços
+4. Clicar no botão "Novo serviço"
+5. Preencher corretamente o formulário de cadastro
+6. Clicar em Inserir
+
+**Critério de êxito:** Se as informações forem preenchidas corretamente, o sistema deve apresentar ao usuário uma mensagem de sucesso relativa à inserção do serviço. Após a inserção ser efetuada, as informações inseridas no formulário devem ser registradas no banco de dados na tabela [CRM_AUTO].[dbo].[SERVICO].
+
+**Resultado do teste:** *Passou*
+
+**Evidências:**
+
+Após efetuar login no sistema, o Menu Serviços é selecionado no Painel de Controle:
+
+![img1](https://raw.githubusercontent.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t3-crm-auto/main/docs/img/registro%20de%20testes/CT%2011/Evidencia1_CT13.png)
+<p align="center">Evidência de teste 1 - Selecionando o Menu Serviços no Painel de Controle</p>
+</br>
+
+Ao clicar no botão "Novo serviço", o formulário de cadastro é apresentado:
+
+![img2](https://raw.githubusercontent.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t3-crm-auto/main/docs/img/registro%20de%20testes/CT%2011/Evidencia2_CT13.png)
+<p align="center">Evidência de teste 2 - Clicando no botão "Novo Serviço"</p>
+</br>
+
+![img3](https://raw.githubusercontent.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t3-crm-auto/main/docs/img/registro%20de%20testes/CT%2011/Evidencia3_CT13.png)
+<p align="center">Evidência de teste 3 - Formulário de cadastro é apresentado</p>
+</br>
+
+Os dados do novo serviço são preenchidos:
+
+![img4](https://raw.githubusercontent.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t3-crm-auto/main/docs/img/registro%20de%20testes/CT%2011/Evidencia4_CT13.png)
+<p align="center">Evidência de teste 4 - Preenchimento das informações do novo serviço</p>
+</br>
+
+Após clicar em Inserir, a mensagem de sucesso na inclusão do novo serviço é apresentada:
+
+![img5](https://raw.githubusercontent.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t3-crm-auto/main/docs/img/registro%20de%20testes/CT%2011/Evidencia5_CT13.png)
+<p align="center">Evidência de teste 5 - Mensagem de sucesso apresentada ao usuário</p>
+</br>
+
+Serviço cadastrado é apresentado na tela:
+
+![img6](https://raw.githubusercontent.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t3-crm-auto/main/docs/img/registro%20de%20testes/CT%2011/Evidencia7_CT13.png)
+<p align="center">Evidência de teste 6 - Serviço apresentado na tela</p>
+</br>
+
+Serviço cadastrado inserido na tabela [CRM_AUTO].[dbo].[SERVICO]:
+
+![img7](https://raw.githubusercontent.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t3-crm-auto/main/docs/img/registro%20de%20testes/CT%2011/Evidencia6_CT13.png)
+<p align="center">Evidência de teste 7 - Serviço inserido no banco de dados</p>
+</br>
+
 
 
 > **Links Úteis**:

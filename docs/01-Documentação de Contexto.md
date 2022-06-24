@@ -10,7 +10,7 @@
 
 ## Problema
 <p align="justify">
-    Obter o controle dos seus clientes usando planilhas e agendas é possível e possui custo relativamente baixo. Contudo, as informações captadas muitas vezes ficam dispersas, desorganizadas e acabam por dificultando a tomada de decisões que promovam a melhor experiência na oficina mecânica para o cliente. À medida que a empresa cresce, este tipo de ferramenta  se torna, cada vez mais, um empecilho para o sucesso da empresa. Uma ferramenta antes de baixo custo pode causar a perda de oportunidades e de clientes.
+    Obter o controle dos seus clientes usando planilhas e agendas é possível e possui custo relativamente baixo. Contudo, as informações captadas muitas vezes ficam dispersas, desorganizadas e acabam por dificultar a tomada de decisões que promovam a melhor experiência na oficina mecânica para o cliente. À medida que a empresa cresce, este tipo de ferramenta  se torna, cada vez mais, um empecilho para o sucesso da empresa. Uma ferramenta antes de baixo custo pode causar a perda de oportunidades e de clientes.
 </p>
  
 <p align="justify">

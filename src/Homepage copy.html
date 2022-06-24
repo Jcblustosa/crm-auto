@@ -1,18 +1,27 @@
-﻿@{
-    Layout = "../Shared/_Layout_Cadastro_Funcionario.cshtml";
-}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulta Funcionários</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <link href="css/menu.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+</head>
+
+<body class="pt-5 body-pd" id="body-pd">
     <header class="header body-pd" id="header">
         <div class="header_toggle">
             <i class='bx bx-menu bx-x' id="header-toggle"></i> 
         </div>
     </header>
-    <script> $('.header-toggle').trigger('click'); </script>
-
     <div class="l-navbar show" id="nav-bar">
         <nav class="nav">
             <div> 
                 <div href="#" class="col p-2">
-                    <img src="~/img/crmautodark.jpg" class="img-fluid" alt="CRM Auto" style="width: 60%; height: auto; margin-left: -10px; margin-top: -15px;">
+                    <img src="images/crmautodark.jpg" class="img-fluid" alt="CRM Auto" style="width: 60%; height: auto; margin-left: -10px; margin-top: -15px;"></img>
                 </div>
                 <div class="nav_list">
                     <a href="#" class="nav_link active"> 
@@ -47,15 +56,14 @@
             </a>
         </nav>
     </div>
+
     
     <div class="mx-auto" id="main">
-      <div class="toast-body" style="align-content:center; align-items:center; align-self:center; padding-top:2rem;">
+      <div class="toast-body" style="align-content:center; align-items:center; align-self:center;">
           <h1>Olá, <b>@TempData["Nome"]</b>!</h1>
           <br />
-          <h1>O que você deseja fazer?</h1>
+          <p>O que você deseja fazer?</p>
       </div>
-     </div>
-
 
 <div class="container p-3">
   <div class="row">
@@ -97,16 +105,14 @@
 </div>
 
 <div class="row justify-content-center">
-      <div class="col">
+      <div class="col-md-10">
         <div class="row ">
             <div class="col-xl-3 col-lg-6">
                 <div class="card l-bg-cherry">
                     <div class="card-statistic-3 p-4">
-                        <div class="card-icon card-icon-large">
-                          <i class="bi bi-wrench-adjustable" style="font-size: 130px; position:relative; left:10px; bottom:10px;"></i>
-                        </div>
+                        <div class="card-icon card-icon-large"><i class="fa-solid fa-cars"></i></div>
                         <div class="mb-4">
-                            <h5 class="card-title mb-0">Ordens de Serviço Abertas</h5>
+                            <h5 class="card-title mb-0">Ordens de Serviço</h5>
                         </div>
                         <div class="row align-items-center mb-2 d-flex">
                             <div class="col-8">
@@ -150,9 +156,7 @@
             <div class="col-xl-3 col-lg-6">
                 <div class="card l-bg-green-dark">
                     <div class="card-statistic-3 p-4">
-                        <div class="card-icon card-icon-large">
-                          <i class='bx bxs-car bx-tada-hover' style="font-size: 150px; position:relative; left:15px; bottom:30px;"></i>
-                        </div>
+                        <div class="card-icon card-icon-large"><i class="fa-solid fa-screwdriver-wrench"></i></div>
                         <div class="mb-4">
                             <h5 class="card-title mb-0">Serviços concluídos</h5>
                         </div>
@@ -182,7 +186,7 @@
                         <div class="row align-items-center mb-2 d-flex">
                             <div class="col-8">
                                 <h2 class="d-flex align-items-center mb-0">
-                                    R$20.800
+                                    R$20.800,00
                                 </h2>
                             </div>
                             <div class="col-4 text-right">
@@ -199,3 +203,14 @@
     </div>
 </div>
 </div>
+
+
+
+</body>
+<!-- Bootstrap 5.0.0 -->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/calendario.js"></script>
+</html>
