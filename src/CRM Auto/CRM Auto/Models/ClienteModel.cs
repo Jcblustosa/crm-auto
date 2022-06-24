@@ -240,7 +240,7 @@ namespace CRM_Auto.Models
                     dt.Rows[i]["CELULAR"].ToString());
                 
                 //string fileName = "ListaClientes.json";
-                string jsonString = JsonSerializer.Serialize<ClienteModel>(cliente);
+                //string jsonString = JsonSerializer.Serialize<ClienteModel>(cliente);
                 //File.WriteAllText(fileName, jsonString);
                 
                 clientes.Add(cliente);

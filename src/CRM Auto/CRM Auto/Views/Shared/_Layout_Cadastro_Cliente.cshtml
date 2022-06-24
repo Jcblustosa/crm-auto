@@ -72,21 +72,21 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.10/vue.min.js"></script>
     <script>
-        function exibeListaClientes() {
-            // Remove todas as linhas do corpo da tabela
-            $("#table-lista-cliente").html("");
-            // Popula a tabela com os registros do banco de dados
-            for (i = 0; i < db.data.length; i++) {
-                let lstCliente = db.data[i];
-                $("#table-lista-cliente").append(`<tr>
-                                                <td scope="row">${lstCliente.Id_cliente}</td>
-                                                <td>${lstCliente.Nome_cliente}</td>
-                                                <td>${lstCliente.Cnpj_cpf}</td>
-                                                <td>${lstCliente.Email_nf}</td>
-                                                <td>${lstCliente.Cep}</td>
-                                            </tr>`);
-            }
-        }
+        //function exibeListaClientes() {
+        //    // Remove todas as linhas do corpo da tabela
+        //    $("#table-lista-cliente").html("");
+        //    // Popula a tabela com os registros do banco de dados
+        //    for (i = 0; i < db.data.length; i++) {
+        //        let lstCliente = db.data[i];
+        //        $("#table-lista-cliente").append(`<tr>
+        //                                        <td scope="row">${lstCliente.Id_cliente}</td>
+        //                                        <td>${lstCliente.Nome_cliente}</td>
+        //                                        <td>${lstCliente.Cnpj_cpf}</td>
+        //                                        <td>${lstCliente.Email_nf}</td>
+        //                                        <td>${lstCliente.Cep}</td>
+        //                                    </tr>`);
+        //    }
+        //}
 
         function passarValores(){
             $("#table-lista-cliente").on("click", "tr", function(e) {

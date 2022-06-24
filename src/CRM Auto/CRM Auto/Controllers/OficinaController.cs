@@ -26,20 +26,54 @@ namespace CRM_Auto.Controllers
         [HttpPost]
         public IActionResult VerificacaoLogin(UsuarioModel usuario)
         {
-            bool verificacao = usuario.ValidarLogin();
-            if (verificacao)
+            string[] nomeEIdFuncionario = usuario.NomeEIdFuncionario(usuario.Login_usuario, usuario.Senha_usuario);
+
+            if(nomeEIdFuncionario.Length == 0)
             {
-                string[] nomeEIdFuncionario = usuario.NomeEIdFuncionario(usuario.Login_usuario, usuario.Senha_usuario);
-                HttpContext.Session.SetString("Nome", nomeEIdFuncionario[0]);
+                return RedirectToAction("LoginColaborador");
+            }
+            else
+            {
+                
                 HttpContext.Session.SetString("IdFuncionario", nomeEIdFuncionario[1]);
                 HttpContext.Session.SetString("IdOficina", nomeEIdFuncionario[2]);
                 HttpContext.Session.SetString("IdUsuario", nomeEIdFuncionario[3]);
-                TempData["Nome"] = HttpContextAccessor.HttpContext.Session.GetString("Nome");
-                TempData["IdFuncionario"] = HttpContextAccessor.HttpContext.Session.GetString("IdFuncionario");
-                return RedirectToAction("Sucesso");
-            }
-            return RedirectToAction("LoginColaborador");
+               
+
+                if (nomeEIdFuncionario[4] == "F")
+                {
+                    HttpContext.Session.SetString("Nome", nomeEIdFuncionario[0]);
+                    TempData["Nome"] = HttpContextAccessor.HttpContext.Session.GetString("Nome");
+                    TempData["IdFuncionario"] = HttpContextAccessor.HttpContext.Session.GetString("IdFuncionario");
+                    return RedirectToAction("Sucesso");
+                }
+                else
+                {
+                    HttpContext.Session.SetString("Nome", nomeEIdFuncionario[5]);
+                    TempData["Nome"] = HttpContextAccessor.HttpContext.Session.GetString("Nome");
+                    return RedirectToAction("FluxoCliente");
+                }
+                
+            }   
         }
+
+        //public IActionResult VerificacaoLogin(UsuarioModel usuario)
+        //{
+        //    bool verificacao = usuario.ValidarLogin();
+        //    if (verificacao)
+        //    {
+        //        string[] nomeEIdFuncionario = usuario.NomeEIdFuncionario(usuario.Login_usuario, usuario.Senha_usuario, usuario.Origem_usuario);
+        //        HttpContext.Session.SetString("Nome", nomeEIdFuncionario[0]);
+        //        HttpContext.Session.SetString("IdFuncionario", nomeEIdFuncionario[1]);
+        //        HttpContext.Session.SetString("IdOficina", nomeEIdFuncionario[2]);
+        //        HttpContext.Session.SetString("IdUsuario", nomeEIdFuncionario[3]);
+        //        TempData["Nome"] = HttpContextAccessor.HttpContext.Session.GetString("Nome");
+        //        TempData["IdFuncionario"] = HttpContextAccessor.HttpContext.Session.GetString("IdFuncionario");
+        //        return RedirectToAction("Sucesso");
+        //    }
+        //    return RedirectToAction("LoginColaborador");
+        //}
+
         public IActionResult Sucesso()
         {
             SucessoModel sucesso = new SucessoModel();
