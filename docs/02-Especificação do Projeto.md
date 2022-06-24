@@ -55,6 +55,8 @@ As tabelas que a seguir apresentam os requisitos funcionais e não funcionais qu
 | RF-11 | O sistema deve permitir o acompanhamento do andamento de um serviço e a data prevista para finalização.| ALTA |
 | RF-12 | O sistema deve permitir a emissão de relatório contendo as informações dos serviços realizados pelas oficinas. | MÉDIA |
 | RF-13 | O sistema deve emitir lembretes para os clientes após 11 meses desde a última revisão anual. | BAIXA | 
+| RF-14 | O sistema deve permitir que o colaborador crie ordens de serviço | ALTA | 
+| RF-15 | O sistema deve permitir que o colaborador edite informações de uma ordem de serviço existente | ALTA | 
 
 ### Requisitos não Funcionais
 
