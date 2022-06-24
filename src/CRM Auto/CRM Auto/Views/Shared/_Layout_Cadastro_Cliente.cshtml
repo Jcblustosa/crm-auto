@@ -72,34 +72,74 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.10/vue.min.js"></script>
     <script>
-        //function exibeListaClientes() {
-        //    // Remove todas as linhas do corpo da tabela
-        //    $("#table-lista-cliente").html("");
-        //    // Popula a tabela com os registros do banco de dados
-        //    for (i = 0; i < db.data.length; i++) {
-        //        let lstCliente = db.data[i];
-        //        $("#table-lista-cliente").append(`<tr>
-        //                                        <td scope="row">${lstCliente.Id_cliente}</td>
-        //                                        <td>${lstCliente.Nome_cliente}</td>
-        //                                        <td>${lstCliente.Cnpj_cpf}</td>
-        //                                        <td>${lstCliente.Email_nf}</td>
-        //                                        <td>${lstCliente.Cep}</td>
-        //                                    </tr>`);
-        //    }
-        //}
-
         function passarValores(){
             $("#table-lista-cliente").on("click", "tr", function(e) {
                 let linhaContato = this;
                 colunas = linhaContato.querySelectorAll("td");
                 $("#inputId").val(colunas[0].innerText);
                 $("#nomeCliente").val(colunas[1].innerText);
+                $("#cpf_cnpj").val(colunas[2].innerText);
+                $("#email").val(colunas[3].innerText);
+                if (colunas[4].innerText == 1){
+                    $("#tipo-pessoa").val("Pessoa jurídica");
+                }else{
+                    $("#tipo-pessoa").val("Pessoa física");
+                }
+                $("#idApelido").val(colunas[5].innerText);
+                $("#idDtNascimento").val(colunas[6].innerText);
+                $("#dataCadastro").val(colunas[7].innerText);
+                $("#cep").val(colunas[8].innerText);
+                $("#endereco").val(colunas[9].innerText);
+                $("#numero").val(colunas[10].innerText);
+                $("#complemento").val(colunas[11].innerText);
+                $("#bairro").val(colunas[12].innerText);
+                $("#cidade").val(colunas[13].innerText);
+                $("#estado").val(colunas[14].innerText);
+                $("#telefone").val(colunas[15].innerText);
+                $("#celular").val(colunas[16].innerText);
             });
         }
 
-        function init(){
-            exibeListaClientes();
+        function limpaCampos(){
+            $("#inputId").val("");
+            $("#nomeCliente").val("");
+            $("#cpf_cnpj").val();
+            $("#email").val();
+            $("#tipo-pessoa").val("");
+            $("#idApelido").val();
+            $("#idDtNascimento").val();
+            $("#dataCadastro").val();
+            $("#cep").val();
+            $("#endereco").val();
+            $("#numero").val();
+            $("#complemento").val();
+            $("#bairro").val();
+            $("#cidade").val();
+            $("#estado").val();
+            $("#telefone").val();
+            $("#celular").val();
         }
+
+        function SelectMarca(e){
+            document.getElementById('sModeloSelect').options.length = 0;
+            console.log(e.value)
+            $.post("SelecionaModelosMarca", {IdMarca: e.value}, function(result,status,xhr) {
+                console.log(`data: ${result}, status: ${status}`);
+                if (status === 'success') {
+                    const options = $("#sModeloSelect");
+                    options.innerHTML = "";
+                    for (let i = 0; i < result.length; i++) {
+                        const item = result[i];
+                        console.log(item)
+                        options.append('<option value="' +item.idModelo + '">' + item.nomeModelo + '</option>');
+                    }
+                }
+            })
+        }
+
+        @* function init(){
+            exibeListaClientes();
+        } *@
 
     </script>
 </body>

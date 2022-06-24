@@ -26,12 +26,8 @@ namespace CRM_Auto.Models
 
             CNN dal = new CNN();
             dal.InsertData(command);
-        }
-
-        
+        }       
     }
-
-
 
     public enum Cor
     {

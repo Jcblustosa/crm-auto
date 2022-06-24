@@ -60,10 +60,8 @@ namespace CRM_Auto.Models
             //                    "FROM FUNCIONARIO F INNER JOIN USUARIO U ON F.ID_FUNCIONARIO = U.ID_FUNCIONARIO " +
             //                    $"WHERE U.LOGIN_USUARIO = '{login}' AND U.SENHA_USUARIO = '{senha}';";
 
-            string command = "SELECT F.NOME, F.ID_FUNCIONARIO, F.ID_OFICINA, U.ID_USUARIO, " +
-                                    "U.CLIENTE_OU_FUNCIONARIO, C.NOME_CLIENTE " +
-                                "FROM FUNCIONARIO F RIGHT JOIN USUARIO U ON F.ID_FUNCIONARIO = U.ID_FUNCIONARIO " +
-                                    "RIGHT JOIN CLIENTE C ON C.ID_CLIENTE = U.ID_CLIENTE " +
+            string command = "SELECT F.NOME, F.ID_FUNCIONARIO, F.ID_OFICINA, U.ID_USUARIO, U.CLIENTE_OU_FUNCIONARIO " +
+                                "FROM USUARIO U LEFT JOIN FUNCIONARIO F ON U.ID_FUNCIONARIO = F.ID_FUNCIONARIO " +
                                 $"WHERE U.LOGIN_USUARIO = '{login}' AND U.SENHA_USUARIO = '{senha}';";
 
             string[] nomeEIdFuncionario = new string[6];

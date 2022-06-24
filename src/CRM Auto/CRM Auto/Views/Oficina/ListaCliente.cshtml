@@ -34,28 +34,35 @@
                     </tr>
                 </thead>
                 <tbody id="table-lista-cliente">
-
                     @foreach (ClienteModel cliente in ViewBag.ListarClientes)
                     {
                         <tr>
                             <td scope="row">
-                                <p class="fw-bold mb-1">@cliente.Id_cliente</p>
+                                <p class="fw-bold mb-1">@cliente.Id_cliente</p> @*Item 0*@
                             </td>
                             <td>
-                                <p class="fw-bold mb-1">@cliente.Nome_cliente</p>
-                                <p class="text-muted mb-0">@cliente.Apelido</p>
+                                <p class="fw-bold mb-1">@cliente.Nome_cliente</p> @*Item 1*@
                             </td>
                             <td>
-                                <p class="fw-normal mb-1">@cliente.Cnpj_cpf</p>
+                                <p class="fw-normal mb-1">@cliente.Cnpj_cpf</p> @*Item 2*@
                             </td>
                             <td>
-                                <p class="fw-normal mb-1">@cliente.Email_nf</p>
+                                <p class="fw-normal mb-1">@cliente.Email_nf</p> @*Item 3*@
                                 <p class="fw-normal mb-1">@cliente.Celular</p>
                             </td>
-                            <td>
-                                <p class="fw-normal mb-1">Em aberto: @cliente.Cep</p>
-                                <p class="fw-normal mb-1">Em concluída: @cliente.Numero</p>
-                            </td>
+                            <td >@cliente.Cnpj_ou_cpf</td>  @*Item 4*@
+                            <td hidden="true">@cliente.Apelido</td> @*Item 5*@
+                            <td >@cliente.Data_nascimento</td> @*Item 6*@
+                            <td hidden="true">@cliente.Data_cadastro</td> @*Item 7*@
+                            <td hidden="true">@cliente.Cep</td> @*Item 8*@
+                            <td hidden="true">@cliente.Logradouro</td> @*Item 9*@
+                            <td hidden="true">@cliente.Numero</td> @*Item 10*@
+                            <td hidden="true">@cliente.Complemento</td> @*Item 11*@
+                            <td hidden="true">@cliente.Bairro</td> @*Item 12*@
+                            <td hidden="true">@cliente.Cidade</td> @*Item 13*@
+                            <td hidden="true">@cliente.Estado</td> @*Item 14*@
+                            <td hidden="true">@cliente.Telefone</td> @*Item 15*@
+                            <td hidden="true">@cliente.Celular</td> @*Item 16*@
                             <td>
                                 <button type="button"
                                     class="btn btn-link btn-rounded btn-sm fw-bold" data-mdb-ripple-color="dark" data-placement="right" 
@@ -64,7 +71,6 @@
                                     <i class="bi bi-pencil-fill"></i>
                                 </button>
                             </td>
-                            
                         </tr>
                     }
                 </tbody>
@@ -80,15 +86,16 @@
         <div class="modal-content">
             <form asp-controller="Oficina">
                 <div class="modal-body">
-                    <input type="text" id="inputId" asp-for="Id_cliente"> @*disabled hidden="true"*@
+                    <span id="dataCadastro" style="float: right;"></span>
+                    <input type="text" id="inputId" asp-for="Id_cliente"> @*disabled hidden="true"*@   @*Item 0 da tabale*@
                     <div class="row">
                         <div class="form-group col-md-3">
-                            <label for="cpf_cnpj">Informe o CPF</label>
+                            <label for="cpf_cnpj">Informe o CPF</label>   @*Item 2 da tabale*@
                             <input type="text" class="form-control obrigatorio cpf" id="cpf_cnpj" name="cpf" placeholder="11.222.333-33" maxlength="14" asp-for="Cnpj_cpf">
                         </div>
                         <div class="form-group col-md-3">
                             <label for="tipo-pessoa">Selecione o tipo de pessoa</label>
-                            <select name="tipoPessoa" id="tipo-pessoa" class="form-select">
+                            <select name="tipoPessoa" id="tipo-pessoa" class="form-select">  @*Item 4 da tabale*@
                                 <option selected>Selecione...</option>
                                 <option value="F">Pessoa física</option>
                                 <option value="J">Pessoa jurídica</option>
@@ -97,15 +104,15 @@
                     </div>                    
                     <div class="row linhas">
                         <div class="form-group col-md-7">
-                            <label for="nomeCliente">Nome do cliente</label>
+                            <label for="nomeCliente">Nome do cliente</label>  @*Item 1 da tabale*@
                             <input type="text" class="form-control" id="nomeCliente" placeholder="Nome do cliente">
                         </div>
                         <div class="form-group col-md-3">
-                            <label for="idApelido">Apelido</label>
+                            <label for="idApelido">Apelido</label>  @*Item 5 da tabale*@
                             <input type="text" class="form-control" id="idApelido" placeholder="Apelido do cliente">
                         </div>
                         <div class="form-group col-md-2">
-                            <label for="idDtNascimento">Data nascimento</label>
+                            <label for="idDtNascimento">Data nascimento</label> @*Item 6 da tabale*@
                             <input type="text" class="form-control" id="idDtNascimento" placeholder="00/00/0000">
                         </div>
                     </div>
@@ -129,30 +136,30 @@
                             <div id="abaRes" class="conteudo" style="display: block"> @*<!-- INÍCIO ABA RESIDENCIAL -->*@
                                 <div id="row-pg-1" class="row">
                                     <div id="app" class="form-group col-md-2">
-                                        <label for="cep">CEP</label>
-                                        <input type="text" class="form-control" v-model="cep" id="cep" onclick="this.value=''" maxlength="8" placeholder="" value="">
+                                        <label for="cep">CEP</label>  @*Item 8 da tabale*@
+                                        <input type="text" class="form-control" v-model="cep" id="cep" onclick="this.value=''" maxlength="8">
                                     </div>
                                     <div class="form-group col-md-8"> @*<!-- INÍCIO DIV CONTEÚDO DO FORM LOGRADOURO -->*@
-                                        <label for="endereco">Endereço</label>
+                                        <label for="endereco">Endereço</label> @*Item 9 da tabale*@
                                         <input type="text" class="form-control" id="endereco" placeholder="Rua, avenida, praça, fazenda...">
                                     </div>
                                     <div class="form-group col-md-2">
-                                        <label for="numero">Número</label>
+                                        <label for="numero">Número</label> @*Item 10 da tabale*@
                                         <input type="text" class="form-control" id="numero" placeholder="">
                                     </div>
                                 </div> @*<!-- FIM DIV CONTEÚDO DO FORM LOGRADOURO -->*@
                                     
                                 <div id="row-pg-2" class="row">
                                     <div class="form-group col-md-5">
-                                        <label for="bairro">Bairro</label>
+                                        <label for="bairro">Bairro</label> @*Item 12 da tabale*@
                                         <input type="text" class="form-control" id="bairro">
                                     </div>
                                     <div class="form-group col-md-5">
-                                        <label for="cidade">Cidade</label>
+                                        <label for="cidade">Cidade</label> @*Item 13 da tabale*@
                                         <input type="text" class="form-control" id="cidade">
                                     </div>
                                     <div class="form-group col-md-2">
-                                        <label for="estado">Estado</label>
+                                        <label for="estado">Estado</label> @*Item 14 da tabale*@
                                         <select id="estado" class="form-select">
                                             <option value="AC">AC</option>
                                             <option value="AL">AL</option>
@@ -186,64 +193,80 @@
                                 </div>
                                 <div class="row">
                                     <div class="form-group col-md-12">
-                                        <label for="complemento">Complemento</label>
+                                        <label for="complemento">Complemento</label> @*Item 11 da tabale*@
                                         <input type="text" class="form-control" id="complemento" placeholder="Apartamento, casa, lote...">
                                     </div>
                                 </div>
                                 <div id="row-pg-3" class="row"> @*<!-- INICIO DIV CIDADE E ESTADO -->*@
                                     <div class="form-group col-md-3">
-                                        <label for="telefone">Telefone</label>
+                                        <label for="telefone">Telefone</label> @*Item 15 da tabale*@
                                         <input type="tel" class="form-control" id="telefone" placeholder="(98) 9999-8888" asp-for="Telefone">
                                     </div>
                                     <div class="form-group col-md-3">
-                                        <label for="celular">Celuar</label>
+                                        <label for="celular">Celuar</label> @*Item 16 da tabale*@
                                         <input type="tel" class="form-control" id="celular" placeholder="(98) 98888-7777" asp-for="Celular">
                                     </div>
                                     <div class="form-group col-md-6">
-                                        <label for="email">Email</label>
+                                        <label for="email">Email</label>  @*Item 3 da tabale*@
                                         <input type="email" class="form-control email" id="email" placeholder="crm.auto@crmauto.com.br" asp-for="Email_nf">
                                     </div>
-                                </div> @*<!-- FIM DIV CIDADE E ESTADO -->*@
-                            </div> @*<!-- FIM ABA RESIDENCIAL-->*@
-                            <div id="abaVeiculo" class="conteudo" style="display: none"> @*<!-- INÍCIO DIV ABA CADASTRO DE VEÍCULOS -->*@
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th class="tb-item-veiculo" scope="col">#</th>
-                                            <th class="tb-placa" scope="col">Placa</th>
-                                            <th class="tb-veiculo" scope="col">Veículo</th>
-                                            <th class="tb-ano-modelo" scope="col">Ano modelo</th>
-                                            <th class="tb-km" scope="col">KM atual</th>
-                                            <th class="tb-1" scope="col"></th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <th scope="row">1</th>
-                                            <td>ABC9D88</td>
-                                            <td>CRUZE SPORT6 LTZ</td>
-                                            <td>2018/2018</td>
-                                            <td>36123</td>
-                                            <td>
-                                                <button type="button" class="btn btn-link btn-rounded btn-sm fw-bold" data-mdb-ripple-color="prymary" 
-                                                    data-placement="right" data-bs-toggle="tooltip" title="Detalhe" data-toggle="modal" data-target="#deleteClienteVeiculo">
-                                                    <i class="bi bi-view-list"></i>
-                                                </button>
-            
-                                                <button type="button" class="btn btn-link btn-rounded btn-sm fw-bold" data-mdb-ripple-color="prymary" 
-                                                    data-placement="right" data-bs-toggle="tooltip" title="Editar" data-toggle="modal" data-target="#editClienteVeiculo">
-                                                    <i class="bi bi-pencil"></i>
-                                                </button>
-                                                    
-                                                <button type="button" class="btn btn-link btn-rounded btn-sm fw-bold" data-mdb-ripple-color="prymary" 
-                                                    data-placement="right" data-bs-toggle="tooltip" title="Excluir" data-toggle="modal" data-target="#deleteClienteVeiculo">
-                                                    <i class="bi bi-x-circle"></i>
-                                                </button>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div> @*<!-- FIM DIV ABA CADASTRO DE VEÍCULOS -->*@
+                                </div>
+                            </div>
+                            <div id="abaVeiculo" class="conteudo" style="display: none">
+                                
+                                    <div class="row">
+                                        <div class="form-group col-md-3">
+                                            <label class="form-label">Placa do veículo</label>
+                                            <select class="form-control" onchange="SelectMarca(this)">
+                                                <option>Selecione a placa</option>
+                                                @foreach (ClienteModel marca in ViewBag.Marcas)
+                                                {
+                                                    <option value="@marca.IdMarca">@marca.MarcaNome</option>
+                                                }
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label asp-for="IdModelo" class="form-label"></label>
+                                            <select id="sModeloSelect" asp-for="IdModelo" class="form-control">
+                                                <option>Selecione o modelo</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label asp-for="Placa" class="form-label"></label>
+                                            <input asp-for="Placa" class="form-control"/>
+                                        </div>
+                                    </div>
+                                @* <form asp-action="OperacaoCadVeiculoCliente">
+                                    <div class="row">
+                                        <div class="form-group col-md-2">
+                                            <label asp-for="Motorizacao">Motorização</label>
+                                            <input class="form-control" asp-for="Motorizacao">
+                                        </div>
+                                        <div class="form-group col-md-2">
+                                            <label asp-for="AnoFabricacao">Ano de fabricação</label>
+                                            <input class="form-control" asp-for="AnoFabricacao">
+                                        </div>
+                                        <div class="form-group col-md-2">
+                                            <label asp-for="AnoModelo">Ano modelo</label>
+                                            <input class="form-control" asp-for="AnoModelo">
+                                        </div>
+                                        <div class="form-group col-md-2">
+                                            <label asp-for="Renavan"></label>
+                                            <input class="form-control" asp-for="Renavan">
+                                        </div>
+                                        <div class="form-group col-md-2">
+                                            <label asp-for="Cor"></label>
+                                            <select class="form-control" asp-for="Cor" asp-items="@Html.GetEnumSelectList<Cor>()">
+                                                <option>Selecione a cor</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <input type="submit" id="ok" name="ok" class="btn btn-primary" value="Ok">
+                                    </div>
+                                </form>     *@
+                            </div>
                         </div>
                     </div>
 
@@ -255,10 +278,10 @@
                 
                     <div class="form-group row pb-3 float-end">
                         <div class="col-sm-17">
-                            <button type="button" class="btn btn-success btn-sm btn-novo">Novo</button>
+                            <button type="button" class="btn btn-success btn-sm btn-novo" onclick="limpaCampos()">Novo</button>
                             <button type="submit" class="btn btn-primary btn-sm btn-atualizar" asp-action="SalvarRegistroCliente">Salvar</button>
                             <button type="submit" class="btn btn-danger btn-sm btn-excluir"  asp-action="ExcluirRegistroCliente">Excluir</button>
-                            <button type="button" class="btn btn-secondary btn-sm btn-fechar" data-dismiss="modal" aria-label="Close">Fechar</button>
+                            <button type="button" class="btn btn-secondary btn-sm btn-fechar" data-dismiss="modal" aria-label="Close" onclick="limpaCampos()">Fechar</button>
                         </div>
                     </div>
                 </div>

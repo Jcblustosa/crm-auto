@@ -34,11 +34,9 @@ namespace CRM_Auto.Controllers
             }
             else
             {
-                
                 HttpContext.Session.SetString("IdFuncionario", nomeEIdFuncionario[1]);
                 HttpContext.Session.SetString("IdOficina", nomeEIdFuncionario[2]);
                 HttpContext.Session.SetString("IdUsuario", nomeEIdFuncionario[3]);
-               
 
                 if (nomeEIdFuncionario[4] == "F")
                 {
@@ -53,7 +51,6 @@ namespace CRM_Auto.Controllers
                     TempData["Nome"] = HttpContextAccessor.HttpContext.Session.GetString("Nome");
                     return RedirectToAction("FluxoCliente");
                 }
-                
             }   
         }
 
@@ -104,6 +101,13 @@ namespace CRM_Auto.Controllers
             return RedirectToAction("CadastroVeiculo");
         }
 
+        // public IActionResult OperacaoCadVeiculoCliente(ClienteModel veiculo)
+        // {
+        //     veiculo.CadNovoVeiculoCliente();
+        //     TempData["veiculoCadastrado"] = "Veículo cadastrado com sucesso!";
+        //     return RedirectToAction("ListaCliente");
+        // }
+
         public IActionResult CadastrarFuncionario()
         {
             return View("CadastroDeFuncionario");
@@ -135,7 +139,6 @@ namespace CRM_Auto.Controllers
         {
             try
             {
-
                 OficinaModel oficina = new OficinaModel();
                 List<OficinaModel> lista = oficina.BuscarOficinas();
                 ViewBag.BuscarOficinas = oficina.BuscarOficinas();

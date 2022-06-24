@@ -105,7 +105,7 @@
                         <th>Opções</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="table-lista-clientes">
                     <tr>
                         <td>
                             <div class="d-flex align-items-center">
@@ -135,156 +135,8 @@
                         </td>
                         <td>
                             <button type="button" class="btn btn-link btn-rounded btn-sm fw-bold" data-mdb-ripple-color="dark" 
-                                data-placement="right" title="Edit" data-toggle="modal" data-target="#editaCliente">
+                                data-placement="right" title="Edit" data-toggle="modal" data-target="#editaCliente" onclick="passarValores()">
                                 <i class="bi bi-pencil-fill"></i>
-                            </button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                        <div class="d-flex align-items-center">
-                            <p class="fw-bold mb-1">Luiz Carlos</p>
-                        </div>
-                        </td>
-                        <td>
-                        <p class="fw-normal mb-1">81286596777</p>
-                        </td>
-                        <td>
-                            <p class="fw-normal mb-1">25/08/1973</p>           
-                        </td>
-                        <td>
-                            <p class="fw-normal mb-1">(82) 96713-1957</p> 
-                        </td>
-                        <td>
-                            <p class="fw-normal mb-1">luiz@gmail.com</p> 
-                        </td>
-                        <td>
-                            <p class="fw-normal mb-1">HB20 R spec 1.6 Flex 16V Aut.</p> 
-                        </td>
-                        <td>
-                            <p class="fw-normal mb-1">MYF-3087</p> 
-                        </td>
-                        <td>
-                            <p class="fw-normal mb-1">14/07/2021</p> 
-                        </td>
-                        <td>
-                            <button
-                            type="button"
-                            class="btn btn-link btn-rounded btn-sm fw-bold"
-                            data-mdb-ripple-color="dark" data-placement="right" title="Edit" data-toggle="modal" data-target="#editaCliente"
-                            >
-                            <i class="bi bi-pencil-fill"></i>
-                            </button>
-                            </td>
-                    </tr>
-                    <tr>
-                        <td>
-                        <div class="d-flex align-items-center">
-                            <p class="fw-bold mb-1">José Silva</p>
-                        </div>
-                        </td>
-                        <td>
-                        <p class="fw-normal mb-1">05241389165</p>
-                        </td>
-                        <td>
-                            <p class="fw-normal mb-1">06/09/1988</p>           
-                        </td>
-                        <td>
-                            <p class="fw-normal mb-1">(46) 97574-0110</p> 
-                        </td>
-                        <td>
-                            <p class="fw-normal mb-1">josé123@hotmail.com</p> 
-                        </td>
-                        <td>
-                            <p class="fw-normal mb-1">T6 2.0 JET Flex 5p Mec.</p> 
-                        </td>
-                        <td>
-                            <p class="fw-normal mb-1">JZY-5468</p> 
-                        </td>
-                        <td>
-                            <p class="fw-normal mb-1">15/03/2021</p> 
-                        </td>
-                        <td>
-                            <button
-                            type="button"
-                            class="btn btn-link btn-rounded btn-sm fw-bold"
-                            data-mdb-ripple-color="dark" data-placement="right" title="Edit" data-toggle="modal" data-target="#editaCliente"
-                            >
-                            <i class="bi bi-pencil-fill"></i>
-                            </button>
-                            </td>
-                    </tr>
-                    <tr>
-                        <td>
-                        <div class="d-flex align-items-center">
-                            <p class="fw-bold mb-1">Julia Santos</p>
-                        </div>
-                        </td>
-                        <td>
-                        <p class="fw-normal mb-1">13089959967</p>
-                        </td>
-                        <td>
-                            <p class="fw-normal mb-1">28/04/1999</p>           
-                        </td>
-                        <td>
-                            <p class="fw-normal mb-1">(47) 98393-6014</p> 
-                        </td>
-                        <td>
-                            <p class="fw-normal mb-1">julias99@hotmail.com</p> 
-                        </td>
-                        <td>
-                            <p class="fw-normal mb-1">Hilux CS DLX 4x2 2.8 Diesel</p> 
-                        </td>
-                        <td>
-                            <p class="fw-normal mb-1">MVH-1267</p> 
-                        </td>
-                        <td>
-                            <p class="fw-normal mb-1">11/12/2021</p> 
-                        </td>
-                        <td>
-                            <button
-                            type="button"
-                            class="btn btn-link btn-rounded btn-sm fw-bold"
-                            data-mdb-ripple-color="dark" data-placement="right" title="Edit" data-toggle="modal" data-target="#editaCliente"
-                            >
-                            <i class="bi bi-pencil-fill"></i>
-                            </button>
-                            </td>
-                    </tr>
-                    <tr>
-                        <td>
-                        <div class="d-flex align-items-center">
-                            <p class="fw-bold mb-1">Antonio Nascimento</p>
-                        </div>
-                        </td>
-                        <td>
-                        <p class="fw-normal mb-1">20554074990</p>
-                        </td>
-                        <td>
-                            <p class="fw-normal mb-1">22/01/1970</p>           
-                        </td>
-                        <td>
-                            <p class="fw-normal mb-1">(84) 99756-5785</p> 
-                        </td>
-                        <td>
-                            <p class="fw-normal mb-1">nascimento70@hotmail.com</p> 
-                        </td>
-                        <td>
-                            <p class="fw-normal mb-1">Renegade Sport 2.0 4x4 TB Diesel Aut.</p> 
-                        </td>
-                        <td>
-                            <p class="fw-normal mb-1">NET-7113</p> 
-                        </td>
-                        <td>
-                            <p class="fw-normal mb-1">17/04/2021</p> 
-                        </td>
-                        <td>
-                            <button
-                            type="button"
-                            class="btn btn-link btn-rounded btn-sm fw-bold"
-                            data-mdb-ripple-color="dark" data-placement="right" title="Edit" data-toggle="modal" data-target="#editaCliente"
-                            >
-                            <i class="bi bi-pencil-fill"></i>
                             </button>
                         </td>
                     </tr>
@@ -305,7 +157,7 @@
                     </button>
                 </div> -->
                 <input type="text" id="inputID" disabled hidden="true">
-                <form asp-controller="Oficina" asp-action="SalvarRegistroCliente">
+                <form onload="init()" asp-controller="Oficina" asp-action="SalvarRegistroCliente">
                     <div class="modal-body">
                         <div class="row">
                             <div class="form-group col-md-3">
@@ -325,15 +177,15 @@
                         <div class="row linhas">
                             <div class="form-group col-md-7">
                                 <label for="nomeCliente">Nome do cliente</label>
-                                <input type="text" class="form-control" id="nomeCliente" placeholder="Nome do cliente">
+                                <input type="text" class="form-control" id="nomeCliente">
                             </div>
                             <div class="form-group col-md-3">
                                 <label for="idApelido">Apelido</label>
-                                <input type="text" class="form-control" id="idApelido" placeholder="Apelido do cliente">
+                                <input type="text" class="form-control" id="idApelido">
                             </div>
                             <div class="form-group col-md-2">
                                 <label for="idDtNascimento">Data nascimento</label>
-                                <input type="text" class="form-control" id="idDtNascimento" placeholder="00/00/0000">
+                                <input type="text" class="form-control" id="idDtNascimento">
                             </div>
                         </div>
 
@@ -438,43 +290,58 @@
                                     </form>
                                 </div> <!-- FIM ABA RESIDENCIAL-->
                                 <div id="abaVeiculo" class="conteudo" style="display: none"> <!-- INÍCIO DIV ABA CADASTRO DE VEÍCULOS -->
-                                    <table class="table">
-                                        <thead>
-                                            <tr>
-                                                <th class="tb-item-veiculo" scope="col">#</th>
-                                                <th class="tb-placa" scope="col">Placa</th>
-                                                <th class="tb-veiculo" scope="col">Veículo</th>
-                                                <th class="tb-ano-modelo" scope="col">Ano modelo</th>
-                                                <th class="tb-km" scope="col">KM atual</th>
-                                                <th class="tb-1" scope="col"></th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <th scope="row">1</th>
-                                                <td>ABC9D88</td>
-                                                <td>CRUZE SPORT6 LTZ</td>
-                                                <td>2018/2018</td>
-                                                <td>36123</td>
-                                                <td>
-                                                    <button type="button" class="btn btn-link btn-rounded btn-sm fw-bold" data-mdb-ripple-color="prymary" 
-                                                        data-placement="right" data-bs-toggle="tooltip" title="Detalhe" data-toggle="modal" data-target="#deleteClienteVeiculo">
-                                                        <i class="bi bi-view-list"></i>
-                                                    </button>
-            
-                                                    <button type="button" class="btn btn-link btn-rounded btn-sm fw-bold" data-mdb-ripple-color="prymary" 
-                                                        data-placement="right" data-bs-toggle="tooltip" title="Editar" data-toggle="modal" data-target="#editClienteVeiculo">
-                                                        <i class="bi bi-pencil"></i>
-                                                    </button>
-                                                    
-                                                    <button type="button" class="btn btn-link btn-rounded btn-sm fw-bold" data-mdb-ripple-color="prymary" 
-                                                        data-placement="right" data-bs-toggle="tooltip" title="Excluir" data-toggle="modal" data-target="#deleteClienteVeiculo">
-                                                        <i class="bi bi-x-circle"></i>
-                                                    </button>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                                    <form>
+                                        <div class="row">
+                                            <div class="form-group col-md-3">
+                                                <label class="form-label">Marca do veículo</label>
+                                                <select class="form-control" onchange="SelectMarca(this)">
+                                                    <option>Selecione a marca</option>
+                                                    @foreach (MarcaModel marca in ViewBag.Marcas)
+                                                    {
+                                                        <option value="@marca.IdMarca">@marca.MarcaNome</option>
+                                                    }
+                                                </select>
+                                            </div>
+                                            <div class="form-group col-md-3">
+                                                <label asp-for="IdModelo" class="form-label"></label>
+                                                <select id="sModeloSelect" asp-for="IdModelo" class="form-control">
+                                                    <option>Selecione o modelo</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group col-md-3">
+                                                <label asp-for="Placa" class="form-label"></label>
+                                                <input asp-for="Placa" class="form-control"/>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="form-group col-md-2">
+                                                <label asp-for="Motorizacao">Motorização</label>
+                                                <input class="form-control" placeholder="1.0, 2.0..." asp-for="Motorizacao">
+                                            </div>
+                                            <div class="form-group col-md-2">
+                                                <label asp-for="AnoFabricacao">Ano de fabricação</label>
+                                                <input class="form-control" asp-for="AnoFabricacao">
+                                            </div>
+                                            <div class="form-group col-md-2">
+                                                <label asp-for="AnoModelo">Ano modelo</label>
+                                                <input class="form-control" placeholder="2000" asp-for="AnoModelo">
+                                            </div>
+                                            <div class="form-group col-md-2">
+                                                <label asp-for="Renavan"></label>
+                                                <input class="form-control" asp-for="Renavan">
+                                            </div>
+                                            <div class="form-group col-md-2">
+                                                <label asp-for="Cor"></label>
+                                                <select class="form-control" asp-for="Cor" asp-items="@Html.GetEnumSelectList<Cor>()">
+                                                    <option>Selecione a cor</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                
+                                        <div>
+                                            <input type="submit" id="ok" name="ok" class="btn btn-primary" value="Ok">
+                                        </div>
+                                    </form>
                                 </div> <!-- FIM DIV ABA CADASTRO DE VEÍCULOS -->
                             </div>
                         </div>
@@ -487,10 +354,10 @@
                 
                         <div class="form-group row pb-3 float-end">
                             <div class="col-sm-17">
-                                <button type="button" class="btn btn-success btn-sm btn-novo">Novo</button>
+                                <button type="button" class="btn btn-success btn-sm btn-novo" onclick="limpaForm()">Novo</button>
                                 <button type="submit" class="btn btn-primary btn-sm btn-atualizar">Salvar</button>
                                 <button type="submit" class="btn btn-danger btn-sm btn-excluir">Excluir</button>
-                                <button type="button" class="btn btn-secondary btn-sm btn-fechar" data-dismiss="modal" aria-label="Close">Fechar</button>
+                                <button type="submit" class="btn btn-secondary btn-sm btn-fechar" data-dismiss="modal" aria-label="Close" onclick="limpaForm()">Fechar</button>
                             </div>
                         </div>
                     </div>
@@ -498,7 +365,6 @@
             </div>
         </div>
     </div>
-
 </body>
 <!-- Bootstrap 5.0.0 -->
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
@@ -509,4 +375,33 @@
 <script src="js/menu.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.10/vue.min.js"></script>
+<script>
+    function limpaForm(){
+        $("#inputId").val("");
+        $("#nomeCliente").val("");
+        $("#cpf_cnpj").val();
+        $("#email").val();
+        $("#tipo-pessoa").val("");
+        $("#idApelido").val();
+        $("#idDtNascimento").val();
+        $("#dataCadastro").val();
+        $("#cep").val();
+        $("#endereco").val();
+        $("#numero").val();
+        $("#complemento").val();
+        $("#bairro").val();
+        $("#cidade").val();
+        $("#estado").val();
+        $("#telefone").val();
+        $("#celular").val();
+    }
+    function passarValores(){
+        $("#table-lista-clientes").on("click", "tr", function(e) {
+            let linhaContato = this;
+            colunas = linhaContato.querySelectorAll("td");
+            $("#nomeCliente").val(colunas[0].innerText);
+        });
+    }
+</script>
+
 </html>
