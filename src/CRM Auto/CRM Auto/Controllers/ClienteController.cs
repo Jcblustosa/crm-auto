@@ -32,14 +32,15 @@ namespace CRM_Auto.Controllers
         [HttpPost]
         public IActionResult ValidarLogin(UsuarioModel usuario)
         {
+
             bool login = usuario.ValidarLogin();
             if (login)
             {
-                string[] nomeEId = usuario.NomeEId(usuario.Login_usuario, usuario.Senha_usuario);
-                HttpContext.Session.SetString("NomeUsuario", nomeEId[0]);
-                HttpContext.Session.SetString("IdUsuario", nomeEId[1]);
-                TempData["NomeUsuario"] = HttpContextAccessor.HttpContext.Session.GetString("NomeUsuario");
-                TempData["IdUsuario"] = HttpContextAccessor.HttpContext.Session.GetString("IdUsuario");
+                //string[] nomeEId = usuario.NomeEId(usuario.Login_usuario, usuario.Senha_usuario);
+                //HttpContext.Session.SetString("NomeUsuario", nomeEId[0]);
+                //HttpContext.Session.SetString("IdUsuario", nomeEId[1]);
+                //TempData["NomeUsuario"] = HttpContextAccessor.HttpContext.Session.GetString("NomeUsuario");
+                //TempData["IdUsuario"] = HttpContextAccessor.HttpContext.Session.GetString("IdUsuario");
                 return RedirectToAction("Index");
             }
             return RedirectToAction("LoginCliente");
