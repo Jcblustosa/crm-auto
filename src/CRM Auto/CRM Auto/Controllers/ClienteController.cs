@@ -48,6 +48,10 @@ namespace CRM_Auto.Controllers
             }
             return RedirectToAction("LoginCliente");
         }
+        public IActionResult BemVindoCliente()
+        {
+            return View("bemVindoCliente");
+        }
 
         public IActionResult CadastroCliente()
         {
