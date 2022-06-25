@@ -63,33 +63,23 @@ Assim, quando maior a nota, maior a facilidade de uso para o usuário.
 |Objetivo do Teste | Verificar se as CTA (_call to action_) e fluxos da emissão de relatórios são claros para o usuário.|
 |Passos | 1.	Fazer login no sistema; <br>2.	Ir para o menu de funcionários; <br>3.	Escolher a opção de Emissão de Relatório de Funcionários.|
 |Critérios de Êxito | •	A pessoa conseguiu visualizar o relatório sem ajuda.|
-| ||
-|**Caso de Teste** | **CX-03: Consulta de saldo ou estoque de peças (Oficina)**|
-|Objetivo do Teste | Verificar se as CTA (_call to action_) e fluxos da verificação de peças são claros para o usuário.|
-|Passos | 1.	Fazer login no sistema com uma conta de Gestor; <br>2.	Ir para a tela de manutenção; <br> 3. Escolher a opção Consultar Estoque; <br> 4. Especificar a peça a consultar. <br> 5. Visualizar os resultados que contenham o _input_ inserido.|
-|Critérios de Êxito | •	A pessoa conseguiu visualizar o saldo ou estoque de peças sem ajuda. <br> • Caso não seja encontrado nenhum resultado equivalente ao procurado, isso ficaa claro para o usuário.|
 | |
-|**Caso de Teste** | **CX-04: Atualização de processos (Oficina)**|
+|**Caso de Teste** | **CX-03: Atualização de processos (Oficina)**|
 |Objetivo do Teste | Verificar se as CTA (_call to action_) e fluxos da manutenção do processo são claros para o usuário. |
 |Passos | 1.	Fazer login no sistema com uma conta de Gestor; <br>	2.	Ir para a página de Menu; <br>3.	Selecionar a opção Processos em Andamento; <br> 4.	Selecionar um processo para ser visualizado; <br> 5.	Editar o processo. <br> 6. Receber confirmação da alteração do processo.|
 |Critérios de Êxito | •A pessoa conseguiu executar a tareda sem ajuda.  <br> • É claro para o usuário qual processo está sendo alterado.  <br> •	Fica claro para o usuário que a alteração foi realizada com sucesso.|
 | |
-|**Caso de Teste** | **CX-05:  Visualização do processo em andamento (Cliente)**|
+|**Caso de Teste** | **CX-04:  Visualização do processo em andamento (Cliente)**|
 |Objetivo do Teste | Verificar se as CTA (_call to action_) e fluxos da visualização do processo são claros para o usuário. |
 |Passos | 1. Fazer login no sistema com uma conta de Cliente; <br> 2. Ir para a página de Menu; <br> 3. Selecionar a opção Processos em Andamento; <br> 4. Selecionar um processo para ser visualizado.|
 |Critérios de Êxito | •	O usuário conseguiu acessar as informações necessárias no sistema.|
 | |
-|**Caso de Teste** | **CX-06:  Solicitação de novo orçamento em processo em andamento (Cliente)**|
-|Objetivo do Teste | Verificar se as CTA (_call to action_) e fluxos da solicitação de um novo orçamento em processo em andamento são claros para o usuário.|
-|Passos | 1. Fazer login no sistema com uma conta de Cliente; <br> 2. Ir para a página de Menu; <br> 3. Selecionar a opção Adicionar Tarefa; <br> 4. Especificar o serviço cujo orçamento foi solicitado.|
-|Critérios de Êxito | •	O usuário conseguiu solicitar o orçamento do serviço no sistema.|
-| |
-|**Caso de Teste** | **CX-07:  Serviços da oficina**|
+|**Caso de Teste** | **CX-05:  Serviços da oficina**|
 |Objetivo do Teste |Verificar se as CTA (_call to action_) e fluxo de cadastrar os serviços disponibilizados são claros para o usuário.|
 |Passos | 1. Fazer login no sistema; <br> 2. Ir para a página de Menu; <br> 3. Selecionar a opção Serviços; <br> 4. Escolher a função Cadastrar Serviço. <br> 5. Receber a confirmação da alteração no sistema.|
 |Critérios de Êxito | •	O usuário conseguiu alterar as informações necessárias no sistema sem ajudas. <br> •	Fica claro para o usuário que a alteração foi realizada com sucesso. |
 | |
-|**Caso de Teste** | **CX-08:  Cadastro de novo veículo (Oficina)**|
+|**Caso de Teste** | **CX-06:  Cadastro de novo veículo (Oficina)**|
 |Objetivo do Teste | Verificar se as CTA (_call to action_) e fluxos da inserção de veículo para cliente existente são claros para o usuário.|
 |Passos | 1. Fazer login no sistema com uma conta de Gestor; <br> 2. Ir para a página de Menu; <br> 3. Selecionar a opção Cadastrar Veículo; <br> 4. Preencher as informações necessárias no formulário do sistema. <br> 5. Receber a confirmação da alteração no sistema. |
 |Critérios de Êxito | •	O usuário conseguiu alterar as informações necessárias no sistema sem ajuda.  <br> •	Fica claro para o usuário que a alteração foi realizada com sucesso.|
