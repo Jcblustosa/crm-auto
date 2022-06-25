@@ -15,13 +15,16 @@ Foi considerada a inclusividade na paleta de cores, de modo que pessoas com dalt
    9. Auxiliar usuários a reconhecer, diagnosticar e recuperar erros;
    10. Ajuda e Documentação.
 
-Dessa forma, foram registrados os testes de fluxos construídos:
+## Avaliação da equipe de desenvolvimento
 
-| CX-01 | Nota |
-|--- | ----|
-| Usuário 1 | 5 |
-| Usuário 2 | 5 |
-| Usuário 3 | 5 |
-| Usuário 4 | 5 |
+**CX-01: Alteração de dados de oficina/funcionário/cliente (Oficina)** 
 
-Não foram encontrados quaisquer tipos de erros no teste do cadastro de novo usuário. Os feedbacks para o teste foram positivos, sem reclamações para os fluxos construídos no site.
+![img1](https://raw.githubusercontent.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t3-crm-auto/main/docs/img/registro%20de%20testes/CT%2011/CX01%20-%20Equipe.png)
+<p align="center">CX01 - Avaliação da equipe</p>
+</br>
+
+**CX-07: Serviços da oficina** 
+
+![img1](https://raw.githubusercontent.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t3-crm-auto/main/docs/img/registro%20de%20testes/CT%2011/CX01%20-%20Equipe.png)
+<p align="center">CX07 - Avaliação da equipe</p>
+</br>
