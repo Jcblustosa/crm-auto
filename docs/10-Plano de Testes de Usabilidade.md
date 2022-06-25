@@ -56,12 +56,12 @@ Assim, quando maior a nota, maior a facilidade de uso para o usuário.
 | **Caso de Teste** | **CX-01: Alteração de dados de oficina/funcionário/cliente (Oficina)**|
 |---|---|
 | Objetivo do Teste | Verificar se as CTA (_call to action_) e fluxos de inserção ou alteração de dados no sistema são claros para o usuário. |
-| Passos | 1.	Fazer login no sistema com uma conta de Gestor; <br>2.	Ir para a tela de manutenção; <br>3.	Incluir/Excluir/Alterar dados de oficina/funcionário/cliente. |
+| Passos | 1.	Fazer login no sistema; <br>2.	Ir para a tela de manutenção; <br>3.	Incluir/Excluir/Alterar dados de oficina/funcionário/cliente. |
 | Critérios de Êxito | •	A pessoa conseguiu executar a tarefa sem ajuda. <br> • É claro para o usuário qual o perfil de pessoa (funcionário/cliente) está sendo alterado.  <br> •	Fica claro para o usuário que a alteração foi realizada com sucesso. |
 |||
-|**Caso de Teste** | **CX-02: Emissão de relatório de cliente (Oficina)**|
+|**Caso de Teste** | **CX-02: Emissão de relatório de funcionários (Oficina)**|
 |Objetivo do Teste | Verificar se as CTA (_call to action_) e fluxos da emissão de relatórios são claros para o usuário.|
-|Passos | 1.	Fazer login no sistema com uma conta de Gestor; <br>2.	Ir para a tela do menu; <br>3.	Escolher a opção de Emissão de Relatório de Cliente.|
+|Passos | 1.	Fazer login no sistema; <br>2.	Ir para o menu de funcionários; <br>3.	Escolher a opção de Emissão de Relatório de Funcionários.|
 |Critérios de Êxito | •	A pessoa conseguiu visualizar o relatório sem ajuda.|
 | ||
 |**Caso de Teste** | **CX-03: Consulta de saldo ou estoque de peças (Oficina)**|
