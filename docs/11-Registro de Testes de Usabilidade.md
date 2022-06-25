@@ -19,12 +19,18 @@ Foi considerada a inclusividade na paleta de cores, de modo que pessoas com dalt
 
 **CX-01: Alteração de dados de oficina/funcionário/cliente (Oficina)** 
 
-![img1](https://raw.githubusercontent.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t3-crm-auto/main/docs/img/registro%20de%20testes/CT%2011/CX01%20-%20Equipe.png)
-<p align="center">CX01 - Avaliação da equipe</p>
+![img1](https://raw.githubusercontent.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t3-crm-auto/main/docs/img/registro%20de%20testes/CT%2011/CX%20-%20Equipe.png)
+<p align="center">CX01 - Avaliação da equipe de desenvolvimento</p>
 </br>
 
-**CX-07: Serviços da oficina** 
+**CX-05: Serviços da oficina** 
 
-![img1](https://raw.githubusercontent.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t3-crm-auto/main/docs/img/registro%20de%20testes/CT%2011/CX01%20-%20Equipe.png)
-<p align="center">CX07 - Avaliação da equipe</p>
+![img1](https://raw.githubusercontent.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t3-crm-auto/main/docs/img/registro%20de%20testes/CT%2011/CX%20-%20Equipe.png)
+<p align="center">CX05 - Avaliação da equipe de desenvolvimento</p>
+</br>
+
+## Avaliação dos usuários
+
+![img1](https://raw.githubusercontent.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t3-crm-auto/main/docs/img/registro%20de%20testes/CT%2011/CX-%20Usu%C3%A1rio.png)
+<p align="center">Testes de usabilidade - Avaliação dos usuários</p>
 </br>
