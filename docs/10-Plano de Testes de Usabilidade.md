@@ -85,8 +85,8 @@ Assim, quando maior a nota, maior a facilidade de uso para o usuário.
 |Critérios de Êxito | •	O usuário conseguiu solicitar o orçamento do serviço no sistema.|
 | |
 |**Caso de Teste** | **CX-07:  Serviços da oficina**|
-|Objetivo do Teste |Verificar se as CTA (_call to action_) e fluxos de cadastrar, alterar e excluir os serviços disponibilizados são claros para o usuário.|
-|Passos | 1. Fazer login no sistema com uma conta de Gestor; <br> 2. Ir para a página de Menu; <br> 3. Selecionar a opção Serviços; <br> 4. Escolher a função Cadastrar/Alterar/Excluir Serviço. <br> 5. Receber a confirmação da alteração no sistema.|
+|Objetivo do Teste |Verificar se as CTA (_call to action_) e fluxo de cadastrar os serviços disponibilizados são claros para o usuário.|
+|Passos | 1. Fazer login no sistema; <br> 2. Ir para a página de Menu; <br> 3. Selecionar a opção Serviços; <br> 4. Escolher a função Cadastrar Serviço. <br> 5. Receber a confirmação da alteração no sistema.|
 |Critérios de Êxito | •	O usuário conseguiu alterar as informações necessárias no sistema sem ajudas. <br> •	Fica claro para o usuário que a alteração foi realizada com sucesso. |
 | |
 |**Caso de Teste** | **CX-08:  Cadastro de novo veículo (Oficina)**|
