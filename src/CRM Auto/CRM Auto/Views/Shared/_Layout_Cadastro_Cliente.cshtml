@@ -137,10 +137,22 @@
             })
         }
 
-        @* function init(){
-            exibeListaClientes();
-        } *@
-
+        function ListaMarca(e){
+            document.getElementById('idMarcaVeiculo').options.length = 0;
+            console.log(e.value)
+            $.post("ListaMarca", function(result, status, xhr) {
+                console.log(`data: ${result}, status: ${status}`);
+                if (status === 'success') {
+                    const options = $("#idMarcaVeiculo");
+                    options.innerHTML = "";
+                    for (let i = 0; i < result.length; i++) {
+                        const item = result[i];
+                        console.log(item)
+                        options.append('<option value="' +item.IdMarca + '">' + item.MarcaNome + '</option>');
+                    }
+                }
+            })
+        }
     </script>
 </body>
 </html>

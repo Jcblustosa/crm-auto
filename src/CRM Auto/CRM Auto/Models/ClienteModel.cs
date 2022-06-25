@@ -85,25 +85,7 @@ namespace CRM_Auto.Models
 
         }
 
-        private List<ClienteModel> ListarMarcaVeiculo()
-        {
-            string command = "SELECT * FROM MARCA_CARRO;";
-
-            List<ClienteModel> marcas = new List<ClienteModel>();
-
-            CNN cnn = new CNN();
-            DataTable dt = cnn.GetData(command);
-
-            foreach (DataRow dr in dt.Rows)
-            {
-                ClienteModel marca = new ClienteModel();
-                marca.IdMarca = int.Parse(dr["ID_MARCA"].ToString());
-                marca.MarcaNome = dr["NOME_MARCA"].ToString();
-                marcas.Add(marca);
-            }
-
-            return marcas;
-        }
+        
 
         // private List<ClienteModel> ExecuteQuery(string command)
         // {
@@ -313,6 +295,34 @@ namespace CRM_Auto.Models
                 clientes.Add(cliente);
             }
             return clientes;
+        }
+
+        public List<ClienteModel> ListarMarcaVeiculo()
+        {
+            string command = "SELECT ID_MARCA, NOME_MARCA FROM MARCA_CARRO;";
+
+            List<ClienteModel> marcas = new List<ClienteModel>();
+
+            CNN cnn = new CNN();
+            DataTable dt = cnn.GetData(command);
+
+            // foreach (DataRow dr in dt.Rows)
+            // {
+            //     ClienteModel marca = new ClienteModel();
+            //     marca.IdMarca = int.Parse(dr["ID_MARCA"].ToString());
+            //     marca.MarcaNome = dr["NOME_MARCA"].ToString();
+            //     marcas.Add(marca);
+            // }
+
+            for(int i = 0; i < dt.Rows.Count; i++)
+            {
+                ClienteModel marca = new ClienteModel();
+                marca.IdMarca = int.Parse(dt.Rows[i]["ID_MARCA"].ToString());
+                marca.MarcaNome = dt.Rows[i]["NOME_MARCA"].ToString();
+                marcas.Add(marca);
+            }
+
+            return marcas;
         }
 
         public void ExcluirRegistroCliente(ClienteModel cliente)

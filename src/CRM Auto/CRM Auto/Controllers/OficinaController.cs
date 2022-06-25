@@ -87,6 +87,14 @@ namespace CRM_Auto.Controllers
         }
 
         [HttpPost]
+
+        public List<MarcaModel> ListaMarca()
+        {
+            MarcaModel marca = new MarcaModel();
+            // ModeloModel marca = new ModeloModel();
+            return marca.Marcas();
+        }
+
         public List<ModeloModel> SelecionaModelosMarca(MarcaModel marca)
         {
             ModeloModel modelo = new ModeloModel();
@@ -175,9 +183,13 @@ namespace CRM_Auto.Controllers
         {
             try
             {
-                ClienteModel cliente = new ClienteModel();
-                List<ClienteModel> lista = cliente.ListarClientes();
-                ViewBag.ListarClientes = cliente.ListarClientes();
+                // ClienteModel cliente = new ClienteModel();
+                // List<ClienteModel> lista = cliente.ListarClientes();
+                // ViewBag.ListarClientes = cliente.ListarClientes();
+
+                ClienteModel marca = new ClienteModel();
+                List<ClienteModel> listaMarca = marca.ListarMarcaVeiculo();
+                ViewBag.ListarMarcaVeiculo = marca.ListarMarcaVeiculo();
 
                 return View("ListaCliente");
             }
@@ -186,6 +198,22 @@ namespace CRM_Auto.Controllers
                 throw new Exception(ex.Message);
             }
         }
+
+        // public IActionResult ListarMarcaVeiculo()
+        // {
+        //     try
+        //     {
+        //         ClienteModel marca = new ClienteModel();
+        //         List<ClienteModel> listaMarca = marca.ListarMarcaVeiculo();
+        //         ViewBag.ListarMarcaVeiculo = marca.ListarMarcaVeiculo();
+                
+        //         return View("ListaCliente");
+        //     }
+        //     catch (Exception ex)
+        //     {
+        //         throw new Exception(ex.Message);
+        //     }
+        // }
 
         [HttpPost]
         // public IActionResult SalvarRegistroCliente()
