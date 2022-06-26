@@ -158,7 +158,7 @@ a {
 }
 
 .show {
-    left: 0
+    left: 0;
 }
 
 .body-pd {
@@ -176,7 +176,7 @@ a {
         left: 0;
         width: 2px;
         height: 32px;
-        background-color: var(--text-color)
+        background-color: var(--text-color);
     }
 
 .height-100 {
@@ -191,16 +191,16 @@ a {
 
     .header {
         height: calc(var(--header-height) + 1rem);
-        padding: 0 2rem 0 calc(var(--nav-width) + 2rem)
+        padding: 0 2rem 0 calc(var(--nav-width) + 2rem);
     }
 
     .l-navbar {
         left: 0;
-        padding: 1rem 1rem 0 0
+        padding: 1rem 1rem 0 0;
     }
 
     .show {
-        width: calc(var(--nav-width) + 156px)
+        width: calc(var(--nav-width) + 156px);
     }
 
     .body-pd {
