@@ -35,7 +35,7 @@
         <nav class="nav">
             <div> 
                 <div href="#" class="col p-2">
-                    <img src="images/crmautodark.jpg" class="img-fluid" alt="CRM Auto" style="width: 60%; height: auto; margin-left: -10px; margin-top: -15px;"></img>
+                    <img src="images/crmautodark.jpg" class="img-fluid" alt="CRM Auto" style="width: 80%; height: auto100; margin-left: -10px; margin-top: -15px;"></img>
                 </div>
                 <div class="nav_list">
                     <a href="#" class="nav_link active"> 
@@ -78,96 +78,79 @@
         <div class="row">
             <div class="input-group col-sm">
                 <span class="input-group-text" id="basic-addon1"><i class="bi bi-search small"></i></span>
-               
+                <tbody>
+                            <tr>
+                                <td scope="row"></td>
+                                <td>
+                                   
+                                        
+                                        
+                                        <div class="containerPesquisa">
+                                            <input type="text" class="form-control" id="inputNome" required placeholder="Pesquisar">
+                                            <input type="button" class="btn btn-success" id="btnInsert" value="Pesquisar Serviço">
+                                        
+
+                                
              
-             <td>
-                <select id="desc-servico" class="form-control">
-                    <option selected>Selecione um serviço...</option>
-                    <option value="1">ALINHAMENTO E BALANCIAMENTO</option>
-                    <option value="2">TROCA DE ÓLEO</option>
-                    <option value="3">TROCA AMORTECEDOR TRASEIRO</option>
-                    <option value="4">TROCA AMORTECEDOR DIANTEIRO</option>
-                    <option value="5">TROCA CORRÊIA DENTADA</option>
-                </select>
-            </td>
-            
-            </div>
-
-
-            <div class="col-sm">
-                <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#addServico"><i class="bi bi-plus"></i> Pesquisar</button>
-            </div>
-        </div>
-    </div>
-
-    <div class="row form-group">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th class="tb-item-desc" style="width: 5px;" scope="col">#</th>
-                    <th class="tb-desc-servico" scope="col">Descrição do Serviço</th>
-                    <th class="tb-mecanico" scope="col">Mecânico responsável</th>
-                    <th class="tb-dt-inicial" scope="col">Hora inicial</th>
-                    <th class="tb-dt-final" scope="col">Hora final</th>
-                    <th class="tb-vlr-servico" scope="col">Placa </th>
-                    <th class="tb-check" scope="col">Valor</th>
-                    <th class="tb-qtde" scope="col">Qtde</th>
-                    <th class="tb-btn" scope="col"></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td scope="row">1</td>
-                    <td>
-                        <select id="desc-servico" class="form-control">
-                            <option selected>Selecione um serviço...</option>
-                            <option value="1">ALINHAMENTO E BALANCIAMENTO</option>
-                            <option value="2">TROCA DE ÓLEO</option>
-                            <option value="3">TROCA AMORTECEDOR TRASEIRO</option>
-                            <option value="4">TROCA AMORTECEDOR DIANTEIRO</option>
-                            <option value="5">TROCA CORRÊIA DENTADA</option>
-                        </select>
-                    </td>
-
-                    <td>
-                        <select id="desc-servico" class="form-control">
-                            <option selected>Selecione um mecânico...</option>
-                            <option value="1">Allana Tavares</option>
-                            <option value="2">Ciro Artiga</option>
-                            <option value="3">Júlio Lustosa</option>
-                            <option value="4">Mariane</option>
-                            <option value="5">Mislene Tavares</option>
-                            <option value="6">Rafaela</option>
-                        </select>
-                    </td>
-                    <td>
-                        <input type="datetime-local">
-                    </td>
-                    <td>
-                        <input type="datetime-local">
-                    </td>
-                    <td >
-                        HTT0304
-                    </td>
-                    <td>
-                       425,00
-                    </td>
-                    <td>2</td>
-                   
-                    
-                </tr>
-                
-            </tbody>
-        </table>
-    </div>  
-
-    
-
-    
-
-    
-
-    
+                <div class="row form-group">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th class="tb-item-desc" style="width: 5px;" scope="col">#</th>
+                                <th class="tb-desc-servico" scope="col">Descrição do Serviço</th>
+                                <th class="tb-mecanico" scope="col">Mecânico responsável</th>
+                                <th class="tb-dt-inicial" scope="col">Hora inicial</th>
+                                <th class="tb-dt-final" scope="col">Hora final</th>
+                                <th class="tb-vlr-servico" scope="col">Valor do Serviço</th>
+                                <th class="tb-check" scope="col">Placa</th>
+                                <th class="tb-qtde" scope="col">Qtde</th>
+                                <th class="tb-btn" scope="col"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td scope="row">1</td>
+                                <td>
+                                    <select id="desc-servico" class="form-control">
+                                        <option selected>Selecione um serviço...</option>
+                                        <option value="1">ALINHAMENTO E BALANCIAMENTO</option>
+                                        <option value="2">TROCA DE ÓLEO</option>
+                                        <option value="3">TROCA AMORTECEDOR TRASEIRO</option>
+                                        <option value="4">TROCA AMORTECEDOR DIANTEIRO</option>
+                                        <option value="5">TROCA CORRÊIA DENTADA</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <select id="desc-servico" class="form-control">
+                                        <option selected>Selecione um mecânico...</option>
+                                        <option value="1">Allana Tavares</option>
+                                        <option value="2">Ciro Artiga</option>
+                                        <option value="3">Júlio Lustosa</option>
+                                        <option value="4">Mariane</option>
+                                        <option value="5">Mislene Tavares</option>
+                                        <option value="6">Rafaela</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <input type="datetime-local">
+                                </td>
+                                <td>
+                                    <input type="datetime-local">
+                                </td>
+                                <td >
+                                    R$ 425,50
+                                </td>
+                                <td>
+                                    HTT0304
+                                </td>
+                                <td>2</td>
+                                
+                                
+                            </tr>
+                            
+                        </tbody>
+                    </table>
+                </div>       
 
     <!-- <div class="row">
         <div class="col-sm-12">
