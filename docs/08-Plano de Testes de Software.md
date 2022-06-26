@@ -83,14 +83,14 @@ Critérios de Êxito | •	Se as informações forem preenchidas corretamente, o
  
   Caso de Teste | CT-12: Cadastro de ordem de serviço
 ---|---
-Requisitos Associados | RF-14: O sistema deve permitir que o colaborador crie ordens de serviço.
+Requisitos Associados | RF-13: O sistema deve permitir que o colaborador crie ordens de serviço.
 Objetivo do Teste | Garantir que o sistema permita a criação de uma ordem de serviço no cpf de um cliente da oficina
 Passos | 1.	Executar a aplicação <br>	2.	Fazer login no sistema <br>3.	Escolher a opção "Nova O.S." <br>4. Preencher os dados do formulário <br>5. Clicar em Salvar<br>
 Critérios de Êxito | •	Se as informações forem preenchidas corretamente, o sistema deve apresentar ao usuário uma mensagem de sucesso relativa à criação da O.S. Todas as informações inseridas no formulário devem ser registradas no banco de dados na tabela [CRM_AUTO].[dbo].[ORDEM_SERVICO].
  
    Caso de Teste | CT-13: Edição de ordem de serviço
 ---|---
-Requisitos Associados | RF-15: O sistema deve permitir que o colaborador edite informações de uma ordem de serviço existente.
+Requisitos Associados | RF-14: O sistema deve permitir que o colaborador edite informações de uma ordem de serviço existente.
 Objetivo do Teste | Garantir que o sistema permita a edição de uma ordem de serviço existente.
 Passos | 1.	Executar a aplicação <br>	2.	Fazer login no sistema <br>3.	Escolher a opção "Editar" ao lado da ordem de serviço escolhida <br>4. Preencher os dados do formulário <br>5. Clicar em Salvar<br>
 Critérios de Êxito | •	Se as informações forem preenchidas corretamente, o sistema deve apresentar ao usuário uma mensagem de sucesso relativa à edição da O.S. Todas as informações inseridas no formulário devem ser registradas no banco de dados na tabela [CRM_AUTO].[dbo].[ORDEM_SERVICO].
