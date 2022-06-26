@@ -47,7 +47,7 @@ As tabelas que a seguir apresentam os requisitos funcionais e não funcionais qu
 | RF-03 | O sistema deve permitir a inserção, alteração e exclusão dos dados dos funcionários. | ALTA | 
 | RF-04 | O sistema deve permitir a emissão de relatório contendo as informações dos funcionários. | ALTA |
 | RF-05 | O sistema deve permitir a inserção, alteração e exclusão dos dados dos clientes. | ALTA |  
-| RF-06 | O sistema deve permitir o cadastro, alteração e exclusão de oficinas. | ALTA  |
+| RF-06 | O sistema deve permitir o cadastro e a alteração de oficinas. | ALTA  |
 | RF-07 | O sistema deve permitir o cadastro, alteração e exclusão dos serviços disponibilizados pelas oficinas. | ALTA |
 | RF-08 | O sistema deve permitir a consulta dos clientes cadastrados. | ALTA |
 | RF-09 | O sistema deve permitir o cadastro de veículo (s) para o cliente.| ALTA |
