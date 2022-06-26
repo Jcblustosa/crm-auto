@@ -51,12 +51,11 @@ As tabelas que a seguir apresentam os requisitos funcionais e não funcionais qu
 | RF-07 | O sistema deve permitir o cadastro de um novo serviço disponibilizado pelas oficinas. | ALTA |
 | RF-08 | O sistema deve permitir a consulta dos clientes cadastrados. | ALTA |
 | RF-09 | O sistema deve permitir o cadastro de veículo (s) para o cliente.| ALTA |
-| RF-10 | O sistema deve permitir a inserção, alteração e exclusão das informações sobre o andamento de um determinado serviço. | ALTA |
-| RF-11 | O sistema deve permitir o acompanhamento do andamento de um serviço e a data prevista para finalização.| ALTA |
-| RF-12 | O sistema deve permitir a emissão de relatório contendo as informações dos serviços realizados pelas oficinas. | MÉDIA |
-| RF-13 | O sistema deve emitir lembretes para os clientes após 11 meses desde a última revisão anual. | BAIXA | 
-| RF-14 | O sistema deve permitir que o colaborador crie ordens de serviço | ALTA | 
-| RF-15 | O sistema deve permitir que o colaborador edite informações de uma ordem de serviço existente | ALTA | 
+| RF-10 | O sistema deve permitir o acompanhamento do andamento de um serviço pelo cliente e a data prevista para finalização.| ALTA |
+| RF-11 | O sistema deve permitir a emissão de relatório contendo as informações dos serviços realizados pelas oficinas. | MÉDIA |
+| RF-12 | O sistema deve emitir lembretes para os clientes após 11 meses desde a última revisão anual. | BAIXA | 
+| RF-13 | O sistema deve permitir que o colaborador crie ordens de serviço | ALTA | 
+| RF-14 | O sistema deve permitir que o colaborador edite informações de uma ordem de serviço existente | ALTA | 
 
 ### Requisitos não Funcionais
 
