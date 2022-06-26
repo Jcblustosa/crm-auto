@@ -60,54 +60,8 @@ Pontos a melhorar
 
 1) As configurações de estilo da página de cadastro de veículo devem ser corretamente aplicadas;
 
-### CT-05: Visualização do processo de manutenção
 
-**Objetivo:** Verificar se o cliente da oficina é capaz de visualizar os serviços que estão sendo feitos em seu veículo
-
-**Passos:** 
-1.	Executar a aplicação
-2.	Clicar no botão "Sou cliente"
-3.	Preencher os campos Login e Senha
-4.	Clicar em Log in
-5.	Selecionar a opção de Serviço Atual
-
-**Critério de êxito:** Os serviços que estão em andamento deverão ser apresentados na tela em forma de tabela.
-
-**Resultado do teste:** *Passou*
-
-**Evidências:**
-
-Ao executar a aplicação, o cliente deve escolher a opção "Sou Cliente".
-
-![img1](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t3-crm-auto/blob/main/docs/img/registro%20de%20testes/CT%2010/telaLogin.png)
-<p align="center">Evidência de teste 10.1 - Homepage com as opções de login</p>
-</br>
-
-Ao clicar na opção "Sou Cliente", os campos de usuário e senha deverão ser preenchidos.
-
-![img2](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t3-crm-auto/blob/main/docs/img/registro%20de%20testes/CT%2010/telaLogin2.png)
-<p align="center">Evidência de teste 10.2 - Tela de login de Cliente</p>
-</br>
-
-Após entrar, uma tela com opções é exibida.
-
-![img3](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t3-crm-auto/blob/main/docs/img/registro%20de%20testes/CT%2010/menuCliente.png)
-<p align="center">Evidência de teste 10.3 - Tela de opções do cliente</p>
-</br>
-
-Ao clicar em Serviço Atual, o detalhamento de serviços que estão em andamento aparecerá em tabela.
-
-![img4](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t3-crm-auto/blob/main/docs/img/registro%20de%20testes/CT%2010/visualizacaoServicos.png)
-<p align="center">Evidência de teste 10.4 - Tela de detalhamento de serviços</p>
-</br>
-
-**Observações:**
-
-Pontos a melhorar
-
-1) As folhas de estilo ainda não foram importadas pelo documento que compõe as views do fluxo de cliente.
-
-### CT-06: Login de Colaborador
+### CT-04: Login de Colaborador
 
 **Objetivo:** Verificar se o colaborador é capaz de realizar login no sistema
 
@@ -161,7 +115,7 @@ Pontos a melhorar
 
 1) Em caso de Login ou Senha incorretos, o sistema deve fornecer um retorno ao usuário, indicando que as informações não são válidas.
 
-### CT-07: Login de cliente da oficina
+### CT-05: Login de cliente da oficina
 
 Ao executar a aplicação, o usuário terá acesso às opções de login de colaborador e login de cliente. 
 
@@ -189,7 +143,7 @@ Pontos a melhorar
 2) Em caso de Login ou Senha incorretos, o sistema deve fornecer um retorno ao usuário, indicando que as informações não são válidas;
 3) Finalizar a página de cliente.
 
-### CT-09: Cadastro de funcionário
+### CT-07: Cadastro de funcionário
 
 **Objetivo:** Garantir que o sistema permite a inclusão do cadastro de um novo funcionário para determinada oficina
 
@@ -254,7 +208,7 @@ Pontos a melhorar
 1) Apresentar um combobox com as funções existentes na oficina, de forma que o usuário não tenha que digitar esse campo no formulário e apenas selecionar uma opção dentre as apresentadas.
 
 
-### CT-10: Alteração de funcionário
+### CT-08: Alteração de funcionário
 
 **Objetivo:** Garantir que o sistema permite a alteração do cadastro de um funcionário da oficina
 
@@ -324,7 +278,7 @@ Pontos a melhorar
 
 1) Apresentar um combobox com as funções existentes na oficina, de forma que o usuário não tenha que digitar esse campo no formulário e apenas selecionar uma opção dentre as apresentadas.
 
-### CT-11: Exclusão de funcionário
+### CT-09: Exclusão de funcionário
 
 **Objetivo:** Garantir que o sistema permite a exclusão do cadastro de um funcionário da oficina
 
@@ -392,7 +346,7 @@ Pontos a melhorar
 
 1) Apresentar o botão de excluir na coluna de opções da tabela de funcionários e não dentro do modal, afim de simplificar a experiência do usuário.
 
-### CT-12: Emissão de relatório dos Funcionários
+### CT-10: Emissão de relatório dos Funcionários
 
 **Objetivo:** Verificar se o relatório de funcionários está sendo gerado corretamente
 
@@ -438,7 +392,7 @@ Pontos a melhorar
 
 1) Criar uma tela para a geração personalizada do relatório, permitindo que o usuário aplique os filtres que desejar consultar.
 
-### CT-13: Cadastro de serviços da oficina
+### CT-11: Cadastro de serviços da oficina
 
 **Objetivo:** Garantir que o sistema permite a inclusão do cadastro de um novo serviço para as oficinas
 
@@ -496,7 +450,7 @@ Serviço cadastrado inserido na tabela [CRM_AUTO].[dbo].[SERVICO]:
 <p align="center">Evidência de teste 7 - Serviço inserido no banco de dados</p>
 </br>
 
-### CT-14: Cadastro de ordem de serviço
+### CT-12: Cadastro de ordem de serviço
 
 **Objetivo:** Garantir que o sistema permita a criação de uma ordem de serviço no cpf de um cliente da oficina
 
@@ -536,7 +490,7 @@ Quando o botão de Salvar for acionado, as informações preenchidas devem ser s
 </br>
 
 
-### CT-15: Edição de ordem de serviço
+### CT-13: Edição de ordem de serviço
 
 **Objetivo:** Garantir que o sistema permita a edição de uma ordem de serviço existente.
 
