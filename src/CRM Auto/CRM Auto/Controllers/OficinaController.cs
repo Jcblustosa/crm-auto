@@ -268,6 +268,52 @@ namespace CRM_Auto.Controllers
 
             return RedirectToAction("Sucesso");
         }
-   
+
+
+        [HttpGet]
+        public IActionResult BuscarServicos()
+        {
+            try
+            {
+                ServicoModel servico = new ServicoModel();
+                ViewBag.BuscarServicos = servico.BuscarServicos();
+
+                return View("Servicos");
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        [HttpPost]
+        public IActionResult InserirNovoServico(ServicoModel servico)
+        {
+            servico.InserirNovoServico(servico);
+
+            ViewBag.BuscarServicos = servico.BuscarServicos();
+            TempData["servicoIncluido"] = "Serviço cadastrado com sucesso!";
+
+            return View("Servicos");
+
+        }
+
+        [HttpGet]
+        public IActionResult GerarRelatorioEmPDFFuncionarios()
+        {
+            FuncionarioModel funcionario = new FuncionarioModel();
+            funcionario.GerarRelatorioEmPDF();
+
+            ViewBag.BuscarFuncionarios = funcionario.BuscarFuncionarios();
+
+            OficinaModel oficina = new OficinaModel();
+            List<OficinaModel> lista = oficina.BuscarOficinas();
+            ViewBag.BuscarOficinas = lista.Select(o => new { o.Id_oficina, o.Nome_oficina });
+
+            return View("CadastroDeFuncionario");
+        }
+
+
+
     }
 }

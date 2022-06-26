@@ -26,6 +26,14 @@ namespace CRM_Auto.Models
 
         }
 
+        public ServicoModel(int IdServico, string Descricao, TimeSpan TempoDeExecucao, float CustoHora)
+        {
+            this.IdServico = IdServico;
+            this.Descricao = Descricao;
+            this.TempoDeExecucao = TempoDeExecucao;
+            this.CustoHora = CustoHora;
+        }
+
         public void CadastrarServico(string idOs)
         {
             this.TempoPrevisto = FimServico - InicioServico;
@@ -105,5 +113,42 @@ namespace CRM_Auto.Models
             CustoHora = double.Parse(dt.Rows[0]["CUSTO_HORA"].ToString());
             Quantidade = int.Parse(dt.Rows[0]["QUANTIDADE"].ToString());
         }
+
+        public List<ServicoModel> BuscarServicos()
+        {
+            ArrayListServico<ServicoModel> servicos = new ArrayListServico<ServicoModel>();
+
+            string command = $"SELECT ID_SERVICO, DESCRICAO, TEMPO_EXEC_SERVICO, CUSTO_HORA " +
+                $"FROM SERVICO " +
+                $"ORDER BY ID_SERVICO ";
+
+            CNN cnn = new CNN();
+            DataTable dt = cnn.GetData(command);
+
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                ServicoModel servico = new(int.Parse(dt.Rows[i]["ID_SERVICO"].ToString()),
+                    dt.Rows[i]["DESCRICAO"].ToString(),
+                    TimeSpan.Parse(dt.Rows[i]["TEMPO_EXEC_SERVICO"].ToString()),
+                    float.Parse(dt.Rows[i]["CUSTO_HORA"].ToString()));
+
+                servicos.Add(servico);
+            }
+
+            return servicos;
+        }
+
+        public void InserirNovoServico(ServicoModel servico)
+        {
+
+            string command = $"INSERT INTO SERVICO (DESCRICAO, TEMPO_EXEC_SERVICO, CUSTO_HORA) " +
+                $"VALUES ('{servico.Descricao}', '{servico.TempoDeExecucao}', '{servico.CustoHora}')";
+
+            CNN cnn1 = new CNN();
+            cnn1.InsertData(command);
+        }
+
+
+
     }
 }
