@@ -62,10 +62,10 @@ namespace CRM_Auto.Models
 
             string command = $"INSERT INTO OFICINA (ID_OFICINA, CNPJ, NOME_OFICINA, APELIDO, INSC_ESTADUAL," +
                 $"INSC_MUNICIPAL, CEP, LOGRADOURO, NUMERO, COMPLEMENTO, BAIRRO, CIDADE, TELEFONE1,TELEFONE2," +
-                $"EMAIL,EMAIL_NF,OPCAO_CADASTRO, ID_OFICINA)" +
-                $"VALUES ('{Id_oficina}','{Cnpj}','{Nome_oficina}','{Apelido}','{Insc_estadual}','{Insc_municipal}', '{Cep}'," +
-                $"'{Logradouro}', '{Numero}', '{Complemento}', '{Bairro}', '{Cidade}', '{Telefone1}', '{Telefone2}'," +
-                $"'{Email}', '{Email_Nf}', '{Opcao_cadastro}') ";
+                $"EMAIL,EMAIL_NF,OPCAO_CADASTRO)" +
+                $"VALUES ('{oficina.Id_oficina}','{oficina.Cnpj}','{oficina.Nome_oficina}','{oficina.Apelido}','{oficina.Insc_estadual}','{oficina.Insc_municipal}', '{oficina.Cep}'," +
+                $"'{oficina.Logradouro}', '{oficina.Numero}', '{oficina.Complemento}', '{oficina.Bairro}', '{oficina.Cidade}', '{oficina.Telefone1}', '{oficina.Telefone2}'," +
+                $"'{oficina.Email}', '{oficina.Email_Nf}', '{oficina.Opcao_cadastro}') ";
 
             //DAL dal = new DAL();
             //dal.InsertData(command);
@@ -74,7 +74,25 @@ namespace CRM_Auto.Models
             cnn1.InsertData(command);
         }
 
-        public List<OficinaModel> BuscarOficinas()
+        public bool ValidarInsercaoOficina(OficinaModel oficina)
+        {
+            string command = $"SELECT ID_OFICINA, NOME_OFICINA " +
+                $"WHERE ID_OFICINA = '{oficina.Id_oficina}' AND NOME_OFICINA = '{oficina.Nome_oficina}'";
+
+            //DAL dal = new DAL();
+            //DataTable dt = dal.GetData(command);
+
+            CNN cnn = new CNN();
+            DataTable dt = cnn.GetData(command);
+
+            if (dt != null)
+            {
+                    return true;
+                }
+            return false;
+        }
+
+            public List<OficinaModel> BuscarOficinas()
         {
             List<OficinaModel> oficinas = new List<OficinaModel>();
 

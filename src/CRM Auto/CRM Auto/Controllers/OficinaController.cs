@@ -152,6 +152,18 @@ namespace CRM_Auto.Controllers
 
         }
 
+        public IActionResult InserirOficina(OficinaModel oficina)
+        {
+            oficina.InserirOficina(oficina);
+
+            TempData["msg"] = "Inserção realizada com sucesso!";
+            TempData["msgDetalhes"] = "A inserção da oficina foi finalizada e você já pode consultar as informações atualizadas no sistema da sua oficina.";
+
+
+            return View("CadastroRealizadoComSucesso");
+
+        }
+
         [HttpPost]
         public IActionResult ExcluirFuncionario(FuncionarioModel funcionario)
         {
