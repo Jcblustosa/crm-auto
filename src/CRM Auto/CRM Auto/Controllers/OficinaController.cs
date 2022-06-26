@@ -183,13 +183,13 @@ namespace CRM_Auto.Controllers
         {
             try
             {
-                // ClienteModel cliente = new ClienteModel();
-                // List<ClienteModel> lista = cliente.ListarClientes();
-                // ViewBag.ListarClientes = cliente.ListarClientes();
+                ClienteModel cliente = new ClienteModel();
+                List<ClienteModel> lista = cliente.ListarClientes();
+                ViewBag.ListarClientes = cliente.ListarClientes();
 
-                ClienteModel marca = new ClienteModel();
-                List<ClienteModel> listaMarca = marca.ListarMarcaVeiculo();
-                ViewBag.ListarMarcaVeiculo = marca.ListarMarcaVeiculo();
+                // ClienteModel marca = new ClienteModel();
+                // List<ClienteModel> listaMarca = marca.ListarMarcaVeiculo();
+                // ViewBag.ListarMarcaVeiculo = marca.ListarMarcaVeiculo();
 
                 return View("ListaCliente");
             }
