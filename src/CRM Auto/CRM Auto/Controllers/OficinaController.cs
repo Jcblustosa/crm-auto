@@ -43,6 +43,7 @@ namespace CRM_Auto.Controllers
                     HttpContext.Session.SetString("Nome", nomeEIdFuncionario[0]);
                     TempData["Nome"] = HttpContextAccessor.HttpContext.Session.GetString("Nome");
                     TempData["IdFuncionario"] = HttpContextAccessor.HttpContext.Session.GetString("IdFuncionario");
+                    TempData["IdUsuario"] = HttpContextAccessor.HttpContext.Session.GetString("IdUsuario");
                     return RedirectToAction("Sucesso");
                 }
                 else
@@ -88,13 +89,6 @@ namespace CRM_Auto.Controllers
 
         [HttpPost]
 
-        public List<MarcaModel> ListaMarca()
-        {
-            MarcaModel marca = new MarcaModel();
-            // ModeloModel marca = new ModeloModel();
-            return marca.Marcas();
-        }
-
         public List<ModeloModel> SelecionaModelosMarca(MarcaModel marca)
         {
             ModeloModel modelo = new ModeloModel();
@@ -108,13 +102,6 @@ namespace CRM_Auto.Controllers
             TempData["veiculoCadastrado"] = "Veículo cadastrado com sucesso!";
             return RedirectToAction("CadastroVeiculo");
         }
-
-        // public IActionResult OperacaoCadVeiculoCliente(ClienteModel veiculo)
-        // {
-        //     veiculo.CadNovoVeiculoCliente();
-        //     TempData["veiculoCadastrado"] = "Veículo cadastrado com sucesso!";
-        //     return RedirectToAction("ListaCliente");
-        // }
 
         public IActionResult CadastrarFuncionario()
         {
@@ -187,9 +174,9 @@ namespace CRM_Auto.Controllers
                 List<ClienteModel> lista = cliente.ListarClientes();
                 ViewBag.ListarClientes = cliente.ListarClientes();
 
-                // ClienteModel marca = new ClienteModel();
-                // List<ClienteModel> listaMarca = marca.ListarMarcaVeiculo();
-                // ViewBag.ListarMarcaVeiculo = marca.ListarMarcaVeiculo();
+                ClienteModel marca = new ClienteModel();
+                List<ClienteModel> listaMarca = marca.ListarMarcaVeiculo();
+                ViewBag.ListarMarcaVeiculo = marca.ListarMarcaVeiculo();
 
                 return View("ListaCliente");
             }
@@ -199,28 +186,8 @@ namespace CRM_Auto.Controllers
             }
         }
 
-        // public IActionResult ListarMarcaVeiculo()
-        // {
-        //     try
-        //     {
-        //         ClienteModel marca = new ClienteModel();
-        //         List<ClienteModel> listaMarca = marca.ListarMarcaVeiculo();
-        //         ViewBag.ListarMarcaVeiculo = marca.ListarMarcaVeiculo();
-                
-        //         return View("ListaCliente");
-        //     }
-        //     catch (Exception ex)
-        //     {
-        //         throw new Exception(ex.Message);
-        //     }
-        // }
 
         [HttpPost]
-        // public IActionResult SalvarRegistroCliente()
-        // {
-        //     return View("SalvarRegistroCliente");
-        // }
-
         public IActionResult SalvarRegistroCliente(ClienteModel cliente)
         {
             cliente.SalvaRegistroCliente();

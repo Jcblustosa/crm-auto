@@ -16,11 +16,11 @@
                     <input id="tableSearch" type="text" class="form-control col-5" placeholder="Pesquise um cliente" aria-label="Username" aria-describedby="basic-addon1">
                 </div>
                 <div class="input-group btn-novo-cadastro">
-                    <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#editaCliente"><i class="bi bi-plus"></i> Novo cliente</button>
+                    <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#editaCliente"><i class="bi bi-plus" onclick="limpaCampos()"></i> Novo cliente</button>
                 </div>
             </div>
         </div>
-    
+        
         <div onload="init" class="tbl-container bdr" asp-controller="Oficina">
             <table class="table align-middle mb-0 bg-white table-striped table-bordered" id="showTable">
                 <thead class="bg-light">
@@ -48,11 +48,10 @@
                             </td>
                             <td>
                                 <p class="fw-normal mb-1">@cliente.Email_nf</p> @*Item 3*@
-                                <p class="fw-normal mb-1">@cliente.Celular</p>
                             </td>
-                            <td >@cliente.Cnpj_ou_cpf</td>  @*Item 4*@
+                            <td hidden="true">@cliente.Cnpj_ou_cpf</td>  @*Item 4*@
                             <td hidden="true">@cliente.Apelido</td> @*Item 5*@
-                            <td >@cliente.Data_nascimento</td> @*Item 6*@
+                            <td hidden="true">@cliente.Data_nascimento</td> @*Item 6*@
                             <td hidden="true">@cliente.Data_cadastro</td> @*Item 7*@
                             <td hidden="true">@cliente.Cep</td> @*Item 8*@
                             <td hidden="true">@cliente.Logradouro</td> @*Item 9*@
@@ -62,7 +61,7 @@
                             <td hidden="true">@cliente.Cidade</td> @*Item 13*@
                             <td hidden="true">@cliente.Estado</td> @*Item 14*@
                             <td hidden="true">@cliente.Telefone</td> @*Item 15*@
-                            <td hidden="true">@cliente.Celular</td> @*Item 16*@
+                            <td>@cliente.Celular</td> @*Item 16*@
                             <td>
                                 <button type="button"
                                     class="btn btn-link btn-rounded btn-sm fw-bold" data-mdb-ripple-color="dark" data-placement="right" 
@@ -71,6 +70,15 @@
                                     <i class="bi bi-pencil-fill"></i>
                                 </button>
                             </td>
+                            <td hidden="true">@cliente.IdVeiculo</td> @*Item 18*@
+                            <td hidden="true">@cliente.Placa</td> @*Item 19*@
+                            <td hidden="true">@cliente.Motorizacao</td> @*Item 20*@
+                            <td hidden="true">@cliente.AnoModelo</td> @*Item 21*@
+                            <td hidden="true">@cliente.Renavan</td> @*Item 22*@
+                            <td hidden="true">@cliente.NomeCor</td> @*Item 23*@
+                            <td hidden="true">@cliente.Quilometragem</td> @*Item 24*@
+                            <td hidden="true">@cliente.IdModelo</td> @*Item 25*@
+                            <td hidden="true">@cliente.NomeModelo</td> @*Item 26*@
                         </tr>
                     }
                 </tbody>
@@ -91,29 +99,29 @@
                     <div class="row">
                         <div class="form-group col-md-3">
                             <label for="cpf_cnpj">Informe o CPF</label>   @*Item 2 da tabale*@
-                            <input type="text" class="form-control obrigatorio cpf" id="cpf_cnpj" name="cpf" placeholder="11.222.333-33" maxlength="14" asp-for="Cnpj_cpf">
+                            <input type="text" class="form-control obrigatorio cpf" id="cpf_cnpj" name="cpf" maxlength="14" asp-for="Cnpj_cpf">
                         </div>
                         <div class="form-group col-md-3">
                             <label for="tipo-pessoa">Selecione o tipo de pessoa</label>
-                            <select name="tipoPessoa" id="tipo-pessoa" class="form-select">  @*Item 4 da tabale*@
+                            <select name="tipoPessoa" id="tipo-pessoa" class="form-select" asp-for="Cnpj_ou_cpf">  @*Item 4 da tabale*@
                                 <option selected>Selecione...</option>
                                 <option value="F">Pessoa física</option>
                                 <option value="J">Pessoa jurídica</option>
                             </select>
                         </div>
-                    </div>                    
+                    </div>
                     <div class="row linhas">
                         <div class="form-group col-md-7">
                             <label for="nomeCliente">Nome do cliente</label>  @*Item 1 da tabale*@
-                            <input type="text" class="form-control" id="nomeCliente" placeholder="Nome do cliente">
+                            <input type="text" class="form-control" id="nomeCliente" asp-for="Nome_cliente">
                         </div>
                         <div class="form-group col-md-3">
                             <label for="idApelido">Apelido</label>  @*Item 5 da tabale*@
-                            <input type="text" class="form-control" id="idApelido" placeholder="Apelido do cliente">
+                            <input type="text" class="form-control" id="idApelido" asp-for="Apelido">
                         </div>
                         <div class="form-group col-md-2">
                             <label for="idDtNascimento">Data nascimento</label> @*Item 6 da tabale*@
-                            <input type="text" class="form-control" id="idDtNascimento" placeholder="00/00/0000">
+                            <input type="text" class="form-control" id="idDtNascimento" asp-for="Data_nascimento">
                         </div>
                     </div>
 
@@ -137,30 +145,30 @@
                                 <div id="row-pg-1" class="row">
                                     <div id="app" class="form-group col-md-2">
                                         <label for="cep">CEP</label>  @*Item 8 da tabale*@
-                                        <input type="text" class="form-control" v-model="cep" id="cep" onclick="this.value=''" maxlength="8">
+                                        <input type="text" class="form-control" v-model="cep" id="cep" onclick="this.value=''" maxlength="8"  asp-for="Cep">
                                     </div>
-                                    <div class="form-group col-md-8"> @*<!-- INÍCIO DIV CONTEÚDO DO FORM LOGRADOURO -->*@
+                                    <div class="form-group col-md-8">
                                         <label for="endereco">Endereço</label> @*Item 9 da tabale*@
-                                        <input type="text" class="form-control" id="endereco" placeholder="Rua, avenida, praça, fazenda...">
+                                        <input type="text" class="form-control" id="endereco" asp-for="Data_nascimento">
                                     </div>
                                     <div class="form-group col-md-2">
                                         <label for="numero">Número</label> @*Item 10 da tabale*@
-                                        <input type="text" class="form-control" id="numero" placeholder="">
+                                        <input type="text" class="form-control" id="numero" asp-for="Numero">
                                     </div>
-                                </div> @*<!-- FIM DIV CONTEÚDO DO FORM LOGRADOURO -->*@
+                                </div>
                                     
                                 <div id="row-pg-2" class="row">
                                     <div class="form-group col-md-5">
                                         <label for="bairro">Bairro</label> @*Item 12 da tabale*@
-                                        <input type="text" class="form-control" id="bairro">
+                                        <input type="text" class="form-control" id="bairro" asp-for="Bairro">
                                     </div>
                                     <div class="form-group col-md-5">
                                         <label for="cidade">Cidade</label> @*Item 13 da tabale*@
-                                        <input type="text" class="form-control" id="cidade">
+                                        <input type="text" class="form-control" id="cidade" asp-for="Cidade">
                                     </div>
                                     <div class="form-group col-md-2">
                                         <label for="estado">Estado</label> @*Item 14 da tabale*@
-                                        <select id="estado" class="form-select">
+                                        <select id="estado" class="form-select" asp-for="Estado">
                                             <option value="AC">AC</option>
                                             <option value="AL">AL</option>
                                             <option value="AM">AM</option>
@@ -194,68 +202,68 @@
                                 <div class="row">
                                     <div class="form-group col-md-12">
                                         <label for="complemento">Complemento</label> @*Item 11 da tabale*@
-                                        <input type="text" class="form-control" id="complemento" placeholder="Apartamento, casa, lote...">
+                                        <input type="text" class="form-control" id="complemento" asp-for="Complemento">
                                     </div>
                                 </div>
                                 <div id="row-pg-3" class="row"> @*<!-- INICIO DIV CIDADE E ESTADO -->*@
                                     <div class="form-group col-md-3">
                                         <label for="telefone">Telefone</label> @*Item 15 da tabale*@
-                                        <input type="tel" class="form-control" id="telefone" placeholder="(98) 9999-8888" asp-for="Telefone">
+                                        <input type="tel" class="form-control" id="telefone" asp-for="Telefone">
                                     </div>
                                     <div class="form-group col-md-3">
                                         <label for="celular">Celuar</label> @*Item 16 da tabale*@
-                                        <input type="tel" class="form-control" id="celular" placeholder="(98) 98888-7777" asp-for="Celular">
+                                        <input type="tel" class="form-control" id="celular" asp-for="Celular">
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label for="email">Email</label>  @*Item 3 da tabale*@
-                                        <input type="email" class="form-control email" id="email" placeholder="crm.auto@crmauto.com.br" asp-for="Email_nf">
+                                        <input type="email" class="form-control email" id="email" asp-for="Email_nf">
                                     </div>
                                 </div>
                             </div>
-                            <div id="abaVeiculo" class="conteudo" style="display: none" onclick="ListaMarca(this)">
-                                    <div class="row">
-                                        <div class="form-group col-md-3">
-                                            <label class="form-label">Placa do veículo</label>
-                                            <select id="idMarcaVeiculo" class="form-control" onchange="SelectMarca(this)">
-                                                <option>Selecione a marca</option>
-                                                @* @foreach (ClienteModel marca in ViewBag.ListarClientes)
-                                                {
-                                                    <option value="@marca.IdMarca">@marca.MarcaNome</option>
-                                                } *@
-                                            </select>
-                                        </div>
-                                        <div class="form-group col-md-3">
-                                            <label asp-for="IdModelo" class="form-label"></label>
-                                            <select id="sModeloSelect" asp-for="IdModelo" class="form-control">
-                                                <option>Selecione o modelo</option>
-                                            </select>
-                                        </div>
-                                        <div class="form-group col-md-3">
-                                            <label asp-for="Placa" class="form-label"></label>
-                                            <input asp-for="Placa" class="form-control"/>
-                                        </div>
+                            <div id="abaVeiculo" class="conteudo" style="display: none"> 
+                                <div class="row">
+                                    <div class="form-group col-md-3">
+                                        <label class="form-label" for="idMarcaVeiculo">Marca do veículo</label>
+                                        <select id="idMarcaVeiculo" class="form-select" onclick="SelectMarca(this)">
+                                            <option>Selecione a marca</option>
+                                            @foreach (ClienteModel marca in ViewBag.ListarMarcaVeiculo)
+                                            {
+                                                <option value="@marca.IdMarca">@marca.MarcaNome</option>
+                                            }
+                                        </select>
                                     </div>
-                                @* <form asp-action="OperacaoCadVeiculoCliente">
+                                    <div class="form-group col-md-3">
+                                        <label class="form-label" for="sModeloSelect">Modelo do veículo</label>
+                                        <select id="sModeloSelect" asp-for="IdModelo" class="form-select">
+                                            <option>Selecione o modelo</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-md-3">
+                                        <label class="form-label" for="placa">Placa</label>
+                                        <input id="placa" asp-for="Placa" class="form-control"/>
+                                    </div>
+                                </div>
+                                @* <form asp-action="OperacaoCadVeiculoCliente"> *@
                                     <div class="row">
                                         <div class="form-group col-md-2">
-                                            <label asp-for="Motorizacao">Motorização</label>
-                                            <input class="form-control" asp-for="Motorizacao">
+                                            <label class="form-label" for="motorizacao">Motorização</label>
+                                            <input type="text" id="motorizacao" class="form-control" asp-for="Motorizacao">
                                         </div>
                                         <div class="form-group col-md-2">
-                                            <label asp-for="AnoFabricacao">Ano de fabricação</label>
-                                            <input class="form-control" asp-for="AnoFabricacao">
+                                            <label for="quilometragem" class="form-label">Quilometragem</label>
+                                            <input type="text" id="quilometragem" class="form-control" asp-for="Quilometragem">
                                         </div>
                                         <div class="form-group col-md-2">
-                                            <label asp-for="AnoModelo">Ano modelo</label>
-                                            <input class="form-control" asp-for="AnoModelo">
+                                            <label class="form-label">Ano modelo</label>
+                                            <input type="text" id="anoModelo" class="form-control" asp-for="AnoModelo">
                                         </div>
                                         <div class="form-group col-md-2">
-                                            <label asp-for="Renavan"></label>
-                                            <input class="form-control" asp-for="Renavan">
+                                            <label class="form-label" for="renavan">Renavan</label>
+                                            <input type="text" id="renavan" class="form-control" asp-for="Renavan">
                                         </div>
                                         <div class="form-group col-md-2">
-                                            <label asp-for="Cor"></label>
-                                            <select class="form-control" asp-for="Cor" asp-items="@Html.GetEnumSelectList<Cor>()">
+                                            <label class="form-label" for="nomeCor">Cor do veículo</label>
+                                            <select id="nomeCor" class="form-control" asp-for="Cor" asp-items="@Html.GetEnumSelectList<Cor>()">
                                                 <option>Selecione a cor</option>
                                             </select>
                                         </div>
@@ -264,7 +272,7 @@
                                     <div>
                                         <input type="submit" id="ok" name="ok" class="btn btn-primary" value="Ok">
                                     </div>
-                                </form>     *@
+                                @* </form> *@
                             </div>
                         </div>
                     </div>

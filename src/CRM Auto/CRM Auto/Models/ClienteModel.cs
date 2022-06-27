@@ -16,7 +16,7 @@ namespace CRM_Auto.Models
         public string Nome_cliente { get; set; }
         public char Cnpj_ou_cpf { get; set; }
         public string Apelido { get; set; }
-        public string Data_nascimento { get; set; }
+        public DateTime Data_nascimento { get; set; }
         public DateTime Data_cadastro { get; set; }
         public int Id_usuario_cad { get; set; }
         public string Email_nf { get; set; }
@@ -32,23 +32,27 @@ namespace CRM_Auto.Models
 
         // para cadastro de veículo
         public int IdVeiculo { get; set; }
-        [Display(Name = "Modelo")]
+        // [Display(Name = "Modelo")]
         public int IdModelo { get; set; }
+        public string NomeModelo { get; set; }
         public string Placa { get; set; }
         public string Motorizacao { get; set; }
         public string AnoFabricacao{ get; set; }
         public string AnoModelo { get; set; }
         public string Renavan { get; set; }
         public Cor Cor { get; set; }
+        public string NomeCor {get; set;}
+        public int Quilometragem { get; set;}
 
         public int IdMarca { get; set; }
         public string MarcaNome { get; set; }
 
 
         public ClienteModel(int Id_cliente, string Cnpj_cpf, string Nome_cliente, char Cnpj_ou_cpf, string Apelido,
-                            string Data_nascimento, DateTime Data_cadastro,string Email_nf, string Cep,
+                            DateTime Data_nascimento, DateTime Data_cadastro, string Email_nf, string Cep,
                             string Logradouro, string Numero, string Complemento, string Bairro, string Cidade, string Estado,
-                            string Telefone, string Celular)
+                            string Telefone, string Celular, int IdVeiculo, string Placa, string Motorizacao, string AnoModelo,
+                            string Renavan, string NomeCor, int Quilometragem, int IdModelo, string NomeModelo)
         {
             this.Id_cliente = Id_cliente;
             this.Cnpj_cpf = Cnpj_cpf;
@@ -67,6 +71,16 @@ namespace CRM_Auto.Models
             this.Estado = Estado;
             this.Telefone = Telefone;
             this.Celular = Celular;
+            this.IdVeiculo = IdVeiculo;
+            this.Placa = Placa;
+            this.Motorizacao = Motorizacao;
+            this.AnoModelo = AnoModelo;
+            this.Renavan = Renavan;
+            this.NomeCor = NomeCor;
+            this.Quilometragem = Quilometragem;
+            this.IdModelo = IdModelo;
+            this.NomeModelo = NomeModelo;
+            NomeModelo=nomeModelo;
         }
 
         public ClienteModel(string Cnpj_cpf)
@@ -85,30 +99,35 @@ namespace CRM_Auto.Models
 
         }
 
-        
+        private List<ClienteModel> ExecuteQuery(string command)
+        {
+            List<ClienteModel> veiculos = new List<ClienteModel>();
 
-        // private List<ClienteModel> ExecuteQuery(string command)
-        // {
-        //     List<ClienteModel> marcas = new List<ClienteModel>();
+            CNN cnn = new CNN();
+            DataTable dt = cnn.GetData(command);
 
-        //     CNN cnn = new CNN();
-        //     DataTable dt = cnn.GetData(command);
+            foreach (DataRow dr in dt.Rows)
+            {
+                ClienteModel veiculo = new ClienteModel();
+                veiculo.IdVeiculo = int.Parse(dr["ID_VEICULO"].ToString());
+                veiculo.Placa = dr["PLACA_VEICULO"].ToString();
+                veiculo.Motorizacao = dr["MOTORIZACAO"].ToString();
+                veiculo.AnoModelo = dr["ANO_MODELO"].ToString();
+                veiculo.Renavan = dr["RENAVAN"].ToString();
+                veiculo.NomeCor = dr["COR"].ToString();
+                veiculo.Quilometragem = int.Parse(dr["QUILOMETRAGEM"].ToString());
+                veiculos.Add(veiculo);
+            }
 
-        //     foreach (DataRow dr in dt.Rows)
-        //     {
-        //         ClienteModel marca = new ClienteModel();
-        //         marca.IdMarca = int.Parse(dr["ID_MARCA"].ToString());
-        //         marca.MarcaNome = dr["NOME_MARCA"].ToString();
-        //         marcas.Add(marca);
-        //     }
+            return veiculos;
+        }
 
-        //     return marcas;
-        // }
-
-        // public List<ClienteModel> Marcas()
-        // {
-        //     return this.ExecuteQuery("SELECT * FROM MARCA_CARRO;");
-        // }
+        public List<ClienteModel> Veiculos(int clienteID)
+        {
+            return this.ExecuteQuery("SELECT ID_VEICULO, PLACA_VEICULO, MOTORIZACAO, ANO_FABRICACAO, ANO_MODELO, RENAVAN, COR, QUILOMETRAGEM " +
+	                                    "FROM VEICULO V INNER JOIN CLIENTE_VEICULO C ON V.ID_VEICULO = C.ID_VEICULO " +
+                                        $"WHERE ID_CLIENTE = '{clienteID}';");
+        }
 
         public void CadNovoVeiculoCliente()
         {
@@ -169,35 +188,56 @@ namespace CRM_Auto.Models
 
         public void SalvaRegistroCliente()
         {
-            string command = $"SELECT ID_CLIENTE FROM CLIENTE WHERE CNPJ_CPJ = '{Cnpj_cpf}';";
+            string command = "";
 
             CNN cnn = new CNN();
-            DataTable dt = cnn.GetData(command);
-            
-            if (dt.Rows.Count > 0)
+
+            if (Id_cliente > 0)
             {
                 command = "UPDATE CLIENTE " +
                                 $"SET " +
-                                    $"CNPJ_CPF = '{Cnpj_cpf}'" +
-                                    $"NOME_CLIENTE = '{Nome_cliente}'" +
-                                    $"CNPJ_OU_CPF = '{Cnpj_ou_cpf}'" +
-                                    $"APELIDO = '{Apelido}'" +
-                                    $"DATA_NASCIMENTO = '{Data_nascimento}'" +
-                                    $"DATA_CADASTRO = '{Data_cadastro}'" +
-                                    // $"ID_USUARIO_CAD = '{Id_usuario_cad}'" +
-                                    $"EMAIL_NF = '{Email_nf}'" +
-                                    $"CEP = '{Cep}'" +
-                                    $"LOGRADOURO = '{Logradouro}'" +
-                                    $"NUMERO = '{Numero}'" +
-                                    $"COMPLEMENTO = '{Complemento}'" +
-                                    $"BAIRRO = '{Bairro}'" +
-                                    $"CIDADE = '{Cidade}'" +
-                                    $"TELEFONE = '{Telefone}'" +
-                                    $"CELULAR = '{Celular}'" +
-                                    $"ESTADO = '{Estado}'" +
-                                $"WHERE ID_CLIENTE = '{int.Parse(dt.Rows[0]["ID_CLIENTE"].ToString())}>;";
+                                    //$"CNPJ_CPF = '{Cnpj_cpf}'" +
+                                    $",NOME_CLIENTE = '{Nome_cliente}'" +
+                                    //$",CNPJ_OU_CPF = '{Cnpj_ou_cpf}'" +
+                                    $",APELIDO = '{Apelido}'" +
+                                    $",DATA_NASCIMENTO = '{Data_nascimento}'" +
+                                    $",DATA_CADASTRO = '{Data_cadastro}'" +
+                                    // $",ID_USUARIO_CAD = " + TempData["IdUsuario"].Value + 
+                                    $",EMAIL_NF = '{Email_nf}'" +
+                                    $",CEP = '{Cep}'" +
+                                    $",LOGRADOURO = '{Logradouro}'" +
+                                    $",NUMERO = '{Numero}'" +
+                                    $",COMPLEMENTO = '{Complemento}'" +
+                                    $",BAIRRO = '{Bairro}'" +
+                                    $",CIDADE = '{Cidade}'" +
+                                    $",TELEFONE = '{Telefone}'" +
+                                    $",CELULAR = '{Celular}'" +
+                                    $",ESTADO = '{Estado}'" +
+                                $"WHERE ID_CLIENTE = '{Id_cliente}';";
 
                 cnn.UpdateData(command);
+
+                command = $"SELECT C.ID_CLIENTE, CV.ID_VEICULO " +
+                                "FROM CLIENTE C INNER JOIN CLIENTE_VEICULO CV ON C.ID_CLIENTE = CV.ID_CLIENTE " +
+                                $"WHERE CNPJ_CPF = '{Cnpj_cpf}';";
+                
+                DataTable dt = cnn.GetData(command);
+
+                if (dt.Rows.Count > 0)
+                {
+                    Id_cliente = int.Parse(dt.Rows[0]["ID_CLIENTE"].ToString());
+                    command = "UPDATE VEICULO " +
+                                $"SET PLACA_VEICULO = '{Placa}', " +
+                                      $"MOTORIZACAO = '{Motorizacao}', " +
+                                      $"ANO_MODELO = '{AnoModelo}',  " +
+                                      $"RENAVAN = '{Renavan}',  " +
+                                      $"COR = '{NomeCor}',  " +
+                                      $"QUILOMETRAGEM = '{Quilometragem}' " +
+                                  $"WHERE ID_VEICULO = '{IdVeiculo}'; ";
+
+                    cnn.UpdateData(command);
+                }
+
                 cnn.desconectar();
             }
             else
@@ -241,6 +281,14 @@ namespace CRM_Auto.Models
                                     $"'{Celular}')";
 
                 cnn.UpdateData(command);
+
+                command = "INSERT INTO VEICULO " +
+                                "(ID_MODELO, PLACA_VEICULO, MOTORIZACAO, ANO_MODELO, RENAVAN, COR, QUILOMETRAGEM) " +
+                              "VALUES " +
+                                $"('{IdModelo}', '{Placa}', '{Motorizacao}', '{AnoModelo}', '{Renavan}', '{Cor}', '{Quilometragem}');";
+
+                cnn.UpdateData(command);
+
                 cnn.desconectar();
             }
         }
@@ -249,49 +297,61 @@ namespace CRM_Auto.Models
         {
             List<ClienteModel> clientes = new List<ClienteModel>();
 
-            string comando = $"SELECT ID_CLIENTE " +
-                                    $",CNPJ_CPF " +
-                                    $",NOME_CLIENTE " +
-                                    $",CNPJ_OU_CPF " +
-                                    $",APELIDO " +
-                                    $",DATA_NASCIMENTO " +
-                                    $",DATA_CADASTRO " +
-                                    $",EMAIL_NF " +
-                                    $",CEP " +
-                                    $",LOGRADOURO " +
-                                    $",NUMERO " +
-                                    $",COMPLEMENTO " +
-                                    $",BAIRRO " +
-                                    $",CIDADE " +
-                                    $",ESTADO " +
-                                    $",TELEFONE " +
-                                    $",CELULAR " +
-                                $"FROM CLIENTE;";
+            string comando = "SELECT C.ID_CLIENTE, CNPJ_CPF, NOME_CLIENTE, CNPJ_OU_CPF, APELIDO, DATA_NASCIMENTO, " +
+                                    "C.DATA_CADASTRO, EMAIL_NF, CEP, LOGRADOURO, NUMERO, COMPLEMENTO, BAIRRO, " +
+                                    "CIDADE, ESTADO, TELEFONE, CELULAR, M.ID_MODELO, NOME_MODELO, PLACA_VEICULO, MOTORIZACAO, " +
+                                    "ANO_MODELO, RENAVAN, COR, QUILOMETRAGEM, IFNULL(V.ID_VEICULO, 0) AS VEICULO " +
+                                "FROM CLIENTE C LEFT JOIN CLIENTE_VEICULO CV ON C.ID_CLIENTE = CV.ID_CLIENTE " +
+                                    "LEFT JOIN VEICULO V ON CV.ID_VEICULO = V.ID_VEICULO " +
+                                    "LEFT JOIN MODELO_CARRO M ON V.ID_MODELO = M.ID_MODELO;";
 
             CNN cnn = new CNN();
             DataTable dt = cnn.GetData(comando);
 
             for (int i = 0; i < dt.Rows.Count; i++)
             {
-                ClienteModel cliente = new ClienteModel(
-                    int.Parse(dt.Rows[i]["ID_CLIENTE"].ToString()),
-                    dt.Rows[i]["CNPJ_CPF"].ToString(),
-                    dt.Rows[i]["NOME_CLIENTE"].ToString(),
-                    char.Parse(dt.Rows[i]["CNPJ_OU_CPF"].ToString()),
-                    dt.Rows[i]["APELIDO"].ToString(),
-                    dt.Rows[i]["DATA_NASCIMENTO"].ToString(),
-                    DateTime.Parse(dt.Rows[i]["DATA_CADASTRO"].ToString()),
-                    dt.Rows[i]["EMAIL_NF"].ToString(),
-                    dt.Rows[i]["CEP"].ToString(),
-                    dt.Rows[i]["LOGRADOURO"].ToString(),
-                    dt.Rows[i]["NUMERO"].ToString(),
-                    dt.Rows[i]["COMPLEMENTO"].ToString(),
-                    dt.Rows[i]["BAIRRO"].ToString(),
-                    dt.Rows[i]["CIDADE"].ToString(),
-                    dt.Rows[i]["ESTADO"].ToString(),
-                    dt.Rows[i]["TELEFONE"].ToString(),
-                    dt.Rows[i]["CELULAR"].ToString());
-                
+                ClienteModel cliente = new ClienteModel();
+
+                cliente.Id_cliente = int.Parse(dt.Rows[i]["ID_CLIENTE"].ToString());
+                cliente.Cnpj_cpf = dt.Rows[i]["CNPJ_CPF"].ToString();
+                cliente.Nome_cliente = dt.Rows[i]["NOME_CLIENTE"].ToString();
+                cliente.Cnpj_ou_cpf = char.Parse(dt.Rows[i]["CNPJ_OU_CPF"].ToString());
+                cliente.Apelido = dt.Rows[i]["APELIDO"].ToString();
+                cliente.Data_nascimento = DateTime.Parse(dt.Rows[i]["DATA_NASCIMENTO"].ToString());
+                cliente.Data_cadastro = DateTime.Parse(dt.Rows[i]["DATA_CADASTRO"].ToString());
+                cliente.Email_nf = dt.Rows[i]["EMAIL_NF"].ToString();
+                cliente.Cep = dt.Rows[i]["CEP"].ToString();
+                cliente.Logradouro = dt.Rows[i]["LOGRADOURO"].ToString();
+                cliente.Numero = dt.Rows[i]["NUMERO"].ToString();
+                cliente.Complemento = dt.Rows[i]["COMPLEMENTO"].ToString();
+                cliente.Bairro = dt.Rows[i]["BAIRRO"].ToString();
+                cliente.Cidade = dt.Rows[i]["CIDADE"].ToString();
+                cliente.Estado = dt.Rows[i]["ESTADO"].ToString();
+                cliente.Telefone = dt.Rows[i]["TELEFONE"].ToString();
+                cliente.Celular = dt.Rows[i]["CELULAR"].ToString();
+                if (int.Parse(dt.Rows[i]["VEICULO"].ToString()) != 0){
+                    cliente.IdVeiculo = int.Parse(dt.Rows[i]["VEICULO"].ToString());
+                    cliente.IdModelo = int.Parse(dt.Rows[i]["ID_MODELO"].ToString());
+                    cliente.NomeModelo = dt.Rows[i]["NOME_MODELO"].ToString();
+                    cliente.Placa = dt.Rows[i]["PLACA_VEICULO"].ToString();
+                    cliente.Motorizacao = dt.Rows[i]["MOTORIZACAO"].ToString();
+                    cliente.AnoModelo = dt.Rows[i]["ANO_MODELO"].ToString();
+                    cliente.Renavan = dt.Rows[i]["RENAVAN"].ToString();
+                    cliente.NomeCor = dt.Rows[i]["COR"].ToString();
+                    cliente.Quilometragem = int.Parse(dt.Rows[i]["QUILOMETRAGEM"].ToString());
+                }
+                else
+                {
+                    cliente.IdVeiculo = 0;
+                    cliente.IdModelo = 0;
+                    cliente.NomeModelo = "";
+                    cliente.Placa = "";
+                    cliente.Motorizacao = "";
+                    cliente.AnoModelo = "";
+                    cliente.Renavan = "";
+                    cliente.NomeCor = "";
+                    cliente.Quilometragem = 0;
+                }
                 clientes.Add(cliente);
             }
             return clientes;
@@ -305,14 +365,6 @@ namespace CRM_Auto.Models
 
             CNN cnn = new CNN();
             DataTable dt = cnn.GetData(command);
-
-            // foreach (DataRow dr in dt.Rows)
-            // {
-            //     ClienteModel marca = new ClienteModel();
-            //     marca.IdMarca = int.Parse(dr["ID_MARCA"].ToString());
-            //     marca.MarcaNome = dr["NOME_MARCA"].ToString();
-            //     marcas.Add(marca);
-            // }
 
             for(int i = 0; i < dt.Rows.Count; i++)
             {

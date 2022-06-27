@@ -71,6 +71,8 @@
     <script src="~/js/menu.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.10/vue.min.js"></script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         function passarValores(){
             $("#table-lista-cliente").on("click", "tr", function(e) {
@@ -80,11 +82,7 @@
                 $("#nomeCliente").val(colunas[1].innerText);
                 $("#cpf_cnpj").val(colunas[2].innerText);
                 $("#email").val(colunas[3].innerText);
-                if (colunas[4].innerText == 1){
-                    $("#tipo-pessoa").val("Pessoa jurídica");
-                }else{
-                    $("#tipo-pessoa").val("Pessoa física");
-                }
+                $("#tipo-pessoa").val(colunas[4].innerText);
                 $("#idApelido").val(colunas[5].innerText);
                 $("#idDtNascimento").val(colunas[6].innerText);
                 $("#dataCadastro").val(colunas[7].innerText);
@@ -97,27 +95,38 @@
                 $("#estado").val(colunas[14].innerText);
                 $("#telefone").val(colunas[15].innerText);
                 $("#celular").val(colunas[16].innerText);
+                //$("#idMarcaVeiculo").val(colunas[25].innerText);
+                $("#sModeloSelect").val(colunas[25].innerText);
+                $("#placa").val(colunas[19].innerText);
+                $("#motorizacao").val(colunas[20].innerText);
+                $("#anoModelo").val(colunas[21].innerText);
+                $("#renavan").val(colunas[22].innerText);
+                $("#nomeCor").val(colunas[23].innerText);
+                $("#quilometragem").val(colunas[24].innerText);
             });
         }
 
         function limpaCampos(){
             $("#inputId").val("");
             $("#nomeCliente").val("");
-            $("#cpf_cnpj").val();
-            $("#email").val();
+            $("#cpf_cnpj").val("");
+            $("#email").val("");
             $("#tipo-pessoa").val("");
-            $("#idApelido").val();
-            $("#idDtNascimento").val();
-            $("#dataCadastro").val();
-            $("#cep").val();
-            $("#endereco").val();
-            $("#numero").val();
-            $("#complemento").val();
-            $("#bairro").val();
-            $("#cidade").val();
-            $("#estado").val();
-            $("#telefone").val();
-            $("#celular").val();
+            $("#idApelido").val("");
+            $("#idDtNascimento").val("");
+            $("#dataCadastro").val("");
+            $("#cep").val("");
+            $("#endereco").val("");
+            $("#numero").val("");
+            $("#complemento").val("");
+            $("#bairro").val("");
+            $("#cidade").val("");
+            $("#estado").val("");
+            $("#telefone").val("");
+            $("#celular").val("");
+            $("#idMarcaVeiculo").val("");
+            $("#sModeloSelect").val("");
+            $("#placa").val("");
         }
 
         function SelectMarca(e){
@@ -137,22 +146,6 @@
             })
         }
 
-        function ListaMarca(e){
-            document.getElementById('idMarcaVeiculo').options.length = 0;
-            console.log(e.value)
-            $.post("ListaMarca", function(result, status, xhr) {
-                console.log(`data: ${result}, status: ${status}`);
-                if (status === 'success') {
-                    const options = $("#idMarcaVeiculo");
-                    options.innerHTML = "";
-                    for (let i = 0; i < result.length; i++) {
-                        const item = result[i];
-                        console.log(item)
-                        options.append('<option value="' +item.IdMarca + '">' +item.NomeMarca + '</option>');
-                    }
-                }
-            })
-        }
     </script>
 </body>
 </html>
