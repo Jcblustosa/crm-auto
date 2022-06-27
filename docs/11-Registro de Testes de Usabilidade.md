@@ -18,6 +18,8 @@ Foi considerada a inclusividade na paleta de cores, de modo que pessoas com dalt
 
 ## Testes de usabilidade em sua primeira versão
 
+Quanto maior a nota, melhor a usabilidade do sistema:
+
 ![img1](https://raw.githubusercontent.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t3-crm-auto/main/docs/img/registro%20de%20testes/CT%2011/CX%20-%20Equipe.png)
 <p align="center">CX01 - Avaliação da equipe de desenvolvimento</p>
 </br>
@@ -39,10 +41,12 @@ Foi considerada a inclusividade na paleta de cores, de modo que pessoas com dalt
 
 ## Avaliação dos usuários
 
+Não foi necessário auxiliar os participantes após indicar a tarefa a ser concluída, em geral. Em casos de erros cometidos pelo usuário, foi necessário explicar que seria necessário excluir a inserção e realizar o processo novamente.
+
 Foi feito um compilado das avaliações dos casos de uso:
 
 ![img1](https://raw.githubusercontent.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t3-crm-auto/main/docs/img/registro%20de%20testes/CT%2011/CX-%20Usu%C3%A1rio.png)
 <p align="center">Testes de usabilidade - Avaliação dos usuários</p>
 </br>
 
-Assim, além das melhorias mediante a avaliação heurística, um outro ponto a melhorar é a otimização do tempo de resposta do sistema após inserções, alterações e exclusões. De modo geral, o sistema executa o que for solicitado, mesmo que lentamente, e possui comando simples de compreender.
+As dificuldades e melhorias propostas foram identificadas com testes de usabilidade, permitindo que o grupo aprendesse, na prática, essa ferramenta extremamente útil de avaliação. De modo geral, o sistema executa o que for solicitado, mesmo que lentamente, e possui comando simples de compreender. As melhorias propostas, tanto em heurístcias quanto na avaliação de usuários de casos de uso, podem aprimorar o projeto e são bastante úteis.
