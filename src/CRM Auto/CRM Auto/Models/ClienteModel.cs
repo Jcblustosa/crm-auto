@@ -80,7 +80,6 @@ namespace CRM_Auto.Models
             this.Quilometragem = Quilometragem;
             this.IdModelo = IdModelo;
             this.NomeModelo = NomeModelo;
-            NomeModelo=nomeModelo;
         }
 
         public ClienteModel(string Cnpj_cpf)
@@ -192,7 +191,7 @@ namespace CRM_Auto.Models
 
             CNN cnn = new CNN();
 
-            if (Id_cliente > 0)
+            if (Id_cliente > 0) // Atualiza o registro de acordo com o id informado.
             {
                 command = "UPDATE CLIENTE " +
                                 $"SET " +
@@ -217,18 +216,19 @@ namespace CRM_Auto.Models
 
                 cnn.UpdateData(command);
 
-                command = $"SELECT C.ID_CLIENTE, CV.ID_VEICULO " +
-                                "FROM CLIENTE C INNER JOIN CLIENTE_VEICULO CV ON C.ID_CLIENTE = CV.ID_CLIENTE " +
-                                $"WHERE CNPJ_CPF = '{Cnpj_cpf}';";
+                // Após o update da tabela Cliente, será feito o select nas tabelas CLIENTE_VEICULO e VEICULO para identificar se há cadastro e 
+                // atualizar. Caso não haja cadastro, o sistema efetua o insert do mesmo.
+                command = "SELECT ID_VEICULO, PLACA_VEICULO, MOTORIZACAO, ANO_FABRICACAO, ANO_MODELO, RENAVAN, COR, QUILOMETRAGEM " +
+                                "FROM VEICULO V INNER JOIN CLIENTE_VEICULO C ON V.ID_VEICULO = C.ID_VEICULO " +
+                                $"WHERE C.ID_CLIENTE = '{Id_cliente}' AND V.ID_VEICULO = '{IdVeiculo}' AND PLACA_VEICULO = '{Placa}';";
                 
                 DataTable dt = cnn.GetData(command);
 
                 if (dt.Rows.Count > 0)
                 {
-                    Id_cliente = int.Parse(dt.Rows[0]["ID_CLIENTE"].ToString());
+                    // Se encontrar registro do veiculo relacionado ao cliente, faz uma atualização dos dados somente.
                     command = "UPDATE VEICULO " +
-                                $"SET PLACA_VEICULO = '{Placa}', " +
-                                      $"MOTORIZACAO = '{Motorizacao}', " +
+                                $"SET MOTORIZACAO = '{Motorizacao}', " +
                                       $"ANO_MODELO = '{AnoModelo}',  " +
                                       $"RENAVAN = '{Renavan}',  " +
                                       $"COR = '{NomeCor}',  " +
@@ -237,7 +237,6 @@ namespace CRM_Auto.Models
 
                     cnn.UpdateData(command);
                 }
-
                 cnn.desconectar();
             }
             else
