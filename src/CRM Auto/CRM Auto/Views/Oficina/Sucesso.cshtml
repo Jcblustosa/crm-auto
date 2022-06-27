@@ -1,202 +1,206 @@
 ﻿@{
     Layout = "../Shared/_Layout_Menu_Funcionario.cshtml";
 }
-    <header class="header body-pd" id="header">
-        <div class="header_toggle">
-            <i class='bx bx-menu bx-x' id="header-toggle"></i> 
-        </div>
-    </header>
-    <script> $('.header-toggle').trigger('click'); </script>
-
-    <div class="l-navbar show" id="nav-bar">
-        <nav class="nav">
-            <div> 
-                <div href="#" class="col p-2">
-                    <img src="~/img/crmautodark.jpg" class="img-fluid" alt="CRM Auto" style="width: 60%; height: auto; margin-left: -10px; margin-top: -15px;">
-                </div>
-                <div class="nav_list">
-                    <a href="/Oficina/Sucesso" class="nav_link active"> 
-                        <i class='bx bx-grid-alt nav_icon' data-bs-toggle="tooltip" title="Painel"></i> 
-                        <span class="nav_name">Painel</span> 
-                    </a>
-                    <a href="/Oficina/OrdemServico" class="nav_link">
-                        <i class='bi bi-clipboard2-minus-fill nav_icon' data-bs-toggle="tooltip" title="Ordens de serviços"></i>
-                        <span class="nav_name">Ordens de serviços</span>
-                    </a>
-                    </a>
-                    <a href="/Oficina/CadastroVeiculo" class="nav_link">
-                        <i class='fas fa-car-alt nav_icon' data-bs-toggle="tooltip" title="Veículos"></i>
-                        <span class="nav_name">Veículos</span>
-                    </a>
-                    <a asp-controller="Oficina" asp-action="BuscarOficinas" class="nav_link">
-                        <i class="bi bi-wrench-adjustable nav_icon" data-bs-toggle="tooltip" title="Oficina"></i>
-                        <span class="nav_name">Oficina</span>
-                    </a>
-                    <a asp-controller="Oficina" asp-action="BuscarFuncionariosEOficinas" class="nav_link">
-                        <i class='bi bi-person-video2 nav_icon' data-bs-toggle="tooltip" title="Funcionários"></i>
-                        <span class="nav_name">Funcionários</span>
-                    </a>
-                    <a href="#" class="nav_link">
-                        <i class='bx bx-bar-chart-alt-2 nav_icon' data-bs-toggle="tooltip" title="Relatórios"></i>
-                        <span class="nav_name">Relatórios</span>
-                    </a>
-                </div>
-            </div>
-            <a href="/Home/Index" class="nav_link">
-                <i class='bx bx-log-out nav_icon' data-bs-toggle="tooltip" title="Sair"></i>
-                <span class="nav_name">Sair</span>
-            </a>
-        </nav>
+<header class="header body-pd" id="header">
+    <div class="header_toggle">
+        <i class='bx bx-menu bx-x' id="header-toggle"></i>
     </div>
-    
-    <div class="mx-auto" id="main">
-      <div class="toast-body" style="align-content:center; align-items:center; align-self:center; padding-top:2rem;">
-          <h1>Olá, <b>@TempData["Nome"]</b>!</h1>
-          <br />
-          <h1>O que você deseja fazer?</h1>
-      </div>
-     </div>
+</header>
+<script>$('.header-toggle').trigger('click');</script>
+
+<div class="l-navbar show" id="nav-bar">
+    <nav class="nav">
+        <div>
+            <div href="#" class="col p-2">
+                <img src="~/img/crmautodark.jpg" class="img-fluid" alt="CRM Auto" style="width: 60%; height: auto; margin-left: -10px; margin-top: -15px;">
+            </div>
+            <div class="nav_list">
+                <a href="/Oficina/Sucesso" class="nav_link active">
+                    <i class='bx bx-grid-alt nav_icon' data-bs-toggle="tooltip" title="Painel"></i>
+                    <span class="nav_name">Painel</span>
+                </a>
+                <a href="/Oficina/OrdemServico" class="nav_link">
+                    <i class='bi bi-clipboard2-minus-fill nav_icon' data-bs-toggle="tooltip" title="Ordens de serviços"></i>
+                    <span class="nav_name">Ordens de serviços</span>
+                </a>
+                </a>
+                <a href="/Oficina/CadastroVeiculo" class="nav_link">
+                    <i class='fas fa-car-alt nav_icon' data-bs-toggle="tooltip" title="Veículos"></i>
+                    <span class="nav_name">Veículos</span>
+                </a>
+                <a asp-controller="Oficina" asp-action="BuscarOficinas" class="nav_link">
+                    <i class="bi bi-wrench-adjustable nav_icon" data-bs-toggle="tooltip" title="Oficinas"></i>
+                    <span class="nav_name">Oficinas</span>
+                </a>
+                <a asp-controller="Oficina" asp-action="BuscarFuncionariosEOficinas" class="nav_link">
+                    <i class='bi bi-person-video2 nav_icon' data-bs-toggle="tooltip" title="Funcionários"></i>
+                    <span class="nav_name">Funcionários</span>
+                </a>
+               <a asp-controller="Oficina" asp-action="BuscarServicos" class="nav_link">
+                    <i class='bi bi-bag-plus nav_icon' data-bs-toggle="tooltip" title="Serviços"></i>
+                    <span class="nav_name">Serviços</span>
+                </a>
+                <a asp-controller="Oficina" asp-action="GerarRelatorioEmPDFFuncionarios" class="nav_link">
+                    <i class='bx bx-bar-chart-alt-2 nav_icon' data-bs-toggle="tooltip" title="Relatórios"></i>
+                    <span class="nav_name">Relatórios</span>
+                </a>
+            </div>
+        </div>
+        <a href="/Home/Index" class="nav_link">
+            <i class='bx bx-log-out nav_icon' data-bs-toggle="tooltip" title="Sair"></i>
+            <span class="nav_name">Sair</span>
+        </a>
+    </nav>
+</div>
+
+<div class="mx-auto" id="main">
+    <div class="toast-body" style="align-content:center; align-items:center; align-self:center; padding-top:2rem;">
+        <h1>Olá, <b>@TempData["Nome"]</b>!</h1>
+        <br />
+        <h1>O que você deseja fazer?</h1>
+    </div>
+</div>
 
 
 <div class="container p-3">
-  <div class="row">
-    <div class="col">
-        <div class="calendar">
-            <div class="calendar-header">
-                <span class="month-picker" id="month-picker"></span>
-                <div class="year-picker">
-                    <span class="year-change" id="prev-year">
-                        <pre><</pre>
-                    </span>
-                    <span id="year"></span>
-                    <span class="year-change" id="next-year">
-                        <pre>></pre>
-                    </span>
+    <div class="row">
+        <div class="col">
+            <div class="calendar">
+                <div class="calendar-header">
+                    <span class="month-picker" id="month-picker"></span>
+                    <div class="year-picker">
+                        <span class="year-change" id="prev-year">
+                            <pre><</pre>
+                        </span>
+                        <span id="year"></span>
+                        <span class="year-change" id="next-year">
+                            <pre>></pre>
+                        </span>
+                    </div>
                 </div>
-            </div>
-            <div class="calendar-body">
-                <div class="calendar-week-day">
-                    <div>Dom</div>
-                    <div>Seg</div>
-                    <div>Ter</div>
-                    <div>Qua</div>
-                    <div>Qui</div>
-                    <div>Sex</div>
-                    <div>Sáb</div>
+                <div class="calendar-body">
+                    <div class="calendar-week-day">
+                        <div>Dom</div>
+                        <div>Seg</div>
+                        <div>Ter</div>
+                        <div>Qua</div>
+                        <div>Qui</div>
+                        <div>Sex</div>
+                        <div>Sáb</div>
+                    </div>
+                    <div class="calendar-days"></div>
                 </div>
-                <div class="calendar-days"></div>
+                <div class="month-list"></div>
             </div>
-            <div class="month-list"></div>
+        </div>
+        <div class="col-6 align-self-center">
+            <a class="weatherwidget-io" href="https://forecast7.com/pt/n19d92n43d93/belo-horizonte/" data-label_1="BELO HORIZONTE" data-label_2="Clima" data-font="Open Sans" data-icons="Climacons Animated" data-theme="weather_one" style="border-radius: 20px;">BELO HORIZONTE Clima</a>
+            <script>
+                !function(d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = 'https://weatherwidget.io/js/widget.min.js'; fjs.parentNode.insertBefore(js, fjs); } }(document, 'script', 'weatherwidget-io-js');
+            </script>
         </div>
     </div>
-    <div class="col-6 align-self-center">
-      <a class="weatherwidget-io" href="https://forecast7.com/pt/n19d92n43d93/belo-horizonte/" data-label_1="BELO HORIZONTE" data-label_2="Clima" data-font="Open Sans" data-icons="Climacons Animated" data-theme="weather_one" style="border-radius: 20px;" >BELO HORIZONTE Clima</a>
-      <script>
-      !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
-      </script>
-      </div>
-</div>
 
-<div class="row justify-content-center">
-      <div class="col">
-        <div class="row ">
-            <div class="col-xl-3 col-lg-6">
-                <div class="card l-bg-cherry">
-                    <div class="card-statistic-3 p-4">
-                        <div class="card-icon card-icon-large">
-                          <i class="bi bi-wrench-adjustable" style="font-size: 130px; position:relative; left:10px; bottom:10px;"></i>
-                        </div>
-                        <div class="mb-4">
-                            <h5 class="card-title mb-0">Ordens de Serviço Abertas</h5>
-                        </div>
-                        <div class="row align-items-center mb-2 d-flex">
-                            <div class="col-8">
-                                <h2 class="d-flex align-items-center mb-0">
-                                    120
-                                </h2>
+    <div class="row justify-content-center">
+        <div class="col">
+            <div class="row ">
+                <div class="col-xl-3 col-lg-6">
+                    <div class="card l-bg-cherry">
+                        <div class="card-statistic-3 p-4">
+                            <div class="card-icon card-icon-large">
+                                <i class="bi bi-wrench-adjustable" style="font-size: 130px; position:relative; left:10px; bottom:10px;"></i>
                             </div>
-                            <div class="col-4 text-right">
-                                <span>12.5% <i class="fa fa-arrow-up"></i></span>
+                            <div class="mb-4">
+                                <h5 class="card-title mb-0">Ordens de Serviço Abertas</h5>
                             </div>
-                        </div>
-                        <div class="progress mt-1 " data-height="8" style="height: 8px;">
-                            <div class="progress-bar l-bg-cyan" role="progressbar" data-width="25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: 25%;"></div>
+                            <div class="row align-items-center mb-2 d-flex">
+                                <div class="col-8">
+                                    <h2 class="d-flex align-items-center mb-0">
+                                        120
+                                    </h2>
+                                </div>
+                                <div class="col-4 text-right">
+                                    <span>12.5% <i class="fa fa-arrow-up"></i></span>
+                                </div>
+                            </div>
+                            <div class="progress mt-1 " data-height="8" style="height: 8px;">
+                                <div class="progress-bar l-bg-cyan" role="progressbar" data-width="25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: 25%;"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-xl-3 col-lg-6">
-                <div class="card l-bg-blue-dark">
-                    <div class="card-statistic-3 p-4">
-                        <div class="card-icon card-icon-large"><i class="fas fa-users"></i></div>
-                        <div class="mb-4">
-                            <h5 class="card-title mb-0">Clientes</h5>
-                        </div>
-                        <div class="row align-items-center mb-2 d-flex">
-                            <div class="col-8">
-                                <h2 class="d-flex align-items-center mb-0">
-                                    70
-                                </h2>
+                <div class="col-xl-3 col-lg-6">
+                    <div class="card l-bg-blue-dark">
+                        <div class="card-statistic-3 p-4">
+                            <div class="card-icon card-icon-large"><i class="fas fa-users"></i></div>
+                            <div class="mb-4">
+                                <h5 class="card-title mb-0">Clientes</h5>
                             </div>
-                            <div class="col-4 text-right">
-                                <span>9.23% <i class="fa fa-arrow-up"></i></span>
+                            <div class="row align-items-center mb-2 d-flex">
+                                <div class="col-8">
+                                    <h2 class="d-flex align-items-center mb-0">
+                                        70
+                                    </h2>
+                                </div>
+                                <div class="col-4 text-right">
+                                    <span>9.23% <i class="fa fa-arrow-up"></i></span>
+                                </div>
                             </div>
-                        </div>
-                        <div class="progress mt-1 " data-height="8" style="height: 8px;">
-                            <div class="progress-bar l-bg-green" role="progressbar" data-width="25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: 25%;"></div>
+                            <div class="progress mt-1 " data-height="8" style="height: 8px;">
+                                <div class="progress-bar l-bg-green" role="progressbar" data-width="25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: 25%;"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-xl-3 col-lg-6">
-                <div class="card l-bg-green-dark">
-                    <div class="card-statistic-3 p-4">
-                        <div class="card-icon card-icon-large">
-                          <i class='bx bxs-car bx-tada-hover' style="font-size: 150px; position:relative; left:15px; bottom:30px;"></i>
-                        </div>
-                        <div class="mb-4">
-                            <h5 class="card-title mb-0">Serviços concluídos</h5>
-                        </div>
-                        <div class="row align-items-center mb-2 d-flex">
-                            <div class="col-8">
-                                <h2 class="d-flex align-items-center mb-0">
-                                    578
-                                </h2>
+                <div class="col-xl-3 col-lg-6">
+                    <div class="card l-bg-green-dark">
+                        <div class="card-statistic-3 p-4">
+                            <div class="card-icon card-icon-large">
+                                <i class='bx bxs-car bx-tada-hover' style="font-size: 150px; position:relative; left:15px; bottom:30px;"></i>
                             </div>
-                            <div class="col-4 text-right">
-                                <span>10% <i class="fa fa-arrow-up"></i></span>
+                            <div class="mb-4">
+                                <h5 class="card-title mb-0">Serviços concluídos</h5>
                             </div>
-                        </div>
-                        <div class="progress mt-1 " data-height="8" style="height: 8px;">
-                            <div class="progress-bar l-bg-orange" role="progressbar" data-width="25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: 25%;"></div>
+                            <div class="row align-items-center mb-2 d-flex">
+                                <div class="col-8">
+                                    <h2 class="d-flex align-items-center mb-0">
+                                        578
+                                    </h2>
+                                </div>
+                                <div class="col-4 text-right">
+                                    <span>10% <i class="fa fa-arrow-up"></i></span>
+                                </div>
+                            </div>
+                            <div class="progress mt-1 " data-height="8" style="height: 8px;">
+                                <div class="progress-bar l-bg-orange" role="progressbar" data-width="25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: 25%;"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-xl-3 col-lg-6">
-                <div class="card l-bg-orange-dark">
-                    <div class="card-statistic-3 p-4">
-                        <div class="card-icon card-icon-large"><i class="fas fa-dollar-sign"></i></div>
-                        <div class="mb-4">
-                            <h5 class="card-title mb-0">Receita Bruta Mensal</h5>
-                        </div>
-                        <div class="row align-items-center mb-2 d-flex">
-                            <div class="col-8">
-                                <h2 class="d-flex align-items-center mb-0">
-                                    R$20.800
-                                </h2>
+                <div class="col-xl-3 col-lg-6">
+                    <div class="card l-bg-orange-dark">
+                        <div class="card-statistic-3 p-4">
+                            <div class="card-icon card-icon-large"><i class="fas fa-dollar-sign"></i></div>
+                            <div class="mb-4">
+                                <h5 class="card-title mb-0">Receita Bruta Mensal</h5>
                             </div>
-                            <div class="col-4 text-right">
-                                <span>2.5% <i class="fa fa-arrow-up"></i></span>
+                            <div class="row align-items-center mb-2 d-flex">
+                                <div class="col-8">
+                                    <h2 class="d-flex align-items-center mb-0">
+                                        R$20.800
+                                    </h2>
+                                </div>
+                                <div class="col-4 text-right">
+                                    <span>2.5% <i class="fa fa-arrow-up"></i></span>
+                                </div>
                             </div>
-                        </div>
-                        <div class="progress mt-1 " data-height="8" style="height: 8px;">
-                            <div class="progress-bar l-bg-cyan" role="progressbar" data-width="25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: 25%;"></div>
+                            <div class="progress mt-1 " data-height="8" style="height: 8px;">
+                                <div class="progress-bar l-bg-cyan" role="progressbar" data-width="25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: 25%;"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 </div>

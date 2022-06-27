@@ -6,70 +6,74 @@
 }
 
 <header class="header" id="header">
-        <div class="header_toggle">
-            <i class='bx bx-menu' id="header-toggle"></i> 
-        </div>
-        
+    <div class="header_toggle">
+        <i class='bx bx-menu' id="header-toggle"></i>
+    </div>
+
 </header>
 
 <div class="l-navbar" id="nav-bar">
-        <nav class="nav">
-            <div> 
-                <div href="#" class="col p-2">
-                    <img src="~/img/crmautodark.jpg" class="img-fluid" alt="CRM Auto" style="width: 60%; height: auto; margin-left: -10px; margin-top: -15px;">
-                </div>
-                <div class="nav_list">
-                    <a href="/Oficina/Sucesso" class="nav_link active"> 
-                        <i class='bx bx-grid-alt nav_icon' data-bs-toggle="tooltip" title="Painel"></i> 
-                        <span class="nav_name">Painel</span> 
-                    </a>
-                    <a href="/Oficina/OrdemServico" class="nav_link">
-                        <i class='bi bi-clipboard2-minus-fill nav_icon' data-bs-toggle="tooltip" title="Ordens de serviços"></i>
-                        <span class="nav_name">Ordens de serviços</span>
-                    </a>
-                    </a>
-                    <a href="/Oficina/CadastroVeiculo" class="nav_link">
-                        <i class='fas fa-car-alt nav_icon' data-bs-toggle="tooltip" title="Veículos"></i>
-                        <span class="nav_name">Veículos</span>
-                    </a>
-                    <a asp-controller="Oficina" asp-action="BuscarOficinas" class="nav_link">
-                        <i class="bi bi-wrench-adjustable nav_icon" data-bs-toggle="tooltip" title="Oficina"></i>
-                        <span class="nav_name">Oficina</span>
-                    </a>
-                    <a asp-controller="Oficina" asp-action="BuscarFuncionariosEOficinas" class="nav_link">
-                        <i class='bi bi-person-video2 nav_icon' data-bs-toggle="tooltip" title="Funcionários"></i>
-                        <span class="nav_name">Funcionários</span>
-                    </a>
-                    <a href="#" class="nav_link">
-                        <i class='bx bx-bar-chart-alt-2 nav_icon' data-bs-toggle="tooltip" title="Relatórios"></i>
-                        <span class="nav_name">Relatórios</span>
-                    </a>
-                </div>
+    <nav class="nav">
+        <div>
+            <div href="#" class="col p-2">
+                <img src="~/img/crmautodark.jpg" class="img-fluid" alt="CRM Auto" style="width: 60%; height: auto; margin-left: -10px; margin-top: -15px;">
             </div>
-            <a href="/Home/Index" class="nav_link">
-                <i class='bx bx-log-out nav_icon' data-bs-toggle="tooltip" title="Sair"></i>
-                <span class="nav_name">Sair</span>
-            </a>
-        </nav>
-    </div>
-    
-    <div class="mx-auto" id="main"> 
-    <h1>Oficinas</h1>
-
-        <div class="container">
-            <div class="row">
-                <div class="input-group col-sm">
-                    <span class="input-group-text" id="basic-addon1"><i class="bi bi-search small"></i></span>
-                    <input id="tableSearch" type="text" class="form-control col-5" placeholder="Pesquise uma oficina" aria-label="Username" aria-describedby="basic-addon1">
-                </div>
-                <div class="col-sm">
-                    <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#addOficina"><i class="bi bi-plus"></i>Nova oficina</button>
-                </div>
+            <div class="nav_list">
+                <a href="/Oficina/Sucesso" class="nav_link active">
+                    <i class='bx bx-grid-alt nav_icon' data-bs-toggle="tooltip" title="Painel"></i>
+                    <span class="nav_name">Painel</span>
+                </a>
+                <a href="/Oficina/OrdemServico" class="nav_link">
+                    <i class='bi bi-clipboard2-minus-fill nav_icon' data-bs-toggle="tooltip" title="Ordens de serviços"></i>
+                    <span class="nav_name">Ordens de serviços</span>
+                </a>
+                </a>
+                <a href="/Oficina/CadastroVeiculo" class="nav_link">
+                    <i class='fas fa-car-alt nav_icon' data-bs-toggle="tooltip" title="Veículos"></i>
+                    <span class="nav_name">Veículos</span>
+                </a>
+                <a asp-controller="Oficina" asp-action="BuscarOficinas" class="nav_link">
+                    <i class="bi bi-wrench-adjustable nav_icon" data-bs-toggle="tooltip" title="Oficinas"></i>
+                    <span class="nav_name">Oficinas</span>
+                </a>
+                <a asp-controller="Oficina" asp-action="BuscarFuncionariosEOficinas" class="nav_link">
+                    <i class='bi bi-person-video2 nav_icon' data-bs-toggle="tooltip" title="Funcionários"></i>
+                    <span class="nav_name">Funcionários</span>
+                </a>
+                <a asp-controller="Oficina" asp-action="BuscarServicos" class="nav_link">
+                    <i class='bi bi-bag-plus nav_icon' data-bs-toggle="tooltip" title="Serviços"></i>
+                    <span class="nav_name">Serviços</span>
+                </a>
+                <a asp-controller="Oficina" asp-action="GerarRelatorioEmPDFFuncionarios" class="nav_link">
+                    <i class='bx bx-bar-chart-alt-2 nav_icon' data-bs-toggle="tooltip" title="Relatórios"></i>
+                    <span class="nav_name">Relatórios</span>
+                </a>
             </div>
         </div>
+        <a href="/Home/Index" class="nav_link">
+            <i class='bx bx-log-out nav_icon' data-bs-toggle="tooltip" title="Sair"></i>
+            <span class="nav_name">Sair</span>
+        </a>
+    </nav>
+</div>
 
-        @{
-         <div onload="init" class="tbl-container bdr" asp-controller="Oficina">
+<div class="mx-auto" id="main">
+    <h2 style="font-weight: bold; margin-top: 40px; margin-bottom: 30px">Oficinas</h2>
+
+    <div class="container">
+        <div class="row">
+            <div class="input-group col-sm">
+                <span class="input-group-text" id="basic-addon1"><i class="bi bi-search small"></i></span>
+                <input id="tableSearch" type="text" class="form-control col-5" placeholder="Pesquise uma oficina" aria-label="Username" aria-describedby="basic-addon1">
+            </div>
+            <div class="col-sm">
+                <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#addOficina"><i class="bi bi-plus"></i>Nova oficina</button>
+            </div>
+        </div>
+    </div>
+
+    @{
+        <div onload="init" class="tbl-container bdr" asp-controller="Oficina">
             <table class="table align-middle mb-0 bg-white table-striped table-bordered" id="showTable">
                 <thead class="bg-light">
                     <tr>
@@ -115,8 +119,8 @@
                 </tbody>
             </table>
         </div>
-        }
-    </div>
+    }
+</div>
 
 <!------------------------------------MODAL-------------------------------------->
 @{
@@ -130,108 +134,108 @@
                     </button>
                 </div>
 
-            <form asp-controller="Oficina">
-                <div class="modal-body">
-                <div class="form-group col-5">
-                    <label for="inputCNPJ">CNPJ (*)</label>
-                    <input type="text" class="form-control" id="inputCNPJ" required placeholder="Informe o CNPJ " asp-for="Cnpj">
-                </div>
-                
-                <div class="form-group col-8">
-                    <label for="inputNome">Nome (*)</label>
-                    <input type="text" class="form-control" id="inputNome" required placeholder="Informe o Nome" asp-for="Nome_oficina">
-                </div>
-                
-                <div class="form-group col-8">
-                    <label for="inputNome">Apelido (*)</label>
-                    <input type="text" class="form-control" id="inputApelido" required placeholder="Informe o Apelido" asp-for="Apelido">
-                </div>
-                
-                <div class="form-group col-8">
-                    <label for="inputNome">Inscrição Estadual (*)</label>
-                    <input type="text" class="form-control" id="inputInscrição Estadual" required placeholder="Informe a Inscrição Estadual" asp-for="Insc_estadual">
-                </div>
-                
-                <div class="form-group col-8">
-                    <label for="inputNome">Inscrição Municipal (*)</label>
-                    <input type="text" class="form-control" id="inputInscrição Municipal" required placeholder="Informe a Inscrição Municipal" asp-for="Insc_municipal">
-                </div>
-                
-                <div class="form-group col-6">
-                    <label for="inputNome">CEP (*)</label>
-                    <input type="text" class="form-control" id="inputCep" required placeholder="Informe o Cep" asp-for="Cep">
-                </div>
-        
-                <div class="form-group col-8">
-                    <label for="inputNome">Logradouro (*)</label>
-                    <input type="text" class="form-control" id="inputLogradouro" required placeholder="Informe o Logradouro" asp-for="Logradouro">
-                </div>
-        
-                <div class="form-group row">
-                <div class="form-group col-4">
-                    <label for="inputNome">Número (*)</label>
-                    <input type="text" class="form-control" id="inputNumero" required placeholder="Informe o Número" asp-for="Numero">
-                </div>
-        
-                <div class="form-group col-4">
-                    <label for="inputNome">Complemento(*)</label>
-                    <input type="text" class="form-control" id="inputComplemento" required placeholder="Complemento" asp-for="Complemento">
-                </div>
-                </div>
-        
-                <div class="form-group col-8">
-                    <label for="inputNome">Bairro (*)</label>
-                    <input type="text" class="form-control" id="inputBairro" required placeholder="Informe o Bairro" asp-for="Bairro">
-                </div>
-        
-                <div class="form-group col-8">
-                    <label for="inputNome">Cidade (*)</label>
-                    <input type="text" class="form-control" id="inputCidade" required placeholder="Informe a Cidade" asp-for="Cidade">
-                </div>
-                
-                <div class="form-group row">
-                <div class="form-group col-6">
-                    <label for="inputNome">Telefone 1 (*)</label>
-                    <input type="text" class="form-control" id="inputTelefone1" required placeholder="Informe o Telefone 1" asp-for="Telefone1">
-                </div>
-                
-                <div class="form-group col-6">
-                    <label for="inputNome">Telefone 2</label>
-                    <input type="text" class="form-control" id="inputTelefone2" required placeholder="Informe o Telefone 2" asp-for="Telefone2">
-                </div>
-                </div>
-                
-                <div class="form-group col-8">
-                    <label for="inputNome"> E-mail (*)</label>
-                    <input type="text" class="form-control" id="inputEmail" required placeholder="Informe o E-mail" asp-for="Email">
-                </div>
-                
-                            
-                <div class="form-group col-8">
-                    <label for="inputSite">Oficina (*)</label>
-                    <input type="text" class="form-control" id="inputOficina" required placeholder="Informe a Oficina" asp-for="Id_oficina">
-                </div>
-                
-                
-                <div class="col-sm-8">
-                    <label for="inputSite">Opção (*)</label>
-                    <input type="text" class="form-control" id="inputOpOficina" asp-for="Opcao_cadastro">
-                </div>    
+                <form asp-controller="Oficina">
+                    <div class="modal-body">
+                        <div class="form-group col-5">
+                            <label for="inputCNPJ">CNPJ (*)</label>
+                            <input type="text" class="form-control" id="inputCNPJ" required placeholder="Informe o CNPJ " asp-for="Cnpj">
+                        </div>
 
-                <div class="form-group row">
-                    <div class="form-group">
-                    <small>(*) Campos obrigatórios</small>
+                        <div class="form-group col-8">
+                            <label for="inputNome">Nome (*)</label>
+                            <input type="text" class="form-control" id="inputNome" required placeholder="Informe o Nome" asp-for="Nome_oficina">
+                        </div>
+
+                        <div class="form-group col-8">
+                            <label for="inputNome">Apelido (*)</label>
+                            <input type="text" class="form-control" id="inputApelido" required placeholder="Informe o Apelido" asp-for="Apelido">
+                        </div>
+
+                        <div class="form-group col-8">
+                            <label for="inputNome">Inscrição Estadual (*)</label>
+                            <input type="text" class="form-control" id="inputInscrição Estadual" required placeholder="Informe a Inscrição Estadual" asp-for="Insc_estadual">
+                        </div>
+
+                        <div class="form-group col-8">
+                            <label for="inputNome">Inscrição Municipal (*)</label>
+                            <input type="text" class="form-control" id="inputInscrição Municipal" required placeholder="Informe a Inscrição Municipal" asp-for="Insc_municipal">
+                        </div>
+
+                        <div class="form-group col-6">
+                            <label for="inputNome">CEP (*)</label>
+                            <input type="text" class="form-control" id="inputCep" required placeholder="Informe o Cep" asp-for="Cep">
+                        </div>
+
+                        <div class="form-group col-8">
+                            <label for="inputNome">Logradouro (*)</label>
+                            <input type="text" class="form-control" id="inputLogradouro" required placeholder="Informe o Logradouro" asp-for="Logradouro">
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="form-group col-4">
+                                <label for="inputNome">Número (*)</label>
+                                <input type="text" class="form-control" id="inputNumero" required placeholder="Informe o Número" asp-for="Numero">
+                            </div>
+
+                            <div class="form-group col-4">
+                                <label for="inputNome">Complemento(*)</label>
+                                <input type="text" class="form-control" id="inputComplemento" required placeholder="Complemento" asp-for="Complemento">
+                            </div>
+                        </div>
+
+                        <div class="form-group col-8">
+                            <label for="inputNome">Bairro (*)</label>
+                            <input type="text" class="form-control" id="inputBairro" required placeholder="Informe o Bairro" asp-for="Bairro">
+                        </div>
+
+                        <div class="form-group col-8">
+                            <label for="inputNome">Cidade (*)</label>
+                            <input type="text" class="form-control" id="inputCidade" required placeholder="Informe a Cidade" asp-for="Cidade">
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="form-group col-6">
+                                <label for="inputNome">Telefone 1 (*)</label>
+                                <input type="text" class="form-control" id="inputTelefone1" required placeholder="Informe o Telefone 1" asp-for="Telefone1">
+                            </div>
+
+                            <div class="form-group col-6">
+                                <label for="inputNome">Telefone 2</label>
+                                <input type="text" class="form-control" id="inputTelefone2" required placeholder="Informe o Telefone 2" asp-for="Telefone2">
+                            </div>
+                        </div>
+
+                        <div class="form-group col-8">
+                            <label for="inputNome"> E-mail (*)</label>
+                            <input type="text" class="form-control" id="inputEmail" required placeholder="Informe o E-mail" asp-for="Email">
+                        </div>
+
+
+                        <div class="form-group col-8">
+                            <label for="inputSite">Oficina (*)</label>
+                            <input type="text" class="form-control" id="inputOficina" required placeholder="Informe a Oficina" asp-for="Id_oficina">
+                        </div>
+
+
+                        <div class="col-sm-8">
+                            <label for="inputSite">Opção (*)</label>
+                            <input type="text" class="form-control" id="inputOpOficina" asp-for="Opcao_cadastro">
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="form-group">
+                                <small>(*) Campos obrigatórios</small>
+                            </div>
+                        </div>
+
+                        <div class="form-group row pb-3 float-end">
+                            <div class="col-sm-17">
+                                <button type="submit" class="btn btn-success btn-sm" id="btnInsert" asp-action="InserirOficina">Inserir</button>
+                                <button type="submit" class="btn btn-secondary btn-sm" id="btnClear">Limpar Form</button>
+                            </div>
+                        </div>
                     </div>
-                </div>
-        
-                <div class="form-group row pb-3 float-end">
-                    <div class="col-sm-17">
-                        <button type="submit" class="btn btn-success btn-sm" id="btnInsert" asp-action="InserirOficina">Inserir</button>
-                        <button type="submit" class="btn btn-secondary btn-sm" id="btnClear">Limpar Form</button>
-                    </div>
-                </div>
-            </div>
-            </form>
+                </form>
             </div>
         </div>
     </div>
@@ -251,106 +255,106 @@
                 <form asp-controller="Oficina">
                     <div class="modal-body">
                         <div class="form-group col-5">
-                        <label for="inputCNPJ">CNPJ (*)</label>
-                        <input type="text" class="form-control" id="edinputCNPJ" required placeholder="Informe o CNPJ " asp-for="Cnpj">
-                    </div>
-                    
-                    <div class="form-group col-8">
-                        <label for="inputNome">Nome (*)</label>
-                        <input type="text" class="form-control" id="edinputNome" required placeholder="Informe o Nome" asp-for="Nome_oficina">
-                    </div>
-                    
-                    <div class="form-group col-8">
-                        <label for="inputNome">Apelido (*)</label>
-                        <input type="text" class="form-control" id="edinputApelido" required placeholder="Informe o Apelido" asp-for="Apelido">
-                    </div>
-                    
-                    <div class="form-group col-8">
-                        <label for="inputNome">Inscrição Estadual (*)</label>
-                        <input type="text" class="form-control" id="edinputInscrição Estadual" required placeholder="Informe a Inscrição Estadual" asp-for="Insc_estadual">
-                    </div>
-                    
-                    <div class="form-group col-8">
-                        <label for="inputNome">Inscrição Municipal (*)</label>
-                        <input type="text" class="form-control" id="edinputInscrição Municipal" required placeholder="Informe a Inscrição Municipal" asp-for="Insc_municipal">
-                    </div>
-                    
-                    <div class="form-group col-6">
-                        <label for="inputNome">CEP (*)</label>
-                        <input type="text" class="form-control" id="edinputCep" required placeholder="Informe o Cep" asp-for="Cep">
-                    </div>
-            
-                    <div class="form-group col-8">
-                        <label for="inputNome">Logradouro (*)</label>
-                        <input type="text" class="form-control" id="edinputLogradouro" required placeholder="Informe o Logradouro" asp-for="Logradouro">
-                    </div>
-            
-                    <div class="form-group row">
-                    <div class="form-group col-4">
-                        <label for="inputNome">Número (*)</label>
-                        <input type="text" class="form-control" id="edinputNumero" required placeholder="Informe o Número" asp-for="Numero">
-                    </div>
-            
-                    <div class="form-group col-4">
-                        <label for="inputNome">Complemento(*)</label>
-                        <input type="text" class="form-control" id="dinputComplemento" required placeholder="Complemento" asp-for="Complemento">
-                    </div>
-                    </div>
-            
-                    <div class="form-group col-8">
-                        <label for="inputNome">Bairro (*)</label>
-                        <input type="text" class="form-control" id="edinputBairro" required placeholder="Informe o Bairro" asp-for="Bairro">
-                    </div>
-            
-                    <div class="form-group col-8">
-                        <label for="inputNome">Cidade (*)</label>
-                        <input type="text" class="form-control" id="edinputCidade" required placeholder="Informe a Cidade" asp-for="Cidade">
-                    </div>
-                    
-                    <div class="form-group row">
-                    <div class="form-group col-6">
-                        <label for="inputNome">Telefone 1 (*)</label>
-                        <input type="text" class="form-control" id="edinputTelefone1" required placeholder="Informe o Telefone 1" asp-for="Telefone1">
-                    </div>
-                    
-                    <div class="form-group col-6">
-                        <label for="inputNome">Telefone 2</label>
-                        <input type="text" class="form-control" id="edinputTelefone2" required placeholder="Informe o Telefone 2" asp-for="Telefone2">
-                    </div>
-                    </div>
-                    
-                    <div class="form-group col-8">
-                        <label for="inputNome"> E-mail (*)</label>
-                        <input type="text" class="form-control" id="edinputEmail" required placeholder="Informe o E-mail" asp-for="Email">
-                    </div>
-                    
-                                
-                    <div class="form-group col-8">
-                        <label for="inputSite">Oficina (*)</label>
-                        <input type="text" class="form-control" id="edinputOficina" required placeholder="Informe a Oficina" asp-for="Id_oficina">
-                    </div>
-                    
-                    
-                    <div class="col-sm-8">
-                        <label for="inputSite">Opção (*)</label>
-                        <input type="text" class="form-control" id="edinputOpOficina" asp-for="Opcao_cadastro">
-                    </div>    
+                            <label for="inputCNPJ">CNPJ (*)</label>
+                            <input type="text" class="form-control" id="edinputCNPJ" required placeholder="Informe o CNPJ " asp-for="Cnpj">
+                        </div>
 
-                    <div class="form-group row">
-                        <div class="form-group">
-                        <small>(*) Campos obrigatórios</small>
+                        <div class="form-group col-8">
+                            <label for="inputNome">Nome (*)</label>
+                            <input type="text" class="form-control" id="edinputNome" required placeholder="Informe o Nome" asp-for="Nome_oficina">
+                        </div>
+
+                        <div class="form-group col-8">
+                            <label for="inputNome">Apelido (*)</label>
+                            <input type="text" class="form-control" id="edinputApelido" required placeholder="Informe o Apelido" asp-for="Apelido">
+                        </div>
+
+                        <div class="form-group col-8">
+                            <label for="inputNome">Inscrição Estadual (*)</label>
+                            <input type="text" class="form-control" id="edinputInscrição Estadual" required placeholder="Informe a Inscrição Estadual" asp-for="Insc_estadual">
+                        </div>
+
+                        <div class="form-group col-8">
+                            <label for="inputNome">Inscrição Municipal (*)</label>
+                            <input type="text" class="form-control" id="edinputInscrição Municipal" required placeholder="Informe a Inscrição Municipal" asp-for="Insc_municipal">
+                        </div>
+
+                        <div class="form-group col-6">
+                            <label for="inputNome">CEP (*)</label>
+                            <input type="text" class="form-control" id="edinputCep" required placeholder="Informe o Cep" asp-for="Cep">
+                        </div>
+
+                        <div class="form-group col-8">
+                            <label for="inputNome">Logradouro (*)</label>
+                            <input type="text" class="form-control" id="edinputLogradouro" required placeholder="Informe o Logradouro" asp-for="Logradouro">
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="form-group col-4">
+                                <label for="inputNome">Número (*)</label>
+                                <input type="text" class="form-control" id="edinputNumero" required placeholder="Informe o Número" asp-for="Numero">
+                            </div>
+
+                            <div class="form-group col-4">
+                                <label for="inputNome">Complemento(*)</label>
+                                <input type="text" class="form-control" id="dinputComplemento" required placeholder="Complemento" asp-for="Complemento">
+                            </div>
+                        </div>
+
+                        <div class="form-group col-8">
+                            <label for="inputNome">Bairro (*)</label>
+                            <input type="text" class="form-control" id="edinputBairro" required placeholder="Informe o Bairro" asp-for="Bairro">
+                        </div>
+
+                        <div class="form-group col-8">
+                            <label for="inputNome">Cidade (*)</label>
+                            <input type="text" class="form-control" id="edinputCidade" required placeholder="Informe a Cidade" asp-for="Cidade">
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="form-group col-6">
+                                <label for="inputNome">Telefone 1 (*)</label>
+                                <input type="text" class="form-control" id="edinputTelefone1" required placeholder="Informe o Telefone 1" asp-for="Telefone1">
+                            </div>
+
+                            <div class="form-group col-6">
+                                <label for="inputNome">Telefone 2</label>
+                                <input type="text" class="form-control" id="edinputTelefone2" required placeholder="Informe o Telefone 2" asp-for="Telefone2">
+                            </div>
+                        </div>
+
+                        <div class="form-group col-8">
+                            <label for="inputNome"> E-mail (*)</label>
+                            <input type="text" class="form-control" id="edinputEmail" required placeholder="Informe o E-mail" asp-for="Email">
+                        </div>
+
+
+                        <div class="form-group col-8">
+                            <label for="inputSite">Oficina (*)</label>
+                            <input type="text" class="form-control" id="edinputOficina" required placeholder="Informe a Oficina" asp-for="Id_oficina">
+                        </div>
+
+
+                        <div class="col-sm-8">
+                            <label for="inputSite">Opção (*)</label>
+                            <input type="text" class="form-control" id="edinputOpOficina" asp-for="Opcao_cadastro">
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="form-group">
+                                <small>(*) Campos obrigatórios</small>
+                            </div>
+                        </div>
+
+                        <div class="form-group row pb-3 float-end">
+                            <div class="col-sm-17">
+                                <button type="submit" class="btn btn-warning btn-sm" id="btnUpdate" asp-action="AlterarOficina">Alterar</button>
+                                <button type="submit" class="btn btn-secondary btn-sm" id="btnClear">Limpar Form</button>
+                            </div>
                         </div>
                     </div>
-            
-                    <div class="form-group row pb-3 float-end">
-                        <div class="col-sm-17">
-                            <button type="submit" class="btn btn-warning btn-sm" id="btnUpdate" asp-action="AlterarOficina">Alterar</button>
-                            <button type="submit" class="btn btn-secondary btn-sm" id="btnClear">Limpar Form</button>
-                        </div>
-                    </div>
-                </div>
                 </form>
-                
+
             }
         </div>
     </div>
@@ -367,13 +371,13 @@
         for (i = 0; i < db.data.length; i++) {
             let contato = db.data[i];
             $("#table-contatos").append(`<tr><td scope="row">${contato.id}</td>
-                                                            <td>${contato.nome}</td>
-                                                            <td>${contato.matricula}</td>
-                                                            <td>${contato.email}</td>
-                                                            <td>${contato.cidade}</td>
-                                                            <td>${contato.categoria}</td>
-                                                            <td>${contato.website}</td>
-                                                        </tr>`);
+                                                                <td>${contato.nome}</td>
+                                                                <td>${contato.matricula}</td>
+                                                                <td>${contato.email}</td>
+                                                                <td>${contato.cidade}</td>
+                                                                <td>${contato.categoria}</td>
+                                                                <td>${contato.website}</td>
+                                                            </tr>`);
         }
     }
     function init() {

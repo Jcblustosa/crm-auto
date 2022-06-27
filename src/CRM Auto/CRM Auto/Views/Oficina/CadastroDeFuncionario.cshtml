@@ -12,45 +12,49 @@
 </header>
 
 <div class="l-navbar" id="nav-bar">
-        <nav class="nav">
-            <div> 
-                <div href="#" class="col p-2">
-                    <img src="~/img/crmautodark.jpg" class="img-fluid" alt="CRM Auto" style="width: 60%; height: auto; margin-left: -10px; margin-top: -15px;">
-                </div>
-                <div class="nav_list">
-                    <a href="/Oficina/Sucesso" class="nav_link active"> 
-                        <i class='bx bx-grid-alt nav_icon' data-bs-toggle="tooltip" title="Painel"></i> 
-                        <span class="nav_name">Painel</span> 
-                    </a>
-                    <a href="/Oficina/OrdemServico" class="nav_link">
-                        <i class='bi bi-clipboard2-minus-fill nav_icon' data-bs-toggle="tooltip" title="Ordens de serviços"></i>
-                        <span class="nav_name">Ordens de serviços</span>
-                    </a>
-                    </a>
-                    <a href="/Oficina/CadastroVeiculo" class="nav_link">
-                        <i class='fas fa-car-alt nav_icon' data-bs-toggle="tooltip" title="Veículos"></i>
-                        <span class="nav_name">Veículos</span>
-                    </a>
-                    <a asp-controller="Oficina" asp-action="BuscarOficinas" class="nav_link">
-                        <i class="bi bi-wrench-adjustable nav_icon" data-bs-toggle="tooltip" title="Oficina"></i>
-                        <span class="nav_name">Oficina</span>
-                    </a>
-                    <a asp-controller="Oficina" asp-action="BuscarFuncionariosEOficinas" class="nav_link">
-                        <i class='bi bi-person-video2 nav_icon' data-bs-toggle="tooltip" title="Funcionários"></i>
-                        <span class="nav_name">Funcionários</span>
-                    </a>
-                    <a href="#" class="nav_link">
-                        <i class='bx bx-bar-chart-alt-2 nav_icon' data-bs-toggle="tooltip" title="Relatórios"></i>
-                        <span class="nav_name">Relatórios</span>
-                    </a>
-                </div>
+    <nav class="nav">
+        <div>
+            <div href="#" class="col p-2">
+                <img src="~/img/crmautodark.jpg" class="img-fluid" alt="CRM Auto" style="width: 60%; height: auto; margin-left: -10px; margin-top: -15px;">
             </div>
-            <a href="/Home/Index" class="nav_link">
-                <i class='bx bx-log-out nav_icon' data-bs-toggle="tooltip" title="Sair"></i>
-                <span class="nav_name">Sair</span>
-            </a>
-        </nav>
-    </div>
+            <div class="nav_list">
+                <a href="/Oficina/Sucesso" class="nav_link active">
+                    <i class='bx bx-grid-alt nav_icon' data-bs-toggle="tooltip" title="Painel"></i>
+                    <span class="nav_name">Painel</span>
+                </a>
+                <a href="/Oficina/OrdemServico" class="nav_link">
+                    <i class='bi bi-clipboard2-minus-fill nav_icon' data-bs-toggle="tooltip" title="Ordens de serviços"></i>
+                    <span class="nav_name">Ordens de serviços</span>
+                </a>
+                </a>
+                <a href="/Oficina/CadastroVeiculo" class="nav_link">
+                    <i class='fas fa-car-alt nav_icon' data-bs-toggle="tooltip" title="Veículos"></i>
+                    <span class="nav_name">Veículos</span>
+                </a>
+                <a asp-controller="Oficina" asp-action="BuscarOficinas" class="nav_link">
+                    <i class="bi bi-wrench-adjustable nav_icon" data-bs-toggle="tooltip" title="Oficinas"></i>
+                    <span class="nav_name">Oficinas</span>
+                </a>
+                <a asp-controller="Oficina" asp-action="BuscarFuncionariosEOficinas" class="nav_link">
+                    <i class='bi bi-person-video2 nav_icon' data-bs-toggle="tooltip" title="Funcionários"></i>
+                    <span class="nav_name">Funcionários</span>
+                </a>
+                <a asp-controller="Oficina" asp-action="BuscarServicos" class="nav_link">
+                    <i class='bi bi-bag-plus nav_icon' data-bs-toggle="tooltip" title="Serviços"></i>
+                    <span class="nav_name">Serviços</span>
+                </a>
+                <a asp-controller="Oficina" asp-action="GerarRelatorioEmPDFFuncionarios" class="nav_link">
+                    <i class='bx bx-bar-chart-alt-2 nav_icon' data-bs-toggle="tooltip" title="Relatórios"></i>
+                    <span class="nav_name">Relatórios</span>
+                </a>
+            </div>
+        </div>
+        <a href="/Home/Index" class="nav_link">
+            <i class='bx bx-log-out nav_icon' data-bs-toggle="tooltip" title="Sair"></i>
+            <span class="nav_name">Sair</span>
+        </a>
+    </nav>
+</div>
 
 <div class="mx-auto" id="main">
     <h2 style="font-weight: bold; margin-top: 40px; margin-bottom: 30px">Funcionários</h2>
@@ -259,13 +263,13 @@
         for (i = 0; i < db.data.length; i++) {
             let contato = db.data[i];
             $("#table-contatos").append(`<tr><td scope="row">${contato.id}</td>
-                                                                                <td>${contato.nome}</td>
-                                                                                <td>${contato.matricula}</td>
-                                                                                <td>${contato.email}</td>
-                                                                                <td>${contato.cidade}</td>
-                                                                                <td>${contato.categoria}</td>
-                                                                                <td>${contato.website}</td>
-                                                                            </tr>`);
+                                                                                    <td>${contato.nome}</td>
+                                                                                    <td>${contato.matricula}</td>
+                                                                                    <td>${contato.email}</td>
+                                                                                    <td>${contato.cidade}</td>
+                                                                                    <td>${contato.categoria}</td>
+                                                                                    <td>${contato.website}</td>
+                                                                                </tr>`);
         }
     }
     function init() {

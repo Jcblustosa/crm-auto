@@ -6,7 +6,7 @@
 }
 
 @section LinkCss
-{
+    {
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
@@ -24,8 +24,8 @@
         <div id="header_user" class="header_img">
             <button id="dropdownMenuButton" type="button" class="btn btn-secondary btn-user dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <svg xmlns="http://www.w3.org/2000/svg" width="28" height="26" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 22">
-                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"></path>
-                <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"></path>
+                    <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"></path>
+                    <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"></path>
                 </svg>
             </button>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
@@ -36,16 +36,16 @@
             </div>
         </div>
     </header>
-<div class="l-navbar" id="nav-bar">
+    <div class="l-navbar" id="nav-bar">
         <nav class="nav">
-            <div> 
+            <div>
                 <div href="#" class="col p-2">
                     <img src="~/img/crmautodark.jpg" class="img-fluid" alt="CRM Auto" style="width: 60%; height: auto; margin-left: -10px; margin-top: -15px;">
                 </div>
                 <div class="nav_list">
-                    <a href="/Oficina/Sucesso" class="nav_link active"> 
-                        <i class='bx bx-grid-alt nav_icon' data-bs-toggle="tooltip" title="Painel"></i> 
-                        <span class="nav_name">Painel</span> 
+                    <a href="/Oficina/Sucesso" class="nav_link active">
+                        <i class='bx bx-grid-alt nav_icon' data-bs-toggle="tooltip" title="Painel"></i>
+                        <span class="nav_name">Painel</span>
                     </a>
                     <a href="/Oficina/OrdemServico" class="nav_link">
                         <i class='bi bi-clipboard2-minus-fill nav_icon' data-bs-toggle="tooltip" title="Ordens de serviços"></i>
@@ -64,7 +64,11 @@
                         <i class='bi bi-person-video2 nav_icon' data-bs-toggle="tooltip" title="Funcionários"></i>
                         <span class="nav_name">Funcionários</span>
                     </a>
-                    <a href="#" class="nav_link">
+                    <a asp-controller="Oficina" asp-action="BuscarServicos" class="nav_link">
+                        <i class='bi bi-bag-plus nav_icon' data-bs-toggle="tooltip" title="Serviços"></i>
+                        <span class="nav_name">Serviços</span>
+                    </a>
+                    <a asp-controller="Oficina" asp-action="GerarRelatorioEmPDFFuncionarios" class="nav_link">
                         <i class='bx bx-bar-chart-alt-2 nav_icon' data-bs-toggle="tooltip" title="Relatórios"></i>
                         <span class="nav_name">Relatórios</span>
                     </a>
@@ -76,42 +80,42 @@
             </a>
         </nav>
     </div>
-    
-<!-- SÓ TRABALHAR DAQUI PARA BAIXO...  -->
 
-    <div class="height-100"> <!--Container Main start-->
+    <!-- SÓ TRABALHAR DAQUI PARA BAIXO...  -->
+
+    <div class="height-100">
+        <!--Container Main start-->
         <form asp-action="AlterarOS">
-            <input type="hidden" asp-for="OrdemServico.IdOS" value="@Model.OrdemServico.IdOS"/>
-            <input type="hidden" asp-for="Servico.IdDetalhamento" value="@Model.Servico.IdDetalhamento"/>
-            <partial name="_FormOS"/>
+            <input type="hidden" asp-for="OrdemServico.IdOS" value="@Model.OrdemServico.IdOS" />
+            <input type="hidden" asp-for="Servico.IdDetalhamento" value="@Model.Servico.IdDetalhamento" />
+            <partial name="_FormOS" />
 
             <!-- <div class="row">
                 <div class="col-sm-12">
                     <table id="grid-contatos" class="table table-striped">
                         <thead>
                             <tr>
-                                
-                                    
+
+
                                 </td>
                             </tr>
-                            
+
                         </thead>
                         <tbody id="table-contatos"> -->
-                           
-                                    <!-- <td>
-                                        <button class="btn btn-primary">Ver</button>
-                                    </td> -->
-                                <!-- </tr>
+            <!-- <td>
+                <button class="btn btn-primary">Ver</button>
+            </td> -->
+            <!-- </tr>
                                 <tr>
-                                    
+
                                 </tr>
                             </tr>
                         </tbody>
                     </table>
                 </div>
             </div> -->
-            <input type="submit" value="Editar Ordem de Serviço" class="btn btn-warning"/>
-            
+            <input type="submit" value="Editar Ordem de Serviço" class="btn btn-warning" />
+
         </form>
         <small>(*) Campos obrigatórios</small>
     </div> <!-- Fim div CONTAINER -->
@@ -119,34 +123,34 @@
 
     <script>
 
-    function BuscaPlacas(e){
-        document.getElementById('placaCliente').options.length = 0;
-        console.log(e.value)
-        $.post("BuscarPlacas", {Cnpj_cpf: e.value}, function(result,status,xhr) {
-            console.log(`data: ${result}, status: ${status}`);
-            if (status === 'success') {
-                const options = $("#placaCliente");
-                options.innerHTML = "";
-                for (let i = 0; i < result.length; i++) {
-                    const item = result[i];
-                    console.log(item)
-                    options.append('<option value="' +item + '">' + item + '</option>');
+        function BuscaPlacas(e) {
+            document.getElementById('placaCliente').options.length = 0;
+            console.log(e.value)
+            $.post("BuscarPlacas", { Cnpj_cpf: e.value }, function(result, status, xhr) {
+                console.log(`data: ${result}, status: ${status}`);
+                if (status === 'success') {
+                    const options = $("#placaCliente");
+                    options.innerHTML = "";
+                    for (let i = 0; i < result.length; i++) {
+                        const item = result[i];
+                        console.log(item)
+                        options.append('<option value="' + item + '">' + item + '</option>');
+                    }
                 }
-            }
-        })
-    }
+            })
+        }
 
-    function BuscarPreco(e){
-        document.getElementById('PrecoServico').options.length = 0;
-        console.log(e.value)
-        $.post("BuscarPreco", {Descricao: e.value}, function(result,status,xhr) {
-            console.log(`data: ${result}, status: ${status}`);
-            if (status === 'success') {
-                const displayValor = $("#PrecoServico");
-                displayValor.innerHTML = "";
-                displayValor.append('<option value="' +result + '">' + result + '</option>');
-            }
-        })
-    }
+        function BuscarPreco(e) {
+            document.getElementById('PrecoServico').options.length = 0;
+            console.log(e.value)
+            $.post("BuscarPreco", { Descricao: e.value }, function(result, status, xhr) {
+                console.log(`data: ${result}, status: ${status}`);
+                if (status === 'success') {
+                    const displayValor = $("#PrecoServico");
+                    displayValor.innerHTML = "";
+                    displayValor.append('<option value="' + result + '">' + result + '</option>');
+                }
+            })
+        }
 
-</script>
+    </script>
