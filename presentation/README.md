@@ -4,6 +4,9 @@ Foi feita uma apresentação introdutória para a primeira entrega da disciplina
 
 <div align="left">
       <a href="https://youtu.be/EyqoK845Ru4">
-         <img src="https://yt-embed.herokuapp.com/embed?v=EyqoK845Ru4" style="width:100%;">
+         <img src="https://yt-embed.herokuapp.com/embed?v=EyqoK845Ru4" style="width:70%;">
       </a>
 </div>
+
+## Apresentação do site
+Assista à navegação [aqui](https://youtu.be/8ZDN-p6JiXQ)
