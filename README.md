@@ -22,7 +22,7 @@ O projeto consiste em um Sistema de Gerenciamento de Clientes (CRM - _Customer R
 
 ## Instruções de utilização
 
-Assim que a primeira versão do sistema estiver disponível, deverá complementar com as instruções de utilização. Descreva como instalar eventuais dependências e como executar a aplicação.
+Acesse o site em [https://crmauto-heroku.herokuapp.com/Oficina/BuscarFuncionariosEOficinas](https://crmauto-heroku.herokuapp.com/Oficina/BuscarFuncionariosEOficinas). Credenciais de acesso como funcionário: email: josealves@oficina.com.br e senha: ad123
 
 # Documentação
 
