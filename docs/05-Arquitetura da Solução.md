@@ -33,13 +33,18 @@ O Esquema Relacional corresponde à representação dos dados em tabelas juntame
 
 ## Tecnologias Utilizadas
 
-Descreva aqui qual(is) tecnologias você vai usar para resolver o seu problema, ou seja, implementar a sua solução. Liste todas as tecnologias envolvidas, linguagens a serem utilizadas, serviços web, frameworks, bibliotecas, IDEs de desenvolvimento, e ferramentas.
-
-Apresente também uma figura explicando como as tecnologias estão relacionadas ou como uma interação do usuário com o sistema vai ser conduzida, por onde ela passa até retornar uma resposta ao usuário.
+* **Tecnologias front-end:** HTML, CSS e JavaScript
+* **Tecnologias back-end:** C# e SQL
+* **Sistema Gerenciador de Banco de Dados:** MySQL
+* **IDE de desenvolvimento:** Visual Studio
 
 ## Hospedagem
 
-Explique como a hospedagem e o lançamento da plataforma foi feita.
+**Hospedagem do banco de dados:** O banco de dados foi hospedado na plataforma Hostgator:
+* **Servidor:** ns254.hostgator.com.br
+* **Banco de dados:** devacc56_CRMAUTO
+
+**Hospedagem do site:** O site foi hospedado na plataforma Heroku através do endereço https://crmauto-heroku.herokuapp.com
 
 > **Links Úteis**:
 >
