@@ -22,7 +22,8 @@ O projeto consiste em um Sistema de Gerenciamento de Clientes (CRM - _Customer R
 
 ## Instruções de utilização
 
-Acesse o site em [https://crmauto-heroku.herokuapp.com/Oficina/BuscarFuncionariosEOficinas](https://crmauto-heroku.herokuapp.com/Oficina/BuscarFuncionariosEOficinas). Credenciais de acesso como funcionário: email: josealves@oficina.com.br e senha: ad123
+Acesse o site em [https://crmauto-heroku.herokuapp.com](https://crmauto-heroku.herokuapp.com). 
+Credenciais de acesso como funcionário: email: josealves@oficina.com.br e senha: ad123
 
 # Documentação
 
