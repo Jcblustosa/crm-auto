@@ -97,15 +97,15 @@ De acordo com o PMBoK v6 as dez áreas que constituem os pilares para gerenciar 
 
  O gerenciamento apropriado de tarefas contribuirá para que o projeto tenha um bom nível de produtividade. É fundamental que ocorra a gestão de tarefas e de pessoas, para que os profissionais envolvidos no projeto possam ser facilmente gerenciados.
 
-Membros do time:
+Membros do time: André, Júlio, Mislene, Bruna, Arthur e Maxwell
 
-Gerente de Projeto:
-Designer: 
-Analista de Sistemas:
-Arquiteta de Software:
-Desenvolvedores:
-Analista de Banco de Dados:
-Analista de Testes:
+Gerente de Projeto: Júlio
+Designer: Mislene
+Analista de Sistemas:Maxwell
+Arquiteta de Software:Bruna, Arthur
+Desenvolvedores:André, Júlio, Mislene, Bruna, Arthur e Maxwell
+Analista de Banco de Dados:Júlio, André
+Analista de Testes:Mislene, Bruna
 
 ## Gestão de Orçamento
 
