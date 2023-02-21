@@ -82,3 +82,47 @@ O projeto está restrito pelos itens apresentados na tabela a seguir.
 ![Diagrama1](../docs/img/func.png)
 
 ![Diagrama2](../docs/img/Gestor.png)
+
+## Gerenciamento do Projeto
+
+De acordo com o PMBoK v6 as dez áreas que constituem os pilares para gerenciar projetos, e que caracterizam a multidisciplinaridade envolvida, são: Integração, Escopo, Cronograma (Tempo), Custos, Qualidade, Recursos, Comunicações, Riscos, Aquisições, Partes Interessadas. Para desenvolver projetos um profissional deve se preocupar em gerenciar todas essas dez áreas. Elas se complementam e se relacionam, de tal forma que não se deve apenas examinar uma área de forma estanque. É preciso considerar, por exemplo, que as áreas de Escopo, Cronograma e Custos estão muito relacionadas. Assim, se eu amplio o escopo de um projeto eu posso afetar seu cronograma e seus custos.
+
+## Gerenciamento de Tempo
+
+![Gerenciamento de Projeto - Tempo](https://user-images.githubusercontent.com/91098261/220481449-063f7dcc-0d02-4076-ac89-8713aab22ede.png)
+
+[Gerenciamento de Projeto - Tempo.xlsx](https://github.com/Jcblustosa/crm-auto/files/10798615/Gerenciamento.de.Projeto.-.Tempo.xlsx)
+
+## Gerenciamento de Equipe
+
+ O gerenciamento apropriado de tarefas contribuirá para que o projeto tenha um bom nível de produtividade. É fundamental que ocorra a gestão de tarefas e de pessoas, para que os profissionais envolvidos no projeto possam ser facilmente gerenciados.
+
+Membros do time:
+
+Gerente de Projeto:
+Designer: 
+Analista de Sistemas:
+Arquiteta de Software:
+Desenvolvedores:
+Analista de Banco de Dados:
+Analista de Testes:
+
+## Gestão de Orçamento
+
+<p align="justify">Os valores dos custos do projeto foram calculados com a estimativa de tempo de quatro meses, utilizando seis profissionais. Qualquer alteração de custos que ultrapassar a estimativa da linha de base deverá ser avaliada pelo cliente e gerente do projeto.</p>
+
+| Recursos Necessários | Valor         |
+| -------------------- | ------------- |
+| Recursos Humanos     | R$ 150.000,00 |
+| Software             | R$ 480,00     |
+| Serviços             | R$ 1.200,00   |
+| Total                | R$ 151.680,00 |
+
+<p align="justify">Cálculo:
+
+Recursos Humanos = 6 Profissionais x R$ 60,00/hora x 416 horas (4 meses) = R$ 150.000,00
+
+Softwares = 6 locações (windows, office) x R$ 20,00/Mês x 4 Meses = R$ 480,00
+
+Serviços = 6 despesas (energia, hospedagem) x R$ 50,00/Mês x 4 Meses = R$ 1.200,00.</p>
+
