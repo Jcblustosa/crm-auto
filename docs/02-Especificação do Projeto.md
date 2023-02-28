@@ -42,30 +42,29 @@ As tabelas que a seguir apresentam os requisitos funcionais e não funcionais qu
 
 | ID    | Descrição do Requisito | PRIORIDADE |  
 |---|---|---|
-| RF-01 | O sistema deve permitir que um colaborador cadastrado faça login.| ALTA |
-| RF-02 | O sistema deve permitir que um cliente cadastrado faça login.| ALTA |
-| RF-03 | O sistema deve permitir a inserção, alteração e exclusão dos dados dos funcionários. | ALTA | 
-| RF-04 | O sistema deve permitir a emissão de relatório contendo as informações dos funcionários. | ALTA |
-| RF-05 | O sistema deve permitir a inserção, alteração e exclusão dos dados dos clientes. | ALTA |  
-| RF-06 | O sistema deve permitir o cadastro e a alteração de oficinas. | ALTA  |
-| RF-07 | O sistema deve permitir o cadastro de um novo serviço disponibilizado pelas oficinas. | ALTA |
-| RF-08 | O sistema deve permitir a consulta dos clientes cadastrados. | ALTA |
-| RF-09 | O sistema deve permitir o cadastro de veículo (s) para o cliente.| ALTA |
-| RF-10 | O sistema deve permitir o acompanhamento do andamento de um serviço pelo cliente e a data prevista para finalização.| ALTA |
-| RF-11 | O sistema deve permitir a emissão de relatório contendo as informações dos serviços realizados pelas oficinas. | MÉDIA |
-| RF-12 | O sistema deve emitir lembretes para os clientes após 11 meses desde a última revisão anual. | BAIXA | 
-| RF-13 | O sistema deve permitir que o colaborador crie ordens de serviço | ALTA | 
-| RF-14 | O sistema deve permitir que o colaborador edite informações de uma ordem de serviço existente | ALTA | 
+| RF-01 | O sistema deve consumir uma WEBAPI para salvar/editar dados, e aplicar as regras do negócio. | ALTA |
+| RF-02 | O sistema deve permitir que um colaborador cadastrado faça login. | ALTA |
+| RF-03 | O sistema deve permitir que o cliente consulte os serviços através de uma aplicação mobile e web. | ALTA |
+| RF-04 | O sistema deve permitir a inserção, alteração e exclusão dos dados dos clientes. | ALTA |
+| RF-05 | O sistema deve permitir o cadastro e a alteração de oficinas. | ALTA  |
+| RF-06 | O sistema deve permitir o cadastro de um novo serviço disponibilizado pelas oficinas. | ALTA |
+| RF-07 | O sistema deve permitir a consulta dos clientes cadastrados. | ALTA |
+| RF-08 | O sistema deve permitir o cadastro de veículo(s) para o cliente.| ALTA |
+| RF-09 | O sistema deve permitir o acompanhamento do andamento de um serviço pelo cliente e a data prevista para finalização.| ALTA |
+| RF-10 | O sistema deve permitir a emissão de relatório contendo as informações dos serviços realizados pelas oficinas. | MÉDIA |
+| RF-11 | O sistema deve emitir lembretes para os clientes após 11 meses desde a última revisão anual. | BAIXA |
+| RF-12 | O sistema deve permitir que o colaborador crie ordens de serviço | ALTA |
+| RF-13 | O sistema deve permitir que o colaborador edite informações de uma ordem de serviço existente | ALTA | 
 
 ### Requisitos não Funcionais
 
-| ID  | Descrição do Requisito | PRIORIDADE | 
+| ID  | Descrição do Requisito | PRIORIDADE |
 |---|---|---|
 | RNF-01 | O sistema deve ser implementado utilizando as tecnologias C#, JavaScript, HTML e CSS. | ALTA |
-| RNF-02 | A persistência dos dados será feita no banco MySQL. | ALTA | 
-| RNF-03 | O sistema deve ser responsivo para rodar no navegador de um dispositivos móvel. | ALTA | 
-| RNF-04 | O projeto de software será feito utilizando o padrão arquitetutal MVC (Model-View-Controller). | ALTA | 
-
+| RNF-02 | A persistência dos dados será feita no banco MONGO, arquitetura NOSQL e estrutura de arquivos JSON. | ALTA |
+| RNF-03 | O sistema deve ser responsivo para rodar no navegador de um dispositivos móvel. | ALTA |
+| RNF-04 | O projeto de software, para a plataforma web, será desenvolvido utilizando o padrão arquitetutal MVC (Model-View-Controller). | ALTA |
+| RNF-05 | O projeto de software, para a plataforma mobile, será desenvolvido utilizando o REACT NATIVE | ALTA |
 
 ## Restrições
 
@@ -74,8 +73,6 @@ O projeto está restrito pelos itens apresentados na tabela a seguir.
 |ID| Restrição                                             |
 |--|-------------------------------------------------------|
 | RE-01 | O projeto deverá ser entregue até o final do semestre|
-| RE-02 | O escopo do projeto será restrito à uma aplicação web, portanto, não será contemplada uma solução mobile|
-
 
 ## Diagrama de Casos de Uso
 
