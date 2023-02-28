@@ -42,19 +42,18 @@ As tabelas que a seguir apresentam os requisitos funcionais e não funcionais qu
 
 | ID    | Descrição do Requisito | PRIORIDADE |  
 |-------|---|---|
-| RF-01 | O sistema deve consumir uma WEBAPI para salvar/editar dados, e aplicar as regras do negócio. | ALTA |
-| RF-02 | O sistema deve permitir que um colaborador cadastrado faça login. | ALTA |
-| RF-03 | O sistema deve permitir que o cliente consulte os serviços através de uma aplicação mobile e web. | ALTA |
-| RF-04 | O sistema deve permitir a inserção, alteração e exclusão dos dados dos clientes. | ALTA |
-| RF-05 | O sistema deve permitir o cadastro e a alteração de oficinas. | ALTA  |
-| RF-06 | O sistema deve permitir o cadastro de um novo serviço disponibilizado pelas oficinas. | ALTA |
-| RF-07 | O sistema deve permitir a consulta dos clientes cadastrados. | ALTA |
-| RF-08 | O sistema deve permitir o cadastro de veículo(s) para o cliente.| ALTA |
-| RF-09 | O sistema deve permitir o acompanhamento do andamento de um serviço pelo cliente e a data prevista para finalização.| ALTA |
-| RF-10 | O sistema deve permitir a emissão de relatório contendo as informações dos serviços realizados pelas oficinas. | MÉDIA |
-| RF-11 | O sistema deve emitir lembretes para os clientes após 11 meses desde a última revisão anual. | BAIXA |
-| RF-12 | O sistema deve permitir que o colaborador crie ordens de serviço | ALTA |
-| RF-13 | O sistema deve permitir que o colaborador edite informações de uma ordem de serviço existente | ALTA | 
+| RF-01 | O sistema deve permitir que um colaborador cadastrado faça login. | ALTA |
+| RF-02 | O sistema deve permitir que o cliente consulte os serviços através de uma aplicação mobile e web. | ALTA |
+| RF-03 | O sistema deve permitir a inserção, alteração e exclusão dos dados dos clientes. | ALTA |
+| RF-04 | O sistema deve permitir o cadastro e a alteração de oficinas. | ALTA  |
+| RF-05 | O sistema deve permitir o cadastro de um novo serviço disponibilizado pelas oficinas. | ALTA |
+| RF-06 | O sistema deve permitir a consulta dos clientes cadastrados. | MÉDIO |
+| RF-07 | O sistema deve permitir o cadastro de veículo(s) para o cliente.| BAIXO |
+| RF-08 | O sistema deve permitir o acompanhamento do andamento de um serviço pelo cliente e a data prevista para finalização.| ALTA |
+| RF-09 | O sistema deve permitir a emissão de relatório contendo as informações dos serviços realizados pelas oficinas. | BAIXA |
+| RF-10 | O sistema deve emitir lembretes para os clientes após 11 meses desde a última revisão anual. | BAIXA |
+| RF-11 | O sistema deve permitir que o colaborador crie ordens de serviço | ALTA |
+| RF-12 | O sistema deve permitir que o colaborador edite informações de uma ordem de serviço existente | ALTA | 
 
 ### Requisitos não Funcionais
 
