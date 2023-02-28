@@ -41,7 +41,7 @@ As tabelas que a seguir apresentam os requisitos funcionais e não funcionais qu
 ### Requisitos Funcionais
 
 | ID    | Descrição do Requisito | PRIORIDADE |  
-|---|---|---|
+|-------|---|---|
 | RF-01 | O sistema deve consumir uma WEBAPI para salvar/editar dados, e aplicar as regras do negócio. | ALTA |
 | RF-02 | O sistema deve permitir que um colaborador cadastrado faça login. | ALTA |
 | RF-03 | O sistema deve permitir que o cliente consulte os serviços através de uma aplicação mobile e web. | ALTA |
@@ -59,7 +59,7 @@ As tabelas que a seguir apresentam os requisitos funcionais e não funcionais qu
 ### Requisitos não Funcionais
 
 | ID  | Descrição do Requisito | PRIORIDADE |
-|---|---|---|
+|--------|---|---|
 | RNF-01 | O sistema deve ser implementado utilizando as tecnologias C#, JavaScript, HTML e CSS. | ALTA |
 | RNF-02 | A persistência dos dados será feita no banco MONGO, arquitetura NOSQL e estrutura de arquivos JSON. | ALTA |
 | RNF-03 | O sistema deve ser responsivo para rodar no navegador de um dispositivos móvel. | ALTA |
